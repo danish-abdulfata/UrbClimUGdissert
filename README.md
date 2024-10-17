@@ -6,15 +6,15 @@ After creating the repository, please fill in the details below and delete this 
 
 ---
 
-# [Project Name]
+# (Provisional) Urban Heat Island Intensity in Greater Kuala Lumpur
 
-- Student: [Your Name] (and GitHub username if available)
-- Supervisor: [Supervisor Name] (and GitHub username if available)
+- Student: Danish Abdul Fata (and GitHub username if available)
+- Supervisor: Dr Chris Brierley (UCL Geography), Technical Supervisor: Dr Ting Sun
 
 
 ## Project Description
 
-add a brief description of the project here
+- Utilizing SEUWS through UMEP to generate UHI at the UBL for Greater Kuala Lumpur.
 
 ## Repository Structure
 
