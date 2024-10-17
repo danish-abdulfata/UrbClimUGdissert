@@ -8,7 +8,7 @@ After creating the repository, please fill in the details below and delete this 
 
 # (Provisional) Urban Heat Island Intensity in Greater Kuala Lumpur
 
-- Student: Danish Abdul Fata (and GitHub username if available)
+- Student: Danish Abdul Fata (danish-abdulfata)
 - Supervisor: Dr Chris Brierley (UCL Geography), Technical Supervisor: Dr Ting Sun
 
 
