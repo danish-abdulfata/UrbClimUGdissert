@@ -7,7 +7,7 @@
 
 ## Project Description
 
-- Undergraduate Dissertation under UCL Geography, module code: GEOG0037 (30 units)
+- GEOG0037 (30 units) Undergraduate Dissertation under UCL Geography.
 - Utilizing SEUWS through UMEP to generate UHI at the UBL for Greater Kuala Lumpur.
 
 ## Research Question and Aims
