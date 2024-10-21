@@ -3,7 +3,8 @@
 Undergraduate Dissertation under UCL Geography
 
 - Student: Danish Abdul Fata (danish-abdulfata)
-- Supervisor: Dr Chris Brierley (UCL Geography), Technical Supervisor: Dr Ting Sun (Institute of Risk and Disaster Reduction)
+- Supervisor: Dr Chris Brierley (UCL Geography)
+- Technical Supervisor: Dr Ting Sun (Institute of Risk and Disaster Reduction)
 
 
 ## Project Description
