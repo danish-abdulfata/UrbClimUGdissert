@@ -18,8 +18,10 @@ Undergraduate Dissertation under UCL Geography
 ├── docs           # document folder
 └── src            # source code folder
 ```
-## Research Log
+## Gantt Chart
 
-If the project lifespan is short, simply add entries here.
+To be added.
 
-If it's long-term, include a link to the log file, e.g., `research_log.md`.
+## Annotated Bibliography
+
+To be added.
