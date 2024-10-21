@@ -33,7 +33,3 @@ Undergraduate Dissertation under UCL Geography
 ## Gantt Chart
 
 To be added.
-
-## Annotated Bibliography
-
-To be added.
