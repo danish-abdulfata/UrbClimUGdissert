@@ -1,7 +1,5 @@
 # Spatio-temporal Urban Heat Island Intensity in Greater Kuala Lumpur
 
-Undergraduate Dissertation under UCL Geography
-
 - Student: Ahmad **Danish** Aqil bin **Abdul Fata** (GitHub username: danish-abdulfata)
 - Supervisor: Dr Chris Brierley (UCL Geography)
 - Technical Supervisor: Dr Ting Sun (Institute of Risk and Disaster Reduction)
@@ -9,6 +7,7 @@ Undergraduate Dissertation under UCL Geography
 
 ## Project Description
 
+- Undergraduate Dissertation under UCL Geography, module code: GEOG0037 (30 units)
 - Utilizing SEUWS through UMEP to generate UHI at the UBL for Greater Kuala Lumpur.
 
 ## Research Question and Aims
