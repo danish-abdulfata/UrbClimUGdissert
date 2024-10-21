@@ -1,15 +1,9 @@
-
-This is a template for a student research project.
-Please click the "Use this template" button to create a new repository for your project.
-After creating the repository, please fill in the details below and delete this section.
-
-
----
-
 # (Provisional) Urban Heat Island Intensity in Greater Kuala Lumpur
 
+Undergraduate Dissertation under UCL Geography
+
 - Student: Danish Abdul Fata (danish-abdulfata)
-- Supervisor: Dr Chris Brierley (UCL Geography), Technical Supervisor: Dr Ting Sun
+- Supervisor: Dr Chris Brierley (UCL Geography), Technical Supervisor: Dr Ting Sun (Institute of Risk and Disaster Reduction)
 
 
 ## Project Description
