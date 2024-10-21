@@ -1,6 +1,6 @@
 # Spatio-temporal Urban Heat Island Intensity in Greater Kuala Lumpur
 
-- Student: Ahmad **Danish** Aqil bin **Abdul Fata** (GitHub username: danish-abdulfata)
+- Student: Ahmad ***Danish*** Aqil bin ***Abdul Fata*** (GitHub username: danish-abdulfata)
 - Supervisor: Dr Chris Brierley (UCL Geography)
 - Technical Supervisor: Dr Ting Sun (Institute of Risk and Disaster Reduction)
 
