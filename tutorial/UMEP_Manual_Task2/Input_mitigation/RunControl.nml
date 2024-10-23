@@ -1,0 +1,37 @@
+&runcontrol
+    cbluse = 0
+    snowuse = 0
+    netradiationmethod = 3
+    emissionsmethod = 2
+    basetmethod = 1
+    storageheatmethod = 1
+    ohmincqf = 0
+    stabilitymethod = 4
+    roughlenheatmethod = 2
+    roughlenmommethod = 1
+    faimethod = 0
+    smdmethod = 0
+    waterusemethod = 0
+    filecode = 'nyc'
+    fileinputpath = 'C:\\Users\\ahmad\\Documents\\GitHub\\UrbClimUGdissert\\tutorial\\UMEP_Manual_Task2\\Input_mitigation/',
+    fileoutputpath = 'C:\\Users\\ahmad\\Documents\\GitHub\\UrbClimUGdissert\\tutorial\\UMEP_Manual_Task2\\Output_mitigation/',
+    multiplemetfiles = 0
+    multipleinitfiles = 0
+    multipleestmfiles = 0
+    multiplelayoutfiles = 1
+    keeptstepfilesin = 0
+    keeptstepfilesout = 0
+    writeoutoption = 2
+    resolutionfilesout = 3600
+    tstep = 300
+    resolutionfilesin = 3600
+    resolutionfilesinestm = 3600
+    disaggmethod = 1
+    raindisaggmethod = 100
+    disaggmethodestm = 1
+    suppresswarnings = 1
+    kdownzen = 0
+    diagnose = 0
+    diagmethod = 2
+/
+
