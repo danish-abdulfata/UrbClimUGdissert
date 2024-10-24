@@ -2,7 +2,7 @@
 
 - Student: Ahmad ***Danish*** Aqil bin ***Abdul Fata*** (GitHub username: danish-abdulfata)
 - Supervisor: Dr Chris Brierley (UCL Geography)
-- Technical Supervisor: Dr Ting Sun (UCL Institute of Risk and Disaster Reduction)
+- Technical Supervisor: Dr Ting Sun (UCL Risk and Disaster Reduction)
 
 
 ## Project Description
