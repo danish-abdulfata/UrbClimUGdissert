@@ -1,0 +1,22 @@
+# This file was generated automatically from 'env.yml' 
+name: supy_lcz
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - brotli-python=1.1.0
+  - earthengine-api=0.1.408
+  - geopandas=1.0.0
+  - georasters=0.5.23
+  - pandas=2.2.2
+  - pip=24.0
+  - pyproj=3.6.1
+  - pytables=3.9.2
+  - python=3.11.9
+  - requests=2.32.3
+  - rioxarray=0.15.7
+  - shapely=2.0.4
+  - xarray=2024.6.0
+  - pip:
+    - supy==2023.6.5.dev0
+

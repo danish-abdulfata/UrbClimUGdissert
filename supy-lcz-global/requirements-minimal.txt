@@ -1,0 +1,14 @@
+earthengine-api
+gdal==3.0.4  # specific to your system (in this case Matthias')
+geopandas
+georasters
+numpy
+pandas
+pyproj
+requests
+rioxarray
+shapely
+supy
+tables
+netCDF4
+xarray
