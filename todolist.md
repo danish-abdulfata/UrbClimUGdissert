@@ -17,3 +17,5 @@ Installing pip packages: supy==2024.7.12.dev0
 '"C:\Users\Danish\micromamba\condabin\micromamba"' is not recognized as an internal or external command,
 operable program or batch file.
 critical libmamba pip failed to install packages
+
+testing `python -m pip install supy`
