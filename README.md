@@ -33,4 +33,4 @@
 ```
 ## Gantt Chart
 
-To be added.
+![Gantt_Chart](./docs/Gantt_Chart.png)
