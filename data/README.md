@@ -1,4 +1,3 @@
 # data folder
 
-This folder contains the data used in the project.
-use this readme file to describe the data and its source.
+As per supy-lcz-global, ERA5, forest height canopy from etc, Building Height from GLAMOUR.
