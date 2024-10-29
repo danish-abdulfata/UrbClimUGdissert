@@ -28,7 +28,7 @@
 ├── todolist.md    # constantly updated list and notes of pending and current work
 ├── docs           # document folder
 ├── supy-lcz-global # git-subtree-dir: supy-lcz-global | git-subtree-split: 3d76b61c351af074dee99e515d1cb8524d028bb0, as of 15:50 28.10.2024
-	└── data (not available in GitHub, see [data_folder_info.md](./supy-lcz-global/data_folder_info.md))
+	└── data (not available in GitHub, see ./supy-lcz-global/data_folder_info.md)
 └── tutorial       # preliminary excercises involving UMEP and qGIS
 ```
 ## Gantt Chart
