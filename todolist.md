@@ -21,7 +21,7 @@ critical libmamba pip failed to install packages
 testing `python -m pip install supy`
 
 USE mklink for Windows
-mklink /d C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\data C:\Users\Danish\Documents\lcz-supy-global-data 
+mklink /d C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\data "C:\Users\Danish\OneDrive - University College London\dissertation_data\lcz-supy-global-data"
 
 git subtree add --prefix C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\ https://github.com/UrbanClimateRisk-UCL/supy-lcz-global main --squash
 
