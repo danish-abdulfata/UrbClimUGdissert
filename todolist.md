@@ -24,3 +24,9 @@ USE mklink for Windows
 mklink /d C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\data C:\Users\Danish\Documents\lcz-supy-global-data 
 
 git subtree add --prefix C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\ https://github.com/UrbanClimateRisk-UCL/supy-lcz-global main --squash
+
+ignore big data files, 
+
+qgis maps and shapefiles for GKL 
+
+Line 597,  if, [0,0]
