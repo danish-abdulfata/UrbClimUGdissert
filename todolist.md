@@ -32,4 +32,8 @@ USE mklink for Windows
 Git Subtree commandline
 `git subtree add --prefix C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\ https://github.com/UrbanClimateRisk-UCL/supy-lcz-global main --squash`
 
+Git Overleaf Update
+`git submodule update --remote --merge`
+
+AFTER RUNNING PUSH LCOAL REPO TO MAIN.
 ### Other
