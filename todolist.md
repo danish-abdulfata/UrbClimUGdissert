@@ -30,3 +30,5 @@ ignore big data files,
 qgis maps and shapefiles for GKL 
 
 Line 597,  if, [0,0]
+
+file sharing. upload the small files.
