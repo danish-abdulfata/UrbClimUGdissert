@@ -26,6 +26,7 @@
 ```
 ├── README.md        # this file
 ├── todolist.md      # constantly updated list and notes of pending and current work
+├── codingnotes.md   # random bits of code and notes running the model itself
 ├── docs             # document folder
 ├── supy-lcz-global  # git subtree repo of supy-lcz-global, commit version: 3d76b61c351af074dee99e515d1cb8524d028bb0, as of 15:50 28.10.2024
 │	└── data         # not available in GitHub, see ./supy-lcz-global/data_folder_info.md

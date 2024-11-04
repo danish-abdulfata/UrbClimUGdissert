@@ -9,31 +9,21 @@ Just to take note of pending tasks and potential further research needed.
 
 - qgis maps and shapefiles for GKL 
 
-- sort out LaTeX templates.
+#### Dissertation Writing Questions
+- confusion on Introduction/Methodology/LIterature Review for site? Where do I elaborate more on GKL plans and mitigration and urban planning?
+- Limitations of model? 
+- consideration of model parameters?
 
-### Model and Coding Notes
+- which section do I justfiy my study area? in methdoology/ltiearture review or intrudciton?
 
-```
-micromamba env installtion failure: 
-warning  libmamba You are using 'pip' as an additional package manager.
-    Be aware that packages installed with 'pip' are managed independently from 'conda-forge' channel.
+### Good example dissertations
 
-Installing pip packages: supy==2024.7.12.dev0
-'"C:\Users\Danish\micromamba\condabin\micromamba"' is not recognized as an internal or external command,
-operable program or batch file.
-critical libmamba pip failed to install packages
-```
+- [Hydrological modelling under different climate change scenarios](https://liveuclac.sharepoint.com/:b:/r/sites/Geography/MapLibrary/UG%20Dissertations/2016_BCDE7_Modelling%20the%20impacts%20of%20climate%20change%20on%20flooding%20in%20the%20river%20Parrett%20basin%20Somerset.pdf?csf=1&web=1&e=kwVHDb)
 
-testing `python -m pip install supy` - works!
+- [Dengue modelling scioeconomic](https://liveuclac.sharepoint.com/:b:/r/sites/Geography/MapLibrary/UG%20Dissertations/2021_MQCW7_INFLUENCE%20OF%20SOCIOECONOMIC%20FACTORS%20ON%20THE%20FUTURE%20SPATIOTEMPORAL%20PROLIFERATION%20OF%20DENGUE%20FEVER.pdf?csf=1&web=1&e=aueic5)
 
-USE mklink for Windows
-`mklink /d C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\data "C:\Users\Danish\OneDrive - University College London\dissertation_data\lcz-supy-global-data"`
 
-Git Subtree commandline
-`git subtree add --prefix C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\ https://github.com/UrbanClimateRisk-UCL/supy-lcz-global main --squash`
-
-Git Overleaf Update
-`git submodule update --remote --merge`
-
-AFTER RUNNING PUSH LCOAL REPO TO MAIN.
 ### Other
+
+Final 2 reference entries in the old bibiliography is lef out.
+
