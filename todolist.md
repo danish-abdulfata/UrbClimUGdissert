@@ -9,6 +9,14 @@ Just to take note of pending tasks and potential further research needed.
 
 - qgis maps and shapefiles for GKL 
 
+////
+
+- is there a workflow to convert the output files from supy_lcz to process through the UMEP postprocessors? 
+
+- If not, how should I approach processing the data? Through pandas/numpy and then mapping through qGIS or entirely move to Python?
+
+- Can I use R? Ggplot? 
+
 #### Dissertation Writing Questions
 - confusion on Introduction/Methodology/LIterature Review for site? Where do I elaborate more on GKL plans and mitigration and urban planning?
 - Limitations of model? 
