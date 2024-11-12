@@ -16,10 +16,11 @@
     - *Land cover fractions: normal = through LCZ or NOAH, control = full forest*
     - *Independent variable: GKL land cover over time*
     - *Dependent variable: near surface temperature (2m)*
-- What are the spatial variations of UHII?
-    - *Which parts of GKL exhibit largest UHII? Does this pattern hold over time?*
-- What are the diurnal and intra-annual patterns of UHII?
-    - *What time of day is UHII the highest? Hours of UHII above x degrees Celsius? Seasonal variations?*
+- What are the spatial variations of UHI Intensity?
+    - *Which parts of GKL exhibit largest UHI Intensity? Does this pattern hold over time?*
+    - *Which LCZ zones exhibit the greatest UHI intensity?*
+- What are the diurnal and intra-annual patterns of UHI Intensity?
+    - *What time of day is UHII the highest? Hours of UHI Intensity above x degrees Celsius? Seasonal variations?*
 
 ## Repository Structure
 
