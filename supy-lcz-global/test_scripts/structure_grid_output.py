@@ -121,5 +121,5 @@ if __name__ == '__main__':
 
     convert_h5_to_netcdf(args.input_file, args.dx, args.lat, args.lon)
     # Convert .h5 output to netcdf
-    # Example usage: python -m test_scripts.structure_grid_output C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\data\CH-Shanghai\output\grid\df_output_uMF_uLCu.h5 --dx 300 --lat 31.225615 --lon 121.474901
+    # current command: python -m test_scripts.structure_grid_output C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\data\CH-Shanghai\output\grid\df_output_uMF_uLCu.h5 --dx 300 --lat 31.225615 --lon 121.474901
 

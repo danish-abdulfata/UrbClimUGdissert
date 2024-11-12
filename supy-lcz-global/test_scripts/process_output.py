@@ -3,20 +3,20 @@ os.environ['USE_PYGEOS'] = '0'
 import supy as sp
 import pandas as pd
 import numpy as np
+import xarray as xr
 from pathlib import Path
 
-sh_suews_output = r'C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\data\CH-Shanghai\output\grid\df_output_uMF_uLCu.h5'
+#sh_suews_output = r'C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\data\CH-Shanghai\output\grid\df_output_uMF_uLCu.h5'
 
-sh_state_final = r'C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\data\CH-Shanghai\output\grid\df_final_forcing_uMF_uLCu.h5'
+#sh_state_final = r'C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\data\CH-Shanghai\output\grid\df_final_forcing_uMF_uLCu.h5'
 
-df_sh_output = pd.read_hdf(sh_suews_output)
-df_sh_state_final = pd.read_hdf(sh_state_final)
+#df_sh_output = pd.read_hdf(sh_suews_output)
+#df_sh_state_final = pd.read_hdf(sh_state_final)
 
 # df_output_suews = df_output['SUEWS']
 # df_output_suews = df_output['SUEWS']
-print(df_sh_output.head())
-
-print(df_sh_output)
+#print(df_sh_output.head())
+#print(df_sh_output)
 # print(pd.DataFrame(df_sh_state_final))
 # print(df_sh_output.loc[:, ['QN', 'QS', 'QH', 'QE', 'QF']].describe())
 # print(df_sh_output.columns.levels[0])
@@ -33,3 +33,7 @@ print(df_sh_output)
 #        complevel=9,
 #        complib="blosc:lz4hc",
 #    )
+
+df_sh_nc = xr.open_dataset(r'C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\data\CH-Shanghai\output\grid\df_output_uMF_uLCu_latlon.nc')
+
+print(df_sh_nc)
