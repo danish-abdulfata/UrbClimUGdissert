@@ -16,12 +16,13 @@ Just to take note of pending tasks and potential further research needed.
 
 - confusion on Introduction/Methodology/LIterature Review for site? 
           - which section do I justfiy my study area? in methdology/literature review or intrudciton?
-- Limitations of model? 
+- where to justify model, lit review or methodologyt 
+
 - consideration of model parameters? 
 
 - Where do I elaborate more on GKL plans and mitigration and urban planning?
 
-- word limit 8000words
+- word limit 8000words? what sections do i not include?
 
 
 
@@ -33,6 +34,7 @@ Just to take note of pending tasks and potential further research needed.
 
 - [Dengue modelling scioeconomic](https://liveuclac.sharepoint.com/:b:/r/sites/Geography/MapLibrary/UG%20Dissertations/2021_MQCW7_INFLUENCE%20OF%20SOCIOECONOMIC%20FACTORS%20ON%20THE%20FUTURE%20SPATIOTEMPORAL%20PROLIFERATION%20OF%20DENGUE%20FEVER.pdf?csf=1&web=1&e=aueic5)
 
+- [Projections of thermally induced coral bleaching](https://liveuclac.sharepoint.com/sites/Geography/MapLibrary/UG%20Dissertations/Forms/AllItems.aspx?id=%2Fsites%2FGeography%2FMapLibrary%2FUG%20Dissertations%2F2022%5FFVLG6%5F%20Projections%20of%20thermally%20induced%20coral%20bleaching%2Epdf&q=chris%20brierley&parent=%2Fsites%2FGeography%2FMapLibrary%2FUG%20Dissertations&parentview=7)
 
 ### Other
 
