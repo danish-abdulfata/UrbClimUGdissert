@@ -9,20 +9,23 @@ Just to take note of pending tasks and potential further research needed.
 
 - qgis maps and shapefiles for GKL 
 
-////
+- 
 
-- is there a workflow to convert the output files from supy_lcz to process through the UMEP postprocessors? 
-
-- If not, how should I approach processing the data? Through pandas/numpy and then mapping through qGIS or entirely move to Python?
-
-- Can I use R? Ggplot? 
 
 #### Dissertation Writing Questions
-- confusion on Introduction/Methodology/LIterature Review for site? Where do I elaborate more on GKL plans and mitigration and urban planning?
-- Limitations of model? 
-- consideration of model parameters?
 
-- which section do I justfiy my study area? in methdoology/ltiearture review or intrudciton?
+- confusion on Introduction/Methodology/LIterature Review for site? 
+          - which section do I justfiy my study area? in methdology/literature review or intrudciton?
+- Limitations of model? 
+- consideration of model parameters? 
+
+- Where do I elaborate more on GKL plans and mitigration and urban planning?
+
+- word limit 8000words
+
+
+
+- dissertation cover page template 
 
 ### Good example dissertations
 
