@@ -23,3 +23,8 @@ Git Overleaf Update
 `git submodule update --remote --merge`
 
 AFTER RUNNING PUSH LCOAL REPO TO MAIN.
+
+MODEL RUN TESTING
+
+FIRST RUN: 
+python -m runner.runner KL-KualaLumpurTest --run-type grid --grid-size 1000 --grid-boxes 20 --metforc-src era5land --urbdesc-src lcz_updated --sitelist sitelist_custom --download-era5
