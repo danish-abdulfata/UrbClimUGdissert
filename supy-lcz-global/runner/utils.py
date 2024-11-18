@@ -411,7 +411,7 @@ def get_ee_data(
         task = ee.batch.Export.image.toDrive(image=img.select(['GCFH']),description='OTHER_export_gcfh', region=roi,
             folder='ee_export_test', maxPixels=1e13, fileFormat='GeoTIFF')
         task.start() 
-        print(f"Exporting OTHER files to Google Drive")
+        print(f"Exporting OTHER data to Google Drive")
 
         bands = img.bandNames().getInfo()
         
