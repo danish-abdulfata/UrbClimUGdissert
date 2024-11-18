@@ -9,7 +9,9 @@ Just to take note of pending tasks and potential further research needed.
 
 - qgis maps and shapefiles for GKL 
 
-- 
+- bash cript for auto start SUEWS
+
+- configure intiialconditions?
 
 
 #### Dissertation Writing Questions
