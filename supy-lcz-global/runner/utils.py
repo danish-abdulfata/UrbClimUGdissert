@@ -399,21 +399,23 @@ def get_ee_data(
         #     .clip(roi) \
         #     .toInt()
         
-            # Saves file to drive aswell, incase file is too big. Just run entire script again iwith the proper named files.
-        task = ee.batch.Export.image.toDrive(image=img.select(['LUC']), 
-            description='OTHER_export_luc', region=roi, fileFormat='GeoTIFF',
-            folder='ee_export_test', maxPixels=1e13)
-           
-        task.start() 
-        task = ee.batch.Export.image.toDrive(image=img.select(['forest_type']),description='OTHER_export_ft', region=roi,
-            folder='ee_export_test', maxPixels=1e13, fileFormat='GeoTIFF')
-        task.start() 
-        task = ee.batch.Export.image.toDrive(image=img.select(['GCFH']),description='OTHER_export_gcfh', region=roi,
-            folder='ee_export_test', maxPixels=1e13, fileFormat='GeoTIFF')
-        task.start() 
+        # Saves file to drive aswell, incase file is too big. Just run entire script again iwith the proper named files.
+        #task = ee.batch.Export.image.toDrive(image=img.select(['LUC']), 
+         #   description='OTHER_export_luc', region=roi, folder='ee_export_test', maxPixels=1e15)
+        #task.start()
+        
+        #task = ee.batch.Export.image.toDrive(image=img.select(['forest_type']),description='OTHER_export_ft', region=roi,
+        #    folder='ee_export_test', maxPixels=1e15)
+        #task.start()
+        
+        #task = ee.batch.Export.image.toDrive(image=img.select(['GCFH']),description='OTHER_export_gcfh', region=roi,
+        #    folder='ee_export_test', maxPixels=1e15)
+        #task.start()
+        
         print(f"Exporting OTHER data to Google Drive")
-
+        
         bands = img.bandNames().getInfo()
+        
         
         # Create download path
         url = img.getDownloadUrl({'bands': bands, 'region': roi})
