@@ -9,7 +9,7 @@ from pyproj import Transformer
 
 # Model Parameters
 
-# Site Information
+# Site Information, follows same definitions as detailed in quickstart.md
 site_prefix = "KL-KualaLumpur"
 site_midpoint_lat = 3.056577
 site_midpoint_lon = 101.617373
@@ -34,6 +34,7 @@ split_factor = 2
 # 2, 4, 8, 16 -> power of 2
 
 # geodesic calculations modified from utils.py to maintain consistency
+
 crs_dict = {
             'proj': 'utm',
             'zone': int(np.round((183 + site_midpoint_lon) / 6)),
@@ -56,17 +57,19 @@ site_x_min = site_x_max - (site_area_length)
 split_midpoint_x = np.linspace(site_x_min, site_x_max, (2**split_factor) + 1, endpoint = False)[1:]
 split_midpoint_y = np.linspace(site_y_min, site_y_max, (2**split_factor) + 1, endpoint = False)[1:]
 
+# converting back to latlong
 from_utm = Transformer.from_crs(crs_from=crs, crs_to='EPSG:4326')
 split_midpoint_lat, split_midpoint_lon = from_utm.transform(xx=split_midpoint_x, yy=split_midpoint_y)
 
+# repeat latlong to form a 1d grid
 split_xx, split_yy = np.meshgrid(split_midpoint_lat, split_midpoint_lon)
 
 # Display split outputs
-print("Site midpoint in UTM")
-print(site_midpoint_x, site_midpoint_y)
+# print("Site midpoint in UTM")
+# print(site_midpoint_x, site_midpoint_y)
 
-print("Maximum and minimum x and y values")
-print(site_x_max, site_x_min, site_y_max, site_y_min)
+# print("Maximum and minimum x and y values")
+# print(site_x_max, site_x_min, site_y_max, site_y_min)
 
 print("Split midpoints")
 print("---------> x split midpoints (latitiude)")
@@ -77,26 +80,52 @@ print(split_yy)
 # Modified from create_supy_sitelist
 sitelist = []
 
-for split_number in range(2**split_factor):
-    sitelist.append(site_prefix + "_s" + split_number)
+# base is 4 as there will be 4^split_factor coordinates. 
+for split_affix in range(1, 4**split_factor + 1):
+    sitelist.append(site_prefix + "_s" + str(split_affix))
  
-print(sitelist_
+# creates dataframe with index column only
+df = pd.DataFrame(index=sitelist)
+df.index.name = 'sitename'
+
+# add latlong to dataframe
+
+# remove nested tuple, ie. flatten the tuple
+tuple_lat = ()
+tuple_lon = ()
+for i in range(0, 2**split_factor):
+    for e in range(0, 2**split_factor):
+        tuple_lat += split_xx[i][e]
+        tuple_lon += split_yy[i][e]
+
+print(tuple_lat, tuple_lon)
+# for lat in list(tuple_lat):
+    # df.insert(0, 'latitude', lat)
+
+# for lon in list(tuple_lon):
+    # df.insert(1, 'longitude', lon)
+
+# for lat, lon in list(split_xx) and list(split_yy):
+    # df.insert(0, 'latitude', lat)
+    # df.insert(1, 'longitude', lon)
+
+# column_dict = {'measurement_height_above_ground': measurement_height_above_ground,
+        # 'surface_cover_radius': surface_cover_radius,
+        # 'time_analysis_start': time_analysis_start,
+        # 'time_coverage_end': time_coverage_end,
+        # 'timestep_interval_seconds': timestep_interval_seconds,
+        # 'local_utc_offset_hours': local_utc_offset_hours}
+
+# for loop to add parameters and their columns into data frame df . reversed() used because columns were placed from end to start.
+# for column_key, column_value in reversed(column_dict.items()):
+    # column_index = 2
+    # df.insert(column_index, column_key, column_value)
+    # column_index += 1
+
+# print(column_dict.items()), was checking items() tuple order
+# print(df)
 
 
- # df = pd.DataFrame(
-    # index=sitelist,
-    # columns= [
-        # 'latitude',
-        # 'longitude',
-        # 'measurement_height_above_ground',
-        # 'surface_cover_radius',
-        # 'time_coverage_start',
-        # 'time_coverage_end',
-        # 'time_analysis_start',
-        # 'timestep_interval_seconds',
-    # ]
-# )
-# df.index.name = 'sitename'
 # copied from utils.py
 # def from_point(
 #            cls,
