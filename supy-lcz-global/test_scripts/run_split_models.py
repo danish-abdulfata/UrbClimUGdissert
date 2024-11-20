@@ -10,7 +10,7 @@ from pyproj import Transformer
 # Model Parameters
 
 # Site Information
-sitename = KL-KualaLumpur
+sitename = "KL-KualaLumpur"
 site_midpoint_lat = 3.056577
 site_midpoint_lon = 101.617373
 
@@ -44,15 +44,15 @@ crs = CRS.from_dict(crs_dict)
 to_utm = Transformer.from_crs(crs_from='EPSG:4326', crs_to=crs)
 site_midpoint_x, site_midpoint_y = to_utm.transform(xx=site_midpoint_lat, yy=site_midpoint_lon)
 
-distance_from_midpoint = grid_size * grid_boxes / 2
+site_area_length = grid_size * grid_boxes
 
-site_y_max = site_midpoint_y + (distance_from_midpoint)
-site_y_min = site_y_max - ((grid_boxes - 1) * grid_size)
-site_x_max = site_midpoint_x + (distance_from_midpoint)
-site_x_min = site_x_max - ((grid_boxes - 1) * grid_size)
+site_y_max = site_midpoint_y + (site_area_length / 2)
+site_y_min = site_y_max - (site_area_length)
+site_x_max = site_midpoint_x + (site_area_length / 2)
+site_x_min = site_x_max - (site_area_length)
 
-site_midpoint_y = np.linspace(site_y_min, site_y_max, 2**split_factor, endpoint = false)
-site_midpoint_x = np.linspace(site_x_min, site_x_max, 2**split_factor, endpoint = false)
+site_midpoint_y = np.linspace(site_y_min, site_y_max, (2**split_factor) + 1, endpoint = false, retstep = true)
+site_midpoint_x = np.linspace(site_x_min, site_x_max, (2**split_factor) + 1, endpoint = false, retstep = true)
 
 split_xx, split_yy = np.meshgrid(site_midpoint_y, site_midpoint_x)
 
