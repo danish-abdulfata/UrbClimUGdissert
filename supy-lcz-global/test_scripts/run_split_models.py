@@ -10,7 +10,7 @@ from pyproj import Transformer
 # Model Parameters
 
 # Site Information
-sitename = "KL-KualaLumpur"
+site_prefix = "KL-KualaLumpur"
 site_midpoint_lat = 3.056577
 site_midpoint_lon = 101.617373
 
@@ -31,9 +31,9 @@ grid_boxes = 40
 
 # By what factor should the area be divided, 1 = 1/4, 2 = 1/4^2, 3 = 1/4^3 and etc, to maintain square study area for compatibility with utils.py.   
 split_factor = 2
-# 2, 4, 8, 16
+# 2, 4, 8, 16 -> power of 2
 
-# modified from utils.py to maintain consistency with geodesic calculations
+# geodesic calculations modified from utils.py to maintain consistency
 crs_dict = {
             'proj': 'utm',
             'zone': int(np.round((183 + site_midpoint_lon) / 6)),
@@ -41,6 +41,7 @@ crs_dict = {
         }
 
 crs = CRS.from_dict(crs_dict)
+
 to_utm = Transformer.from_crs(crs_from='EPSG:4326', crs_to=crs)
 site_midpoint_x, site_midpoint_y = to_utm.transform(xx=site_midpoint_lat, yy=site_midpoint_lon)
 
@@ -52,11 +53,15 @@ site_x_max = site_midpoint_x + (site_area_length / 2)
 site_x_min = site_x_max - (site_area_length)
 
 # +1 to account for the additional sample at the start, [1:] to remove before meshing.
-split_midpoint_y = np.linspace(site_y_min, site_y_max, (2**split_factor) + 1, endpoint = False)[1:]
 split_midpoint_x = np.linspace(site_x_min, site_x_max, (2**split_factor) + 1, endpoint = False)[1:]
+split_midpoint_y = np.linspace(site_y_min, site_y_max, (2**split_factor) + 1, endpoint = False)[1:]
 
-split_xx, split_yy = np.meshgrid(split_midpoint_x, split_midpoint_y)
+from_utm = Transformer.from_crs(crs_from=crs, crs_to='EPSG:4326')
+split_midpoint_lat, split_midpoint_lon = from_utm.transform(xx=split_midpoint_x, yy=split_midpoint_y)
 
+split_xx, split_yy = np.meshgrid(split_midpoint_lat, split_midpoint_lon)
+
+# Display split outputs
 print("Site midpoint in UTM")
 print(site_midpoint_x, site_midpoint_y)
 
@@ -64,11 +69,34 @@ print("Maximum and minimum x and y values")
 print(site_x_max, site_x_min, site_y_max, site_y_min)
 
 print("Split midpoints")
-print("---------> x split midpoints")
+print("---------> x split midpoints (latitiude)")
 print(split_xx)
-print("---------> y split midpoints")
+print("---------> y split midpoints (longitude)")
 print(split_yy)
 
+# Modified from create_supy_sitelist
+sitelist = []
+
+for split_number in range(2**split_factor):
+    sitelist.append(site_prefix + "_s" + split_number)
+ 
+print(sitelist_
+
+
+ # df = pd.DataFrame(
+    # index=sitelist,
+    # columns= [
+        # 'latitude',
+        # 'longitude',
+        # 'measurement_height_above_ground',
+        # 'surface_cover_radius',
+        # 'time_coverage_start',
+        # 'time_coverage_end',
+        # 'time_analysis_start',
+        # 'timestep_interval_seconds',
+    # ]
+# )
+# df.index.name = 'sitename'
 # copied from utils.py
 # def from_point(
 #            cls,
