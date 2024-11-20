@@ -51,10 +51,10 @@ site_y_min = site_y_max - (site_area_length)
 site_x_max = site_midpoint_x + (site_area_length / 2)
 site_x_min = site_x_max - (site_area_length)
 
-site_midpoint_y = np.linspace(site_y_min, site_y_max, (2**split_factor) + 1, endpoint = false, retstep = true)
-site_midpoint_x = np.linspace(site_x_min, site_x_max, (2**split_factor) + 1, endpoint = false, retstep = true)
+split_midpoint_y = np.linspace(site_y_min, site_y_max, (2**split_factor) + 1, endpoint = False)
+split_midpoint_x = np.linspace(site_x_min, site_x_max, (2**split_factor) + 1, endpoint = False)
 
-split_xx, split_yy = np.meshgrid(site_midpoint_y, site_midpoint_x)
+split_xx, split_yy = np.meshgrid(split_midpoint_y, split_midpoint_x)
 
 print("Site min and max points")
 print(site_midpoint_y)
