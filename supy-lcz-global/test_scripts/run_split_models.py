@@ -7,7 +7,7 @@ import numpy as np
 from pyproj import CRS
 from pyproj import Transformer
 
-# Model Parameters
+# Model Parameters and Setup
 
 # Site Information, follows same definitions as detailed in quickstart.md
 site_prefix = "KL-KualaLumpur"
@@ -21,9 +21,8 @@ time_coverage_end = "2017-01-01 00:00:00"
 timestep_interval_seconds = 3600
 local_utc_offset_hours = 8
 
-# spinup = true
-# need to check further;
-# modify runner script so that we can define spinup here?
+# Change default spinup (2 years) in runner.py
+spinup = True
 
 # Total area covered will be grid_size * grid_boxes, in m^2
 grid_size = 1000 
@@ -31,9 +30,8 @@ grid_boxes = 40
 
 # By what factor should the area be divided, 1 = 1/4, 2 = 1/4^2, 3 = 1/4^3 and etc, to maintain square study area for compatibility with utils.py.   
 split_factor = 2
-# 2, 4, 8, 16 -> power of 2
 
-# geodesic calculations modified from utils.py to maintain consistency
+# Geodesic calculations modified from utils.py to maintain consistency
 
 crs_dict = {
             'proj': 'utm',
@@ -84,7 +82,7 @@ split_xx, split_yy = np.meshgrid(split_midpoint_lat, split_midpoint_lon)
 # Modified from create_supy_sitelist
 sitelist = []
 
-# base is 4 as there will be 4^split_factor coordinates. 
+# base 4 as there will be 4^split_factor coordinates. 
 for split_affix in range(1, 4**split_factor + 1):
     sitelist.append(site_prefix + "_s" + str(split_affix))
  
@@ -119,14 +117,12 @@ column_dict = {'measurement_height_above_ground': measurement_height_above_groun
         'local_utc_offset_hours': local_utc_offset_hours}
 
 # for loop to add parameters and their columns into data frame df . reversed() used because columns were placed from end to start.
+column_index = 2
 for column_key, column_value in reversed(column_dict.items()):
-    column_index = 2
     df.insert(column_index, column_key, column_value)
     column_index += 1
-
-# print(column_dict.items()), 
-print(df)
-
+    
+# create .csv file at specified filepath
 filename = Path(f'test_scripts/sitelist_custom.csv')
 df.to_csv(filename)
 
@@ -135,4 +131,6 @@ if filename.exists():
 else: 
     print("----> sitelist_custom.csv failed to generate")
 
-print("Starting SuPy models...")
+# 2nd part of script 
+
+print("--------> Starting SuPy models...")
