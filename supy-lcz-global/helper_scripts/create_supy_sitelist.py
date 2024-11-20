@@ -85,5 +85,8 @@ for sitename in sitelist:
     shutil.copy2(path_sitedata, dst_path_sitedata)
 
 # Save to file
+
+dirname = os.path.dirname(__file__)
+filename = os.path.join(dirname, 'relative/path/to/file/you/want')
 ofile = "/home/demuzmp4/Nextcloud/scripts/supy-lcz/resources/sitelist_urbanplumber.csv"
 df.to_csv(ofile)

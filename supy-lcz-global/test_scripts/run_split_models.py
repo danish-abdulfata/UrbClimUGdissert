@@ -71,11 +71,16 @@ split_xx, split_yy = np.meshgrid(split_midpoint_lat, split_midpoint_lon)
 # print("Maximum and minimum x and y values")
 # print(site_x_max, site_x_min, site_y_max, site_y_min)
 
-print("Split midpoints")
-print("---------> x split midpoints (latitiude)")
-print(split_xx)
-print("---------> y split midpoints (longitude)")
-print(split_yy)
+# print("Split midpoints")
+# print(split_midpoint_lat)
+# print(split_midpoint_lon)
+# print(type(split_midpoint_lat))
+
+# print("Split midpoints matrix")
+# print("---------> x split midpoints (latitiude)")
+# print(split_xx)
+# print("---------> y split midpoints (longitude)")
+# print(split_yy)
 
 # Modified from create_supy_sitelist
 sitelist = []
@@ -90,41 +95,39 @@ df.index.name = 'sitename'
 
 # add latlong to dataframe
 
-# remove nested tuple, ie. flatten the tuple
-tuple_lat = ()
-tuple_lon = ()
-for i in range(0, 2**split_factor):
-    for e in range(0, 2**split_factor):
-        tuple_lat += split_xx[i][e]
-        tuple_lon += split_yy[i][e]
+def flatten(l):
+  out = []
+  for item in l:
+    if isinstance(item, (list, tuple)):
+      out.extend(flatten(item))
+    else:
+      out.append(item)
+  return out
 
-print(tuple_lat, tuple_lon)
-# for lat in list(tuple_lat):
-    # df.insert(0, 'latitude', lat)
+lat_list = flatten(split_xx.tolist())
+lon_list = flatten(split_yy.tolist())
 
-# for lon in list(tuple_lon):
-    # df.insert(1, 'longitude', lon)
+df.insert(0, 'latitude', lat_list)
+df.insert(1, 'longitude', lon_list)
 
-# for lat, lon in list(split_xx) and list(split_yy):
-    # df.insert(0, 'latitude', lat)
-    # df.insert(1, 'longitude', lon)
-
-# column_dict = {'measurement_height_above_ground': measurement_height_above_ground,
-        # 'surface_cover_radius': surface_cover_radius,
-        # 'time_analysis_start': time_analysis_start,
-        # 'time_coverage_end': time_coverage_end,
-        # 'timestep_interval_seconds': timestep_interval_seconds,
-        # 'local_utc_offset_hours': local_utc_offset_hours}
+column_dict = {'measurement_height_above_ground': measurement_height_above_ground,
+        'surface_cover_radius': surface_cover_radius,
+        'time_analysis_start': time_analysis_start,
+        'time_coverage_end': time_coverage_end,
+        'timestep_interval_seconds': timestep_interval_seconds,
+        'local_utc_offset_hours': local_utc_offset_hours}
 
 # for loop to add parameters and their columns into data frame df . reversed() used because columns were placed from end to start.
-# for column_key, column_value in reversed(column_dict.items()):
-    # column_index = 2
-    # df.insert(column_index, column_key, column_value)
-    # column_index += 1
+for column_key, column_value in reversed(column_dict.items()):
+    column_index = 2
+    df.insert(column_index, column_key, column_value)
+    column_index += 1
 
-# print(column_dict.items()), was checking items() tuple order
-# print(df)
+# print(column_dict.items()), 
+print(df)
 
+filename = Path(f'test_scripts/sitelist_custom.csv')
+df.to_csv(filename)
 
 # copied from utils.py
 # def from_point(
