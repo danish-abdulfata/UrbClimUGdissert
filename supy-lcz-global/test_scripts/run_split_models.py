@@ -51,17 +51,22 @@ site_y_min = site_y_max - (site_area_length)
 site_x_max = site_midpoint_x + (site_area_length / 2)
 site_x_min = site_x_max - (site_area_length)
 
-split_midpoint_y = np.linspace(site_y_min, site_y_max, (2**split_factor) + 1, endpoint = False)
-split_midpoint_x = np.linspace(site_x_min, site_x_max, (2**split_factor) + 1, endpoint = False)
+# +1 to account for the additional sample at the start, [1:] to remove before meshing.
+split_midpoint_y = np.linspace(site_y_min, site_y_max, (2**split_factor) + 1, endpoint = False)[1:]
+split_midpoint_x = np.linspace(site_x_min, site_x_max, (2**split_factor) + 1, endpoint = False)[1:]
 
-split_xx, split_yy = np.meshgrid(split_midpoint_y, split_midpoint_x)
+split_xx, split_yy = np.meshgrid(split_midpoint_x, split_midpoint_y)
 
-print("Site min and max points")
-print(site_midpoint_y)
-print(site_midpoint_x)
+print("Site midpoint in UTM")
+print(site_midpoint_x, site_midpoint_y)
 
-print("Site midpoints")
+print("Maximum and minimum x and y values")
+print(site_x_max, site_x_min, site_y_max, site_y_min)
+
+print("Split midpoints")
+print("---------> x split midpoints")
 print(split_xx)
+print("---------> y split midpoints")
 print(split_yy)
 
 # copied from utils.py
