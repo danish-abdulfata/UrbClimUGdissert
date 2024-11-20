@@ -31,7 +31,7 @@ grid_boxes = 40
 
 # By what factor should the area be divided, 1 = 1/4, 2 = 1/4^2, 3 = 1/4^3 and etc, to maintain square study area for compatibility with utils.py.   
 split_factor = 2
-
+# 2, 4, 8, 16
 
 # modified from utils.py to maintain consistency with geodesic calculations
 crs_dict = {
@@ -51,8 +51,8 @@ site_y_min = site_y_max - ((grid_boxes - 1) * grid_size)
 site_x_max = site_midpoint_x + (distance_from_midpoint)
 site_x_min = site_x_max - ((grid_boxes - 1) * grid_size)
 
-site_midpoint_y = np.linspace(site_y_min, site_y_max, 4**split_factor, endpoint = false)
-site_midpoint_x = np.linspace(site_x_min, site_x_max, 4**split_factor, endpoint = false)
+site_midpoint_y = np.linspace(site_y_min, site_y_max, 2**split_factor, endpoint = false)
+site_midpoint_x = np.linspace(site_x_min, site_x_max, 2**split_factor, endpoint = false)
 
 split_xx, split_yy = np.meshgrid(site_midpoint_y, site_midpoint_x)
 
