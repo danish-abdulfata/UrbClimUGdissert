@@ -74,7 +74,6 @@ split_xx, split_yy = np.meshgrid(split_midpoint_lat, split_midpoint_lon)
 # print("Split midpoints")
 # print(split_midpoint_lat)
 # print(split_midpoint_lon)
-# print(type(split_midpoint_lat))
 
 # print("Split midpoints matrix")
 # print("---------> x split midpoints (latitiude)")
@@ -104,9 +103,11 @@ def flatten(l):
       out.append(item)
   return out
 
+# converts nparrays to nested lists which then get converted to flattened lists
 lat_list = flatten(split_xx.tolist())
 lon_list = flatten(split_yy.tolist())
 
+# add specified latlong columns and data to df
 df.insert(0, 'latitude', lat_list)
 df.insert(1, 'longitude', lon_list)
 
@@ -129,50 +130,9 @@ print(df)
 filename = Path(f'test_scripts/sitelist_custom.csv')
 df.to_csv(filename)
 
-# copied from utils.py
-# def from_point(
-#            cls,
-#            *,
-#            lon: float,
-#           lat: float,
-#            nx: int,
-#            dx: float,
-#            target_crs: CRS = CRS('EPSG:4326'),
-#    ) -> Grid:
-#        crs_dict = {
-#            'proj': 'utm',
-#            'zone': int(np.round((183 + lon) / 6)),
-#            'south': lat < 0,
-#        }
-#        crs = CRS.from_dict(crs_dict)
-#        to_utm = Transformer.from_crs(crs_from='EPSG:4326', crs_to=crs)
-#        x_m, y_m = to_utm.transform(xx=lat, yy=lon)
-#
-#        y_m_max = y_m + (nx / 2 * dx)
-#        y_m_min = y_m_max - ((nx - 1) * dx)
-#        x_m_max = x_m + (nx / 2 * dx)
-#        x_m_min = x_m_max - ((nx - 1) * dx)
-#
-#        y_m = np.linspace(y_m_min, y_m_max, nx)
-#        x_m = np.linspace(x_m_min, x_m_max, nx)
-#        xx, yy = np.meshgrid(y_m, x_m)
-#        
-#        
-#  
-#        polygons = (
-#            Polygon(
-#                [(y - dx, x), (y - dx, x - dx), (y, x - dx), (y, x)],
-#            ) for x, y in zip(xx.ravel(), yy.ravel())
-#        )
-#        grid = gpd.GeoDataFrame({'geometry': polygons})
-#        grid.index.name = 'id'
-#        # the stupid georasters thing does only work if there is some column
-#        grid['some_col'] = 1
-#        grid = grid.set_crs(crs)
-#        grid = grid.to_crs(target_crs)
-#        return cls(gdf=grid, shape=(nx, nx), step=dx, crs=target_crs)
+if filename.exists():
+    print("----> sitelist_custom.csv successfully created")
+else: 
+    print("----> sitelist_custom.csv failed to generate")
 
-
-
-
-
+print("Starting SuPy models...")
