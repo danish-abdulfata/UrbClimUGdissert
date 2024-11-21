@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 from pyproj import CRS
 from pyproj import Transformer
+from runner.runner import main as run_runner
 
 # ----------------- Model Parameters and Setup ----------------
 # change values as needed, valid ranges in quickstart.md
@@ -30,7 +31,7 @@ spinup = True
 grid_size = 1000 
 grid_boxes = 40
 
-# By what factor should the area be divided, ie. 4^split_factor models will sequentially be run.   
+# By what factor should the area be divided, ie. 2^2(split_factor) models will sequentially run.   
 # In other words, split models will run with 1 = 1/4, 2 = 1/4^2, 3 = 1/4^3, etc, number of grids.
 split_factor = 2
 
@@ -38,11 +39,15 @@ split_factor = 2
 
 # --------------------- script starts here -------------------------
 # Split factor check if it's valid
+# From now on, all '2^2(split_factor)' equations will be simplified as '4 ** split_factor' for readability.
 
 try:
 (grid_boxes ** 2) % (4 ** split_factor) == 0:
 except:
-            raise ValueError("Total number of grids must be divisible by 2^2(split_factor) to maintain identical square model areas")
+    raise ValueError(f"Total number of grids ({grid_boxes ** 2}) must be divisible by 2^2(split_factor) ({4 ** split_factor}) to maintain identical square model areas")
+else:
+    split_grid_boxes = grid_boxes / (2 ** split_factor)
+    print(f"Split factor of {split_factor} is valid. Continuing with run...")
              
 
 # Geodesic calculations modified from utils.py to maintain consistency
@@ -76,6 +81,19 @@ split_midpoint_lat, split_midpoint_lon = from_utm.transform(xx=split_midpoint_x,
 # repeat latlong to form a 1d grid
 split_xx, split_yy = np.meshgrid(split_midpoint_lat, split_midpoint_lon)
 
+def flatten(l):
+  out = []
+  for item in l:
+    if isinstance(item, (list, tuple)):
+      out.extend(flatten(item))
+    else:
+      out.append(item)
+  return out
+
+# converts nparrays to nested lists which then get converted to flattened lists
+lat_list = flatten(split_xx.tolist())
+lon_list = flatten(split_yy.tolist())
+
 # Display split outputs
 # print("Site midpoint in UTM")
 # print(site_midpoint_x, site_midpoint_y)
@@ -104,22 +122,7 @@ for split_affix in range(1, 4**split_factor + 1):
 df = pd.DataFrame(index=sitelist)
 df.index.name = 'sitename'
 
-# add latlong to dataframe
-
-def flatten(l):
-  out = []
-  for item in l:
-    if isinstance(item, (list, tuple)):
-      out.extend(flatten(item))
-    else:
-      out.append(item)
-  return out
-
-# converts nparrays to nested lists which then get converted to flattened lists
-lat_list = flatten(split_xx.tolist())
-lon_list = flatten(split_yy.tolist())
-
-# add specified latlong columns and data to df
+# add specified latlong column headers and data to df
 df.insert(0, 'latitude', lat_list)
 df.insert(1, 'longitude', lon_list)
 
@@ -137,15 +140,26 @@ for column_key, column_value in reversed(column_dict.items()):
     column_index += 1
     
 # create .csv file at specified filepath
-filename = Path(f'test_scripts/sitelist_custom.csv')
-df.to_csv(filename)
+sitelist_file = Path(f'test_scripts/sitelist_custom.csv')
+df.to_csv(sitelist_file)
 
-try filename.exists():
-            print("----> sitelist_custom.csv successfully created")
+try:
+    sitelist_file.exists()
 except:
-            tb = sys.exception().__traceback__
-            raise Exception("----> sitelist_custom.csv failed to generate").with_traceback(tb)
-
+    tb = sys.exception().__traceback__
+    raise Exception("----> sitelist_custom.csv failed to generate").with_traceback(tb)
+else:
+    print("--------> sitelist_custom.csv successfully created. Starting SuPy models...")
+    
 # 2nd part of script 
 
-print("--------> Starting SuPy models...")
+
+
+run_runner([str(site_prefix),
+        '--run-type', 'grid',
+        '--grid-size', str(grid_size),
+        '--grid-boxes', '20',
+        '--metforc-src', 'era5land',
+        '--urbdesc-src', 'lcz_updated',
+        '--sitelist', 'sitelist_custom',
+        '--download-era5'])
