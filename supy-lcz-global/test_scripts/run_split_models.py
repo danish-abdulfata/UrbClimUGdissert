@@ -40,9 +40,9 @@ split_factor = 2
 # Split factor check if it's valid
 
 try:
-(grid_boxes ** 2) % (2 ** split_factor) == 0:
+(grid_boxes ** 2) % (4 ** split_factor) == 0:
 except:
-            raise ValueError("Total number of grids must be divisible by 2^split_factor to maintain identical square model areas")
+            raise ValueError("Total number of grids must be divisible by 2^2(split_factor) to maintain identical square model areas")
              
 
 # Geodesic calculations modified from utils.py to maintain consistency
