@@ -7,13 +7,15 @@ import numpy as np
 from pyproj import CRS
 from pyproj import Transformer
 
-# Model Parameters and Setup
+# ----------------- Model Parameters and Setup ----------------
+# change values as needed, valid ranges in quickstart.md
 
-# Site Information, follows same definitions as detailed in quickstart.md
+# Site Information
 site_prefix = "KL-KualaLumpur"
 site_midpoint_lat = 3.056577
 site_midpoint_lon = 101.617373
 
+# Model 
 measurement_height_above_ground = 100
 surface_cover_radius = 1000 
 time_analysis_start = "2016-01-01 00:00:00"
@@ -24,12 +26,24 @@ local_utc_offset_hours = 8
 # Change default spinup (2 years) in runner.py
 spinup = True
 
-# Total area covered will be grid_size * grid_boxes, in m^2
+# Total area covered will be grid_size^2 * grid_boxes, in m^2
 grid_size = 1000 
 grid_boxes = 40
 
-# By what factor should the area be divided, 1 = 1/4, 2 = 1/4^2, 3 = 1/4^3 and etc, to maintain square study area for compatibility with utils.py.   
+# By what factor should the area be divided, ie. 4^split_factor models will sequentially be run.   
+# In other words, split models will run with 1 = 1/4, 2 = 1/4^2, 3 = 1/4^3, etc, number of grids.
 split_factor = 2
+
+
+
+# --------------------- script starts here -------------------------
+# Split factor check if it's valid
+
+try:
+(grid_boxes ** 2) % (2 ** split_factor) == 0:
+except:
+            raise ValueError("Total number of grids must be divisible by 2^split_factor to maintain identical square model areas")
+             
 
 # Geodesic calculations modified from utils.py to maintain consistency
 
