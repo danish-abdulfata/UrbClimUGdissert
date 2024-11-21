@@ -42,3 +42,5 @@ python -m test_scripts.structure_grid_output /mnt/c/Users/Danish/Documents/GitHu
 python -m runner.runner KL-KualaLumpurTest5 --run-type grid --grid-size 1000 --grid-boxes 40 --metforc-src era5land --urbdesc-src lcz_updated --sitelist sitelist_custom --download-era5
 
 python -m test_scripts.run_runner_test
+
+python -m test_scripts.run_split_models

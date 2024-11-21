@@ -21,13 +21,12 @@ site_midpoint_lon = 101.617373
 measurement_height_above_ground = 100
 surface_cover_radius = 1000 
 time_analysis_start = "2016-01-01 00:00:00"
-time_coverage_end = "2016-02-01 00:00:00"
+time_coverage_end = "2016-01-11 00:00:00"
 timestep_interval_seconds = 3600
 local_utc_offset_hours = 8
 
 # Spinup true by default. check run_runner below at end of 2nd part of script.
 # Change default spinup (2 years) in runner.py at line 868
-
 
 # Total area covered will be grid_size^2 * grid_boxes, in m^2
 grid_size = 1000 
@@ -45,11 +44,11 @@ split_factor = 3
 run_split_models_start = time.time()
 
 # Split factor check if it's valid
-# From now on, all '2^2(split_factor)' equations will be simplified as '4 ** split_factor' for readability.
-
+#'2^2(split_factor)' simplifies to '4 ** split_factor' for readability.
 number_of_runs = 4 ** split_factor
+
 try:
-(grid_boxes ** 2) % number_of_runs == 0:
+    (grid_boxes ** 2) % number_of_runs == 0
 except:
     raise ValueError(f"Total number of grids ({grid_boxes ** 2}) must be divisible by 2^2(split_factor) ({number_of_runs}) to maintain identical square model areas")
 else:
@@ -67,9 +66,11 @@ crs_dict = {
 
 crs = CRS.from_dict(crs_dict)
 
+# convert latlong to UTM for consistency / ease of calculations
 to_utm = Transformer.from_crs(crs_from='EPSG:4326', crs_to=crs)
 site_midpoint_x, site_midpoint_y = to_utm.transform(xx=site_midpoint_lat, yy=site_midpoint_lon)
 
+# identify site boundaries
 site_area_length = grid_size * grid_boxes
 
 site_y_max = site_midpoint_y + (site_area_length / 2)
@@ -101,23 +102,6 @@ def flatten(l):
 lat_list = flatten(split_xx.tolist())
 lon_list = flatten(split_yy.tolist())
 
-# Display split outputs
-# print("Site midpoint in UTM")
-# print(site_midpoint_x, site_midpoint_y)
-
-# print("Maximum and minimum x and y values")
-# print(site_x_max, site_x_min, site_y_max, site_y_min)
-
-# print("Split midpoints")
-# print(split_midpoint_lat)
-# print(split_midpoint_lon)
-
-# print("Split midpoints matrix")
-# print("---------> x split midpoints (latitiude)")
-# print(split_xx)
-# print("---------> y split midpoints (longitude)")
-# print(split_yy)
-
 # Modified from create_supy_sitelist
 split_site_list = []
 
@@ -147,16 +131,16 @@ for column_key, column_value in reversed(column_dict.items()):
     column_index += 1
     
 # create .csv file at specified filepath
-split_site_list_file = Path(f'test_scripts/{site_prefix}_custom.csv')
+split_site_list_file = Path(f'resources/{site_prefix}_custom.csv')
 df.to_csv(split_site_list_file)
 
 try:
     split_site_list_file.exists()
 except:
     tb = sys.exception().__traceback__
-    raise Exception("----> sitelist_custom.csv failed to generate").with_traceback(tb)
+    raise Exception(f"----> {site_prefix}_custom.csv failed to generate").with_traceback(tb)
 else:
-    print("--------> sitelist_custom.csv successfully created. Starting SuPy models...")
+    print(f"--------> {site_prefix}_custom.csv successfully created. Starting SuPy models...")
     
 ################################ 2nd part of script ################################
 ########### Run SuPy runner.runner script for all split sites using processed inputs.
@@ -165,12 +149,12 @@ else:
 
 split_run_count = 0
 for individual_split_site in split_site_list:
-    run_runner(individual_split_site,
+    run_runner([individual_split_site,
             '--run-type', 'grid',
             '--grid-size', str(grid_size),
             '--grid-boxes', str(split_grid_boxes),
             '--metforc-src', 'era5land', # change if needed
-            '--urbdesc-src', 'lcz_updated', # change if needed
+            '--urbdesc-src', 'lcz_updated', #  change if needed
             '--sitelist', f'{site_prefix}_custom',
             '--download-era5',
             '--do-spinup']) # remove --do-spinup to disable spinup
