@@ -31,7 +31,7 @@ python -m runner.runner KL-KualaLumpurTest --run-type grid --grid-size 1000 --gr
 
 python -m test_scripts.structure_grid_output C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\data\KL-KualaLumpurTest\output\grid\df_output_uMF_uLCu.h5 --dx 1000 --lat 3.056577 --lon 101.617373
 
-python -m runner.runner KL-KualaLumpurTest2 --run-type grid --grid-size 1000 --grid-boxes 20 --metforc-src era5land --urbdesc-src lcz_updated --sitelist sitelist_custom --download-era5
+python -m runner.runner KL-KualaLumpurTest1 --run-type grid --grid-size 1000 --grid-boxes 20 --metforc-src era5land --urbdesc-src lcz_updated --sitelist sitelist_custom --download-era5
 
 wslpath 
 

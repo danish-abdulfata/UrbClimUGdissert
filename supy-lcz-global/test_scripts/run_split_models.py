@@ -1,6 +1,7 @@
 import os
 os.environ['USE_PYGEOS'] = '0'
 
+import time
 from pathlib import Path
 import pandas as pd
 import numpy as np
@@ -8,11 +9,11 @@ from pyproj import CRS
 from pyproj import Transformer
 from runner.runner import main as run_runner
 
-# ----------------- Model Parameters and Setup ----------------
+# ------------------------------------------------ Model Parameters and Setup --------------------------------------------------
 # change values as needed, valid ranges in quickstart.md
 
 # Site Information
-site_prefix = "KL-KualaLumpur"
+site_prefix = "KL-KualaLumpur-2016_1month"
 site_midpoint_lat = 3.056577
 site_midpoint_lon = 101.617373
 
@@ -20,12 +21,13 @@ site_midpoint_lon = 101.617373
 measurement_height_above_ground = 100
 surface_cover_radius = 1000 
 time_analysis_start = "2016-01-01 00:00:00"
-time_coverage_end = "2017-01-01 00:00:00"
+time_coverage_end = "2016-02-01 00:00:00"
 timestep_interval_seconds = 3600
 local_utc_offset_hours = 8
 
-# Change default spinup (2 years) in runner.py
-spinup = True
+# Spinup true by default. check run_runner below at end of 2nd part of script.
+# Change default spinup (2 years) in runner.py at line 868
+
 
 # Total area covered will be grid_size^2 * grid_boxes, in m^2
 grid_size = 1000 
@@ -33,21 +35,26 @@ grid_boxes = 40
 
 # By what factor should the area be divided, ie. 2^2(split_factor) models will sequentially run.   
 # In other words, split models will run with 1 = 1/4, 2 = 1/4^2, 3 = 1/4^3, etc, number of grids.
-split_factor = 2
+split_factor = 3
 
+# ------------------------------------------------ script starts here --------------------------------------------------
 
+################################ 1st part of script ################################
+########### Processing input paramaters
 
-# --------------------- script starts here -------------------------
+run_split_models_start = time.time()
+
 # Split factor check if it's valid
 # From now on, all '2^2(split_factor)' equations will be simplified as '4 ** split_factor' for readability.
 
+number_of_runs = 4 ** split_factor
 try:
-(grid_boxes ** 2) % (4 ** split_factor) == 0:
+(grid_boxes ** 2) % number_of_runs == 0:
 except:
-    raise ValueError(f"Total number of grids ({grid_boxes ** 2}) must be divisible by 2^2(split_factor) ({4 ** split_factor}) to maintain identical square model areas")
+    raise ValueError(f"Total number of grids ({grid_boxes ** 2}) must be divisible by 2^2(split_factor) ({number_of_runs}) to maintain identical square model areas")
 else:
     split_grid_boxes = grid_boxes / (2 ** split_factor)
-    print(f"Split factor of {split_factor} is valid. Continuing with run...")
+    print(f"Split factor of {split_factor} is valid. Site will be split into {number_of_runs} runs")
              
 
 # Geodesic calculations modified from utils.py to maintain consistency
@@ -112,14 +119,14 @@ lon_list = flatten(split_yy.tolist())
 # print(split_yy)
 
 # Modified from create_supy_sitelist
-sitelist = []
+split_site_list = []
 
 # base 4 as there will be 4^split_factor coordinates. 
-for split_affix in range(1, 4**split_factor + 1):
-    sitelist.append(site_prefix + "_s" + str(split_affix))
+for split_affix in range(1, number_of_runs + 1):
+    split_site_list.append(site_prefix + "_s" + str(split_affix))
  
 # creates dataframe with index column only
-df = pd.DataFrame(index=sitelist)
+df = pd.DataFrame(index=split_site_list)
 df.index.name = 'sitename'
 
 # add specified latlong column headers and data to df
@@ -140,26 +147,40 @@ for column_key, column_value in reversed(column_dict.items()):
     column_index += 1
     
 # create .csv file at specified filepath
-sitelist_file = Path(f'test_scripts/sitelist_custom.csv')
-df.to_csv(sitelist_file)
+split_site_list_file = Path(f'test_scripts/{site_prefix}_custom.csv')
+df.to_csv(split_site_list_file)
 
 try:
-    sitelist_file.exists()
+    split_site_list_file.exists()
 except:
     tb = sys.exception().__traceback__
     raise Exception("----> sitelist_custom.csv failed to generate").with_traceback(tb)
 else:
     print("--------> sitelist_custom.csv successfully created. Starting SuPy models...")
     
-# 2nd part of script 
+################################ 2nd part of script ################################
+########### Run SuPy runner.runner script for all split sites using processed inputs.
 
+# modified from batch_simulations_buffer.py
 
+split_run_count = 0
+for individual_split_site in split_site_list:
+    run_runner(individual_split_site,
+            '--run-type', 'grid',
+            '--grid-size', str(grid_size),
+            '--grid-boxes', str(split_grid_boxes),
+            '--metforc-src', 'era5land', # change if needed
+            '--urbdesc-src', 'lcz_updated', # change if needed
+            '--sitelist', f'{site_prefix}_custom',
+            '--download-era5',
+            '--do-spinup']) # remove --do-spinup to disable spinup
+    split_run_count += 1
+    print(f"=========> {individual_split_site} Split Run completed, #{split_run_count} out of #{number_of_runs} for {site_prefix} <============")
 
-run_runner([str(site_prefix),
-        '--run-type', 'grid',
-        '--grid-size', str(grid_size),
-        '--grid-boxes', '20',
-        '--metforc-src', 'era5land',
-        '--urbdesc-src', 'lcz_updated',
-        '--sitelist', 'sitelist_custom',
-        '--download-era5'])
+run_split_models_end = time.time()
+
+print(f"========================> Total runtime: {run_split_models_end - run_split_models_start} <========================")
+
+################################ 3rd part of script ################################
+########### Consolidate/process output files into one
+
