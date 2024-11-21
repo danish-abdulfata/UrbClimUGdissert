@@ -140,10 +140,11 @@ for column_key, column_value in reversed(column_dict.items()):
 filename = Path(f'test_scripts/sitelist_custom.csv')
 df.to_csv(filename)
 
-if filename.exists():
-    print("----> sitelist_custom.csv successfully created")
-else: 
-    print("----> sitelist_custom.csv failed to generate")
+try filename.exists():
+            print("----> sitelist_custom.csv successfully created")
+except:
+            tb = sys.exception().__traceback__
+            raise Exception("----> sitelist_custom.csv failed to generate").with_traceback(tb)
 
 # 2nd part of script 
 
