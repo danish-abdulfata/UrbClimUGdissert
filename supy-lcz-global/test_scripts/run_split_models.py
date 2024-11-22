@@ -121,11 +121,11 @@ split_site_list_df.insert(0, 'latitude', lat_list)
 split_site_list_df.insert(1, 'longitude', lon_list)
 
 column_dict = {'measurement_height_above_ground': measurement_height_above_ground,
-        'surface_cover_radius': surface_cover_radius,
-        'time_analysis_start': time_analysis_start,
-        'time_coverage_end': time_coverage_end,
-        'timestep_interval_seconds': timestep_interval_seconds,
-        'local_utc_offset_hours': local_utc_offset_hours}
+            'surface_cover_radius': surface_cover_radius,
+            'time_analysis_start': time_analysis_start,
+            'time_coverage_end': time_coverage_end,
+            'timestep_interval_seconds': timestep_interval_seconds,
+            'local_utc_offset_hours': local_utc_offset_hours}
 
 # for loop to add parameters and their columns into data frame df . reversed() used because columns were placed from end to start.
 column_index = 2
@@ -170,5 +170,5 @@ run_split_models_end = time.time()
 print(f"========================> Total runtime: {run_split_models_end - run_split_models_start} <========================")
 
 ################################ 3rd part of script ################################
-########### Consolidate/process output files into one
+########### Consolidate/process output files into one singular file
 
