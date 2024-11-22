@@ -44,10 +44,12 @@ split_factor = 3
 run_split_models_start = time.time()
 
 # Split factor check if it's valid
-#'2^2(split_factor)' simplifies to '4 ** split_factor' for readability.
+
 site_grid_area = site_grid_length ** 2
+
 site_split_length = 2 ** split_factor
 number_of_runs = site_split_length ** 2
+
 split_grid_area = site_grid_area / number_of_runs
 split_grid_length = int(site_grid_length / site_split_length)
 
@@ -108,7 +110,7 @@ lon_list = flatten(split_yy.tolist())
 # Modified from create_supy_sitelist
 split_site_list = []
 
-# base 4 as there will be 4^split_factor coordinates. 
+# adds number_of_runs index names to list. 
 for split_affix in range(1, number_of_runs + 1):
     split_site_list.append(site_prefix + "_s" + str(split_affix))
  
