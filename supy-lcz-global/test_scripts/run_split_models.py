@@ -122,6 +122,7 @@ split_site_list_df.index.name = 'sitename'
 split_site_list_df.insert(0, 'latitude', lat_list)
 split_site_list_df.insert(1, 'longitude', lon_list)
 
+# values that won't change for every split
 column_dict = {'measurement_height_above_ground': measurement_height_above_ground,
             'surface_cover_radius': surface_cover_radius,
             'time_analysis_start': time_analysis_start,
@@ -129,7 +130,7 @@ column_dict = {'measurement_height_above_ground': measurement_height_above_groun
             'timestep_interval_seconds': timestep_interval_seconds,
             'local_utc_offset_hours': local_utc_offset_hours}
 
-# for loop to add parameters and their columns into data frame df . reversed() used because columns were placed from end to start.
+# for loop to add parameters and their columns into data frame df.
 column_index = 2
 for column_key, column_value in column_dict.items():
     split_site_list_df.insert(column_index, column_key, column_value)
