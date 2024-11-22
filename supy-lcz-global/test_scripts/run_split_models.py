@@ -155,7 +155,7 @@ else:
 # modified from batch_simulations_buffer.py
 
 split_run_count = 0
-for individual_split_site in split_site_list:
+for individual_split_site in split_site_list_df.index:
     run_runner([individual_split_site,
             '--run-type', 'grid',
             '--grid-size', str(grid_metre_length),
