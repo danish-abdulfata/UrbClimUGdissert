@@ -865,7 +865,7 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     # Build the meteoforcing, from UP obs and / or ERA5
     # Set spin-up length (in days)
-    spinup_days = 10
+    spinup_days = 2*365
 
     # Takes a bit of time, skip when interested in initializing df_state only
     # Options for the buffer case

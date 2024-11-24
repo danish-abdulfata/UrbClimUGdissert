@@ -31,7 +31,7 @@ python -m runner.runner KL-KualaLumpurTest --run-type grid --grid-size 1000 --gr
 
 python -m test_scripts.structure_grid_output C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\data\KL-KualaLumpurTest\output\grid\df_output_uMF_uLCu.h5 --dx 1000 --lat 3.056577 --lon 101.617373
 
-python -m runner.runner KL-KualaLumpurTest1 --run-type grid --grid-size 1000 --grid-boxes 20 --metforc-src era5land --urbdesc-src lcz_updated --sitelist sitelist_custom --download-era5
+python -m runner.runner CH-Shanghai --run-type grid --grid-size 1000 --grid-boxes 5 --metforc-src era5land --urbdesc-src lcz_updated --sitelist sitelist_custom --download-era5 --do-spinup
 
 wslpath 
 
@@ -40,7 +40,7 @@ micromamba activate supy_lcz
 
 python -m test_scripts.structure_grid_output /mnt/c/Users/Danish/Documents/GitHub/UrbClimUGdissert/supy-lcz-global/data/KL-KualaLumpurTest/output/grid/df_output_uMF_uLCu.h5 --dx 1000 --lat 3.056577 --lon 101.617373
 
-python -m runner.runner KL-KualaLumpurTest5 --run-type grid --grid-size 1000 --grid-boxes 40 --metforc-src era5land --urbdesc-src lcz_updated --sitelist sitelist_custom --download-era5
+python -m runner.runner KL-KualaLumpurTest5 --run-type grid --grid-size 1000 --grid-boxes 40 --metforc-src era5land --urbdesc-src lcz_updated --sitelist sitelist_custom --download-era5 -
 
 python -m test_scripts.run_runner_test
 
@@ -48,4 +48,4 @@ python -m test_scripts.run_split_models
 
 
 
-python -m runner.runner KL-KualaLumpur-2016_1month_s1 --run-type grid --grid-size 1000 --grid-boxes 5 --metforc-src era5land --urbdesc-src lcz_updated --sitelist KL-KualaLumpur-2016_1month_splitlist_custom --download-era5
+python -m runner.runner KL-KualaLumpur-2016_1month_s1 --run-type grid --grid-size 1000 --grid-boxes 5 --metforc-src era5land --urbdesc-src lcz_updated --sitelist KL-KualaLumpur-2016_splitlist --download-era5 --do-spinup

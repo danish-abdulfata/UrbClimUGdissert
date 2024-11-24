@@ -137,7 +137,7 @@ for column_key, column_value in column_dict.items():
     column_index += 1
     
 # create .csv file at specified filepath
-split_site_list_file = Path(f'resources/{site_prefix}_splitlist_custom.csv')
+split_site_list_file = Path(f'resources/{site_prefix}_splitlist.csv')
 split_site_list_df.to_csv(split_site_list_file)
 
 try:
@@ -162,7 +162,7 @@ for individual_split_site in split_site_list_df.index:
             '--grid-boxes', str(split_grid_length),
             '--metforc-src', 'era5land', # change if needed
             '--urbdesc-src', 'lcz_updated', #  change if needed
-            '--sitelist', f'{site_prefix}_splitlist_custom',
+            '--sitelist', f'{site_prefix}_splitlist',
             '--download-era5',
             '--do-spinup']) # remove --do-spinup to disable spinup
     split_run_count += 1
