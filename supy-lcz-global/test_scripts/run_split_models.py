@@ -187,7 +187,7 @@ for individual_split_site in split_site_list_df.index:
     
     individual_split_path = f'data/{individual_split_name}/output/grid'
     
-    grid_out.convert_h5_to_netcdf(individual_split_path + '/df_output_uMF_uLCu.h5'), 1000, individual_split_lat, individual_split_lon)
+    grid_out.convert_h5_to_netcdf(individual_split_path / 'df_output_uMF_uLCu.h5'), 1000, individual_split_lat, individual_split_lon)
     split_run_count += 1
     
     

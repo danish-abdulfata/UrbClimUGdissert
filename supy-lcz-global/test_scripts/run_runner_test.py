@@ -37,7 +37,7 @@ for individual_split_site in site_list_df.index:
     individual_split_path = f'data/{individual_split_name}/output/grid'
     grid_out.convert_h5_to_netcdf(individual_split_path + '/df_output_uMF_uLCu.h5', 1000, individual_split_lat, individual_split_lon)
     split_run_count += 1
-    hdf_file = pd.read_hdf(Path(f'data/{site_list_df.iloc[individual_split_site, 0]}/output/grid/df_output_uMF_uLCu_latlon.nc'))
+    hdf_file = pd.read_hdf(individual_split_path + '/df_output_uMF_uLCu_latlon.nc')
     print(hdf_file)
     
     print(f"=======> {individual_split_site} output conversion complete, #{split_run_count} out of #{number_of_runs} for {site_prefix} <========")
