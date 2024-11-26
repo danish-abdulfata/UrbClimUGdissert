@@ -10,15 +10,15 @@ from runner.runner import main as run_runner
 # change values as needed, valid ranges in quickstart.md
 
 # Site Information
-site_prefix = "KL-KualaLumpur-2016_1month"
+site_prefix = "KL-KualaLumpur-2017_1Msp_1"
 site_midpoint_lat = 3.056577
 site_midpoint_lon = 101.617373
 
 # Model 
 measurement_height_above_ground = 100
 surface_cover_radius = 1000 
-time_analysis_start = "2016-01-01 00:00:00"
-time_coverage_end = "2016-01-11 00:00:00"
+time_analysis_start = "2016-12-01 00:00:00"
+time_coverage_end = "2017-01-11 00:00:00"
 timestep_interval_seconds = 3600
 local_utc_offset_hours = 8
 
