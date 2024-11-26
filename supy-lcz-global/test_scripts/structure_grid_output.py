@@ -113,7 +113,7 @@ if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(description='Convert .h5 output to netcdf.')
     parser.add_argument('input_file', type=str, help='Path to input .h5 file')
-    #parser.add_argument('--nx', type=int, required=True, help='Number of grid cells in x direction')
+    # parser.add_argument('--nx', type=int, required=True, help='Number of grid cells in x direction')
     parser.add_argument('--dx', type=int, required=True, help='Grid cell size in meters')
     parser.add_argument('--lat', type=float, required=True, help='Latitude of the grid center')
     parser.add_argument('--lon', type=float, required=True, help='Longitude of the grid center')
@@ -121,5 +121,5 @@ if __name__ == '__main__':
 
     convert_h5_to_netcdf(args.input_file, args.dx, args.lat, args.lon)
     # Convert .h5 output to netcdf
-    # current command: python -m test_scripts.structure_grid_output C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\data\CH-Shanghai\output\grid\df_output_uMF_uLCu.h5 --dx 300 --lat 31.225615 --lon 121.474901
+    # Example usage: python structure_grid_output.py /path/to/input.h5 --nx 100 --dx 100 --lat 40.7128 --lon -74.0060
 

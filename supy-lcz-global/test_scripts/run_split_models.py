@@ -5,14 +5,17 @@ import numpy as np
 from pyproj import CRS
 from pyproj import Transformer
 from runner.runner import main as run_runner
+from test_scripts.structure_grid_output import main as run_structure_grid_output
+import test_scripts.structure_grid_output as grid_out
 
 # ------------------------------------------------ Model Parameters and Setup --------------------------------------------------
 # change values as needed, valid ranges in quickstart.md
 
 # Site Information
-site_prefix = "KL-KualaLumpur-2017_1Msp_1"
+site_prefix = "KL-KualaLumpur-2017_1Msp_2sf_r2"
 site_midpoint_lat = 3.056577
 site_midpoint_lon = 101.617373
+# current way I name: Kl-KualaLumpur-[year]_[spinup length]_[splitfactor]_[run number]
 
 # Model 
 measurement_height_above_ground = 100
@@ -34,7 +37,7 @@ site_grid_length = 40
 
 # By what factor should the area be divided, ie. 2^2(split_factor) models will sequentially run.   
 # In other words, split models will run with 1 = 1/4, 2 = 1/4^2, 3 = 1/4^3, etc, number of grids.
-split_factor = 3
+split_factor = 2
 
 # ------------------------------------------------ script starts here --------------------------------------------------
 
@@ -163,15 +166,29 @@ for individual_split_site in split_site_list_df.index:
             '--metforc-src', 'era5land', # change if needed
             '--urbdesc-src', 'lcz_updated', #  change if needed
             '--sitelist', f'{site_prefix}_splitlist',
-            '--download-era5',
-            '--do-spinup']) # remove --do-spinup to disable spinup
+            '--download-era5']) # remove --do-spinup to disable spinup
     split_run_count += 1
-    print(f"=========> {individual_split_site} Split Run completed, #{split_run_count} out of #{number_of_runs} for {site_prefix} <============")
+    print(f"=======> {individual_split_site} completed, #{split_run_count} out of #{number_of_runs} for {site_prefix} <========")
 
 run_split_models_end = time.time()
+runtime = (run_split_models_end - run_split_models_start)
+runtime_in_min = divmod(runtime / 60)
 
-print(f"========================> Total runtime: {run_split_models_end - run_split_models_start} <========================")
+print(f"========================> Total runtime: {runtime_in_min[0]:.2f} min(s) and {runtime_in_min[1]:.2f} <========================")
 
-################################ 3rd part of script ################################
+################################ 4th part of script ################################
 ########### Consolidate/process output files into one singular file
 
+for individual_split_site in split_site_list_df.index:
+
+    individual_split_name = split_site_list_df.iloc[individual_split_site, 0]
+    individual_split_lat = split_site_list_df.iloc[individual_split_site, 1]
+    individual_split_lon = split_site_list_df.iloc[indvidual_split_site, 2]
+    
+    individual_split_path = Path(f'data/{individual_split_name}/output/grid/df_output_uMF_uLCu.h5')
+    
+    grid_out.convert_h5_to_netcdf(individual_split_path, 1000, individual_split_lat, individual_split_lon)
+    split_run_count += 1
+    
+    
+    print(f"=======> {individual_split_site} output conversion complete, #{split_run_count} out of #{number_of_runs} for {site_prefix} <========")
