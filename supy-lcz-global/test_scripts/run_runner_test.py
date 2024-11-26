@@ -31,10 +31,11 @@ site_prefix = "KL-KualaLumpur-2016"
 # print(f"==============> Total runtime: {(split_runs_end - split_runs_start):.2f} s <=================")
 
 for individual_split_site in site_list_df.index:
-    individual_split_lat = site_list_df.iloc[individual_split_site, 1]
-    individual_split_lon = site_list_df.iloc[individual_split_site, 2]
-    individual_split_path = Path(f'data/{site_list_df.iloc[individual_split_site, 0]}/output/grid/df_output_uMF_uLCu.h5')
-    grid_out.convert_h5_to_netcdf(individual_split_path, 1000, float(individual_split_lat), float(individual_split_lon))
+    individual_split_name = split_site_df.iloc[individual_split_site, 0]
+    individual_split_lat = float(site_list_df.iloc[individual_split_site, 1])
+    individual_split_lon = float(site_list_df.iloc[individual_split_site, 2])
+    individual_split_path = f'data/{individual_split_name}/output/grid'
+    grid_out.convert_h5_to_netcdf(individual_split_path + '/df_output_uMF_uLCu.h5', 1000, individual_split_lat, individual_split_lon)
     split_run_count += 1
     hdf_file = pd.read_hdf(Path(f'data/{site_list_df.iloc[individual_split_site, 0]}/output/grid/df_output_uMF_uLCu_latlon.nc'))
     print(hdf_file)
