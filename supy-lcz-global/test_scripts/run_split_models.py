@@ -109,6 +109,7 @@ def flatten(l):
 # converts nparrays to nested lists which then get converted to flattened lists
 lat_list = flatten(split_xx.tolist())
 lon_list = flatten(split_yy.tolist())
+# use numpy flatten() instead??
 
 # Modified from create_supy_sitelist
 split_site_list = []
