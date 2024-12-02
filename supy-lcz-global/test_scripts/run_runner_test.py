@@ -43,33 +43,42 @@ site_prefix = "KL-KualaLumpur-2016"
     
     # print(f"=======> {individual_split_site} output conversion complete, #{split_run_count} out of #{number_of_runs} for {site_prefix} <========")
 
+#  merging into one, output file with grid coordinates
+
+# relabelling grid indexes testing
 split_file_count = 1
 test_out_df = pd.read_hdf(f'data/KL-KualaLumpur-2017_1Msp_1_s1/output/grid/df_output_uMF_uLCu.h5')
 
 file_grid_number = test_out_df.index.levels[0]
 modified_grid_numbers = file_grid_number+(split_file_count*split_grid_area)
-tup_grid_number = list(zip(file_grid_number.to_list(), modified_grid_numbers.to_list()))
-print(dict(tup_grid_number))
-test_out_df = test_out_df.rename(dict(tup_grid_number), axis = 0, level = 'grid')
+grid_number_dict = dict(list(zip(file_grid_number.to_list(), modified_grid_numbers.to_list())))
+print(grid_number_dict)
+test_out_df = test_out_df.rename(grid_number_dict, axis = 0, level = 'grid')
 print(test_out_df)
-#test_out_df.rename(index = axis = 'grid')
 
-#  merging into one, single hierarchy file
+# FOR TMRW: INTIALIZE FINAL DF FIRST with specified columns
+# final_split_df = # see tmrw
 
+# use .concat() and join="inner", so that only the previously selected columns are added.
+
+
+# final for loop to copy into run_split_models
 
 # for individual_split_site in site_list_df.index:
     # if split_file_count < 5:
         # split_file_count += 1
         # individual_split_name = split_site_df.iloc[individual_split_site, 0]
         # individual_split_path = f'data/{individual_split_name}/output/grid'
-        # out_df = pd.read_hdf(individual_split_path / 'df_output_uMF_uLCu.h5')
-        # file_grid_number = test_out_df.index.levels[0]+(split_file_count*split_grid_area)
-        # out_df.rename(file_grid_number
+        # out_split_df = pd.read_hdf(individual_split_path / 'df_output_uMF_uLCu.h5')
         
-        # hdf_file = pd.read_hdf(individual_split_path + '/df_output_uMF_uLCu_latlon.nc')
-        # print(f"=======> {individual_split_site} output conversion complete, #{split_run_count} out of #{number_of_runs} for {site_prefix} <========")
-    # else 
-    # print(f"Testing complete for merging {split_run_count} of files")
-    # print(out_df_merged)
+        # Relabeling grid
+d')
+        # Merging files
+        # final_split_df = 
+        
+        print(f"=======> {individual_split_site} output conversion complete, #{split_run_count} out of #{number_of_runs} for {site_prefix} <========")
+    else 
+    print(f"Testing complete for merging {split_run_count} of files")
+    print(out_df_merged)
     
     
