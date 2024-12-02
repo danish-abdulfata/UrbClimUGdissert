@@ -12,10 +12,10 @@ import test_scripts.structure_grid_output as grid_out
 # change values as needed, valid ranges in quickstart.md
 
 # Site Information
-site_prefix = "KL-KualaLumpur-2017_1Msp_2sf_r2"
+site_prefix = "KL-KualaLumpur-2017Y1_M2sp_2sf_2r"
 site_midpoint_lat = 3.056577
 site_midpoint_lon = 101.617373
-# current way I name: Kl-KualaLumpur-[year]_[spinup length]_[splitfactor]_[run number]
+# current way I name: [sitename]-[unit][year]_[unit][spinup length]_[splitfactor]sf_[run number]r
 
 # Model 
 measurement_height_above_ground = 100
