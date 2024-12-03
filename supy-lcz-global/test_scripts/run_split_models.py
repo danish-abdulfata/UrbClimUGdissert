@@ -5,23 +5,21 @@ import numpy as np
 from pyproj import CRS
 from pyproj import Transformer
 from runner.runner import main as run_runner
-from test_scripts.structure_grid_output import main as run_structure_grid_output
-import test_scripts.structure_grid_output as grid_out
 
 # ------------------------------------------------ Model Parameters and Setup --------------------------------------------------
 # change values as needed, valid ranges in quickstart.md
 
 # Site Information
-site_prefix = "KL-KualaLumpur-2017Y1_M2sp_2sf_2r"
+site_prefix = "GreaterKL-2017_Y1_M2sp_2sf_2r"
 site_midpoint_lat = 3.056577
 site_midpoint_lon = 101.617373
-# current way I name: [sitename]-[unit][year]_[unit][spinup length]_[splitfactor]sf_[run number]r
+# current way I name: [sitename]-time_[unit][length]_[unit][spinup length]_[splitfactor]sf_[run number]r
 
 # Model 
 measurement_height_above_ground = 100
 surface_cover_radius = 1000 
 time_analysis_start = "2016-12-01 00:00:00"
-time_coverage_end = "2017-01-11 00:00:00"
+time_coverage_end = "2018-01-01 00:00:00"
 timestep_interval_seconds = 3600
 local_utc_offset_hours = 8
 
@@ -38,7 +36,6 @@ site_grid_length = 40
 # By what factor should the area be divided, ie. 2^2(split_factor) models will sequentially run.   
 # In other words, split models will run with 1 = 1/4, 2 = 1/4^2, 3 = 1/4^3, etc, number of grids.
 split_factor = 2
-
 # ------------------------------------------------ script starts here --------------------------------------------------
 
 ################################ 1st part of script ################################
@@ -97,18 +94,18 @@ split_midpoint_lat, split_midpoint_lon = from_utm.transform(xx=split_midpoint_x,
 # repeat latlong to form a 1d grid
 split_xx, split_yy = np.meshgrid(split_midpoint_lat, split_midpoint_lon)
 
-def flatten(l):
-  out = []
-  for item in l:
-    if isinstance(item, (list, tuple)):
-      out.extend(flatten(item))
-    else:
-      out.append(item)
-  return out
+# def flatten(l):
+  # out = []
+  # for item in l:
+    # if isinstance(item, (list, tuple)):
+      # out.extend(flatten(item))
+    # else:
+      # out.append(item)
+  # return out
 
 # converts nparrays to nested lists which then get converted to flattened lists
-lat_list = flatten(split_xx.tolist())
-lon_list = flatten(split_yy.tolist())
+lat_list = np.ndarray.flatten(split_xx.tolist())
+lon_list = np.ndarray.flatten(split_yy.tolist())
 # use numpy flatten() instead??
 
 # Modified from create_supy_sitelist
@@ -175,9 +172,21 @@ run_split_models_end = time.time()
 runtime = (run_split_models_end - run_split_models_start)
 runtime_in_min = divmod(runtime / 60)
 
-print(f"========================> Total runtime: {runtime_in_min[0]:.2f} min(s) and {runtime_in_min[1]:.2f} <========================")
+print(f"========================> Total runtime: {runtime_in_min[0]:.2f} min(s) and {runtime_in_min[1]:.2f} sec <========================")
 
-################################ 4th part of script ################################
+try:
+    for individual_split_site in split_site_list_df.index:
+        individual_split_name = split_site_list_df.iloc[individual_split_site, 0]
+        individual_split_path = f'data/{individual_split_name}/output/grid'
+        split_output_file = individual_split_path / 'df_output_uMF_uLCu.h5'
+        split_output_file.exists()
+except:
+    raise OSError(errno.ENOENT, os.strerror(errno.ENOENT), filename)
+else:
+    print(f"Output .h5 files for all {number_of_runs} runs successfully generated.")
+    
+    
+################################ 3rd part of script ################################
 ########### Consolidate/process output files into one singular file
 
 for individual_split_site in split_site_list_df.index:

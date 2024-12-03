@@ -50,7 +50,7 @@ split_file_count = 1
 test_out_df = pd.read_hdf(f'data/KL-KualaLumpur-2017_1Msp_1_s1/output/grid/df_output_uMF_uLCu.h5')
 
 file_grid_number = test_out_df.index.levels[0]
-modified_grid_numbers = file_grid_number+(split_file_count*split_grid_area)
+modified_grid_numbers = file_grid_number + (split_file_count * split_grid_area)
 grid_number_dict = dict(list(zip(file_grid_number.to_list(), modified_grid_numbers.to_list())))
 print(grid_number_dict)
 test_out_df = test_out_df.rename(grid_number_dict, axis = 0, level = 'grid')
@@ -76,9 +76,9 @@ d')
         # Merging files
         # final_split_df = 
         
-        print(f"=======> {individual_split_site} output conversion complete, #{split_run_count} out of #{number_of_runs} for {site_prefix} <========")
-    else 
-    print(f"Testing complete for merging {split_run_count} of files")
-    print(out_df_merged)
+        # print(f"=======> {individual_split_site} output conversion complete, #{split_run_count} out of #{number_of_runs} for {site_prefix} <========")
+    # else 
+    # print(f"Testing complete for merging {split_run_count} of files")
+    # print(out_df_merged)
     
     
