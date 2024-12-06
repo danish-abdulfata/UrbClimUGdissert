@@ -26,9 +26,9 @@ local_utc_offset_hours = 8
 # Spinup true by default. check run_runner below at end of 2nd part of script.
 # Change default spinup (2 years) in runner.py at line 868
 
-# Total area covered will be grid_size^2 * grid_boxes, in m^2
+# Total area covered will be grid_size^2 * grid_boxes, in m^2, same as surface_cover_radius
 # grid_size
-grid_metre_length = 1000 
+grid_metre_length = surface_cover_radius 
 
 # grid_boxes
 site_grid_length = 40
@@ -189,16 +189,19 @@ else:
 ################################ 3rd part of script ################################
 ########### Consolidate/process output files into one singular file
 
-for individual_split_site in split_site_list_df.index:
+# for individual_split_site in split_site_list_df.index:
 
-    individual_split_name = split_site_list_df.iloc[individual_split_site, 0]
-    individual_split_lat = split_site_list_df.iloc[individual_split_site, 1]
-    individual_split_lon = split_site_list_df.iloc[indvidual_split_site, 2]
+    # individual_split_name = split_site_list_df.iloc[individual_split_site, 0]
+    # individual_split_lat = split_site_list_df.iloc[individual_split_site, 1]
+    # individual_split_lon = split_site_list_df.iloc[indvidual_split_site, 2]
     
-    individual_split_path = f'data/{individual_split_name}/output/grid'
+    # individual_split_path = f'data/{individual_split_name}/output/grid'
     
-    grid_out.convert_h5_to_netcdf(individual_split_path / 'df_output_uMF_uLCu.h5'), 1000, individual_split_lat, individual_split_lon)
-    split_run_count += 1
+    # grid_out.convert_h5_to_netcdf(individual_split_path / 'df_output_uMF_uLCu.h5'), 1000, individual_split_lat, individual_split_lon)
+    # split_run_count += 1
     
     
-    print(f"=======> {individual_split_site} output conversion complete, #{split_run_count} out of #{number_of_runs} for {site_prefix} <========")
+    # print(f"=======> {individual_split_site} output conversion complete, #{split_run_count} out of #{number_of_runs} for {site_prefix} <========")
+    
+################################ 4th part of script ################################
+########### Consolidate/process output files into one singular file
