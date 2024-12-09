@@ -67,7 +67,7 @@ cover_list = ['LCZ1', 'LCZ2', 'LCZ3', 'LCZ4', 'LCZ5', 'LCZ6', 'LCZ7', 'LCZ8', 'L
 # Intialize dataframes
 
 final_split_df = pd.MultiIndex(levels=[[],[],[],[]],
-                       codes=[[],[]], names=[u'grid', u'timestamp', u'latitude', u'longitude'])
+                       codes=[[],[],[],[]], names=[u'grid', u'timestamp', u'latitude', u'longitude'])
                        
 final_split_df = pd.DataFrame(index = final_split_df, columns = variable_list)
 final_split_df = final_split_df.rename_axis(columns='var')
@@ -80,6 +80,7 @@ split_metre_length = 1000  * split_grid_length
 split_file_count = 0
 
 for individual_split_site in split_site_list_df.index:
+
     individual_split_name = split_site_list_df.iloc[individual_split_site, 0]
     individual_split_path = f'data/{individual_split_name}/output/grid'
     individual_split_df = pd.read_hdf(Path(individual_split_path, 'df_output_uMF_uLCu.h5'))
@@ -125,9 +126,9 @@ for individual_split_site in split_site_list_df.index:
     
     # inserting latlong as index
     split_latlon_iter = int(individual_split_df.shape[0] / len(split_grid_lat))
-    split_grid_lat_iter = np.repeat(split_grid_lat, split_latlon_iter)
-    split_grid_lon_iter = np.repeat(split_grid_lon, split_latlon_iter)
-    individual_split_df.set_index({'latitude': split_grid_lat_iter, 'longitude': split_grid_lon_iter}, append = True, inplace = True)
+    split_grid_lat_iter = split_grid_lat * split_latlon_iter
+    split_grid_lon_iter = split_grid_lon * split_latlon_iter
+    individual_split_df.set_index([split_grid_lat_iter, split_grid_lon_iter], append = True, inplace = True)
     
     individual_split_surf_frac.insert(0, 'latitude', split_grid_lat)
     individual_split_surf_frac.insert(1, 'longitude', split_grid_lon)
@@ -137,40 +138,28 @@ for individual_split_site in split_site_list_df.index:
     modified_grid_numbers = file_grid_number + (split_file_count * split_grid_area)
     grid_number_dict = dict(list(zip(file_grid_number.to_list(), modified_grid_numbers.to_list())))
         
-    print(grid_number_dict)
-        
     individual_split_df.rename(grid_number_dict, level = 'grid', inplace = True)
     individual_split_surf_frac.rename(index = grid_number_dict, inplace = True)
-        
+    
+    individual_split_df.index.rename(['grid', 'timestamp', 'latitude', 'longitude'], inplace = True)
+
     print(f'Processing output file for {individual_split_name}')
     # merging to final df
     final_split_surf_frac = pd.concat([final_split_surf_frac, individual_split_surf_frac], join = 'inner')
     final_split_df = pd.concat([final_split_df, individual_split_df], join = 'inner')
     split_file_count += 1
+    
     if split_file_count == 4: # running for the first 4 files only.
         print(final_split_df.index)
         print(final_split_df)
+        print(final_split_surf_frac)
         print(final_split_surf_frac.index)
         break
-
-
-# final for loop to copy into run_split_models
-
-# for individual_split_site in site_list_df.index:
-    # if split_file_count < 5:
-        # split_file_count += 1
-        # individual_split_name = split_site_df.iloc[individual_split_site, 0]
-        # individual_split_path = f'data/{individual_split_name}/output/grid'
-        # out_split_df = pd.read_hdf(individual_split_path / 'df_output_uMF_uLCu.h5')
         
-        # Relabeling grid
-# d')
-        # Merging files
-        # final_split_df = 
-        
-        # print(f"=======> {individual_split_site} output conversion complete, #{split_run_count} out of #{number_of_runs} for {site_prefix} <========")
-    # else 
-    # print(f"Testing complete for merging {split_run_count} of files")
-    # print(out_df_merged)
-    
-    
+# XARRAY NC OUTPUT FILES
+
+# final_split_df.to_xarray()
+# final_split_surf_frac.to_xarray()
+
+# netCDF vs HDF5 ???
+
