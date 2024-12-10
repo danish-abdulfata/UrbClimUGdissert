@@ -15,7 +15,7 @@ number_of_runs = 3
 split_grid_length = 5
 split_grid_area = split_grid_length**2
 split_run_count = 0
-site_prefix = "KL-KualaLumpur-2016"
+site_prefix = "KL-KualaLumpur-2017_1month_runnertest"
 
 # for individual_split_site in site_list:
     # run_runner([individual_split_site,
@@ -157,9 +157,11 @@ for individual_split_site in split_site_list_df.index:
         break
         
 # XARRAY NC OUTPUT FILES
+# netCDF vs HDF5 ???
+
 
 # final_split_df.to_xarray()
 # final_split_surf_frac.to_xarray()
 
-# netCDF vs HDF5 ???
+
 

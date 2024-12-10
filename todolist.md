@@ -5,30 +5,37 @@ Just to take note of pending tasks and potential further research needed.
 
 - UHI vs UHI effect, clarify terminology.
 
-- ENSO neutral year. or follow 2019 paper year (2016)
+- ENSO neutral year 2017. or follow 2019 paper year (2016) | test different years of the holidays
 
-- qgis maps and shapefiles for GKL 
+- table of data sources: GEE LCZ & ERA5LAND & UN WUB Populatioon , Forest Canopy Data, 
 
-- bash cript for auto start SUEWS
+- 3 scenarios
+	- normal LCZ determined cover fractions
+	- counterfactual fully forest cover
+	- modified LCZ for urban heat mitigation
 
-- configure intiialconditions?
+- What sort of figures?
+	- Summary statistics (table or graph?)
+	- For testing:
+		- graphs showing peak T2 over a day
+		- Water and Energy fluxes?
+			- anthroprogenic heat influences?
+			- rainfall?
+			- variables for wet bulb calculations? (air temp, wind, rel humidity)
+	- Site Area outline, elevation and satellite?, LCZ covers.
+	- 
 
+#### Model Questions
+- Hilly urban areas? How does topography affect calculations in SUEWS.
+- bulk surface temperature vs skin temperature?
+- how to configure model scheme parameters? esp to dwith calculations
+- 
 
 #### Dissertation Writing Questions
 
-- confusion on Introduction/Methodology/LIterature Review for site? 
-          - which section do I justfiy my study area? in methdology/literature review or intrudciton?
-- where to justify model, lit review or methodologyt 
+- General writing tips?
+- Basic equations, include SUEWS figures.
 
-- consideration of model parameters? 
-
-- Where do I elaborate more on GKL plans and mitigration and urban planning?
-
-- word limit 8000words? what sections do i not include?
-
-
-
-- dissertation cover page template 
 
 ### Good example dissertations
 
