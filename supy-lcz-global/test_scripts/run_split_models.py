@@ -8,9 +8,10 @@ from runner.runner import main as run_runner
 
 # ------------------------------------------------ Model Parameters and Setup --------------------------------------------------
 # change values as needed, valid ranges in quickstart.md
+# REMEMBER TO CHANGE site_prefix AND/OR DELETE ./data and ./resources FILES BEFORE STARTING!
 
 # Site Information
-site_prefix = "GreaterKL-2017_Y1_M2sp_2sf"
+site_prefix = "GreaterKL-2017_Y1_M2sp_3sf" # "GreaterKL-2017_Y1_M2sp_1sf"
 site_midpoint_lat = 3.056577
 site_midpoint_lon = 101.617373
 # current way I name: [sitename]-time_[unit][length]_[unit][spinup length]sp_[splitfactor]sf
@@ -18,12 +19,12 @@ site_midpoint_lon = 101.617373
 # Model 
 measurement_height_above_ground = 100
 surface_cover_radius = 1000 
-time_analysis_start = "2016-12-01 00:00:00"
-time_coverage_end = "2018-01-01 00:00:00"
+time_analysis_start = "2016-10-03 00:00:00"
+time_coverage_end = "2018-01-12 00:00:00"
 timestep_interval_seconds = 3600
 local_utc_offset_hours = 8
 
-# Spinup true by default. check run_runner below at end of 2nd part of script.
+# Spinup false by default. check run_runner below at end of 2nd part of script.
 # Change default spinup (2 years) in runner.py at line 868
 
 # Total area covered will be grid_size^2 * grid_boxes, in m^2, same as surface_cover_radius
@@ -35,7 +36,7 @@ site_grid_length = 40
 
 # By what factor should the area be divided, ie. 2^2(split_factor) models will sequentially run.   
 # In other words, split models will run with 1 = 1/4, 2 = 1/4^2, 3 = 1/4^3, etc, number of grids.
-split_factor = 2
+split_factor = 3
 
 # What variables should be saved?
 
@@ -72,9 +73,9 @@ split_grid_area = site_grid_area / number_of_runs
 split_grid_length = int(site_grid_length / site_split_length)
 
 try:
-    (site_grid_length) % split_grid_length == 0
+    (site_grid_area) % number_of_runs == 0
 except:
-    raise ValueError(f"Total number of grids ({site_grid_area}) must be divisible by 2^2(split_factor) ({number_of_runs}) to maintain identical square model areas")
+    raise ValueError(f"Total number of grids per run ({site_grid_area}) must be divisible by 2^2(split_factor) ({number_of_runs}) to maintain identical square model areas")
 else:
     print(f"Split factor of {split_factor} is valid. Site will be split into {number_of_runs} runs at {split_grid_area} grids per run")
 
@@ -172,16 +173,16 @@ for individual_split_site in split_site_list_df.index:
             '--metforc-src', 'era5land', # change if needed
             '--urbdesc-src', 'lcz_updated', #  change if needed
             '--sitelist', f'{site_prefix}_splitlist',
-            '--download-era5']) # remove --do-spinup to disable spinup
+            '--download-era5']) # removed --do-spinup to disable spinup
     split_run_count += 1
     print(f"=======> {individual_split_site} completed, #{split_run_count} out of #{number_of_runs} for {site_prefix} <========")
 
 run_split_models_end = time.time()
 runtime = (run_split_models_end - run_split_models_start)
-runtime_in_min = divmod(runtime / 60)
+runtime_in_min = divmod(runtime, 60)
 
 print(f"========================> Total runtime: {runtime_in_min[0]:.2f} min(s) and {runtime_in_min[1]:.2f} sec <========================")
-
+raise SystemExit()
 try:
     for individual_split_site in split_site_list_df.index:
         individual_split_name = split_site_list_df.iloc[individual_split_site, 0]
@@ -192,7 +193,6 @@ except:
     raise OSError(errno.ENOENT, os.strerror(errno.ENOENT), filename)
 else:
     print(f"Output .h5 files for all {number_of_runs} runs successfully generated.")
-    
     
 ################################ 3rd part of script ################################
 ########### Consolidate/process output files into one singular file

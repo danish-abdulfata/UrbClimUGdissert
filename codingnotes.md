@@ -46,6 +46,6 @@ python -m test_scripts.run_runner_test
 
 python -m test_scripts.run_split_models
 
-
+free -h --si
 
 python -m runner.runner KL-KualaLumpur-2016_1month_s1 --run-type grid --grid-size 1000 --grid-boxes 5 --metforc-src era5land --urbdesc-src lcz_updated --sitelist KL-KualaLumpur-2016_splitlist --download-era5 --do-spinup
