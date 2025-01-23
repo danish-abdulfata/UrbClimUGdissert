@@ -11,7 +11,7 @@ from runner.runner import main as run_runner
 # REMEMBER TO CHANGE site_prefix AND/OR DELETE ./data and ./resources FILES BEFORE STARTING!
 
 # Site Information
-site_prefix = "GreaterKL-2017_Y1_M2sp_3sf" # "GreaterKL-2017_Y1_M2sp_1sf"
+site_prefix = "GreaterKL-2017_Y1_M2sp_3sf" # CHANGE NAME BEFORE RUN
 site_midpoint_lat = 3.056577
 site_midpoint_lon = 101.617373
 # current way I name: [sitename]-time_[unit][length]_[unit][spinup length]sp_[splitfactor]sf
@@ -181,7 +181,7 @@ run_split_models_end = time.time()
 runtime = (run_split_models_end - run_split_models_start)
 runtime_in_min = divmod(runtime, 60)
 
-print(f"========================> Total runtime: {runtime_in_min[0]:.2f} min(s) and {runtime_in_min[1]:.2f} sec <========================")
+print(f"========================> Total runtime: {int(runtime_in_min[0])} min(s) and {runtime_in_min[1]:.2f} sec <========================")
 raise SystemExit()
 try:
     for individual_split_site in split_site_list_df.index:
