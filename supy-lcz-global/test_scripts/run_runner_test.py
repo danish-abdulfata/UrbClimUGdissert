@@ -72,10 +72,16 @@ final_split_df = pd.MultiIndex(levels=[[],[],[],[]],
 final_split_df = pd.DataFrame(index = final_split_df, columns = variable_list)
 final_split_df = final_split_df.rename_axis(columns='var')
 
+final_split_df.loc[pd.IndexSlice[cval]] = (final_split_df.loc[pd.IndexSlice[:, cval]].astype('datetime64[ns]'))
+
+final_split_df_print = final_split_df.index.dtypes
+print(final_split_df_print)
+
 final_split_surf_frac = pd.DataFrame(columns = cover_list)
 final_split_surf_frac.index.name = 'grid'
 print(final_split_df)
 
+raise SystemExit()
 split_metre_length = 1000  * split_grid_length
 split_file_count = 0
 
@@ -159,7 +165,13 @@ for individual_split_site in split_site_list_df.index:
 # XARRAY NC OUTPUT FILES
 # netCDF vs HDF5 ???
 
+output_file = f'data/consolidated_output'
+final_split_df_xr = final_split_df.to_xarray()
+print(final_split_df_xr)
+final_split_df_xr.to_netcdf(path = output_file, mode ='w')
 
+final_split_surf_frac_xr = final_split_surf_frac.to_xarray()
+final_split_df_surf_frac_xr.to_netcdf(path = output_file, mode ='w')
 # final_split_df.to_xarray()
 # final_split_surf_frac.to_xarray()
 
