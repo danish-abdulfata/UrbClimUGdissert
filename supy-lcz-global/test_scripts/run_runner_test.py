@@ -72,16 +72,28 @@ final_split_df = pd.MultiIndex(levels=[[],[],[],[]],
 final_split_df = pd.DataFrame(index = final_split_df, columns = variable_list)
 final_split_df = final_split_df.rename_axis(columns='var')
 
-final_split_df.loc[pd.IndexSlice[cval]] = (final_split_df.loc[pd.IndexSlice[:, cval]].astype('datetime64[ns]'))
+# converting Index dtypes so xarray converter correctly understands Index values
+
+# grid
+final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[0].astype('int64'), level=0)
+
+# timestamp
+final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[1].astype('datetime64[ns]'), level=1)
+
+# latitiude and longitude
+final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[2].astype('float64'), level=2)
+final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[3].astype('float64'), level=3)
 
 final_split_df_print = final_split_df.index.dtypes
 print(final_split_df_print)
 
+# raise SystemExit()
+
 final_split_surf_frac = pd.DataFrame(columns = cover_list)
 final_split_surf_frac.index.name = 'grid'
-print(final_split_df)
+#print(final_split_df)
 
-raise SystemExit()
+
 split_metre_length = 1000  * split_grid_length
 split_file_count = 0
 
@@ -162,16 +174,16 @@ for individual_split_site in split_site_list_df.index:
         print(final_split_surf_frac.index)
         break
         
-# XARRAY NC OUTPUT FILES
-# netCDF vs HDF5 ???
+# XArray conversion to netCDF output
 
-output_file = f'data/consolidated_output'
+output_file = f'data/consolidated_outputs/'
 final_split_df_xr = final_split_df.to_xarray()
 print(final_split_df_xr)
-final_split_df_xr.to_netcdf(path = output_file, mode ='w')
+final_split_df_xr.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
 
 final_split_surf_frac_xr = final_split_surf_frac.to_xarray()
-final_split_df_surf_frac_xr.to_netcdf(path = output_file, mode ='w')
+final_split_surf_frac_xr.to_netcdf(path = Path(output_file, site_prefix + '_surf_frac.nc'), mode ='w')
+
 # final_split_df.to_xarray()
 # final_split_surf_frac.to_xarray()
 
