@@ -2,6 +2,7 @@ import time
 from pathlib import Path
 import pandas as pd
 import numpy as np
+import xarray as xr
 from pyproj import CRS
 from pyproj import Transformer
 from runner.runner import main as run_runner
@@ -11,10 +12,10 @@ from runner.runner import main as run_runner
 # REMEMBER TO CHANGE site_prefix AND/OR DELETE ./data and ./resources FILES BEFORE STARTING!
 
 # Site Information
-site_prefix = "GreaterKL-2017_Y1_M2sp_3sf" # CHANGE NAME BEFORE RUN
+site_prefix = "GreaterKL-2017_Y1_M2sp_3sf_R1" # CHANGE NAME BEFORE RUN
 site_midpoint_lat = 3.056577
 site_midpoint_lon = 101.617373
-# current way I name: [sitename]-time_[unit][length]_[unit][spinup length]sp_[splitfactor]sf
+# current way I name: [sitename]-time_[unit][length]_[unit][spinup length]sp_[splitfactor]sf_(run number)
 
 # Model 
 measurement_height_above_ground = 100
@@ -215,6 +216,22 @@ final_split_df = pd.MultiIndex(levels=[[],[],[],[]],
 final_split_df = pd.DataFrame(index = final_split_df, columns = variable_list)
 final_split_df = final_split_df.rename_axis(columns='var')
 
+# converting Index dtypes so xarray converter correctly understands Panda Index values
+
+# grid
+final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[0].astype('int64'), level=0)
+
+# timestamp
+final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[1].astype('datetime64[ns]'), level=1)
+
+# latitiude and longitude
+final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[2].astype('float64'), level=2)
+final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[3].astype('float64'), level=3)
+
+# final_split_df_print = final_split_df.index.dtypes
+# print(final_split_df_print)
+# raise SystemExit()
+
 final_split_surf_frac = pd.DataFrame(columns = cover_list)
 final_split_surf_frac.index.name = 'grid'
 
@@ -298,10 +315,16 @@ for individual_split_site in split_site_list_df.index:
     final_split_surf_frac = pd.concat([final_split_surf_frac, individual_split_surf_frac], join = 'inner')
     final_split_df = pd.concat([final_split_df, individual_split_df], join = 'inner')
     split_file_count += 1
-    
-# Outputting specified files
-
-
 
 ################################ 4th part of script ################################
 ########### Consolidate/process output files into one singular file
+
+# XArray conversion to netCDF output
+
+output_file = f'data/consolidated_outputs/'
+final_split_df_xr = final_split_df.to_xarray()
+print(final_split_df_xr)
+final_split_df_xr.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
+
+final_split_surf_frac_xr = final_split_surf_frac.to_xarray()
+final_split_surf_frac_xr.to_netcdf(path = Path(output_file, site_prefix + '_surf_frac.nc'), mode ='w')
