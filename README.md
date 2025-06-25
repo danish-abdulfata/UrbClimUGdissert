@@ -33,7 +33,3 @@
 │	└── data         # not available in GitHub, see ./supy-lcz-global/data_folder_info.md
 └── tutorial         # preliminary excercises involving UMEP and qGIS
 ```
-
-## Gantt Chart
-
-![Gantt_Chart](./docs/Gantt_Chart.png)
