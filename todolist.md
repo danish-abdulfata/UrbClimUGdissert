@@ -7,7 +7,8 @@ Just to take note of pending tasks and potential further research needed.
 - updated UCL Geography disseration coversheet
 - ENSO neutral year 2017. how to source? justify reasons
 
-- table of data sources: GEE LCZ & ERA5LAND & UN WUB Populatioon , Forest Canopy Data, 
+- table of data sources: GEE LCZ & ERA5LAND & UN WUB Populatioon , Forest Canopy Data,
+	- 48878cf89179b3328dfea9e00e62cd253d05304d commit, what version of SUEWS was this? 	
 
 - 2 scenarios
 	- normal LCZ determined cover fractions
