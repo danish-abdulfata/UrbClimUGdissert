@@ -3,6 +3,8 @@
 ### Questions/Research Needed
 Just to take note of pending tasks and potential further research needed.
 
+- Repository cleanup, removal of unsused files and scripts.
+
 - UHI vs UHI effect, clarify terminology.
 - updated UCL Geography disseration coversheet
 - ENSO neutral year 2017. how to source? justify reasons
