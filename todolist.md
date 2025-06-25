@@ -4,15 +4,14 @@
 Just to take note of pending tasks and potential further research needed.
 
 - UHI vs UHI effect, clarify terminology.
-
-- ENSO neutral year 2017. or follow 2019 paper year (2016) | test different years of the holidays
+- updated UCL Geography disseration coversheet
+- ENSO neutral year 2017. how to source? justify reasons
 
 - table of data sources: GEE LCZ & ERA5LAND & UN WUB Populatioon , Forest Canopy Data, 
 
-- 3 scenarios
+- 2 scenarios
 	- normal LCZ determined cover fractions
-	- counterfactual fully forest cover
-	- modified LCZ for urban heat mitigation
+	- modified surface cover fractions for urban heat mitigation
 
 - What sort of figures?
 	- Summary statistics (table or graph?)
@@ -28,8 +27,6 @@ Just to take note of pending tasks and potential further research needed.
 #### Model Questions
 - Hilly urban areas? How does topography affect calculations in SUEWS.
 - bulk surface temperature vs skin temperature?
-- how to configure model scheme parameters? esp to dwith calculations
-- 
 
 #### Dissertation Writing Questions
 
