@@ -187,10 +187,10 @@ for individual_split_site in split_site_list_df.index:
     print(f"=======> {individual_split_site} completed, #{split_run_count} out of #{number_of_runs} for {site_prefix} <========")
 
 run_split_models_end = time.time()
-runtime = (run_split_models_end - run_split_models_start)
-runtime_in_min = divmod(runtime, 60)
+runtime_models = (run_split_models_end - run_split_models_start)
+runtime_models_in_min = divmod(runtime_models, 60)
 
-print(f"========================> Total runtime: {int(runtime_in_min[0])} min(s) and {runtime_in_min[1]:.2f} sec <========================")
+print(f"========================> Total runtime: {int(runtime_models_in_min[0])} min(s) and {runtime_models_in_min[1]:.2f} sec <========================")
 raise SystemExit()
 try:
     for individual_split_site in split_site_list_df.index:
@@ -328,3 +328,10 @@ final_split_df_xr.to_netcdf(path = Path(output_file, site_prefix + '_consolidate
 
 final_split_surf_frac_xr = final_split_surf_frac.to_xarray()
 final_split_surf_frac_xr.to_netcdf(path = Path(output_file, site_prefix + '_surf_frac.nc'), mode ='w')
+
+run_script_end = time.time()
+runtime_script = (run_script_end - run_split_models_start)
+runtime_script_in_min = divmod(runtime_models, 60)
+
+print(f"========================> Total modelling runtime: {int(runtime_models_in_min[0])} min(s) and {runtime_models_in_min[1]:.2f} sec <========================")
+print(f"========================> Total script runtime: {int(runtime_script_in_min[0])} min(s) and {runtime_script_in_min[1]:.2f} sec <========================")
