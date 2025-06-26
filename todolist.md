@@ -11,8 +11,7 @@ Just to take note of pending tasks and potential further research needed.
 
 - 3 scenarios
 	- normal LCZ determined cover fractions
-	- counterfactual fully forest cover
-	- modified LCZ for urban heat mitigation
+	- modified LCZ for urban heat mitigation - potential alteration of geospatial patterns?
 
 - What sort of figures?
 	- Summary statistics (table or graph?)

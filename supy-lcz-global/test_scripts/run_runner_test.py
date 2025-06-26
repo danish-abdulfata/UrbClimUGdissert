@@ -5,17 +5,19 @@ from pathlib import Path
 from pyproj import CRS
 from pyproj import Transformer
 import xarray as xr
+import errno
+import os
 from runner.runner import main as run_runner
 ############################# Testing for run_split_models.py, 2nd part.
 
 split_runs_start = time.time()
-split_site_list_df = pd.read_csv(Path('resources/KL-KualaLumpur-2017_1Msp_1_splitlist.csv'))
+split_site_list_df = pd.read_csv(Path('resources/GreaterKL-2017_Y1_M2sp_3sf_R1_splitlist.csv'))
 split_site_list_df.index.name = 'sitename'
 number_of_runs = 3
 split_grid_length = 5
 split_grid_area = split_grid_length**2
 split_run_count = 0
-site_prefix = "KL-KualaLumpur-2017_1month_runnertest"
+site_prefix = "GreaterKL-2017_Y1_M2sp_3sf_R1"
 
 # for individual_split_site in site_list:
     # run_runner([individual_split_site,
@@ -58,41 +60,55 @@ site_prefix = "KL-KualaLumpur-2017_1month_runnertest"
 
 # defining list for all variables
 
-# all variables = ['Kdown', 'Kup', 'Ldown', 'Lup', 'Tsurf', 'QN', 'QF', 'QS', 'QH', 'QE', 'QHlumps', 'QElumps', 'QHresis', 'Rain', 'Irr', 'Evap', 'RO', 'TotCh', 'SurfCh', 'State', 'NWtrState', 'Drainage', 'SMD', 'FlowCh', 'AddWater', 'ROSoil', 'ROPipe', 'ROImp', 'ROVeg', 'ROWater', 'WUInt', 'WUEveTr', 'WUDecTr', 'WUGrass', 'SMDPaved', 'SMDBldgs', 'SMDEveTr', 'SMDDecTr', 'SMDGrass', 'SMDBSoil', 'StPaved', 'StBldgs', 'StEveTr', 'StDecTr', 'StGrass', 'StBSoil', 'StWater', 'Zenith', 'Azimuth', 'AlbBulk', 'Fcld', 'LAI', 'z0m', 'zdm', 'UStar', 'Lob', 'RA', 'RS', 'Fc', 'FcPhoto', 'FcRespi', 'FcMetab', 'FcTraff', 'FcBuild', 'FcPoint', 'QNSnowFr', 'QNSnow', 'AlbSnow', 'QM', 'QMFreeze', 'QMRain', 'SWE', 'MeltWater', 'MeltWStore', 'SnowCh', 'SnowRPaved', 'SnowRBldgs', 'Ts', 'T2', 'Q2', 'U10', 'RH2']
+# variable_list = ['Kdown', 'Kup', 'Ldown', 'Lup', 'Tsurf', 'QN', 'QF', 'QS', 'QH', 'QE', 'QHlumps', 'QElumps', 'QHresis', 'Rain', 'Irr', 'Evap', 'RO', 'TotCh', 'SurfCh', 'State', 'NWtrState', 'Drainage', 'SMD', 'FlowCh', 'AddWater', 'ROSoil', 'ROPipe', 'ROImp', 'ROVeg', 'ROWater', 'WUInt', 'WUEveTr', 'WUDecTr', 'WUGrass', 'SMDPaved', 'SMDBldgs', 'SMDEveTr', 'SMDDecTr', 'SMDGrass', 'SMDBSoil', 'StPaved', 'StBldgs', 'StEveTr', 'StDecTr', 'StGrass', 'StBSoil', 'StWater', 'Zenith', 'Azimuth', 'AlbBulk', 'Fcld', 'LAI', 'z0m', 'zdm', 'UStar', 'Lob', 'RA', 'RS', 'Fc', 'FcPhoto', 'FcRespi', 'FcMetab', 'FcTraff', 'FcBuild', 'FcPoint', 'QNSnowFr', 'QNSnow', 'AlbSnow', 'QM', 'QMFreeze', 'QMRain', 'SWE', 'MeltWater', 'MeltWStore', 'SnowCh', 'SnowRPaved', 'SnowRBldgs', 'Ts', 'T2', 'Q2', 'U10', 'RH2'] #full
 
-variable_list = ['Kdown', 'Kup', 'Ldown', 'Lup', 'Tsurf', 'QN', 'QF', 'QS', 'QH', 'QE', 'QHlumps', 'QElumps', 'QHresis', 'Rain', 'Irr', 'Evap', 'RO', 'TotCh', 'SurfCh', 'State', 'NWtrState', 'Drainage', 'SMD', 'FlowCh', 'AddWater', 'ROSoil', 'ROPipe', 'ROImp', 'ROVeg', 'ROWater', 'WUInt', 'WUEveTr', 'WUDecTr', 'WUGrass', 'SMDPaved', 'SMDBldgs', 'SMDEveTr', 'SMDDecTr', 'SMDGrass', 'SMDBSoil', 'StPaved', 'StBldgs', 'StEveTr', 'StDecTr', 'StGrass', 'StBSoil', 'StWater', 'Zenith', 'Azimuth', 'AlbBulk', 'Fcld', 'LAI', 'z0m', 'zdm', 'UStar', 'Lob', 'RA', 'RS', 'Fc', 'FcPhoto', 'FcRespi', 'FcMetab', 'FcTraff', 'FcBuild', 'FcPoint', 'QNSnowFr', 'QNSnow', 'AlbSnow', 'QM', 'QMFreeze', 'QMRain', 'SWE', 'MeltWater', 'MeltWStore', 'SnowCh', 'SnowRPaved', 'SnowRBldgs', 'Ts', 'T2', 'Q2', 'U10', 'RH2']
+variable_list = ['Kdown', 'Kup', 'Ldown', 'Lup', 'Tsurf', 'QN', 'QF', 'QS', 'QH', 'QE', 'QHlumps', 'QElumps', 'QHresis', 'Rain', 'Irr', 'Evap', 'RO', 'TotCh', 'SurfCh', 'State', 'NWtrState', 'Drainage', 'SMD', 'FlowCh', 'AddWater', 'Zenith', 'Azimuth', 'AlbBulk', 'Fcld', 'LAI', 'z0m', 'zdm', 'UStar', 'Lob', 'RA', 'RS', 'Fc', 'FcPhoto', 'FcRespi', 'FcMetab', 'FcTraff', 'FcBuild', 'FcPoint', 'SWE', 'Ts', 'T2', 'Q2', 'U10', 'RH2']
 
 cover_list = ['LCZ1', 'LCZ2', 'LCZ3', 'LCZ4', 'LCZ5', 'LCZ6', 'LCZ7', 'LCZ8', 'LCZ9', 'LCZ10', 'LCZ11', 'LCZ12', 'LCZ13', 'LCZ14', 'LCZ15', 'LCZ16', 'LCZ17', 'Paved (-)', 'Buildings (-)', 'Grass (-)', 'Deciduous trees (-)', 'Evergreen trees (-)', 'Bare soil (-)', 'Water (-)', 'Mean building height (m)', 'Mean vegetation height (m)', 'Albedo (-)', 'Height-to-width ratio (-)', 'Frontal area index buildings (-)', 'Frontal area index deciduous tree (-)', 'Frontal area index evergeen tree (-)']
 
+try:
+    for individual_split_site in split_site_list_df.index:
+        individual_split_path = f'data/{individual_split_site}/output/grid'
+        split_output_file = Path(individual_split_path, 'df_output_uMF_uLCu.h5')
+        split_output_file.exists()
+except:
+    raise OSError(errno.ENOENT, os.strerror(errno.ENOENT), split_output_file)
+else:
+    print(f"Output .h5 files for all runs successfully generated.")
+
 # Intialize dataframes
 
-final_split_df = pd.MultiIndex(levels=[[],[],[],[]],
-                       codes=[[],[],[],[]], names=[u'grid', u'timestamp', u'latitude', u'longitude'])
-                       
+# final_split_df = pd.MultiIndex(levels=[[],[],[],[]],
+                       # codes=[[],[],[],[]], names=[u'grid', u'timestamp', u'latitude', u'longitude'])
+ 
+final_split_df = pd.MultiIndex(levels=[[],[],[]],
+                       codes=[[],[],[]], names=[u'timestamp', u'latitude', u'longitude'])
+
 final_split_df = pd.DataFrame(index = final_split_df, columns = variable_list)
 final_split_df = final_split_df.rename_axis(columns='var')
 
 # converting Index dtypes so xarray converter correctly understands Index values
 
 # grid
-final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[0].astype('int64'), level=0)
+# final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[0].astype('int64'), level=0)
 
 # timestamp
-final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[1].astype('datetime64[ns]'), level=1)
+final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[0].astype('datetime64[ns]'), level=0)
 
 # latitiude and longitude
+final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[1].astype('float64'), level=1)
 final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[2].astype('float64'), level=2)
-final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[3].astype('float64'), level=3)
 
 final_split_df_print = final_split_df.index.dtypes
 print(final_split_df_print)
 
 # raise SystemExit()
 
-final_split_surf_frac = pd.DataFrame(columns = cover_list)
-final_split_surf_frac.index.name = 'grid'
-#print(final_split_df)
-
+final_split_surf_frac = pd.MultiIndex(levels=[[],[]],
+                       codes=[[],[]], names=[u'latitude', u'longitude'])
+                       
+final_split_surf_frac = pd.DataFrame(index = final_split_surf_frac, columns = cover_list)
+print(final_split_surf_frac)
 
 split_metre_length = 1000  * split_grid_length
 split_file_count = 0
@@ -148,44 +164,44 @@ for individual_split_site in split_site_list_df.index:
     split_grid_lon_iter = split_grid_lon * split_latlon_iter
     individual_split_df.set_index([split_grid_lat_iter, split_grid_lon_iter], append = True, inplace = True)
     
-    individual_split_surf_frac.insert(0, 'latitude', split_grid_lat)
-    individual_split_surf_frac.insert(1, 'longitude', split_grid_lon)
-        
-    # changing grid numbers
-    file_grid_number = individual_split_df.index.levels[0]
-    modified_grid_numbers = file_grid_number + (split_file_count * split_grid_area)
-    grid_number_dict = dict(list(zip(file_grid_number.to_list(), modified_grid_numbers.to_list())))
-        
-    individual_split_df.rename(grid_number_dict, level = 'grid', inplace = True)
-    individual_split_surf_frac.rename(index = grid_number_dict, inplace = True)
+    individual_split_surf_frac.set_index([split_grid_lat, split_grid_lon], append = True, inplace = True)
     
-    individual_split_df.index.rename(['grid', 'timestamp', 'latitude', 'longitude'], inplace = True)
+    individual_split_df.reset_index(level=0, drop = True, inplace = True)
+    individual_split_surf_frac.reset_index(level=0, drop = True, inplace = True)
+    
+    individual_split_df.index.rename(['timestamp', 'latitude', 'longitude'], inplace = True)
 
     print(f'Processing output file for {individual_split_name}')
+    
     # merging to final df
     final_split_surf_frac = pd.concat([final_split_surf_frac, individual_split_surf_frac], join = 'inner')
     final_split_df = pd.concat([final_split_df, individual_split_df], join = 'inner')
     split_file_count += 1
     
-    if split_file_count == 4: # running for the first 4 files only.
-        print(final_split_df.index)
-        print(final_split_df)
-        print(final_split_surf_frac)
-        print(final_split_surf_frac.index)
-        break
-        
+    # if split_file_count == 4: # running for the first 4 files only.
+        # print(final_split_df.index)
+        # print(final_split_df)
+        # print(final_split_surf_frac)
+        # print(final_split_surf_frac.index)
+        # break 
 # XArray conversion to netCDF output
 
-output_file = f'data/consolidated_outputs/'
-final_split_df_xr = final_split_df.to_xarray()
-print(final_split_df_xr)
-final_split_df_xr.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
+output_file = 'data/consolidated_outputs/'
 
-final_split_surf_frac_xr = final_split_surf_frac.to_xarray()
-final_split_surf_frac_xr.to_netcdf(path = Path(output_file, site_prefix + '_surf_frac.nc'), mode ='w')
+# hdf5 testing
 
-# final_split_df.to_xarray()
-# final_split_surf_frac.to_xarray()
+# final_split_df.to_hdf(Path(output_file, site_prefix + '_consolidated.h5'), key='df', mode = 'w')
+
+final_split_ds = xr.Dataset.from_dataframe(final_split_df)
+del final_split_df
+
+final_split_ds.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
+
+
+# final_split_df.to_xarray(Path(output_file, site_prefix + '_consolidated.nc'), key='df', mode = 'w')
+
+# final_split_surf_frac_xr = final_split_surf_frac.to_xarray()
+# final_split_surf_frac_xr.to_netcdf(path = Path(output_file, site_prefix + '_surf_frac.nc'), mode ='w')
 
 
 

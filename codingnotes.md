@@ -24,16 +24,12 @@ Git Overleaf Update
 
 AFTER RUNNING PUSH LCOAL REPO TO MAIN.
 
-MODEL RUN TESTING
+## MAIN ISSUE:
 
-FIRST RUN: 
-python -m runner.runner KL-KualaLumpurTest --run-type grid --grid-size 1000 --grid-boxes 20 --metforc-src era5land --urbdesc-src lcz_updated --sitelist sitelist_custom --download-era5
-
-python -m test_scripts.structure_grid_output C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\data\KL-KualaLumpurTest\output\grid\df_output_uMF_uLCu.h5 --dx 1000 --lat 3.056577 --lon 101.617373
-
-python -m runner.runner CH-Shanghai --run-type grid --grid-size 1000 --grid-boxes 5 --metforc-src era5land --urbdesc-src lcz_updated --sitelist sitelist_custom --download-era5 --do-spinup
-
-wslpath 
++ Using available Pandas to Xarray converters for HDF5 to netCDF leads to memory overload.
+	- There are 2 options:
+		1.  Stick with the current code that produces the HDF5 file and continue splicing through Pandas
+		2.	Rewrite code to start with Xarray from the start.
 
 cd /mnt/c/Users/Danish/Documents/GitHub/UrbClimUGdissert/supy-lcz-global
 micromamba activate supy_lcz

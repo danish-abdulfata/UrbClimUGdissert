@@ -190,12 +190,11 @@ run_split_models_end = time.time()
 runtime_models = (run_split_models_end - run_split_models_start)
 runtime_models_in_min = divmod(runtime_models, 60)
 
-print(f"========================> Total runtime: {int(runtime_models_in_min[0])} min(s) and {runtime_models_in_min[1]:.2f} sec <========================")
-raise SystemExit()
+print(f"========================> Total model runtime: {int(runtime_models_in_min[0])} min(s) and {runtime_models_in_min[1]:.2f} sec <========================")
+# raise SystemExit()
 try:
     for individual_split_site in split_site_list_df.index:
-        individual_split_name = split_site_list_df.iloc[individual_split_site, 0]
-        individual_split_path = f'data/{individual_split_name}/output/grid'
+        individual_split_path = f'data/{individual_split_site}/output/grid'
         split_output_file = individual_split_path / 'df_output_uMF_uLCu.h5'
         split_output_file.exists()
 except:
@@ -203,8 +202,8 @@ except:
 else:
     print(f"Output .h5 files for all {number_of_runs} runs successfully generated.")
     
-################################ 3rd part of script ################################
-########### Consolidate/process output files into one singular file
+############################## 3rd part of script ################################
+######### Consolidate/process output files into one singular file
 
 # Initializing final dataframes with specified index levels and column labels
 
@@ -309,7 +308,7 @@ for individual_split_site in split_site_list_df.index:
     
     individual_split_df.index.rename(final_index_names, inplace = True) # renames index columns to match final df for merging
 
-    print(f"Processed output file for {individual_split_name}")
+    print(f"Processed output file of {individual_split_name}")
     
     # merging to final df for further processing
     final_split_surf_frac = pd.concat([final_split_surf_frac, individual_split_surf_frac], join = 'inner')
