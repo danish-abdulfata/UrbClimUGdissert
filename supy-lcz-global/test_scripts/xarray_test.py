@@ -21,6 +21,7 @@ output_file = './data/consolidated_outputs/'
 
 final_split_df = pd.read_hdf(Path(output_file, site_prefix + '_consolidated.h5'))
 
+print(final_split_df)
 # final_split_df.to_xarray(Path(output_file, site_prefix + '_consolidated.nc'), key='df', mode = 'w')
 
 final_split_ds = xr.Dataset.from_dataframe(final_split_df, sparse=True)

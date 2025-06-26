@@ -99,8 +99,7 @@ final_split_df.index = final_split_df.index.set_levels(final_split_df.index.leve
 final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[1].astype('float64'), level=1)
 final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[2].astype('float64'), level=2)
 
-final_split_df_print = final_split_df.index.dtypes
-print(final_split_df_print)
+print(final_split_df.index.dtypes)
 
 # raise SystemExit()
 
@@ -190,8 +189,14 @@ output_file = 'data/consolidated_outputs/'
 
 # hdf5 testing
 
+print(final_split_df)
+print(final_split_df.index)
+
 final_split_df.to_hdf(Path(output_file, site_prefix + '_consolidated.h5'), key='df', mode = 'w')
-final_split_surf_frac.to_csv(Path(output_file, site_prefix + 'surffrac_consolidated.csv'), mode = 'w')
+final_split_surf_frac.to_csv(Path(output_file, site_prefix + 'surffrac_consolidated.csv'), mode = 'w', index_label = ("latitude", "longitude"))
+
+final_split_test = pd.read_hdf(Path(output_file, site_prefix + '_consolidated.h5'))
+print(final_split_test.index)
 
 
 
