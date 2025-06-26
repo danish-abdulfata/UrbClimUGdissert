@@ -195,10 +195,5 @@ final_split_surf_frac.to_csv(Path(output_file, site_prefix + 'surffrac_consolida
 
 
 
-# final_split_df.to_xarray(Path(output_file, site_prefix + '_consolidated.nc'), key='df', mode = 'w')
-
-# final_split_surf_frac_xr = final_split_surf_frac.to_xarray()
-# final_split_surf_frac_xr.to_netcdf(path = Path(output_file, site_prefix + '_surf_frac.nc'), mode ='w')
-
 
 
