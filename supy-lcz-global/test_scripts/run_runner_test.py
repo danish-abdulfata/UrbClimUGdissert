@@ -190,12 +190,9 @@ output_file = 'data/consolidated_outputs/'
 
 # hdf5 testing
 
-# final_split_df.to_hdf(Path(output_file, site_prefix + '_consolidated.h5'), key='df', mode = 'w')
+final_split_df.to_hdf(Path(output_file, site_prefix + '_consolidated.h5'), key='df', mode = 'w')
+final_split_surf_frac.to_csv(Path(output_file, site_prefix + 'surffrac_consolidated.csv'), mode = 'w')
 
-final_split_ds = xr.Dataset.from_dataframe(final_split_df)
-del final_split_df
-
-final_split_ds.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
 
 
 # final_split_df.to_xarray(Path(output_file, site_prefix + '_consolidated.nc'), key='df', mode = 'w')

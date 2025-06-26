@@ -325,9 +325,12 @@ final_split_df_xr = final_split_df.to_xarray()
 print(final_split_df_xr)
 final_split_df_xr.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
 
-final_split_surf_frac_xr = final_split_surf_frac.to_xarray()
 final_split_surf_frac_xr.to_netcdf(path = Path(output_file, site_prefix + '_surf_frac.nc'), mode ='w')
 
+
+
+
+# Final Touches
 run_script_end = time.time()
 runtime_script = (run_script_end - run_split_models_start)
 runtime_script_in_min = divmod(runtime_models, 60)
