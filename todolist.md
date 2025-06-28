@@ -6,34 +6,33 @@ Just to take note of pending tasks and potential further research needed.
 - Repository cleanup, removal of unsused files and scripts.
 
 - UHI vs UHI effect, clarify terminology.
+
+# Supervision questions
+- For Sure 2017?
 - updated UCL Geography disseration coversheet
-- ENSO neutral year 2017. how to source? justify reasons
+- Preface section?
 
-- table of data sources: GEE LCZ & ERA5LAND & UN WUB Populatioon , Forest Canopy Data,
-	- 48878cf89179b3328dfea9e00e62cd253d05304d commit, what version of SUEWS was this? 	
 
+#### Model Questions
 - 2 scenarios
 	- normal LCZ determined cover fractions
 	- modified surface cover fractions for urban heat mitigation
 
-- What sort of figures?
-	- Summary statistics (table or graph?)
-	- For testing:
+- Hilly urban areas? How does topography affect calculations in SUEWS.
+- bulk surface temperature vs skin temperature?
+- 	- For testing:
 		- graphs showing peak T2 over a day
 		- Water and Energy fluxes?
 			- anthroprogenic heat influences?
 			- rainfall?
 			- variables for wet bulb calculations? (air temp, wind, rel humidity)
-	- Site Area outline, elevation and satellite?, LCZ covers.
-	- 
-
-#### Model Questions
-- Hilly urban areas? How does topography affect calculations in SUEWS.
-- bulk surface temperature vs skin temperature?
 
 #### Dissertation Writing Questions
 
-- General writing tips?
+- What sort of figures?
+	- Summary statistics (table or graph?)
+	- Site Area outline, elevation and satellite?, LCZ covers.
+	- 
 - Basic equations, include SUEWS figures.
 
 
