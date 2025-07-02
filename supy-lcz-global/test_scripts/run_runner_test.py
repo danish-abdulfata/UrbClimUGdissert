@@ -1,13 +1,13 @@
-import time
+# import time
 import pandas as pd
 import numpy as np
 from pathlib import Path
 from pyproj import CRS
 from pyproj import Transformer
-import xarray as xr
-import errno
-import os
-from runner.runner import main as run_runner
+# import xarray as xr
+# import errno
+# import os
+# from runner.runner import main as run_runner
 ############################# Testing for run_split_models.py, 2nd part.
 
 split_runs_start = time.time()
@@ -171,6 +171,11 @@ for individual_split_site in split_site_list_df.index:
     individual_split_df.index.rename(['timestamp', 'latitude', 'longitude'], inplace = True)
 
     print(f'Processing output file for {individual_split_name}')
+
+    
+
+
+
     
     # merging to final df
     final_split_surf_frac = pd.concat([final_split_surf_frac, individual_split_surf_frac], join = 'inner')
