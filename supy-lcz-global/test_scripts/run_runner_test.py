@@ -172,11 +172,6 @@ for individual_split_site in split_site_list_df.index:
 
     print(f'Processing output file for {individual_split_name}')
 
-    
-
-
-
-    
     # merging to final df
     final_split_surf_frac = pd.concat([final_split_surf_frac, individual_split_surf_frac], join = 'inner')
     final_split_df = pd.concat([final_split_df, individual_split_df], join = 'inner')
@@ -188,6 +183,7 @@ for individual_split_site in split_site_list_df.index:
         # print(final_split_surf_frac)
         # print(final_split_surf_frac.index)
         # break 
+
 # XArray conversion to netCDF output
 
 output_file = 'data/consolidated_outputs/'
