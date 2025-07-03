@@ -7,13 +7,17 @@ Just to take note of pending tasks and potential further research needed.
 
 - UHI vs UHI effect, clarify terminology.
 
+
 # Supervision questions
-- For Sure 2017?
 - updated UCL Geography disseration coversheet
 - Preface section?
 
 
 #### Model Questions
+- add latlon before final output file instead of doing it at the start
+- split processing to individual variables?
+
+
 - 2 scenarios
 	- normal LCZ determined cover fractions
 	- modified surface cover fractions for urban heat mitigation
