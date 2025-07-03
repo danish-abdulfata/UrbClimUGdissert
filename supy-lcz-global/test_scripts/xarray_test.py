@@ -1,4 +1,4 @@
-import os
+# import os
 import pandas as pd
 import numpy as np
 from pathlib import Path
@@ -6,7 +6,7 @@ from pyproj import CRS
 from pyproj import Transformer
 import xarray as xr
 
-os.chdir('/home/zcfaada@ad.ucl.ac.uk/Documents/UrbClimUGdissert/supy-lcz-global')
+# os.chdir('/home/zcfaada@ad.ucl.ac.uk/Documents/UrbClimUGdissert/supy-lcz-global')
 
 split_site_list_df = pd.read_csv(Path('resources/GreaterKL-2017_Y1_M2sp_3sf_R1_splitlist.csv'))
 split_site_list_df.index.name = 'sitename'
@@ -14,6 +14,8 @@ split_site_list_df.index.name = 'sitename'
 site_prefix = "GreaterKL-2017_Y1_M2sp_3sf_R1"
 output_file = './data/consolidated_outputs/'
 variable_list = ['Tsurf', 'QN', 'QF', 'QS', 'QH', 'QE', 'QHlumps', 'QElumps', 'QHresis', 'AlbBulk', 'Fc', 'Ts', 'T2', 'Q2', 'U10', 'RH2']
+cover_list = ['LCZ1', 'LCZ2', 'LCZ3', 'LCZ4', 'LCZ5', 'LCZ6', 'LCZ7', 'LCZ8', 'LCZ9', 'LCZ10', 'LCZ11', 'LCZ12', 'LCZ13', 'LCZ14', 'LCZ15', 'LCZ16', 'LCZ17', 'Paved (-)', 'Buildings (-)', 'Grass (-)', 'Deciduous trees (-)', 'Evergreen trees (-)', 'Bare soil (-)', 'Water (-)', 'Mean building height (m)', 'Mean vegetation height (m)', 'Albedo (-)', 'Height-to-width ratio (-)', 'Frontal area index buildings (-)', 'Frontal area index deciduous tree (-)', 'Frontal area index evergeen tree (-)']
+
 split_grid_length = 5
 split_metre_length = 1000  * split_grid_length
 split_file_count = 0
@@ -27,13 +29,14 @@ final_split_df = final_split_df.rename_axis(columns='var')
 
 final_split_surf_frac = pd.MultiIndex(levels=[[],[]],
                        codes=[[],[]], names=[u'latitude', u'longitude'])
+final_split_surf_frac = pd.DataFrame(index = final_split_surf_frac, columns = cover_list)
 
 grid_number_coord = {}
 
 # grid and timestamp format for xarray to understand
 
 final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[0].astype('int64'), level=0)
-final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[0].astype('datetime64[ns]'), level=0)
+final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[1].astype('datetime64[ns]'), level=1)
 
 for individual_split_site in split_site_list_df.index:
 
@@ -91,17 +94,16 @@ for individual_split_site in split_site_list_df.index:
     individual_split_df.index.rename(['grid', 'timestamp'], inplace = True)
 
     individual_split_surf_frac.set_index([split_grid_lat, split_grid_lon], append = True, inplace = True)
-    individual_split_surf_frac.reset_index(level=0, drop = True, inplace = True)
 
     print(f'Processing output file for {individual_split_name}')
 
     # merging to final df
-    # final_split_surf_frac = pd.concat([final_split_surf_frac, individual_split_surf_frac], join = 'inner')
+    final_split_surf_frac = pd.concat([final_split_surf_frac, individual_split_surf_frac], join = 'inner')
     final_split_df = pd.concat([final_split_df, individual_split_df], join = 'inner')
     
     split_file_count += 1
 
-final_split_ds  = xr.Dataset.from_dataframe(final_split_df) # i
+final_split_ds  = xr.Dataset.from_dataframe(final_split_df)
 
 print(final_split_ds)
 final_split_ds.to_netcdf(path = Path(output_file, site_prefix + '_consolidatedtest.nc'), mode ='w')
