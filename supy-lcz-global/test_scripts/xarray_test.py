@@ -1,4 +1,4 @@
-# import os
+import os
 import pandas as pd
 import numpy as np
 from pathlib import Path
@@ -7,8 +7,9 @@ from pyproj import Transformer
 import xarray as xr
 
 # os.chdir('/home/zcfaada@ad.ucl.ac.uk/Documents/UrbClimUGdissert/supy-lcz-global')
+os.chdir(r"C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global")
 
-split_site_list_df = pd.read_csv(Path('resources/GreaterKL-2017_Y1_M2sp_3sf_R1_splitlist.csv'))
+split_site_list_df = pd.read_csv(Path('./resources/GreaterKL-2017_Y1_M2sp_3sf_R1_splitlist.csv'))
 split_site_list_df.index.name = 'sitename'
 
 site_prefix = "GreaterKL-2017_Y1_M2sp_3sf_R1"
@@ -31,12 +32,11 @@ final_split_surf_frac = pd.MultiIndex(levels=[[],[],[]],
                        codes=[[],[],[]], names=[u'grid', u'latitude', u'longitude'])
 final_split_surf_frac = pd.DataFrame(index = final_split_surf_frac, columns = cover_list)
 
-#grid_number_coord = {}
-
 # grid and timestamp format for xarray to understand
 
 final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[0].astype('int64'), level=0)
 final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[1].astype('datetime64[ns]'), level=1)
+
 
 for individual_split_site in split_site_list_df.index:
 
@@ -103,11 +103,22 @@ for individual_split_site in split_site_list_df.index:
     
     split_file_count += 1
 
-final_split_ds  = xr.Dataset.from_dataframe(final_split_df)
+
+final_split_df.to_hdf(Path(output_file, site_prefix + '_consolidated.h5'), key='df', mode = 'w')
+
+final_split_ds = xr.Dataset.from_dataframe(final_split_df)
+
+# weird ahh code - obtaining coordinates from a converted ds from the surf_frac df, which were then cleaned afterwards for the desired coordinate structure with latlon
+
+final_surffrac_ds = xr.Dataset.from_dataframe(final_split_surf_frac)
+final_split_ds = final_split_ds.assign_coords(xr.Coordinates(final_surffrac_ds.coords))
+
+final_split_ds = final_split_ds.reset_index("level_0", drop = True)
+final_split_ds = final_split_ds.rename({"level_1": "latitude", "level_2": "longitude"})
 
 print(final_split_ds)
 final_split_ds.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
 
-print(final_split_surf_frac.index)
-final_split_surf_frac.to_csv(Path(output_file, site_prefix + 'surffrac_consolidated.csv'), mode = 'w', index_label = ("grid", "latitude", "longitude"))
+# print(final_split_surf_frac.index)
+final_split_surf_frac.to_csv(Path(output_file, site_prefix + '_attributes.csv'), mode = 'w', index_label = ("grid", "latitude", "longitude"))
 

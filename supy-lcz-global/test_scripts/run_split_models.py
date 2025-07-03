@@ -42,27 +42,40 @@ site_grid_length = 40
 split_factor = 3
 
 # What variables should be saved?
-    # Full Variable List = ['Kdown', 'Kup', 'Ldown', 'Lup', 'Tsurf', 'QN', 'QF', 'QS', 'QH', 'QE', 'QHlumps', 'QElumps', 'QHresis', 'Rain', 
-                    # 'Irr', 'Evap', 'RO', 'TotCh', 'SurfCh', 'State', 'NWtrState', 'Drainage', 'SMD', 'FlowCh', 'AddWater', 
-                    # 'ROSoil', 'ROPipe', 'ROImp', 'ROVeg', 'ROWater', 'WUInt', 'WUEveTr', 'WUDecTr', 'WUGrass', 'SMDPaved', 
-                    # 'SMDBldgs', 'SMDEveTr', 'SMDDecTr', 'SMDGrass', 'SMDBSoil', 'StPaved', 'StBldgs', 'StEveTr', 'StDecTr', 
-                    # 'StGrass', 'StBSoil', 'StWater', 'Zenith', 'Azimuth', 'AlbBulk', 'Fcld', 'LAI', 'z0m', 'zdm', 'UStar', 
-                    # 'Lob', 'RA', 'RS', 'Fc', 'FcPhoto', 'FcRespi', 'FcMetab', 'FcTraff', 'FcBuild', 'FcPoint', 'QNSnowFr', 
-                    # 'QNSnow', 'AlbSnow', 'QM', 'QMFreeze', 'QMRain', 'SWE', 'MeltWater', 'MeltWStore', 'SnowCh', 'SnowRPaved', 
-                    # 'SnowRBldgs', 'Ts', 'T2', 'Q2', 'U10', 'RH2']
+"""
+    Full Variable List 
+    
+    ['Kdown', 'Kup', 'Ldown', 'Lup', 'Tsurf', 'QN', 'QF', 'QS', 'QH', 'QE', 'QHlumps', 'QElumps', 'QHresis', 'Rain', 
+                    'Irr', 'Evap', 'RO', 'TotCh', 'SurfCh', 'State', 'NWtrState', 'Drainage', 'SMD', 'FlowCh', 'AddWater', 
+                    'ROSoil', 'ROPipe', 'ROImp', 'ROVeg', 'ROWater', 'WUInt', 'WUEveTr', 'WUDecTr', 'WUGrass', 'SMDPaved', 
+                    'SMDBldgs', 'SMDEveTr', 'SMDDecTr', 'SMDGrass', 'SMDBSoil', 'StPaved', 'StBldgs', 'StEveTr', 'StDecTr', 
+                    'StGrass', 'StBSoil', 'StWater', 'Zenith', 'Azimuth', 'AlbBulk', 'Fcld', 'LAI', 'z0m', 'zdm', 'UStar', 
+                    'Lob', 'RA', 'RS', 'Fc', 'FcPhoto', 'FcRespi', 'FcMetab', 'FcTraff', 'FcBuild', 'FcPoint', 'QNSnowFr', 
+                    'QNSnow', 'AlbSnow', 'QM', 'QMFreeze', 'QMRain', 'SWE', 'MeltWater', 'MeltWStore', 'SnowCh', 'SnowRPaved', 
+                    'SnowRBldgs', 'Ts', 'T2', 'Q2', 'U10', 'RH2']
+    
+    https://suews.readthedocs.io/en/latest/output_files/output_files.html, variable meanings
 
-    # model 'SUEWS' outputs
+"""
+    # 'SUEWS' model outputs
 variable_list = ['Tsurf', 'QN', 'QF', 'QS', 'QH', 'QE', 'QHlumps', 'QElumps', 'QHresis', 'AlbBulk', 'Fc', 'Ts', 'T2', 'Q2', 'U10', 'RH2']
-    # https://suews.readthedocs.io/en/latest/output_files/output_files.html, variable meanings
+
 
     # cover fractions of  model grids
-cover_list = ['LCZ1', 'LCZ2', 'LCZ3', 'LCZ4', 'LCZ5', 'LCZ6', 'LCZ7', 'LCZ8', 'LCZ9', 'LCZ10', 'LCZ11', 'LCZ12', 'LCZ13', 'LCZ14', 'LCZ15', 'LCZ16', 'LCZ17',
-                'Paved (-)', 'Buildings (-)', 'Grass (-)', 'Deciduous trees (-)', 'Evergreen trees (-)', 'Bare soil (-)', 'Water (-)', 'Mean building height (m)', 'Mean vegetation height (m)', 'Albedo (-)', 'Height-to-width ratio (-)', 'Frontal area index buildings (-)', 'Frontal area index deciduous tree (-)', 'Frontal area index evergeen tree (-)']
+cover_list = ['LCZ1', 'LCZ2', 'LCZ3', 'LCZ4', 'LCZ5', 'LCZ6', 'LCZ7', 'LCZ8', 'LCZ9', 'LCZ10', 
+              'LCZ11', 'LCZ12', 'LCZ13', 'LCZ14', 'LCZ15', 'LCZ16', 'LCZ17',
+              'Paved (-)', 'Buildings (-)', 'Grass (-)', 'Deciduous trees (-)', 'Evergreen trees (-)', 'Bare soil (-)', 
+              'Water (-)', 'Mean building height (m)', 'Mean vegetation height (m)', 'Albedo (-)', 'Height-to-width ratio (-)', 
+              'Frontal area index buildings (-)', 'Frontal area index deciduous tree (-)', 'Frontal area index evergeen tree (-)']
 
-# ------------------------------------------------ script starts here --------------------------------------------------
+# ------------------------------------------------------ script starts here ------------------------------------------------------
 
-################################ 1st part of script ################################
+
+
+##################################################### 1st part of script #####################################################
 ########### Processing input paramaters
+
+
 
 run_split_models_start = time.time()
 
@@ -160,11 +173,13 @@ except:
     raise Exception(f"----> {site_prefix}_custom.csv failed to generate")
 else:
     print(f"--------> {site_prefix}_custom.csv successfully created. Starting SuPy models...")
-    
-# raise SystemExit()
+
+
 
 ##################################################### 2nd part of script #####################################################
 ########### Run SuPy runner.runner script for all split sites using processed inputs.
+
+
 
 # modified from batch_simulations_buffer.py
 
@@ -197,11 +212,16 @@ except:
 else:
     print(f"Output .h5 files for all {number_of_runs} runs successfully generated.")
     
+
+
 ##################################################### 3rd part of script #####################################################
 ######### Consolidate/process output files into one singular file
 
+
+
 split_metre_length = 1000  * split_grid_length
 split_file_count = 0
+output_file = './data/consolidated_outputs/'
 
 final_split_df = pd.MultiIndex(levels=[[],[]],
                        codes=[[],[]], names=[u'grid', u'timestamp'])
@@ -292,14 +312,10 @@ print(final_split_surf_frac.index)
 final_split_surf_frac.to_csv(Path(output_file, site_prefix + 'surffrac_consolidated.csv'), mode = 'w', index_label = ("grid", "latitude", "longitude"))
 
 
-
-################################ 4th part of script ################################
-########### File conversions
-
-# Final Touches
+# Final countdown
 run_script_end = time.time()
 runtime_script = (run_script_end - run_split_models_start)
 runtime_script_in_min = divmod(runtime_models, 60)
 
-print(f"========================> Total modelling runtime: {int(runtime_models_in_min[0])} min(s) and {runtime_models_in_min[1]:.2f} sec <========================")
+print(f"========================> Total model runtime: {int(runtime_models_in_min[0])} min(s) and {runtime_models_in_min[1]:.2f} sec <========================")
 print(f"========================> Total script runtime: {int(runtime_script_in_min[0])} min(s) and {runtime_script_in_min[1]:.2f} sec <========================")
