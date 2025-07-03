@@ -111,6 +111,7 @@ split_metre_length = 1000  * split_grid_length
 split_file_count = 0
 
 # rewrite forloop to read files per variable column instead of all variables at once?
+# convert to xarray at the split file level and concat as dataset instead of using pandas
 
 for individual_split_site in split_site_list_df.index:
 
@@ -190,13 +191,11 @@ output_file = 'data/consolidated_outputs/'
 
 # hdf5 testing
 
-print(final_split_df)
 print(final_split_df.index)
-
-final_split_df.to_hdf(Path(output_file, site_prefix + '_consolidated.h5'), key='df', mode = 'w')
 final_split_surf_frac.to_csv(Path(output_file, site_prefix + 'surffrac_consolidated.csv'), mode = 'w', index_label = ("latitude", "longitude"))
 
-final_split_test = pd.read_hdf(Path(output_file, site_prefix + '_consolidated.h5'))
+print(final_split_df)
+final_split_df.to_hdf(Path(output_file, site_prefix + '_consolidated.h5'), key='df', mode = 'w')
 
 final_split_ds = xr.Dataset.from_dataframe(final_split_df)
 print(final_split_ds)
