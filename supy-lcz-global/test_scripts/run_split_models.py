@@ -305,11 +305,25 @@ for individual_split_site in split_site_list_df.index:
 
 final_split_ds  = xr.Dataset.from_dataframe(final_split_df)
 
+
+final_split_df.to_hdf(Path(output_file, site_prefix + '_consolidated.h5'), key='df', mode = 'w')
+final_split_surf_frac.to_csv(Path(output_file, site_prefix + '_attributes.csv'), mode = 'w', index_label = ("grid", "latitude", "longitude"))
+
+
+# netCDF conversion
+# VERY weird code - there's probably a better way to do this
+# obtaining coordinates from a converted ds of the surf_frac df, which were then cleaned afterwards for the desired coordinate structure with latlon
+
+final_split_ds = xr.Dataset.from_dataframe(final_split_df)
+
+final_surffrac_ds = xr.Dataset.from_dataframe(final_split_surf_frac) # there's no way this is the best way to get the latlon data
+final_split_ds = final_split_ds.assign_coords(xr.Coordinates(final_surffrac_ds.coords))
+
+final_split_ds = final_split_ds.reset_index("level_0", drop = True)
+final_split_ds = final_split_ds.rename({"level_1": "latitude", "level_2": "longitude"})
+
 print(final_split_ds)
 final_split_ds.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
-
-print(final_split_surf_frac.index)
-final_split_surf_frac.to_csv(Path(output_file, site_prefix + 'surffrac_consolidated.csv'), mode = 'w', index_label = ("grid", "latitude", "longitude"))
 
 
 # Final countdown

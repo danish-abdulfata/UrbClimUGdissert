@@ -87,6 +87,9 @@ for individual_split_site in split_site_list_df.index:
     modified_grid_numbers = file_grid_number + (split_file_count * split_grid_area)
     grid_number_dict = dict(list(zip(file_grid_number.to_list(), modified_grid_numbers.to_list())))
     
+    for grid_num, lat, lon in zip(modified_grid_numbers, split_grid_lat, split_grid_lon):
+        grid_number_coord[grid_num] = (lat, lon)
+    
     individual_split_df.rename(grid_number_dict, level = 'grid', inplace = True)
     individual_split_df.index.rename(['grid', 'timestamp'], inplace = True)
 
@@ -105,12 +108,19 @@ for individual_split_site in split_site_list_df.index:
 
 
 final_split_df.to_hdf(Path(output_file, site_prefix + '_consolidated.h5'), key='df', mode = 'w')
+final_split_surf_frac.to_csv(Path(output_file, site_prefix + '_attributes.csv'), mode = 'w', index_label = ("grid", "latitude", "longitude"))
+
+
+# netCDF conversion
+# VERY weird code - there's probably a better way to do this
+# obtaining coordinates from a converted ds of the surf_frac df, which were then cleaned afterwards for the desired coordinate structure with latlon
+
+# directly using multindex for coords leads to weird multidimensional coord nonsense 
+# using the for loop is unnecessary since even after creating the dictionary/list 
 
 final_split_ds = xr.Dataset.from_dataframe(final_split_df)
 
-# weird ahh code - obtaining coordinates from a converted ds from the surf_frac df, which were then cleaned afterwards for the desired coordinate structure with latlon
-
-final_surffrac_ds = xr.Dataset.from_dataframe(final_split_surf_frac)
+final_surffrac_ds = xr.Dataset.from_dataframe(final_split_surf_frac) # there's no way this is the best way to get the latlon data
 final_split_ds = final_split_ds.assign_coords(xr.Coordinates(final_surffrac_ds.coords))
 
 final_split_ds = final_split_ds.reset_index("level_0", drop = True)
@@ -119,6 +129,4 @@ final_split_ds = final_split_ds.rename({"level_1": "latitude", "level_2": "longi
 print(final_split_ds)
 final_split_ds.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
 
-# print(final_split_surf_frac.index)
-final_split_surf_frac.to_csv(Path(output_file, site_prefix + '_attributes.csv'), mode = 'w', index_label = ("grid", "latitude", "longitude"))
 
