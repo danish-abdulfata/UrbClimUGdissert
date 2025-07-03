@@ -62,7 +62,7 @@ site_prefix = "GreaterKL-2017_Y1_M2sp_3sf_R1"
 
 # variable_list = ['Kdown', 'Kup', 'Ldown', 'Lup', 'Tsurf', 'QN', 'QF', 'QS', 'QH', 'QE', 'QHlumps', 'QElumps', 'QHresis', 'Rain', 'Irr', 'Evap', 'RO', 'TotCh', 'SurfCh', 'State', 'NWtrState', 'Drainage', 'SMD', 'FlowCh', 'AddWater', 'ROSoil', 'ROPipe', 'ROImp', 'ROVeg', 'ROWater', 'WUInt', 'WUEveTr', 'WUDecTr', 'WUGrass', 'SMDPaved', 'SMDBldgs', 'SMDEveTr', 'SMDDecTr', 'SMDGrass', 'SMDBSoil', 'StPaved', 'StBldgs', 'StEveTr', 'StDecTr', 'StGrass', 'StBSoil', 'StWater', 'Zenith', 'Azimuth', 'AlbBulk', 'Fcld', 'LAI', 'z0m', 'zdm', 'UStar', 'Lob', 'RA', 'RS', 'Fc', 'FcPhoto', 'FcRespi', 'FcMetab', 'FcTraff', 'FcBuild', 'FcPoint', 'QNSnowFr', 'QNSnow', 'AlbSnow', 'QM', 'QMFreeze', 'QMRain', 'SWE', 'MeltWater', 'MeltWStore', 'SnowCh', 'SnowRPaved', 'SnowRBldgs', 'Ts', 'T2', 'Q2', 'U10', 'RH2'] #full
 
-variable_list = ['Kdown', 'Kup', 'Ldown', 'Lup', 'Tsurf', 'QN', 'QF', 'QS', 'QH', 'QE', 'QHlumps', 'QElumps', 'QHresis', 'Rain', 'Irr', 'Evap', 'RO', 'TotCh', 'SurfCh', 'State', 'NWtrState', 'Drainage', 'SMD', 'FlowCh', 'AddWater', 'Zenith', 'Azimuth', 'AlbBulk', 'Fcld', 'LAI', 'z0m', 'zdm', 'UStar', 'Lob', 'RA', 'RS', 'Fc', 'FcPhoto', 'FcRespi', 'FcMetab', 'FcTraff', 'FcBuild', 'FcPoint', 'SWE', 'Ts', 'T2', 'Q2', 'U10', 'RH2']
+variable_list = ['Tsurf', 'QN', 'QF', 'QS', 'QH', 'QE', 'QHlumps', 'QElumps', 'QHresis', 'AlbBulk', 'Fc', 'Ts', 'T2', 'Q2', 'U10', 'RH2']
 
 cover_list = ['LCZ1', 'LCZ2', 'LCZ3', 'LCZ4', 'LCZ5', 'LCZ6', 'LCZ7', 'LCZ8', 'LCZ9', 'LCZ10', 'LCZ11', 'LCZ12', 'LCZ13', 'LCZ14', 'LCZ15', 'LCZ16', 'LCZ17', 'Paved (-)', 'Buildings (-)', 'Grass (-)', 'Deciduous trees (-)', 'Evergreen trees (-)', 'Bare soil (-)', 'Water (-)', 'Mean building height (m)', 'Mean vegetation height (m)', 'Albedo (-)', 'Height-to-width ratio (-)', 'Frontal area index buildings (-)', 'Frontal area index deciduous tree (-)', 'Frontal area index evergeen tree (-)']
 
@@ -101,8 +101,6 @@ final_split_df.index = final_split_df.index.set_levels(final_split_df.index.leve
 
 print(final_split_df.index.dtypes)
 
-# raise SystemExit()
-
 final_split_surf_frac = pd.MultiIndex(levels=[[],[]],
                        codes=[[],[]], names=[u'latitude', u'longitude'])
                        
@@ -111,6 +109,8 @@ print(final_split_surf_frac)
 
 split_metre_length = 1000  * split_grid_length
 split_file_count = 0
+
+# rewrite forloop to read files per variable column instead of all variables at once?
 
 for individual_split_site in split_site_list_df.index:
 
@@ -196,7 +196,12 @@ final_split_df.to_hdf(Path(output_file, site_prefix + '_consolidated.h5'), key='
 final_split_surf_frac.to_csv(Path(output_file, site_prefix + 'surffrac_consolidated.csv'), mode = 'w', index_label = ("latitude", "longitude"))
 
 final_split_test = pd.read_hdf(Path(output_file, site_prefix + '_consolidated.h5'))
-print(final_split_test.index)
+
+final_split_ds = xr.Dataset.from_dataframe(final_split_df)
+print(final_split_ds)
+
+final_split_ds.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
+
 
 
 
