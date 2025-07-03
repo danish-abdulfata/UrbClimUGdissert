@@ -127,7 +127,7 @@ split_midpoint_y = np.linspace(site_y_min, site_y_max, site_split_length + 1, en
 from_utm = Transformer.from_crs(crs_from=crs, crs_to='EPSG:4326')
 split_midpoint_lat, split_midpoint_lon = from_utm.transform(xx=split_midpoint_x, yy=split_midpoint_y)
 
-# repeat latlong to form a 1d grid
+# repeat latlong to form a 2d grid
 split_xx, split_yy = np.meshgrid(split_midpoint_lat, split_midpoint_lon)
 
 # converts flattened nparrays to lists
@@ -229,14 +229,16 @@ final_split_df = pd.MultiIndex(levels=[[],[]],
 final_split_df = pd.DataFrame(index = final_split_df, columns = variable_list)
 final_split_df = final_split_df.rename_axis(columns='var')
 
-final_split_surf_frac = pd.MultiIndex(levels=[[],[],[]],
-                       codes=[[],[],[]], names=[u'grid', u'latitude', u'longitude'])
-final_split_surf_frac = pd.DataFrame(index = final_split_surf_frac, columns = cover_list)
+final_split_surf_frac = pd.DataFrame(columns = cover_list)
+final_split_surf_frac.index.name = 'grid'
 
 # grid and timestamp format for xarray to understand
 
 final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[0].astype('int64'), level=0)
 final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[1].astype('datetime64[ns]'), level=1)
+
+lat_list = []
+lon_list = []
 
 for individual_split_site in split_site_list_df.index:
 
@@ -282,18 +284,21 @@ for individual_split_site in split_site_list_df.index:
 
     split_grid_lat = list(np.ndarray.flatten(split_grid_xx))
     split_grid_lon = list(np.ndarray.flatten(split_grid_yy))
+    
+    lat_list.extend(split_grid_lat) 
+    lon_list.extend(split_grid_lon)
 
     file_grid_number = individual_split_df.index.levels[0]
     modified_grid_numbers = file_grid_number + (split_file_count * split_grid_area)
     grid_number_dict = dict(list(zip(file_grid_number.to_list(), modified_grid_numbers.to_list())))
     
+    
     individual_split_df.rename(grid_number_dict, level = 'grid', inplace = True)
     individual_split_df.index.rename(['grid', 'timestamp'], inplace = True)
 
-    individual_split_df.rename(grid_number_dict, level = 'grid', inplace = True)
-    
     individual_split_surf_frac.rename(index = grid_number_dict, inplace = True)
-    individual_split_surf_frac.set_index([split_grid_lat, split_grid_lon], append = True, inplace = True)
+    individual_split_surf_frac.insert(0, 'latitude', split_grid_lat)
+    individual_split_surf_frac.insert(1, 'longitude', split_grid_lon)
     
     print(f'Processing output file for {individual_split_name}')
 
@@ -303,29 +308,23 @@ for individual_split_site in split_site_list_df.index:
     
     split_file_count += 1
 
-final_split_ds  = xr.Dataset.from_dataframe(final_split_df)
-
 
 final_split_df.to_hdf(Path(output_file, site_prefix + '_consolidated.h5'), key='df', mode = 'w')
-final_split_surf_frac.to_csv(Path(output_file, site_prefix + '_attributes.csv'), mode = 'w', index_label = ("grid", "latitude", "longitude"))
+final_split_surf_frac.to_csv(Path(output_file, site_prefix + '_attributes.csv'), mode = 'w')
 
 
 # netCDF conversion
-# VERY weird code - there's probably a better way to do this
-# obtaining coordinates from a converted ds of the surf_frac df, which were then cleaned afterwards for the desired coordinate structure with latlon
 
 final_split_ds = xr.Dataset.from_dataframe(final_split_df)
 
-final_surffrac_ds = xr.Dataset.from_dataframe(final_split_surf_frac) # there's no way this is the best way to get the latlon data
-final_split_ds = final_split_ds.assign_coords(xr.Coordinates(final_surffrac_ds.coords))
+# lat_array = np.array(lat_list, dtype=np.float64)
 
-final_split_ds = final_split_ds.reset_index("level_0", drop = True)
-final_split_ds = final_split_ds.rename({"level_1": "latitude", "level_2": "longitude"})
+final_split_ds = final_split_ds.assign_coords(latitude = ('grid', lat_list))
+final_split_ds = final_split_ds.assign_coords(longitude = ('grid', lon_list))
+
 
 print(final_split_ds)
 final_split_ds.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
-
-
 # Final countdown
 run_script_end = time.time()
 runtime_script = (run_script_end - run_split_models_start)

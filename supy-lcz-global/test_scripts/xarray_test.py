@@ -17,6 +17,8 @@ output_file = './data/consolidated_outputs/'
 variable_list = ['Tsurf', 'QN', 'QF', 'QS', 'QH', 'QE', 'QHlumps', 'QElumps', 'QHresis', 'AlbBulk', 'Fc', 'Ts', 'T2', 'Q2', 'U10', 'RH2']
 cover_list = ['LCZ1', 'LCZ2', 'LCZ3', 'LCZ4', 'LCZ5', 'LCZ6', 'LCZ7', 'LCZ8', 'LCZ9', 'LCZ10', 'LCZ11', 'LCZ12', 'LCZ13', 'LCZ14', 'LCZ15', 'LCZ16', 'LCZ17', 'Paved (-)', 'Buildings (-)', 'Grass (-)', 'Deciduous trees (-)', 'Evergreen trees (-)', 'Bare soil (-)', 'Water (-)', 'Mean building height (m)', 'Mean vegetation height (m)', 'Albedo (-)', 'Height-to-width ratio (-)', 'Frontal area index buildings (-)', 'Frontal area index deciduous tree (-)', 'Frontal area index evergeen tree (-)']
 
+site_grid_length = 40
+
 split_grid_length = 5
 split_metre_length = 1000  * split_grid_length
 split_file_count = 0
@@ -28,15 +30,16 @@ final_split_df = pd.MultiIndex(levels=[[],[]],
 final_split_df = pd.DataFrame(index = final_split_df, columns = variable_list)
 final_split_df = final_split_df.rename_axis(columns='var')
 
-final_split_surf_frac = pd.MultiIndex(levels=[[],[],[]],
-                       codes=[[],[],[]], names=[u'grid', u'latitude', u'longitude'])
-final_split_surf_frac = pd.DataFrame(index = final_split_surf_frac, columns = cover_list)
+final_split_surf_frac = pd.DataFrame(columns = cover_list)
+final_split_surf_frac.index.name = 'grid'
 
 # grid and timestamp format for xarray to understand
 
 final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[0].astype('int64'), level=0)
 final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[1].astype('datetime64[ns]'), level=1)
 
+lat_list = []
+lon_list = []
 
 for individual_split_site in split_site_list_df.index:
 
@@ -82,21 +85,21 @@ for individual_split_site in split_site_list_df.index:
 
     split_grid_lat = list(np.ndarray.flatten(split_grid_xx))
     split_grid_lon = list(np.ndarray.flatten(split_grid_yy))
+    
+    lat_list.extend(split_grid_lat) 
+    lon_list.extend(split_grid_lon)
 
     file_grid_number = individual_split_df.index.levels[0]
     modified_grid_numbers = file_grid_number + (split_file_count * split_grid_area)
     grid_number_dict = dict(list(zip(file_grid_number.to_list(), modified_grid_numbers.to_list())))
     
-    for grid_num, lat, lon in zip(modified_grid_numbers, split_grid_lat, split_grid_lon):
-        grid_number_coord[grid_num] = (lat, lon)
     
     individual_split_df.rename(grid_number_dict, level = 'grid', inplace = True)
     individual_split_df.index.rename(['grid', 'timestamp'], inplace = True)
 
-    individual_split_df.rename(grid_number_dict, level = 'grid', inplace = True)
-    
     individual_split_surf_frac.rename(index = grid_number_dict, inplace = True)
-    individual_split_surf_frac.set_index([split_grid_lat, split_grid_lon], append = True, inplace = True)
+    individual_split_surf_frac.insert(0, 'latitude', split_grid_lat)
+    individual_split_surf_frac.insert(1, 'longitude', split_grid_lon)
     
     print(f'Processing output file for {individual_split_name}')
 
@@ -108,25 +111,47 @@ for individual_split_site in split_site_list_df.index:
 
 
 final_split_df.to_hdf(Path(output_file, site_prefix + '_consolidated.h5'), key='df', mode = 'w')
-final_split_surf_frac.to_csv(Path(output_file, site_prefix + '_attributes.csv'), mode = 'w', index_label = ("grid", "latitude", "longitude"))
+final_split_surf_frac.to_csv(Path(output_file, site_prefix + '_attributes.csv'), mode = 'w')
 
 
 # netCDF conversion
-# VERY weird code - there's probably a better way to do this
-# obtaining coordinates from a converted ds of the surf_frac df, which were then cleaned afterwards for the desired coordinate structure with latlon
-
-# directly using multindex for coords leads to weird multidimensional coord nonsense 
-# using the for loop is unnecessary since even after creating the dictionary/list 
 
 final_split_ds = xr.Dataset.from_dataframe(final_split_df)
 
-final_surffrac_ds = xr.Dataset.from_dataframe(final_split_surf_frac) # there's no way this is the best way to get the latlon data
-final_split_ds = final_split_ds.assign_coords(xr.Coordinates(final_surffrac_ds.coords))
+# lat_array = np.array(lat_list, dtype=np.float64)
 
-final_split_ds = final_split_ds.reset_index("level_0", drop = True)
-final_split_ds = final_split_ds.rename({"level_1": "latitude", "level_2": "longitude"})
+final_split_ds = final_split_ds.assign_coords(latitude = ('grid', lat_list))
+final_split_ds = final_split_ds.assign_coords(longitude = ('grid', lon_list))
+
 
 print(final_split_ds)
 final_split_ds.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
+
+# alternative data structure with 2D meshgrid instead
+
+nlat, nlon = site_grid_length, site_grid_length
+lat_2d = final_split_ds['latitude'].values.reshape((nlat, nlon))
+lon_2d = final_split_ds['longitude'].values.reshape((nlat, nlon))
+
+data_vars = {}
+for var_label in variable_list:
+        flat_data = final_split_ds[var_label].values
+        data_reshaped = flat_data.reshape(-1, nlat, nlon)
+        data_vars[var_label] = (("timestamp","lat", "lon"), data_reshaped)
+        
+unflattened_final_ds = xr.Dataset(data_vars,
+                                  coords = {
+        'timestamp': final_split_ds['timestamp'],
+        'latitude': (('lat', 'lon'), lat_2d),
+        'longitude': (('lat', 'lon'), lon_2d)
+    }
+)
+
+print(unflattened_final_ds)
+unflattened_final_ds.to_netcdf(Path(output_file, site_prefix + '_unflattened.nc'))
+
+
+
+
 
 
