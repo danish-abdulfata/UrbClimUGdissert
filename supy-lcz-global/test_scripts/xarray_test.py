@@ -78,7 +78,7 @@ for individual_split_site in split_site_list_df.index:
     modified_grid_numbers = file_grid_number + (split_file_count * split_grid_area)
     grid_number_dict = dict(list(zip(file_grid_number.to_list(), modified_grid_numbers.to_list())))
     
-    grid_number_coord.update{modified_grid_numbers: (split_grid_lat, split_grid_lon)}
+    grid_number_coord.update{modified_grid_numbers: [split_grid_lat, split_grid_lon]}
     
     individual_split_df.rename(grid_number_dict, level = 'grid', inplace = True)
     individual_split_df.index.rename(['grid', 'timestamp'], inplace = True)
