@@ -1,4 +1,4 @@
-import time
+import os
 import pandas as pd
 import numpy as np
 from pathlib import Path
@@ -6,14 +6,17 @@ from pyproj import CRS
 from pyproj import Transformer
 import xarray as xr
 
+os.chdir('/home/zcfaada@ad.ucl.ac.uk/Documents/UrbClimUGdissert/supy-lcz-global')
+
 split_site_list_df = pd.read_csv(Path('resources/GreaterKL-2017_Y1_M2sp_3sf_R1_splitlist.csv'))
 split_site_list_df.index.name = 'sitename'
 
 site_prefix = "GreaterKL-2017_Y1_M2sp_3sf_R1"
 output_file = './data/consolidated_outputs/'
 variable_list = ['Tsurf', 'QN', 'QF', 'QS', 'QH', 'QE', 'QHlumps', 'QElumps', 'QHresis', 'AlbBulk', 'Fc', 'Ts', 'T2', 'Q2', 'U10', 'RH2']
-
 split_grid_length = 5
+split_metre_length = 1000  * split_grid_length
+split_file_count = 0
 split_grid_area = split_grid_length**2
 
 final_split_df = pd.MultiIndex(levels=[[],[]],
@@ -21,6 +24,9 @@ final_split_df = pd.MultiIndex(levels=[[],[]],
 
 final_split_df = pd.DataFrame(index = final_split_df, columns = variable_list)
 final_split_df = final_split_df.rename_axis(columns='var')
+
+final_split_surf_frac = pd.MultiIndex(levels=[[],[]],
+                       codes=[[],[]], names=[u'latitude', u'longitude'])
 
 grid_number_coord = {}
 
@@ -78,7 +84,8 @@ for individual_split_site in split_site_list_df.index:
     modified_grid_numbers = file_grid_number + (split_file_count * split_grid_area)
     grid_number_dict = dict(list(zip(file_grid_number.to_list(), modified_grid_numbers.to_list())))
     
-    grid_number_coord.update(modified_grid_numbers.to_list(): (split_grid_lat, split_grid_lon))
+    for grid_num, lat, lon in zip(modified_grid_numbers, split_grid_lat, split_grid_lon):
+        grid_number_coord[grid_num] = (lat, lon)
     
     individual_split_df.rename(grid_number_dict, level = 'grid', inplace = True)
     individual_split_df.index.rename(['grid', 'timestamp'], inplace = True)
@@ -89,7 +96,7 @@ for individual_split_site in split_site_list_df.index:
     print(f'Processing output file for {individual_split_name}')
 
     # merging to final df
-    final_split_surf_frac = pd.concat([final_split_surf_frac, individual_split_surf_frac], join = 'inner')
+    # final_split_surf_frac = pd.concat([final_split_surf_frac, individual_split_surf_frac], join = 'inner')
     final_split_df = pd.concat([final_split_df, individual_split_df], join = 'inner')
     
     split_file_count += 1
