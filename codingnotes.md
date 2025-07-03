@@ -1,18 +1,5 @@
 ### Model and Coding Notes
 
-```
-micromamba env installtion failure: 
-warning  libmamba You are using 'pip' as an additional package manager.
-    Be aware that packages installed with 'pip' are managed independently from 'conda-forge' channel.
-
-Installing pip packages: supy==2024.7.12.dev0
-'"C:\Users\Danish\micromamba\condabin\micromamba"' is not recognized as an internal or external command,
-operable program or batch file.
-critical libmamba pip failed to install packages
-```
-
-testing `python -m pip install supy` - works!
-
 USE mklink for Windows
 `mklink /d C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\data "C:\Users\Danish\OneDrive - University College London\dissertation_data\lcz-supy-global-data"`
 
@@ -21,15 +8,6 @@ Git Subtree commandline
 
 Git Overleaf Update
 `git submodule update --remote --merge`
-
-AFTER RUNNING PUSH LCOAL REPO TO MAIN.
-
-## MAIN ISSUE:
-
-+ Using available Pandas to Xarray converters for HDF5 to netCDF leads to memory overload.
-	- There are 2 options:
-		1.  Stick with the current code that produces the HDF5 file and continue splicing through Pandas
-		2.	Rewrite code to start with Xarray from the start.
 
 cd /mnt/c/Users/Danish/Documents/GitHub/UrbClimUGdissert/supy-lcz-global
 micromamba activate supy_lcz
@@ -45,3 +23,12 @@ python -m test_scripts.run_split_models
 free -h --si (for WSL ram)
 
 python -m runner.runner KL-KualaLumpur-2016_1month_s1 --run-type grid --grid-size 1000 --grid-boxes 5 --metforc-src era5land --urbdesc-src lcz_updated --sitelist KL-KualaLumpur-2016_splitlist --download-era5 --do-spinup
+
+
+https://liveuclac.sharepoint.com/sites/Geography/ComputerSupport/
+SSH Linux Geograhy Lab NW110A
+ssh zcfaada@ad@durban.geog.ucl.ac.uk
+
+Git repository
+username: danish-abdulfata
+PAT/password: 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

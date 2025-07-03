@@ -27,11 +27,11 @@ final_split_df = pd.MultiIndex(levels=[[],[]],
 final_split_df = pd.DataFrame(index = final_split_df, columns = variable_list)
 final_split_df = final_split_df.rename_axis(columns='var')
 
-final_split_surf_frac = pd.MultiIndex(levels=[[],[]],
-                       codes=[[],[]], names=[u'latitude', u'longitude'])
+final_split_surf_frac = pd.MultiIndex(levels=[[],[],[]],
+                       codes=[[],[],[]], names=[u'grid', u'latitude', u'longitude'])
 final_split_surf_frac = pd.DataFrame(index = final_split_surf_frac, columns = cover_list)
 
-grid_number_coord = {}
+#grid_number_coord = {}
 
 # grid and timestamp format for xarray to understand
 
@@ -87,14 +87,14 @@ for individual_split_site in split_site_list_df.index:
     modified_grid_numbers = file_grid_number + (split_file_count * split_grid_area)
     grid_number_dict = dict(list(zip(file_grid_number.to_list(), modified_grid_numbers.to_list())))
     
-    for grid_num, lat, lon in zip(modified_grid_numbers, split_grid_lat, split_grid_lon):
-        grid_number_coord[grid_num] = (lat, lon)
-    
     individual_split_df.rename(grid_number_dict, level = 'grid', inplace = True)
     individual_split_df.index.rename(['grid', 'timestamp'], inplace = True)
 
+    individual_split_df.rename(grid_number_dict, level = 'grid', inplace = True)
+    
+    individual_split_surf_frac.rename(index = grid_number_dict, inplace = True)
     individual_split_surf_frac.set_index([split_grid_lat, split_grid_lon], append = True, inplace = True)
-
+    
     print(f'Processing output file for {individual_split_name}')
 
     # merging to final df
@@ -106,5 +106,8 @@ for individual_split_site in split_site_list_df.index:
 final_split_ds  = xr.Dataset.from_dataframe(final_split_df)
 
 print(final_split_ds)
-final_split_ds.to_netcdf(path = Path(output_file, site_prefix + '_consolidatedtest.nc'), mode ='w')
+final_split_ds.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
+
+print(final_split_surf_frac.index)
+final_split_surf_frac.to_csv(Path(output_file, site_prefix + 'surffrac_consolidated.csv'), mode = 'w', index_label = ("grid", "latitude", "longitude"))
 
