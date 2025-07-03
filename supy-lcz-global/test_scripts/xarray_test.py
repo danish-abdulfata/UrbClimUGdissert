@@ -13,29 +13,89 @@ site_prefix = "GreaterKL-2017_Y1_M2sp_3sf_R1"
 output_file = './data/consolidated_outputs/'
 variable_list = ['Tsurf', 'QN', 'QF', 'QS', 'QH', 'QE', 'QHlumps', 'QElumps', 'QHresis', 'AlbBulk', 'Fc', 'Ts', 'T2', 'Q2', 'U10', 'RH2']
 
-# hdf5 testing
+split_grid_length = 5
+split_grid_area = split_grid_length**2
 
-# final_split_df = pd.read_hdf(Path(output_file, site_prefix + '_consolidated.h5'))
+final_split_df = pd.MultiIndex(levels=[[],[]],
+                       codes=[[],[]], names=[u'grid', u'timestamp'])
 
-# print(final_split_df)
-# final_split_df.to_xarray(Path(output_file, site_prefix + '_consolidated.nc'), key='df', mode = 'w')
+final_split_df = pd.DataFrame(index = final_split_df, columns = variable_list)
+final_split_df = final_split_df.rename_axis(columns='var')
 
-# final_split_ds = xr.Dataset.from_dataframe(final_split_df, sparse=True)
-# final_split_ds.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
+grid_number_coord = {}
 
-# final_split_ds = xr.open_dataset(Path(output_file, site_prefix + '_consolidated.h5'), engine = "h5netcdf", chunks="auto", group = "df", phony_dims="access")
-# print(final_split_ds)
+# grid and timestamp format for xarray to understand
 
-list_of_split_file = []
+final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[0].astype('int64'), level=0)
+final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[0].astype('datetime64[ns]'), level=0)
 
 for individual_split_site in split_site_list_df.index:
+
     individual_split_name = split_site_list_df.iloc[individual_split_site, 0]
-    individual_split_path = f'data/{individual_split_name}/output/grid/df_output_uMF_uLCu.h5'
-    list_of_split_file.append(individual_split_path)
+    individual_split_path = f'data/{individual_split_name}/output/grid'
+    individual_split_df = pd.read_hdf(Path(individual_split_path, 'df_output_uMF_uLCu.h5'))
+    individual_split_lcz = pd.read_csv(Path(individual_split_path, 'df_roi_lcz.csv'), index_col = 'id')
+    individual_split_supyfraction = pd.read_csv(Path(individual_split_path, 'df_roi_suews.csv'), index_col = 'id')
+        
+    individual_split_surf_frac = pd.merge(individual_split_lcz, individual_split_supyfraction, on = 'id')
+        
+    # convert latlong to UTM for consistency / ease of calculations
 
-final_split_ds = xr.open_mfdataset(list_of_split_file, engine = "h5netcdf", data_vars = variable_list)
+    split_site_lat = split_site_list_df.iloc[individual_split_site, 1]
+    split_site_lon = split_site_list_df.iloc[individual_split_site, 2]
+    
+    crs_dict = {
+            'proj': 'utm',
+            'zone': int(np.round((183 + split_site_lat) / 6)),
+            'south': split_site_lon < 0,
+        }
+    crs = CRS.from_dict(crs_dict)
+    to_utm = Transformer.from_crs(crs_from='EPSG:4326', crs_to=crs)
+    
+    split_midpoint_x, split_midpoint_y = to_utm.transform(xx=split_site_lat, yy=split_site_lon)
+    
+    # identify site boundaries
+    grid_y_max = split_midpoint_y + (split_metre_length / 2)
+    grid_y_min = grid_y_max - (split_metre_length)
+    grid_x_max = split_midpoint_x + (split_metre_length / 2)
+    grid_x_min = grid_x_max - (split_metre_length)
 
-# might need to use a for loop xr.open then xr.concat instead, because coordinate data needs a cleanup and can not be inferred.
+    # +1 to account for the additional sample at the start, [1:] to remove before meshing.
+    grid_midpoint_x = np.linspace(grid_x_min, grid_x_max, split_grid_length + 1, endpoint = False)[1:]
+    grid_midpoint_y = np.linspace(grid_y_min, grid_y_max, split_grid_length + 1, endpoint = False)[1:]
+
+    # converting back to latlong
+    from_utm = Transformer.from_crs(crs_from=crs, crs_to='EPSG:4326')
+    grid_midpoint_lat, grid_midpoint_lon = from_utm.transform(xx=grid_midpoint_x, yy=grid_midpoint_y)
+
+    # repeat latlong to form a 1d grid
+    split_grid_xx, split_grid_yy = np.meshgrid(grid_midpoint_lat, grid_midpoint_lon)
+
+    split_grid_lat = list(np.ndarray.flatten(split_grid_xx))
+    split_grid_lon = list(np.ndarray.flatten(split_grid_yy))
+
+    file_grid_number = individual_split_df.index.levels[0]
+    modified_grid_numbers = file_grid_number + (split_file_count * split_grid_area)
+    grid_number_dict = dict(list(zip(file_grid_number.to_list(), modified_grid_numbers.to_list())))
+    
+    grid_number_coord.update{modified_grid_numbers: (split_grid_lat, split_grid_lon)}
+    
+    individual_split_df.rename(grid_number_dict, level = 'grid', inplace = True)
+    individual_split_df.index.rename(['grid', 'timestamp'], inplace = True)
+
+    individual_split_surf_frac.set_index([split_grid_lat, split_grid_lon], append = True, inplace = True)
+    individual_split_surf_frac.reset_index(level=0, drop = True, inplace = True)
+
+    print(f'Processing output file for {individual_split_name}')
+
+    # merging to final df
+    final_split_surf_frac = pd.concat([final_split_surf_frac, individual_split_surf_frac], join = 'inner')
+    final_split_df = pd.concat([final_split_df, individual_split_df], join = 'inner')
+    
+    split_file_count += 1
+
+final_split_ds  = xr.Dataset.from_dataframe(final_split_df) # i
 
 print(final_split_ds)
 final_split_ds.to_netcdf(path = Path(output_file, site_prefix + '_consolidatedtest.nc'), mode ='w')
+
