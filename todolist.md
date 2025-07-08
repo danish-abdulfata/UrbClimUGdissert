@@ -23,7 +23,7 @@ Just to take note of pending tasks and potential further research needed.
 	- normal LCZ determined cover fractions
 	- modified surface cover fractions for urban heat mitigation
  - 
-- which rural site shoud i compare?
+- which rural site shoud i compare? should i run a modelled counterfactual instead? 
 - 	- For testing:
 		- graphs showing peak T2 over a day
 		- Water and Energy fluxes?
