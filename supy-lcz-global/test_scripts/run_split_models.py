@@ -325,6 +325,35 @@ final_split_ds = final_split_ds.assign_coords(longitude = ('grid', lon_list))
 
 print(final_split_ds)
 final_split_ds.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
+
+# alternative data structure with 2D meshgrid instead
+
+nlat, nlon = site_grid_length, site_grid_length
+lat_2d = final_split_ds['latitude'].values.reshape((nlat, nlon))
+lon_2d = final_split_ds['longitude'].values.reshape((nlat, nlon))
+
+data_vars = {}
+for var_label in variable_list:
+        flat_data = final_split_ds[var_label].values
+        data_reshaped = flat_data.reshape(-1, nlat, nlon)
+        data_vars[var_label] = (("timestamp","lat", "lon"), data_reshaped)
+        
+unflattened_final_ds = xr.Dataset(data_vars,
+                                  coords = {
+        'timestamp': final_split_ds['timestamp'],
+        'latitude': (('lat', 'lon'), lat_2d),
+        'longitude': (('lat', 'lon'), lon_2d)
+    }
+)
+
+print(unflattened_final_ds)
+unflattened_final_ds.to_netcdf(Path(output_file, site_prefix + '_unflattened.nc'))
+
+
+print(final_split_ds)
+final_split_ds.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
+
+
 # Final countdown
 run_script_end = time.time()
 runtime_script = (run_script_end - run_split_models_start)

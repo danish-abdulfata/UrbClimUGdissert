@@ -12,9 +12,9 @@ os.chdir(r"C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global")
 split_site_list_df = pd.read_csv(Path('./resources/GreaterKL-2017_Y1_M2sp_3sf_R1_splitlist.csv'))
 split_site_list_df.index.name = 'sitename'
 
-site_prefix = "GreaterKL-2017_Y1_M2sp_3sf_R1"
-output_file = './data/consolidated_outputs/'
-variable_list = ['Tsurf', 'QN', 'QF', 'QS', 'QH', 'QE', 'QHlumps', 'QElumps', 'QHresis', 'AlbBulk', 'Fc', 'Ts', 'T2', 'Q2', 'U10', 'RH2']
+site_prefix = r'GreaterKL-2017_Y1_M2sp_3sf_R1'
+output_file = r'./data/consolidated_outputs/'
+variable_list = ['Kdown', 'Kup', 'Ldown', 'Lup', 'Tsurf', 'QN', 'QF', 'QS', 'QH', 'QE', 'QHlumps', 'QElumps', 'QHresis', 'AlbBulk', 'Fc', 'Ts', 'T2', 'Q2', 'U10', 'RH2']
 cover_list = ['LCZ1', 'LCZ2', 'LCZ3', 'LCZ4', 'LCZ5', 'LCZ6', 'LCZ7', 'LCZ8', 'LCZ9', 'LCZ10', 'LCZ11', 'LCZ12', 'LCZ13', 'LCZ14', 'LCZ15', 'LCZ16', 'LCZ17', 'Paved (-)', 'Buildings (-)', 'Grass (-)', 'Deciduous trees (-)', 'Evergreen trees (-)', 'Bare soil (-)', 'Water (-)', 'Mean building height (m)', 'Mean vegetation height (m)', 'Albedo (-)', 'Height-to-width ratio (-)', 'Frontal area index buildings (-)', 'Frontal area index deciduous tree (-)', 'Frontal area index evergeen tree (-)']
 
 site_grid_length = 40
@@ -93,7 +93,6 @@ for individual_split_site in split_site_list_df.index:
     modified_grid_numbers = file_grid_number + (split_file_count * split_grid_area)
     grid_number_dict = dict(list(zip(file_grid_number.to_list(), modified_grid_numbers.to_list())))
     
-    
     individual_split_df.rename(grid_number_dict, level = 'grid', inplace = True)
     individual_split_df.index.rename(['grid', 'timestamp'], inplace = True)
 
@@ -118,8 +117,6 @@ final_split_surf_frac.to_csv(Path(output_file, site_prefix + '_attributes.csv'),
 
 final_split_ds = xr.Dataset.from_dataframe(final_split_df)
 
-# lat_array = np.array(lat_list, dtype=np.float64)
-
 final_split_ds = final_split_ds.assign_coords(latitude = ('grid', lat_list))
 final_split_ds = final_split_ds.assign_coords(longitude = ('grid', lon_list))
 
@@ -127,15 +124,23 @@ final_split_ds = final_split_ds.assign_coords(longitude = ('grid', lon_list))
 print(final_split_ds)
 final_split_ds.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
 
+
+# need to rewrite or look at the re-meshing algorithm to take into account chunked runs and so the coordinates go left-down every split run
+# most likely that the meshgrid doesnt take itno this "chunking" and misaligns the data
+
 # alternative data structure with 2D meshgrid instead
+# final_split_ds = xr.open_dataset(Path(output_file, site_prefix + '_consolidated.nc'))
+
+final_split_ds = final_split_ds.sortby(['longitude', 'latitude','timestamp'])
 
 nlat, nlon = site_grid_length, site_grid_length
+
 lat_2d = final_split_ds['latitude'].values.reshape((nlat, nlon))
 lon_2d = final_split_ds['longitude'].values.reshape((nlat, nlon))
 
 data_vars = {}
 for var_label in variable_list:
-        flat_data = final_split_ds[var_label].values
+        flat_data = final_split_ds[var_label].values #need to instead obtain data directly from dataset 
         data_reshaped = flat_data.reshape(-1, nlat, nlon)
         data_vars[var_label] = (("timestamp","lat", "lon"), data_reshaped)
         
@@ -147,10 +152,63 @@ unflattened_final_ds = xr.Dataset(data_vars,
     }
 )
 
+# =============================================================================
+# data_vars = {}
+# flat_data = {}
+# for var_label in variable_list:
+#         var_da = final_split_ds[var_label]
+#         var_da = var_da.set_index(grid=["latitude", "longitude"])
+#         var_da = var_da.sortby(['longitude', 'latitude','timestamp'])
+#         
+#         for lat, lon in var_da['latitude'].values, var_da['longitude'].values :
+#             flat_data.extend(
+#                 var_da.sel(latitude = lat, longitude = lon))
+#         
+#         data_reshaped = flat_data.reshape(-1, nlat, nlon)
+#         data_vars[var_label] = (("timestamp","lat", "lon"), data_reshaped)
+#         
+#         unflattened_final_ds = xr.Dataset(data_vars,
+#                                   coords = {
+#         'timestamp': final_split_ds['timestamp'],
+#         'latitude': (('lat', 'lon'), lat_2d),
+#         'longitude': (('lat', 'lon'), lon_2d)
+#     }
+# )
+# =============================================================================
+
+# WIP 
+# =============================================================================
+# data_vars = {}
+# flat_data = np.empty(1600, 11185)
+# 
+# for var_label in variable_list:
+#         var_da = final_split_ds[var_label]
+#         var_da = var_da.set_index(grid=["latitude", "longitude"])
+#         var_da = var_da.sortby(['longitude', 'latitude','timestamp'])
+#         
+#         for lon in var_da['longitude'].values:
+#             flat_data = np.append(flat_data,
+#                 var_da.sel(longitude = lon))
+#                    
+#         data_reshaped = flat_data.reshape(-1, nlat, nlon)
+#         data_vars[var_label] = (("timestamp","lat", "lon"), data_reshaped)
+#         
+#         unflattened_final_ds = xr.Dataset(data_vars,
+#                                   coords = {
+#         'timestamp': final_split_ds['timestamp'],
+#         'latitude': (('lat', 'lon'), lat_2d),
+#         'longitude': (('lat', 'lon'), lon_2d)
+#     }
+# )
+# 
+# =============================================================================
 print(unflattened_final_ds)
-unflattened_final_ds.to_netcdf(Path(output_file, site_prefix + '_unflattened.nc'))
 
+unflattened_final_ds.to_netcdf(path = Path(output_file, site_prefix + '_unflattened.nc'), mode = 'w')
 
+# lat_val = final_split_ds.coords['latitude']
+# lon_val = final_split_ds.coords['longitude']
+# print(lat_val, lon_val)
 
 
 
