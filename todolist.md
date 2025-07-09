@@ -16,14 +16,14 @@ Just to take note of pending tasks and potential further research needed.
 #### Model Questions
 - add latlon before final output file instead of doing it at the start
 - split processing to individual variables?
-
+- Hilly urban areas? How does topography affect calculations in SUEWS.
+- bulk surface temperature vs skin temperature?
 
 - 2 scenarios
 	- normal LCZ determined cover fractions
 	- modified surface cover fractions for urban heat mitigation
-
-- Hilly urban areas? How does topography affect calculations in SUEWS.
-- bulk surface temperature vs skin temperature?
+ - 
+- which rural site shoud i compare? should i run a modelled counterfactual instead? 
 - 	- For testing:
 		- graphs showing peak T2 over a day
 		- Water and Energy fluxes?
