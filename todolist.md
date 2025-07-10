@@ -19,6 +19,8 @@ Just to take note of pending tasks and potential further research needed.
 - The lon lat coordinate mismatch
 		1. possible mismatch at the graphing level when unflattening the data
 			- will need to round up lat/lon values, 4-6dp
+		 - another way is to extract a dataarray with just timestamp data, and re-apply meshgrid through .expand_dims
+				- only will work IF data is originally sorted by monotonically increasing longitude coords.
 		2. at the model level where I misinterpret how the modelled data is output
 	 3. not the same but Will need to cleanup the high dp lat/lon, and ensure that grid coordinates are consistent with eachother.
 
