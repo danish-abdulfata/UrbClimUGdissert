@@ -14,9 +14,12 @@ from runner.runner import main as run_runner
 # REMEMBER TO CHANGE site_prefix AND/OR DELETE ./data and ./resources FILES BEFORE STARTING!
 
 # Site Information
-site_prefix = "GreaterKL-2017_Y1_M2sp_3sf_R1" # CHANGE NAME BEFORE RUN
-site_midpoint_lat = 3.056577
-site_midpoint_lon = 101.617373
+site_prefix = "GreaterKL-2017_Y1_M2sp_3sf_R2" # CHANGE NAME BEFORE RUN
+site_midpoint_lat = 3.05657
+site_midpoint_lon = 101.61737
+
+#site_midpoint_lat = 3.056577
+#site_midpoint_lon = 101.617373
 # current way I name: [sitename]-time_[unit][length]_[unit][spinup length]sp_[splitfactor]sf_(run number)
 
 # Model 
@@ -130,9 +133,12 @@ split_midpoint_lat, split_midpoint_lon = from_utm.transform(xx=split_midpoint_x,
 # repeat latlong to form a 2d grid
 split_xx, split_yy = np.meshgrid(split_midpoint_lat, split_midpoint_lon)
 
-# converts flattened nparrays to lists
+# converts flattened nparrays to lists, and rounding 
 lat_list = list(np.ndarray.flatten(split_xx))
 lon_list = list(np.ndarray.flatten(split_yy))
+
+lat_list_rounded =  [ round(elem, 5) for elem in lat_list]
+lon_list_rounded =  [ round(elem, 5) for elem in lon_list]
 
 # Modified from create_supy_sitelist
 split_site_list = []
@@ -146,8 +152,8 @@ split_site_list_df = pd.DataFrame(index=split_site_list)
 split_site_list_df.index.name = 'sitename'
 
 # add specified latlong column headers and data to df
-split_site_list_df.insert(0, 'latitude', lat_list)
-split_site_list_df.insert(1, 'longitude', lon_list)
+split_site_list_df.insert(0, 'latitude', lat_list_rounded)
+split_site_list_df.insert(1, 'longitude', lon_list_rounded)
 
 # values that won't change for every split
 column_dict = {'measurement_height_above_ground': measurement_height_above_ground,
@@ -202,156 +208,25 @@ runtime_models_in_min = divmod(runtime_models, 60)
 
 print(f"========================> Total model runtime: {int(runtime_models_in_min[0])} min(s) and {runtime_models_in_min[1]:.2f} sec <========================")
 # raise SystemExit()
-try:
-    for individual_split_site in split_site_list_df.index:
-        individual_split_path = f'data/{individual_split_site}/output/grid'
-        split_output_file = individual_split_path / 'df_output_uMF_uLCu.h5'
-        split_output_file.exists()
-except:
-    raise OSError(errno.ENOENT, os.strerror(errno.ENOENT), split_output_file)
-else:
-    print(f"Output .h5 files for all {number_of_runs} runs successfully generated.")
-    
 
+for individual_split_site in split_site_list_df.index:
+    individual_split_path = Path(f'data/{individual_split_site}/output/grid')
+    split_output_file = individual_split_path / 'df_output_uMF_uLCu.h5'
+    if not split_output_file.exists():
+        raise OSError(errno.ENOENT, os.strerror(errno.ENOENT), str(split_output_file))
+
+print(f"Output .h5 files for all {number_of_runs} runs successfully generated.")
 
 ##################################################### 3rd part of script #####################################################
 ######### Consolidate/process output files into one singular file
 
 
 
-split_metre_length = 1000  * split_grid_length
-split_file_count = 0
-output_file = './data/consolidated_outputs/'
-
-final_split_df = pd.MultiIndex(levels=[[],[]],
-                       codes=[[],[]], names=[u'grid', u'timestamp'])
-
-final_split_df = pd.DataFrame(index = final_split_df, columns = variable_list)
-final_split_df = final_split_df.rename_axis(columns='var')
-
-final_split_surf_frac = pd.DataFrame(columns = cover_list)
-final_split_surf_frac.index.name = 'grid'
-
-# grid and timestamp format for xarray to understand
-
-final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[0].astype('int64'), level=0)
-final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[1].astype('datetime64[ns]'), level=1)
-
-lat_list = []
-lon_list = []
-
-for individual_split_site in split_site_list_df.index:
-
-    individual_split_name = split_site_list_df.iloc[individual_split_site, 0]
-    individual_split_path = f'data/{individual_split_name}/output/grid'
-    individual_split_df = pd.read_hdf(Path(individual_split_path, 'df_output_uMF_uLCu.h5'))
-    individual_split_lcz = pd.read_csv(Path(individual_split_path, 'df_roi_lcz.csv'), index_col = 'id')
-    individual_split_supyfraction = pd.read_csv(Path(individual_split_path, 'df_roi_suews.csv'), index_col = 'id')
-        
-    individual_split_surf_frac = pd.merge(individual_split_lcz, individual_split_supyfraction, on = 'id')
-        
-    # convert latlong to UTM for consistency / ease of calculations
-
-    split_site_lat = split_site_list_df.iloc[individual_split_site, 1]
-    split_site_lon = split_site_list_df.iloc[individual_split_site, 2]
-    
-    crs_dict = {
-            'proj': 'utm',
-            'zone': int(np.round((183 + split_site_lat) / 6)),
-            'south': split_site_lon < 0,
-        }
-    crs = CRS.from_dict(crs_dict)
-    to_utm = Transformer.from_crs(crs_from='EPSG:4326', crs_to=crs)
-    
-    split_midpoint_x, split_midpoint_y = to_utm.transform(xx=split_site_lat, yy=split_site_lon)
-    
-    # identify site boundaries
-    grid_y_max = split_midpoint_y + (split_metre_length / 2)
-    grid_y_min = grid_y_max - (split_metre_length)
-    grid_x_max = split_midpoint_x + (split_metre_length / 2)
-    grid_x_min = grid_x_max - (split_metre_length)
-
-    # +1 to account for the additional sample at the start, [1:] to remove before meshing.
-    grid_midpoint_x = np.linspace(grid_x_min, grid_x_max, split_grid_length + 1, endpoint = False)[1:]
-    grid_midpoint_y = np.linspace(grid_y_min, grid_y_max, split_grid_length + 1, endpoint = False)[1:]
-
-    # converting back to latlong
-    from_utm = Transformer.from_crs(crs_from=crs, crs_to='EPSG:4326')
-    grid_midpoint_lat, grid_midpoint_lon = from_utm.transform(xx=grid_midpoint_x, yy=grid_midpoint_y)
-
-    # repeat latlong to form a 1d grid
-    split_grid_xx, split_grid_yy = np.meshgrid(grid_midpoint_lat, grid_midpoint_lon)
-
-    split_grid_lat = list(np.ndarray.flatten(split_grid_xx))
-    split_grid_lon = list(np.ndarray.flatten(split_grid_yy))
-    
-    lat_list.extend(split_grid_lat) 
-    lon_list.extend(split_grid_lon)
-
-    file_grid_number = individual_split_df.index.levels[0]
-    modified_grid_numbers = file_grid_number + (split_file_count * split_grid_area)
-    grid_number_dict = dict(list(zip(file_grid_number.to_list(), modified_grid_numbers.to_list())))
-    
-    
-    individual_split_df.rename(grid_number_dict, level = 'grid', inplace = True)
-    individual_split_df.index.rename(['grid', 'timestamp'], inplace = True)
-
-    individual_split_surf_frac.rename(index = grid_number_dict, inplace = True)
-    individual_split_surf_frac.insert(0, 'latitude', split_grid_lat)
-    individual_split_surf_frac.insert(1, 'longitude', split_grid_lon)
-    
-    print(f'Processing output file for {individual_split_name}')
-
-    # merging to final df
-    final_split_surf_frac = pd.concat([final_split_surf_frac, individual_split_surf_frac], join = 'inner')
-    final_split_df = pd.concat([final_split_df, individual_split_df], join = 'inner')
-    
-    split_file_count += 1
 
 
-final_split_df.to_hdf(Path(output_file, site_prefix + '_consolidated.h5'), key='df', mode = 'w')
-final_split_surf_frac.to_csv(Path(output_file, site_prefix + '_attributes.csv'), mode = 'w')
 
 
-# netCDF conversion
-
-final_split_ds = xr.Dataset.from_dataframe(final_split_df)
-
-# lat_array = np.array(lat_list, dtype=np.float64)
-
-final_split_ds = final_split_ds.assign_coords(latitude = ('grid', lat_list))
-final_split_ds = final_split_ds.assign_coords(longitude = ('grid', lon_list))
-
-
-print(final_split_ds)
-final_split_ds.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
-
-# alternative data structure with 2D meshgrid instead
-
-nlat, nlon = site_grid_length, site_grid_length
-lat_2d = final_split_ds['latitude'].values.reshape((nlat, nlon))
-lon_2d = final_split_ds['longitude'].values.reshape((nlat, nlon))
-
-data_vars = {}
-for var_label in variable_list:
-        flat_data = final_split_ds[var_label].values
-        data_reshaped = flat_data.reshape(-1, nlat, nlon)
-        data_vars[var_label] = (("timestamp","lat", "lon"), data_reshaped)
-        
-unflattened_final_ds = xr.Dataset(data_vars,
-                                  coords = {
-        'timestamp': final_split_ds['timestamp'],
-        'latitude': (('lat', 'lon'), lat_2d),
-        'longitude': (('lat', 'lon'), lon_2d)
-    }
-)
-
-print(unflattened_final_ds)
-unflattened_final_ds.to_netcdf(Path(output_file, site_prefix + '_unflattened.nc'))
-
-
-print(final_split_ds)
-final_split_ds.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
+##################################################### End of main script #####################################################
 
 
 # Final countdown

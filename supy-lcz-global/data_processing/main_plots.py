@@ -56,7 +56,7 @@ lon = ds_unflattened['lon']
 # lon = ds_unflattened['longitude']
 # =============================================================================
 
-ds_unflattened.Kdown.isel(timestamp=0).plot.pcolormesh()
+ds_unflattened.T2.isel(timestamp=0).plot.pcolormesh()
 
 # checking if meshgrid is intact
 
