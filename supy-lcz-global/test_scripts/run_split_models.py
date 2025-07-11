@@ -28,7 +28,7 @@ surface_cover_radius = 1000
 time_analysis_start = "2016-10-03 00:00:00"
 time_coverage_end = "2018-01-12 00:00:00"
 timestep_interval_seconds = 3600
-local_utc_offset_hours = 8
+local_utc_offset_hours = 8 # need to double check this
 
 # Spinup false by default. check run_runner below at end of 2nd part of script.
 # Change default spinup (2 years) in runner.py at line 868

@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Jul 11 01:57:10 2025
+
+@author: Danish
+"""
+
 import os
 import pandas as pd
 import numpy as np
@@ -28,8 +35,8 @@ split_metre_length = 1000  * split_grid_length
 split_file_count = 0
 split_grid_area = split_grid_length**2
 
-final_split_df = pd.MultiIndex(levels=[[],[]],
-                       codes=[[],[]], names=[u'grid', u'timestamp'])
+final_split_df = pd.MultiIndex(levels=[[],[],[]],
+                       codes=[[],[],[]], names=[u'timestamp', u'latitude', u'longitude'])
 
 final_split_df = pd.DataFrame(index = final_split_df, columns = variable_list)
 final_split_df = final_split_df.rename_axis(columns='var')
@@ -39,8 +46,12 @@ final_split_surf_frac.index.name = 'grid'
 
 # grid and timestamp format for xarray to understand
 
-final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[0].astype('int64'), level=0)
-final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[1].astype('datetime64[ns]'), level=1)
+# timestamp
+final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[0].astype('datetime64[ns]'), level=0)
+
+# latitiude and longitude
+final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[1].astype('float64'), level=1)
+final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[2].astype('float64'), level=2)
 
 grid_lat_list = []
 grid_lon_list = []
@@ -85,8 +96,8 @@ for individual_split_site in split_site_list_df.index:
     grid_midpoint_lat, grid_midpoint_lon = from_utm.transform(xx=grid_midpoint_x, yy=grid_midpoint_y)
 
     # flip coords to start from bottomleft
-    #grid_midpoint_lat = np.flip(grid_midpoint_lat)
-    #grid_midpoint_lon = np.flip(grid_midpoint_lon)
+    grid_midpoint_lat = np.flip(grid_midpoint_lat)
+    grid_midpoint_lon = np.flip(grid_midpoint_lon)
 
     # repeat latlong to form a 1d grid
     split_grid_yy, split_grid_xx = np.meshgrid(grid_midpoint_lat, grid_midpoint_lon)
@@ -95,8 +106,16 @@ for individual_split_site in split_site_list_df.index:
     split_grid_lon = list(np.ndarray.flatten(split_grid_xx))
     
     #rounded
-    #split_grid_lat =  [ round(elem, 5) for elem in split_grid_lat]
-    #split_grid_lon =  [ round(elem, 5) for elem in split_grid_lon]
+    split_grid_lat =  [ round(elem, 5) for elem in split_grid_lat]
+    split_grid_lon =  [ round(elem, 5) for elem in split_grid_lon]
+    
+    # inserting latlong as index
+    split_latlon_iter = int(individual_split_df.shape[0] / len(split_grid_lat))
+    split_grid_lat_iter = split_grid_lat * split_latlon_iter
+    split_grid_lon_iter = split_grid_lon * split_latlon_iter
+    individual_split_df.set_index([split_grid_lat_iter, split_grid_lon_iter], append = True, inplace = True)
+    
+    # it only generates 5 lat and lon pairs, ie.5 grids instead of 25.
     
     grid_lat_list.extend(split_grid_lat) 
     grid_lon_list.extend(split_grid_lon)
@@ -105,8 +124,8 @@ for individual_split_site in split_site_list_df.index:
     modified_grid_numbers = file_grid_number + (split_file_count * split_grid_area)
     grid_number_dict = dict(list(zip(file_grid_number.to_list(), modified_grid_numbers.to_list())))
     
-    individual_split_df.rename(grid_number_dict, level = 'grid', inplace = True)
-    individual_split_df.index.rename(['grid', 'timestamp'], inplace = True)
+    individual_split_df = individual_split_df.droplevel('grid')
+    individual_split_df.index.rename(['timestamp', 'latitude', 'longitude'], inplace = True)
 
     individual_split_surf_frac.rename(index = grid_number_dict, inplace = True)
     individual_split_surf_frac.insert(0, 'latitude', split_grid_lat)
@@ -168,30 +187,28 @@ for individual_split_site in split_site_list_df.index:
 final_split_df.to_hdf(Path(output_file, site_prefix + '_consolidated.h5'), key='df', mode = 'w')
 final_split_surf_frac.to_csv(Path(output_file, site_prefix + '_attributes.csv'), mode = 'w')
 
-#print(final_split_df)
+print(final_split_df)
 
 # netCDF conversion
 
 final_split_ds = xr.Dataset.from_dataframe(final_split_df)
 
-final_split_ds = final_split_ds.assign_coords(latitude = ('grid', grid_lat_list))
-final_split_ds = final_split_ds.assign_coords(longitude = ('grid', grid_lon_list))
+# final_split_ds = final_split_ds.assign_coords(latitude = ('grid', grid_lat_list))
+# final_split_ds = final_split_ds.assign_coords(longitude = ('grid', grid_lon_list))
 
-#print(final_split_ds)
+
+print(final_split_ds)
 final_split_ds.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
 
 # alternative data structure with 2D meshgrid instead
 # final_split_ds = xr.open_dataset(Path(output_file, site_prefix + '_consolidated.nc'))
 
-final_ds_sort = final_split_ds.sortby(['longitude', 'latitude'])
+# final_split_ds = final_split_ds.sortby(['longitude', 'latitude'])
 
 nlat, nlon = site_grid_length, site_grid_length
 
-grid_lat_list.sort()
-grid_lon_list.sort()
-
-lat_2d = np.array(grid_lat_list).reshape(nlat, nlon)
-lon_2d = np.array(grid_lon_list).reshape(nlat, nlon)
+lat_2d = np.array(grid_lat_list).reshape((nlat, nlon))
+lon_2d = np.array(grid_lon_list).reshape((nlat, nlon))
 
 # lat_2d = final_split_ds['latitude'].values.reshape((nlat, nlon))
 # lon_2d = final_split_ds['longitude'].values.reshape((nlat, nlon))
@@ -200,41 +217,26 @@ lon_2d = np.array(grid_lon_list).reshape(nlat, nlon)
 # this does NOT WORK until i resorted the grid data to reflect the overarching latlon meshgrid, not the individual latlon splitgrids.
 data_vars = {}
 for var_label in variable_list:
-        flat_data = final_ds_sort[var_label].values
-        data_reshaped = flat_data.reshape(nlat, nlon, -1)
-        data_vars[var_label] = (("lat", "lon", "timestamp"), data_reshaped)
+        flat_data = final_split_ds[var_label].values #need to instead obtain data directly from dataset 
+        data_reshaped = flat_data.reshape(-1, nlat, nlon)
+        data_vars[var_label] = (("timestamp","lat", "lon"), data_reshaped)
         
 unflattened_final_ds = xr.Dataset(data_vars,
                                   coords = {
-        'timestamp': final_ds_sort['timestamp'],
+        'timestamp': final_split_ds['timestamp'],
         'latitude': (('lat', 'lon'), lat_2d),
         'longitude': (('lat', 'lon'), lon_2d)})
 
-#print(unflattened_final_ds)
+print(unflattened_final_ds)
 unflattened_final_ds.to_netcdf(path = Path(output_file, site_prefix + '_unflattened.nc'), mode = 'w')
 
 unflattened_final_ds.T2.isel(timestamp=0).plot.pcolormesh()
 
-
-import matplotlib.pyplot as plt
 fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(14, 4))
 unflattened_final_ds.longitude.plot(ax=ax1)
 unflattened_final_ds.latitude.plot(ax=ax2)
 
-# =============================================================================
-# unflattened_final_ds.T2.isel(timestamp=0).plot.pcolormesh()
-# unflattened_final_ds.T2.isel(timestamp=4).plot.pcolormesh()
-# unflattened_final_ds.T2.isel(timestamp=6).plot.pcolormesh()
-# unflattened_final_ds.T2.isel(timestamp=8).plot.pcolormesh()
-# unflattened_final_ds.T2.isel(timestamp=12).plot.pcolormesh()
-# unflattened_final_ds.T2.isel(timestamp=16).plot.pcolormesh()
-# unflattened_final_ds.T2.isel(timestamp=24).plot.pcolormesh()
-# =============================================================================
 
-print(final_split_ds.T2.isel(timestamp=0, grid=0))
-print(unflattened_final_ds.T2.isel(timestamp=0, lat=0, lon=0))
-    
-print(final_split_ds.T2.isel(timestamp=0).values[124:164])
-print(unflattened_final_ds.T2.isel(timestamp=0)[4:5].values)
+
 
 
