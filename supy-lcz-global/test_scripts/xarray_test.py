@@ -85,8 +85,8 @@ for individual_split_site in split_site_list_df.index:
     grid_midpoint_lat, grid_midpoint_lon = from_utm.transform(xx=grid_midpoint_x, yy=grid_midpoint_y)
 
     # flip coords to start from bottomleft
-    #grid_midpoint_lat = np.flip(grid_midpoint_lat)
-    #grid_midpoint_lon = np.flip(grid_midpoint_lon)
+    grid_midpoint_lat = np.flip(grid_midpoint_lat)
+    grid_midpoint_lon = np.flip(grid_midpoint_lon)
 
     # repeat latlong to form a 1d grid
     split_grid_yy, split_grid_xx = np.meshgrid(grid_midpoint_lat, grid_midpoint_lon)
@@ -120,49 +120,6 @@ for individual_split_site in split_site_list_df.index:
     
     split_file_count += 1
 
-# =============================================================================
-# # convert latlong to UTM for consistency / ease of calculations
-# 
-# crs_dict = {
-#             'proj': 'utm',
-#             'zone': int(np.round((183 + site_midpoint_lon) / 6)),
-#             'south': site_midpoint_lat < 0,
-#         }
-# 
-# crs = CRS.from_dict(crs_dict)
-# 
-# # convert latlong to UTM for consistency / ease of calculations
-# to_utm = Transformer.from_crs(crs_from='EPSG:4326', crs_to=crs)
-# site_midpoint_x, site_midpoint_y = to_utm.transform(xx=site_midpoint_lat, yy=site_midpoint_lon)
-# 
-# # identify site boundaries
-# site_metre_length = grid_metre_length  * site_grid_length
-# 
-# site_y_max = site_midpoint_y + (site_metre_length / 2)
-# site_y_min = site_y_max - (site_metre_length)
-# site_x_max = site_midpoint_x + (site_metre_length / 2)
-# site_x_min = site_x_max - (site_metre_length)
-# 
-# # +1 to account for the additional sample at the start, [1:] to remove before meshing.
-# grid_midpoint_x = np.linspace(site_x_min, site_x_max, site_grid_length + 1, endpoint = False)[1:]
-# grid_midpoint_y = np.linspace(site_y_min, site_y_max, site_grid_length + 1, endpoint = False)[1:]
-# 
-# # converting back to latlong
-# from_utm = Transformer.from_crs(crs_from=crs, crs_to='EPSG:4326')
-# grid_midpoint_lat, grid_midpoint_lon = from_utm.transform(xx=split_midpoint_x, yy=split_midpoint_y)
-# 
-# # repeat latlong to form a 2d grid
-# grid_xx, grid_yy = np.meshgrid(grid_midpoint_lat, grid_midpoint_lon)
-# 
-# # converts flattened nparrays to lists, and rounding 
-# lat_list = list(np.ndarray.flatten(grid_xx))
-# lon_list = list(np.ndarray.flatten(grid_yy))
-# 
-# grid_lat_list =  [ round(elem, 5) for elem in lat_list]
-# grid_lon_list =  [ round(elem, 5) for elem in lon_list]
-# 
-# =============================================================================
-
 # Output Files
 
 final_split_df.to_hdf(Path(output_file, site_prefix + '_consolidated.h5'), key='df', mode = 'w')
@@ -187,8 +144,8 @@ final_ds_sort = final_split_ds.sortby(['longitude', 'latitude'])
 
 nlat, nlon = site_grid_length, site_grid_length
 
-grid_lat_list.sort()
-grid_lon_list.sort()
+# grid_lat_list.sort()
+# grid_lon_list.sort()
 
 lat_2d = np.array(grid_lat_list).reshape(nlat, nlon)
 lon_2d = np.array(grid_lon_list).reshape(nlat, nlon)
@@ -203,18 +160,21 @@ for var_label in variable_list:
         flat_data = final_ds_sort[var_label].values
         data_reshaped = flat_data.reshape(nlat, nlon, -1)
         data_vars[var_label] = (("lat", "lon", "timestamp"), data_reshaped)
-        
+ 
+# unflattened ds with only (timestamp, latitude, longitude) dimensions
 unflattened_final_ds = xr.Dataset(data_vars,
                                   coords = {
         'timestamp': final_ds_sort['timestamp'],
         'latitude': (('lat', 'lon'), lat_2d),
         'longitude': (('lat', 'lon'), lon_2d)})
 
-#print(unflattened_final_ds)
+# print(unflattened_final_ds)
+
 unflattened_final_ds.to_netcdf(path = Path(output_file, site_prefix + '_unflattened.nc'), mode = 'w')
 
 unflattened_final_ds.T2.isel(timestamp=0).plot.pcolormesh()
 
+unflattened_final_ds.T2.isel(timestamp=6).plot.pcolormesh()
 
 import matplotlib.pyplot as plt
 fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(14, 4))
@@ -231,10 +191,9 @@ unflattened_final_ds.latitude.plot(ax=ax2)
 # unflattened_final_ds.T2.isel(timestamp=24).plot.pcolormesh()
 # =============================================================================
 
-print(final_split_ds.T2.isel(timestamp=0, grid=0))
+print(final_split_ds.T2.sel(timestamp="2016-10-03T08:00:00", grid=24))
 print(unflattened_final_ds.T2.isel(timestamp=0, lat=0, lon=0))
-    
-print(final_split_ds.T2.isel(timestamp=0).values[124:164])
-print(unflattened_final_ds.T2.isel(timestamp=0)[4:5].values)
 
 
+print(final_split_ds.T2.sel(timestamp="2016-10-03T08:00:00", grid=0))
+print(unflattened_final_ds.T2.isel(timestamp=0, lat=0, lon=0))
