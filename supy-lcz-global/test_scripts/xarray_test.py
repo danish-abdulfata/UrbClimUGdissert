@@ -6,8 +6,8 @@ from pyproj import CRS
 from pyproj import Transformer
 import xarray as xr
 
-# os.chdir('/home/zcfaada@ad.ucl.ac.uk/Documents/UrbClimUGdissert/supy-lcz-global')
-os.chdir(r"C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global")
+os.chdir('/home/zcfaada@ad.ucl.ac.uk/Documents/UrbClimUGdissert/supy-lcz-global')
+# os.chdir(r"C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global")
 
 split_site_list_df = pd.read_csv(Path('./resources/GreaterKL-2017_Y1_M2sp_3sf_R1_splitlist.csv'))
 split_site_list_df.index.name = 'sitename'
@@ -17,7 +17,7 @@ site_midpoint_lat = 3.056577
 site_midpoint_lon = 101.617373
 
 output_file = r'./data/consolidated_outputs/'
-variable_list = ['Kdown', 'Kup', 'Ldown', 'Lup', 'Tsurf', 'QN', 'QF', 'QS', 'QH', 'QE', 'QHlumps', 'QElumps', 'QHresis', 'AlbBulk', 'Ts', 'T2', 'Q2', 'U10', 'RH2']
+variable_list = ['Kdown', 'Kup', 'Ldown', 'Lup', 'Tsurf', 'QN', 'QF', 'QS', 'QH', 'QE', 'QHlumps', 'QElumps', 'QHresis', 'AlbBulk', 'T2', 'Q2', 'U10', 'RH2']
 cover_list = ['latitude', 'longitude','LCZ1', 'LCZ2', 'LCZ3', 'LCZ4', 'LCZ5', 'LCZ6', 'LCZ7', 'LCZ8', 'LCZ9', 'LCZ10', 'LCZ11', 'LCZ12', 'LCZ13', 'LCZ14', 'LCZ15', 'LCZ16', 'LCZ17', 'Paved (-)', 'Buildings (-)', 'Grass (-)', 'Deciduous trees (-)', 'Evergreen trees (-)', 'Bare soil (-)', 'Water (-)', 'Mean building height (m)', 'Mean vegetation height (m)', 'Albedo (-)', 'Height-to-width ratio (-)', 'Frontal area index buildings (-)', 'Frontal area index deciduous tree (-)', 'Frontal area index evergeen tree (-)']
 
 grid_metre_length = 1000
@@ -125,8 +125,6 @@ for individual_split_site in split_site_list_df.index:
 final_split_df.to_hdf(Path(output_file, site_prefix + '_consolidated.h5'), key='df', mode = 'w')
 final_split_surf_frac.to_csv(Path(output_file, site_prefix + '_attributes.csv'), mode = 'w')
 
-#print(final_split_df)
-
 # netCDF conversion
 
 final_split_ds = xr.Dataset.from_dataframe(final_split_df)
@@ -144,8 +142,6 @@ final_ds_sort = final_split_ds.sortby(['longitude', 'latitude'])
 
 nlat, nlon = site_grid_length, site_grid_length
 
-# grid_lat_list.sort()
-# grid_lon_list.sort()
 
 lat_2d = np.array(grid_lat_list).reshape(nlat, nlon)
 lon_2d = np.array(grid_lon_list).reshape(nlat, nlon)
@@ -153,14 +149,17 @@ lon_2d = np.array(grid_lon_list).reshape(nlat, nlon)
 # lat_2d = final_split_ds['latitude'].values.reshape((nlat, nlon))
 # lon_2d = final_split_ds['longitude'].values.reshape((nlat, nlon))
 
+# very werid and complicated mapping - the 2d arrays map to each grid, for example, 2nd cell in the 1st column of 2d_lat and 2d_lon represent Grid #?
+# in the end it matches the variable data and grid coordinate correctly, but means 
 
-# this does NOT WORK until i resorted the grid data to reflect the overarching latlon meshgrid, not the individual latlon splitgrids.
+
 data_vars = {}
 for var_label in variable_list:
         flat_data = final_ds_sort[var_label].values
         data_reshaped = flat_data.reshape(nlat, nlon, -1)
         data_vars[var_label] = (("lat", "lon", "timestamp"), data_reshaped)
  
+    
 # unflattened ds with only (timestamp, latitude, longitude) dimensions
 unflattened_final_ds = xr.Dataset(data_vars,
                                   coords = {
@@ -174,26 +173,17 @@ unflattened_final_ds.to_netcdf(path = Path(output_file, site_prefix + '_unflatte
 
 unflattened_final_ds.T2.isel(timestamp=0).plot.pcolormesh()
 
-unflattened_final_ds.T2.isel(timestamp=6).plot.pcolormesh()
 
 import matplotlib.pyplot as plt
 fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(14, 4))
 unflattened_final_ds.longitude.plot(ax=ax1)
 unflattened_final_ds.latitude.plot(ax=ax2)
 
-# =============================================================================
-# unflattened_final_ds.T2.isel(timestamp=0).plot.pcolormesh()
-# unflattened_final_ds.T2.isel(timestamp=4).plot.pcolormesh()
-# unflattened_final_ds.T2.isel(timestamp=6).plot.pcolormesh()
-# unflattened_final_ds.T2.isel(timestamp=8).plot.pcolormesh()
-# unflattened_final_ds.T2.isel(timestamp=12).plot.pcolormesh()
-# unflattened_final_ds.T2.isel(timestamp=16).plot.pcolormesh()
-# unflattened_final_ds.T2.isel(timestamp=24).plot.pcolormesh()
-# =============================================================================
-
-print(final_split_ds.T2.sel(timestamp="2016-10-03T08:00:00", grid=24))
-print(unflattened_final_ds.T2.isel(timestamp=0, lat=0, lon=0))
-
 
 print(final_split_ds.T2.sel(timestamp="2016-10-03T08:00:00", grid=0))
 print(unflattened_final_ds.T2.isel(timestamp=0, lat=0, lon=0))
+
+print(final_split_ds.T2.sel(timestamp="2016-10-03T08:00:00", grid=1599))
+print(unflattened_final_ds.T2.isel(timestamp=0, lat=39, lon=39))
+
+
