@@ -24,6 +24,13 @@ free -h --si (for WSL ram)
 
 python -m runner.runner KL-KualaLumpur-2016_1month_s1 --run-type grid --grid-size 1000 --grid-boxes 5 --metforc-src era5land --urbdesc-src lcz_updated --sitelist KL-KualaLumpur-2016_splitlist --download-era5 --do-spinup
 
+```
+import supy as sp
+import pandas as pd
+import numpy as np
+
+sp.show_version()
+```
 
 https://liveuclac.sharepoint.com/sites/Geography/ComputerSupport/
 SSH Linux Geograhy Lab NW110A

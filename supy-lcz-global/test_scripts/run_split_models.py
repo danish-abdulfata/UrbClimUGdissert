@@ -15,8 +15,8 @@ from runner.runner import main as run_runner
 
 # Site Information
 site_prefix = "GreaterKL-2017_Y1_M2sp_3sf_R2" # CHANGE NAME BEFORE RUN
-site_midpoint_lat = 3.05657
-site_midpoint_lon = 101.61737
+site_midpoint_lat = 3.056577
+site_midpoint_lon = 101.617373
 
 #site_midpoint_lat = 3.056577
 #site_midpoint_lon = 101.617373
@@ -137,8 +137,8 @@ split_xx, split_yy = np.meshgrid(split_midpoint_lat, split_midpoint_lon)
 lat_list = list(np.ndarray.flatten(split_xx))
 lon_list = list(np.ndarray.flatten(split_yy))
 
-lat_list_rounded =  [ round(elem, 5) for elem in lat_list]
-lon_list_rounded =  [ round(elem, 5) for elem in lon_list]
+# lat_list_rounded =  [ round(elem, 5) for elem in lat_list]
+# lon_list_rounded =  [ round(elem, 5) for elem in lon_list]
 
 # Modified from create_supy_sitelist
 split_site_list = []

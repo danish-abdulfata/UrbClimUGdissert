@@ -16,8 +16,8 @@ site_prefix = r'GreaterKL-2017_Y1_M2sp_3sf_R1'
 site_midpoint_lat = 3.056577
 site_midpoint_lon = 101.617373
 
-
-variable_list = ['Kdown', 'Kup', 'Ldown', 'Lup', 'Tsurf', 'QN', 'QF', 'QS', 'QH', 'QE', 'QHlumps', 'QElumps', 'AlbBulk', 'T2', 'Q2', 'U10', 'RH2']
+output_file = r'./data/consolidated_outputs/'
+variable_list = ['Kdown', 'Kup', 'Ldown', 'Lup', 'Tsurf', 'QN', 'QF', 'QS', 'QH', 'QE', 'QHlumps', 'QElumps', 'QHresis', 'AlbBulk', 'T2', 'Q2', 'U10', 'RH2']
 cover_list = ['latitude', 'longitude','LCZ1', 'LCZ2', 'LCZ3', 'LCZ4', 'LCZ5', 'LCZ6', 'LCZ7', 'LCZ8', 'LCZ9', 'LCZ10', 'LCZ11', 'LCZ12', 'LCZ13', 'LCZ14', 'LCZ15', 'LCZ16', 'LCZ17', 'Paved (-)', 'Buildings (-)', 'Grass (-)', 'Deciduous trees (-)', 'Evergreen trees (-)', 'Bare soil (-)', 'Water (-)', 'Mean building height (m)', 'Mean vegetation height (m)', 'Albedo (-)', 'Height-to-width ratio (-)', 'Frontal area index buildings (-)', 'Frontal area index deciduous tree (-)', 'Frontal area index evergeen tree (-)']
 
 grid_metre_length = 1000
@@ -28,12 +28,6 @@ split_metre_length = 1000  * split_grid_length
 split_file_count = 0
 split_grid_area = split_grid_length**2
 
-########################## copy code to main script from here ##############################
-
-output_file = r'./data/consolidated_outputs/'
-
-# Initializing dataframes
-
 final_split_df = pd.MultiIndex(levels=[[],[]],
                        codes=[[],[]], names=[u'grid', u'timestamp'])
 
@@ -43,29 +37,13 @@ final_split_df = final_split_df.rename_axis(columns='var')
 final_split_surf_frac = pd.DataFrame(columns = cover_list)
 final_split_surf_frac.index.name = 'grid'
 
-final_df = pd.MultiIndex(levels=[[],[],[]],
-                       codes=[[],[],[]], names=[u'timestamp', u'latitude', u'longitude'])
-
-final_df = pd.DataFrame(index = final_df, columns = variable_list)
-final_df = final_df.rename_axis(columns='var')
-
-final_split_surf_frac = pd.DataFrame(columns = cover_list)
-final_split_surf_frac.index.name = 'grid'
-
-# MultiIndex formats for xarray to understand
+# grid and timestamp format for xarray to understand
 
 final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[0].astype('int64'), level=0)
 final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[1].astype('datetime64[ns]'), level=1)
 
-final_df.index = final_df.index.set_levels(final_df.index.levels[0].astype('datetime64[ns]'), level=0)
-final_df.index = final_df.index.set_levels(final_df.index.levels[1].astype('float64'), level=1)
-final_df.index = final_df.index.set_levels(final_df.index.levels[2].astype('float64'), level=2)
-
-# Intializing latlon lists
-
 grid_lat_list = []
 grid_lon_list = []
-
 
 for individual_split_site in split_site_list_df.index:
 
@@ -83,11 +61,10 @@ for individual_split_site in split_site_list_df.index:
     split_site_lon = split_site_list_df.iloc[individual_split_site, 2]
     
     crs_dict = {
-                'proj': 'utm',
-                'zone': int(np.round((183 + split_site_lat) / 6)),
-                'south': split_site_lon < 0,
-            }
-
+            'proj': 'utm',
+            'zone': int(np.round((183 + split_site_lat) / 6)),
+            'south': split_site_lon < 0,
+        }
     crs = CRS.from_dict(crs_dict)
     to_utm = Transformer.from_crs(crs_from='EPSG:4326', crs_to=crs)
     
@@ -141,75 +118,72 @@ for individual_split_site in split_site_list_df.index:
     final_split_surf_frac = pd.concat([final_split_surf_frac, individual_split_surf_frac], join = 'inner')
     final_split_df = pd.concat([final_split_df, individual_split_df], join = 'inner')
     
-    # another df with coord data instead
-    individual_split_df_coords = individual_split_df.reset_index(level=0, drop = True)
-    
-    split_latlon_iter = int(individual_split_df.shape[0] / len(split_grid_lat))
-    split_grid_lat_iter = split_grid_lat * split_latlon_iter
-    split_grid_lon_iter = split_grid_lon * split_latlon_iter
-    
-    individual_split_df_coords.set_index([split_grid_lat_iter, split_grid_lon_iter], append = True, inplace = True)
-    individual_split_df_coords.index.rename(['timestamp', 'latitude', 'longitude'], inplace = True)
-    final_df = pd.concat([final_df, individual_split_df_coords], join = 'inner')
-    
     split_file_count += 1
 
 # Output Files
 
-final_df.to_hdf(Path(output_file, site_prefix + '_consolidated.h5'), key='df', mode = 'w')
+final_split_df.to_hdf(Path(output_file, site_prefix + '_consolidated.h5'), key='df', mode = 'w')
 final_split_surf_frac.to_csv(Path(output_file, site_prefix + '_attributes.csv'), mode = 'w')
 
 # netCDF conversion
-final_ds = xr.Dataset.from_dataframe(final_split_df)
 
-final_ds = final_ds.assign_coords(latitude = ('grid', grid_lat_list))
-final_ds = final_ds.assign_coords(longitude = ('grid', grid_lon_list))
+final_split_ds = xr.Dataset.from_dataframe(final_split_df)
 
-final_ds.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
+final_split_ds = final_split_ds.assign_coords(latitude = ('grid', grid_lat_list))
+final_split_ds = final_split_ds.assign_coords(longitude = ('grid', grid_lon_list))
+
+#print(final_split_ds)
+final_split_ds.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
 
 # alternative data structure with 2D meshgrid instead
-# very werid and complicated mapping - the 2d arrays map to each grid, for example, 2nd cell in the 1st column of 2d_lat and 2d_lon represent Grid #?
-# clearly there has been data like this before but i am still confused
+# final_split_ds = xr.open_dataset(Path(output_file, site_prefix + '_consolidated.nc'))
 
-# in the end it matches the variable data and grid coordinate correctly, but seems a little sussy
-
-final_ds_sort = final_ds.sortby(['longitude', 'latitude'])
+final_ds_sort = final_split_ds.sortby(['longitude', 'latitude'])
 
 nlat, nlon = site_grid_length, site_grid_length
 
+
 lat_2d = np.array(grid_lat_list).reshape(nlat, nlon)
 lon_2d = np.array(grid_lon_list).reshape(nlat, nlon)
+
+# lat_2d = final_split_ds['latitude'].values.reshape((nlat, nlon))
+# lon_2d = final_split_ds['longitude'].values.reshape((nlat, nlon))
+
+# very werid and complicated mapping - the 2d arrays map to each grid, for example, 2nd cell in the 1st column of 2d_lat and 2d_lon represent Grid #?
+# in the end it matches the variable data and grid coordinate correctly, but means 
+
 
 data_vars = {}
 for var_label in variable_list:
         flat_data = final_ds_sort[var_label].values
         data_reshaped = flat_data.reshape(nlat, nlon, -1)
-        data_vars[var_label] = (("y", "x", "timestamp"), data_reshaped)
+        data_vars[var_label] = (("lat", "lon", "timestamp"), data_reshaped)
  
     
 # unflattened ds with only (timestamp, latitude, longitude) dimensions
-final_ds_unflattened = xr.Dataset(data_vars,
+unflattened_final_ds = xr.Dataset(data_vars,
                                   coords = {
         'timestamp': final_ds_sort['timestamp'],
-        'latitude': (('y', 'x'), lat_2d),
-        'longitude': (('y', 'x'), lon_2d)})
+        'latitude': (('lat', 'lon'), lat_2d),
+        'longitude': (('lat', 'lon'), lon_2d)})
 
-final_ds_unflattened.to_netcdf(path = Path(output_file, site_prefix + '_unflattened.nc'), mode = 'w')
+# print(unflattened_final_ds)
 
-final_ds_unflattened.T2.isel(timestamp=0).plot.pcolormesh()
+unflattened_final_ds.to_netcdf(path = Path(output_file, site_prefix + '_unflattened.nc'), mode = 'w')
+
+unflattened_final_ds.T2.isel(timestamp=0).plot.pcolormesh()
 
 
 import matplotlib.pyplot as plt
 fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(14, 4))
-final_ds_unflattened.longitude.plot(ax=ax1)
-final_ds_unflattened.latitude.plot(ax=ax2)
+unflattened_final_ds.longitude.plot(ax=ax1)
+unflattened_final_ds.latitude.plot(ax=ax2)
 
-# comparison between the datasets to ensure correct latlon alignment
 
-print(final_ds.T2.sel(timestamp="2016-10-03T08:00:00", grid=0))
-print(final_ds_unflattened.T2.isel(timestamp=0, x=0, y=0))
+print(final_split_ds.T2.sel(timestamp="2016-10-03T08:00:00", grid=0))
+print(unflattened_final_ds.T2.isel(timestamp=0, lat=0, lon=0))
 
-print(final_ds.T2.sel(timestamp="2016-10-03T08:00:00", grid=1599))
-print(final_ds_unflattened.T2.isel(timestamp=0, x=39, y=39))
+print(final_split_ds.T2.sel(timestamp="2016-10-03T08:00:00", grid=1599))
+print(unflattened_final_ds.T2.isel(timestamp=0, lat=39, lon=39))
 
 
