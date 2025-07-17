@@ -74,7 +74,7 @@ cover_list = ['LCZ1', 'LCZ2', 'LCZ3', 'LCZ4', 'LCZ5', 'LCZ6', 'LCZ7', 'LCZ8', 'L
 # ------------------------------------------------------ script starts here ------------------------------------------------------
 
 
-
+#%%
 ##################################################### 1st part of script #####################################################
 ########### Processing input paramaters
 
@@ -181,7 +181,7 @@ else:
     print(f"--------> {site_prefix}_custom.csv successfully created. Starting SuPy models...")
 
 
-
+#%%
 ##################################################### 2nd part of script #####################################################
 ########### Run SuPy runner.runner script for all split sites using processed inputs.
 
@@ -217,6 +217,7 @@ for individual_split_site in split_site_list_df.index:
 
 print(f"Output .h5 files for all {number_of_runs} runs successfully generated.")
 
+#%%
 ##################################################### 3rd part of script #####################################################
 ######### Consolidate/process output files into one singular file
 
