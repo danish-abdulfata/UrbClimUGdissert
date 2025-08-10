@@ -21,6 +21,8 @@ If you now want to update the subtree remote repository with that commit, you mu
 
 Subtree [cheatcode](https://gist.github.com/SKempin/b7857a6ff6bddb05717cc17a44091202)
 
+https://www.overleaf.com/learn/how-to/GitHub_Synchronization
+
 ### Miscellaneous
 
 cd /mnt/c/Users/Danish/Documents/GitHub/UrbClimUGdissert/supy-lcz-global
