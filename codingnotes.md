@@ -2,21 +2,31 @@
 
 USE mklink for Windows
 `mklink /d C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\data "C:\Users\Danish\OneDrive - University College London\dissertation_data\lcz-supy-global-data"`
+not in use since 10.08.2025
 
+### Git
 Git Subtree commandline
 `git subtree add --prefix C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\ https://github.com/UrbanClimateRisk-UCL/supy-lcz-global main --squash`
 
-Git Overleaf Update
-`git submodule update --remote --merge`
+*Pull in new subtree commits*
+If you want to pull in any new commits to the subtree from the remote, issue the same command as above, replacing add for pull:
+
+`git subtree pull --prefix overleaf-dissertation [https://github.com/newfivefour/vimrc.git](https://github.com/danish-abdulfata/ug-dissertation) master --squash`
+
+*Updating / Pushing to the subtree remote repository*
+If you make a change to anything in subtreeDirectory the commit will be stored in the host repository and its logs. That is the biggest change from submodules.
+If you now want to update the subtree remote repository with that commit, you must run the same command, excluding --squash and replacing pull for push.
+
+`git subtree push --prefix overleaf-dissertation https://github.com/danish-abdulfata/ug-dissertation master`
+
+Subtree [cheatcode](https://gist.github.com/SKempin/b7857a6ff6bddb05717cc17a44091202)
+
+### Miscellaneous
 
 cd /mnt/c/Users/Danish/Documents/GitHub/UrbClimUGdissert/supy-lcz-global
 micromamba activate supy_lcz
 
-python -m test_scripts.structure_grid_output /mnt/c/Users/Danish/Documents/GitHub/UrbClimUGdissert/supy-lcz-global/data/KL-KualaLumpurTest/output/grid/df_output_uMF_uLCu.h5 --dx 1000 --lat 3.056577 --lon 101.617373
-
 python -m runner.runner KL-KualaLumpurTest5 --run-type grid --grid-size 1000 --grid-boxes 40 --metforc-src era5land --urbdesc-src lcz_updated --sitelist sitelist_custom --download-era5 -
-
-python -m test_scripts.run_runner_test
 
 python -m test_scripts.run_split_models
 
