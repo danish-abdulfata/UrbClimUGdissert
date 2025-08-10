@@ -9,11 +9,13 @@ Git Subtree commandline
 `git subtree add --prefix C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global\ https://github.com/UrbanClimateRisk-UCL/supy-lcz-global main --squash`
 
 *Pull in new subtree commits*
+
 If you want to pull in any new commits to the subtree from the remote, issue the same command as above, replacing add for pull:
 
 `git subtree pull --prefix overleaf-dissertation [https://github.com/newfivefour/vimrc.git](https://github.com/danish-abdulfata/ug-dissertation) master --squash`
 
 *Updating / Pushing to the subtree remote repository*
+
 If you make a change to anything in subtreeDirectory the commit will be stored in the host repository and its logs. That is the biggest change from submodules.
 If you now want to update the subtree remote repository with that commit, you must run the same command, excluding --squash and replacing pull for push.
 
