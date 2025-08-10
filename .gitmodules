@@ -1,6 +1,0 @@
-[submodule "overleaf/Annotated-Bibliography"]
-	path = overleaf/Annotated-Bibliography
-	url = https://git@git.overleaf.com/6720c35ceb062742fdd88219
-[submodule "overleaf/UG-Dissertation"]
-	path = overleaf/UG-Dissertation
-	url = https://git@git.overleaf.com/671a2123187e048537895052
