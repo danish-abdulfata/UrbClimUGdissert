@@ -218,3 +218,5 @@ $RECYCLE.BIN/
 qgis/output_hh.tif
 qgis/peninsular_dem.tif
 qgis/population_peninsula.tif
+data/
+dissertation_data/
