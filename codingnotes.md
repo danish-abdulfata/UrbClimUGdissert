@@ -35,7 +35,3 @@ sp.show_version()
 https://liveuclac.sharepoint.com/sites/Geography/ComputerSupport/
 SSH Linux Geograhy Lab NW110A
 ssh zcfaada@ad@durban.geog.ucl.ac.uk
-
-Git repository
-username: danish-abdulfata
-PAT/password: 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
