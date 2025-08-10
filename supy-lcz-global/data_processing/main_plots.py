@@ -11,8 +11,8 @@ from matplotlib.ticker import FixedLocator, FixedFormatter
 from matplotlib.ticker import AutoLocator, MaxNLocator, LinearLocator, LogLocator, MultipleLocator
 
 import matplotlib.ticker
-#os.chdir(r"C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global")
-os.chdir('/home/zcfaada@ad.ucl.ac.uk/Documents/UrbClimUGdissert/supy-lcz-global')
+os.chdir(r"C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global")
+#os.chdir('/home/zcfaada@ad.ucl.ac.uk/Documents/UrbClimUGdissert/supy-lcz-global')
 # use the same names as set in run_split_models
 
 site_prefix = "GreaterKL-2017_Y1_M2sp_3sf_R1"
@@ -109,6 +109,7 @@ ax1.yaxis.set_major_formatter(y_label)
 fig.colorbar(pcm, ax=ax1, label='Temperature at 2m [deg C]')
 plt.show()
 
+# relabel grids by percentage so can customize spacing?
 
 
 ###########
@@ -159,6 +160,7 @@ ds.resample(time="1D")
 
 # stuff to figure out
     # fix formatting problems, figure out way to deal with axes
+    # figure size needs to emulate A4 Page
 
 fig, axs = plt.subplots(3, 4, figsize=(15,10), dpi = 200, gridspec_kw={'width_ratios': [0.6, 0.6, 0.25, 0.6]})
 fig.subplots_adjust(hspace = 0.05, wspace = 0.03, right = 0.87)
@@ -269,6 +271,11 @@ ax2.set_ylabel("Difference in Temperature")
 ax2.plot(temp_hour_mean_ne - temp_hour_mean_sw, "red")
 
 fig.legend(["NE Monsoon", "SW Monsoon", "Temperature Delta"])
+
+
+#%%
+
+# Potential to export .tif files using the .h5 pandas -> rioxarray?
 
 
 
