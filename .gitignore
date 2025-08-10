@@ -212,3 +212,9 @@ $RECYCLE.BIN/
 *.lnk
 .Rproj.user
 *.zip
+
+# Random files
+
+qgis/output_hh.tif
+qgis/peninsular_dem.tif
+qgis/population_peninsula.tif
