@@ -32,7 +32,7 @@ micromamba activate supy_lcz
 
 python -m runner.runner KL-KualaLumpurTest5 --run-type grid --grid-size 1000 --grid-boxes 40 --metforc-src era5land --urbdesc-src lcz_updated --sitelist sitelist_custom --download-era5 -
 
-python -m test_scripts.run_split_models
+python -m scripts.run_split_models
 
 free -h --si (for WSL ram)
 
