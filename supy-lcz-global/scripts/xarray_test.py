@@ -6,13 +6,13 @@ from pyproj import CRS
 from pyproj import Transformer
 import xarray as xr
 
-os.chdir('/home/zcfaada@ad.ucl.ac.uk/Documents/UrbClimUGdissert/supy-lcz-global')
-#os.chdir(r"C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global")
+#os.chdir('/home/zcfaada@ad.ucl.ac.uk/Documents/UrbClimUGdissert/supy-lcz-global')
+os.chdir(r"C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global")
 
-split_site_list_df = pd.read_csv(Path('./resources/GreaterKL-2017_Y1_M2sp_3sf_R1_splitlist.csv'))
+split_site_list_df = pd.read_csv(Path('./resources/GreaterKL-2017_Y1_M2sp_3sf_R2_splitlist.csv'))
 split_site_list_df.index.name = 'sitename'
 
-site_prefix = r'GreaterKL-2017_Y1_M2sp_3sf_R1'
+site_prefix = r'GreaterKL-2017_Y1_M2sp_3sf_R2'
 site_midpoint_lat = 3.056577
 site_midpoint_lon = 101.617373
 
@@ -49,9 +49,6 @@ final_df = pd.MultiIndex(levels=[[],[],[]],
 final_df = pd.DataFrame(index = final_df, columns = variable_list)
 final_df = final_df.rename_axis(columns='var')
 
-final_split_surf_frac = pd.DataFrame(columns = cover_list)
-final_split_surf_frac.index.name = 'grid'
-
 # MultiIndex formats for xarray to understand
 
 final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[0].astype('int64'), level=0)
@@ -69,7 +66,6 @@ grid_lon_list = []
 
 for individual_split_site in split_site_list_df.index:
 
-    individual_split_name = split_site_list_df.iloc[individual_split_site, 0]
     individual_split_path = f'data/{individual_split_name}/output/grid'
     individual_split_df = pd.read_hdf(Path(individual_split_path, 'df_output_uMF_uLCu.h5'))
     individual_split_lcz = pd.read_csv(Path(individual_split_path, 'df_roi_lcz.csv'), index_col = 'id')
@@ -79,8 +75,8 @@ for individual_split_site in split_site_list_df.index:
         
     # convert latlong to UTM for consistency / ease of calculations
 
-    split_site_lat = split_site_list_df.iloc[individual_split_site, 1]
-    split_site_lon = split_site_list_df.iloc[individual_split_site, 2]
+    split_site_lat = split_site_list_df.at[individual_split_site, 'latitude']
+    split_site_lon = split_site_list_df.at[individual_split_site, 'longitude']
     
     crs_dict = {
                 'proj': 'utm',
@@ -135,7 +131,7 @@ for individual_split_site in split_site_list_df.index:
     individual_split_surf_frac.insert(0, 'latitude', split_grid_lat)
     individual_split_surf_frac.insert(1, 'longitude', split_grid_lon)
     
-    print(f'Processing output file for {individual_split_name}')
+    print(f'Processing output file for {individual_split_site}')
 
     # merging to final df
     final_split_surf_frac = pd.concat([final_split_surf_frac, individual_split_surf_frac], join = 'inner')
@@ -205,11 +201,9 @@ final_ds_unflattened.longitude.plot(ax=ax1)
 final_ds_unflattened.latitude.plot(ax=ax2)
 
 # comparison between the datasets to ensure correct latlon alignment
-
+print(split_site_list_df.at['GreaterKL-2017_Y1_M2sp_3sf_R2_s20', 'longitude'])
 print(final_ds.T2.sel(timestamp="2016-10-03T08:00:00", grid=0))
 print(final_ds_unflattened.T2.isel(timestamp=0, x=0, y=0))
 
 print(final_ds.T2.sel(timestamp="2016-10-03T08:00:00", grid=1599))
 print(final_ds_unflattened.T2.isel(timestamp=0, x=39, y=39))
-
-

@@ -14,7 +14,7 @@ from runner.runner import main as run_runner
 # REMEMBER TO CHANGE site_prefix AND/OR DELETE ./data and ./resources FILES BEFORE STARTING!
 
 # Site Information
-site_prefix = "GreaterKL-2017_Y1_M2sp_3sf_R2" # CHANGE NAME BEFORE RUN
+site_prefix = "GreaterKL-2017_Y1_M2sp_3sf_R3" # CHANGE NAME BEFORE RUN
 site_midpoint_lat = 3.056577
 site_midpoint_lon = 101.617373
 
@@ -32,10 +32,6 @@ local_utc_offset_hours = 8
 
 # Spinup false by default. check run_runner below at end of 2nd part of script.
 # Change default spinup (2 years) in runner.py at line 868
-
-# Total area covered will be grid_size^2 * grid_boxes, in m^2, same as surface_cover_radius
-# grid_size
-grid_metre_length = surface_cover_radius 
 
 # grid_boxes
 site_grid_length = 40
@@ -82,6 +78,9 @@ cover_list = ['LCZ1', 'LCZ2', 'LCZ3', 'LCZ4', 'LCZ5', 'LCZ6', 'LCZ7', 'LCZ8', 'L
 run_split_models_start = time.time()
 
 # Split factor check if it's valid
+
+# Total area covered will be grid_metre_length^2 * grid_boxes, in m^2, same as surface_cover_radius
+grid_metre_length = surface_cover_radius 
 
 site_grid_area = site_grid_length ** 2
 
@@ -236,9 +235,6 @@ final_df = pd.MultiIndex(levels=[[],[],[]],
 final_df = pd.DataFrame(index = final_df, columns = variable_list)
 final_df = final_df.rename_axis(columns='var')
 
-final_split_surf_frac = pd.DataFrame(columns = cover_list)
-final_split_surf_frac.index.name = 'grid'
-
 # MultiIndex formats for xarray to understand
 
 final_split_df.index = final_split_df.index.set_levels(final_split_df.index.levels[0].astype('int64'), level=0)
@@ -258,8 +254,7 @@ split_file_count = 0
 
 for individual_split_site in split_site_list_df.index:
 
-    individual_split_name = split_site_list_df.iloc[individual_split_site, 0]
-    individual_split_path = f'data/{individual_split_name}/output/grid'
+    individual_split_path = f'data/{individual_split_site}/output/grid'
     individual_split_df = pd.read_hdf(Path(individual_split_path, 'df_output_uMF_uLCu.h5'))
     individual_split_lcz = pd.read_csv(Path(individual_split_path, 'df_roi_lcz.csv'), index_col = 'id')
     individual_split_supyfraction = pd.read_csv(Path(individual_split_path, 'df_roi_suews.csv'), index_col = 'id')
@@ -268,8 +263,8 @@ for individual_split_site in split_site_list_df.index:
         
     # convert latlong to UTM for consistency / ease of calculations
 
-    split_site_lat = split_site_list_df.iloc[individual_split_site, 1]
-    split_site_lon = split_site_list_df.iloc[individual_split_site, 2]
+    split_site_lat = split_site_list_df.at[individual_split_site, 'latitude']
+    split_site_lon = split_site_list_df.at[individual_split_site, 'longitude']
     
     crs_dict = {
                 'proj': 'utm',
@@ -324,7 +319,7 @@ for individual_split_site in split_site_list_df.index:
     individual_split_surf_frac.insert(0, 'latitude', split_grid_lat)
     individual_split_surf_frac.insert(1, 'longitude', split_grid_lon)
     
-    print(f'Processing output file for {individual_split_name}')
+    print(f'Processing output file for {individual_split_site}')
 
     # merging to final df
     final_split_surf_frac = pd.concat([final_split_surf_frac, individual_split_surf_frac], join = 'inner')
@@ -343,8 +338,9 @@ for individual_split_site in split_site_list_df.index:
     
     split_file_count += 1
 
-# Output Files
+######## Output Files
 
+# attribute file
 final_df.to_hdf(Path(output_file, site_prefix + '_consolidated.h5'), key='df', mode = 'w')
 final_split_surf_frac.to_csv(Path(output_file, site_prefix + '_attributes.csv'), mode = 'w')
 
