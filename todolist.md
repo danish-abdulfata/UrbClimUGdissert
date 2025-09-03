@@ -20,7 +20,9 @@ Just to take note of pending tasks and potential further research needed.
 - equations, include SUEWS figures.
 
 #### Model Questions
-- just urban heat island
+- Anomalous results
+	- Model 20, grid 475-499, has fully deciduous trees. Missing ddata from copernicus?
+
 - Hilly urban areas? How does topography affect calculations in SUEWS?
 
 - current idea: basic T2 seasonal and daily variations -> introduce other variables, esp humidity? -> heat stress calculations (wet bulb, humidex, others)?
