@@ -52,7 +52,10 @@ ne_monsoon2 = slice("2017-11-13T00:00:00", "2018-01-01T00:00:00")
 
 monsoon_periods = [ne_monsoon1, trans_monsoon1, sw_monsoon, trans_monsoon1, ne_monsoon2]
 
-SMALL_SIZE = 8
+
+# Font sizes and family
+
+SMALL_SIZE = 6
 MEDIUM_SIZE = 10
 BIGGER_SIZE = 12
 
@@ -63,6 +66,8 @@ plt.rc('xtick', labelsize=SMALL_SIZE)    # fontsize of the tick labels
 plt.rc('ytick', labelsize=SMALL_SIZE)    # fontsize of the tick labels
 plt.rc('legend', fontsize=SMALL_SIZE)    # legend fontsize
 plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
+
+plt.rcParams["font.family"] = "TeX Gyre Termes"
 
 ###########
 #%%
@@ -78,6 +83,14 @@ ds_unflattened.longitude.plot(ax=ax1)
 ds_unflattened.latitude.plot(ax=ax2)
 
 
+# basic header display
+
+print(ds_unflattened.coords['latitude'].head())
+print(ds_unflattened.coords['longitude'].head())
+
+print(ds_unflattened.timestamp.values[:1])
+print(ds_unflattened.longitude.values[38])
+print(ds_unflattened.latitude.values[38])
 
 # basic plot using state-based api
 
@@ -94,7 +107,7 @@ plt.title('Temperature at 2017-01-01T14:00:00')
 plt.show()
 
 #%%
-# axes ticks and labels testing
+# axes ticks and labels preparation
 
 lat_arr = ds.coords["latitude"].values
 lon_arr = ds.coords["longitude"].values
@@ -113,11 +126,12 @@ def y_label(x, pos):
         return " "
     return '{:.2f}'.format(round(lat_axes[int(x)], 3))
     
+#%%
+# axes ticks and labels example
+
 temp = ds_unflattened['T2'].sel(timestamp="2017-01-01T14:00:00")
 lat = ds_unflattened['y']
 lon = ds_unflattened['x']
-
-#%%
 fig, ax1 = plt.subplots(figsize=(6,4), dpi = 200)
 
 ax1.set_xlabel('Longitude')
@@ -125,7 +139,6 @@ ax1.set_ylabel('Latitude')
 pcm = ax1.pcolormesh(lat, lon, temp, shading = 'auto', cmap='coolwarm')
 # ax1.xaxis.set_major_locator(MaxNLocator(nbins=5))
 ax1.set_title("Axes Label testing")
-
 
 ax1.xaxis.set_major_locator(MaxNLocator(nbins=6))
 ax1.yaxis.set_major_locator(MaxNLocator(nbins=6))
@@ -136,10 +149,8 @@ ax1.yaxis.set_major_formatter(y_label)
 fig.colorbar(pcm, ax=ax1, label='Temperature at 2m [deg C]')
 plt.show()
 
-# relabel grids by percentage so can customize spacing?
-
 #%%
-###########
+# Basic figures and testing
 
 temp = ds_unflattened['T2']
 temp_mean = temp.mean(dim = "timestamp", keep_attrs = True)
@@ -185,10 +196,7 @@ ds.resample(time="1D")
 
 #%% 
 
-# stuff to figure out
-    # fix formatting problems, figure out way to deal with axes
-    # figure size needs to emulate A4 Page
-
+# Testing
 fig, axs = plt.subplots(3, 4, figsize=(15,10), dpi = 200, gridspec_kw={'width_ratios': [0.6, 0.6, 0.25, 0.6]})
 fig.subplots_adjust(hspace = 0.05, wspace = 0.03, right = 0.87)
 
@@ -217,16 +225,12 @@ pcm2 = axs[0, 1].pcolormesh(lat, lon, temp_mean2, shading = 'auto', cmap='coolwa
 contour1 = axs[0, 3].contourf(lat, lon, (temp_mean + temp_mean_ne)/2 - temp_mean2, vmin = -1.8, vmax = -0.4)
 
 
-# 09:00 average tempearture
-
 temp_trans1 = ds_unflattened['T2'].sel(timestamp=trans_monsoon1)
 temp_mean3 = temp_trans1.mean(dim = "timestamp", keep_attrs = True)
 pcm4 = axs[1, 0].pcolormesh(lat, lon, temp_mean3, shading = 'auto', cmap='coolwarm', vmin = 24, vmax = 32)
 
 contour2 = axs[1, 3].contourf(lat, lon, (temp_mean + temp_mean_ne)/2 - temp_mean3, vmin = -1.8, vmax = -0.4)
 
-
-# 20:00
 
 for ax in axs[:, 0]:
     ax.yaxis.set_major_formatter(y_label)
@@ -266,10 +270,11 @@ plt.show()
 
 ds_uf = ds_unflattened
 
-uhi = ds_uf['T2'] - ds_uf_ff['T2'] 
-uhi = uhi.where(uhi >= 0, 0)
+uhi = ds_uf['T2'] - ds_uf_ff['T2']
+uhi_nan = uhi.where(uhi >= 0, np.nan)
+uhi_clean = uhi.where(uhi >= 0, 0)
 
-uhi_mean = uhi.mean(dim = "timestamp", keep_attrs = True)
+uhi_mean = uhi_clean.mean(dim = "timestamp", keep_attrs = True)
 
 temp_ne = xr.concat([ds_uf['T2'].sel(timestamp=ne_monsoon1), ds_uf['T2'].sel(timestamp=ne_monsoon2)], dim = 'timestamp')
 temp_ne_mean = temp_ne.mean(dim = "timestamp", keep_attrs = True)
@@ -292,81 +297,73 @@ uhi_trans_mean = uhi_trans.mean(dim = "timestamp", keep_attrs = True)
 
 #%%
 
-# Line graphs of average tempearture at a certain time?
-    # average temperature throughout the day for each season. 
-    # specific grids or generally?
-
-# use a differnet package for this?
-# maybe plotnine
+# Line graphs of average hourly tempearture/UHI
    
-temp_ne1 = ds_unflattened['T2'].sel(timestamp=ne_monsoon1)
-temp_ne2 = ds_unflattened['T2'].sel(timestamp=ne_monsoon2)
+temp_ne_hour = temp_ne.groupby("timestamp.hour").mean()
+temp_ne_hour_mean = temp_ne_hour.mean(dim = ["y","x"], keep_attrs = True)
+# plt.plot(temp_ne_hour_mean)
 
-temp_hour_mean_ne1 = temp_ne1.groupby("timestamp.hour").mean()
-temp_hour_mean_ne1 = temp_hour_mean_ne1.mean(dim = ["y","x"], keep_attrs = True)
-temp_hour_mean_ne2 = temp_ne1.groupby("timestamp.hour").mean()
-temp_hour_mean_ne2 = temp_hour_mean_ne2.mean(dim = ["y","x"], keep_attrs = True)
-
-temp_hour_mean_ne = (temp_hour_mean_ne1 + temp_hour_mean_ne2)/2
-
-# plt.plot(temp_hour_mean_ne)
-
-temp_sw = ds_unflattened['T2'].sel(timestamp=sw_monsoon)
-temp_hour_mean_sw = temp_sw.groupby("timestamp.hour").mean()
-temp_hour_mean_sw = temp_hour_mean_sw.mean(dim = ["y","x"], keep_attrs = True)
+temp_sw_hour = temp_sw.groupby("timestamp.hour").mean()
+temp_sw_hour_mean = temp_sw_hour.mean(dim = ["y","x"], keep_attrs = True)
 # plt.plot(temp_hour_mean_sw)
+
+temp_uhi_hour = uhi.groupby("timestamp.hour").mean()
+temp_uhi_hour_mean = temp_uhi_hour.mean(dim = ["y", "x"]) 
+# plt.plot(temp_uhi_hour_mean)
+
+uhi_hour_ne = uhi_ne.groupby("timestamp.hour").mean()
+uhi_nan = uhi.where(uhi >= 0, np.nan)
+uhi_hour_ne_mean = uhi_hour_ne.mean(dim = ["y", "x"]) 
+
+uhi_hour_sw = uhi_sw.groupby("timestamp.hour").mean()
+uhi_hour_sw_mean = uhi_hour_sw.mean(dim = ["y", "x"]) 
 
 fig, ax1 = plt.subplots(dpi = 200)
 
-ax1.plot(temp_hour_mean_ne, "blue")
-ax1.plot(temp_hour_mean_sw, "green")
+ax1.plot(uhi_hour_ne_mean, "blue")
+ax1.plot(uhi_hour_sw_mean, "green")
 ax1.set_xlabel("Hour of Day")
 ax1.set_ylabel("Temperature at 2m [deg C]")
 
 ax2 = ax1.twinx()
 ax2.set_ylabel("Difference in Temperature")
-ax2.plot(temp_hour_mean_ne - temp_hour_mean_sw, "red")
+ax2.plot(temp_ne_hour_mean - temp_sw_hour_mean, "red")
 
 fig.legend(["NE Monsoon", "SW Monsoon", "Temperature Delta"])
 
 
-
-
-
 #%%
-
-# similar line graph as above but instead of temp delta it shows UHI hourly average 
-# ignore grids with <x UHI magnitude?
-
 
 # line graph showing average UHI per day over the course of the year
 
+temp_uhi_day = uhi.resample(timestamp='D').mean()
+# temp_uhi_day = temp_uhi_day.mean(dim = ["y", "x"]) 
+# plt.plot(temp_uhi_day)
 
+# ignore grids with daily UHI magnitude less than 0
+temp_uhi_day_clean = temp_uhi_day.where(temp_uhi_day >= 0, np.nan)
 
+temp_uhi_day_clean = temp_uhi_day_clean.mean(dim = ["y", "x"]) 
+plt.plot(temp_uhi_day_clean)
 
-#%% Data testing
+#%% Monsoonal Maps and UHI
 
-
-fig, axs = plt.subplots(2, 3, figsize=(12,8), dpi = 200)
-fig.subplots_adjust(hspace = 0.05, wspace = 0.03, right = 0.87)
+fig, axs = plt.subplots(2, 3, figsize=(6.27,4), dpi = 300)
+fig.subplots_adjust(hspace = 0.02, wspace = 0.02, right = 0.87)
     
-axs[0, 0].set_title("Northeast Monsoon")
-axs[0, 1].set_title("Southwest Monsoon")
-axs[0, 2].set_title("Transitional")
-
-
+axs[0, 0].set_title("NEM", fontsize=10)
+axs[0, 1].set_title("SWM", fontsize=10)
+axs[0, 2].set_title("TMP", fontsize=10)
 
 lat = ds_uf['y']
 lon = ds_uf['x']
 
+# 1st row
 pcm1 = axs[0, 0].pcolormesh(lat, lon, temp_ne_mean, shading = 'auto', cmap='coolwarm', vmin = 23, vmax = 31)
 pcm2 = axs[0, 1].pcolormesh(lat, lon, temp_sw_mean, shading = 'auto', cmap='coolwarm', vmin = 23, vmax = 31)
 pcm3 = axs[0, 2].pcolormesh(lat, lon, temp_trans_mean, shading = 'auto', cmap='coolwarm', vmin = 23, vmax = 31)
 
-
-
-#levels = np.linspace(0, 5, 10)
-
+# 2nd row
 contour1 = axs[1, 0].contourf(lat, lon, uhi_ne_mean, cmap = 'YlOrRd', vmin = 0, vmax = 5)
 contour2 = axs[1, 1].contourf(lat, lon, uhi_sw_mean, cmap = 'YlOrRd', vmin = 0, vmax = 5)
 contour3 = axs[1, 2].contourf(lat, lon, uhi_trans_mean, cmap = 'YlOrRd', vmin = 0, vmax = 5)
@@ -376,24 +373,33 @@ cbar_ax1 = fig.add_axes([0.88, 0.52, 0.02, 0.35])
 cbar_ax2 = fig.add_axes([0.88, 0.12, 0.02, 0.35])
 
 # Add colorbars
-fig.colorbar(pcm1, cax=cbar_ax1, label='Temperature at 2m [deg C]')
-fig.colorbar(contour1, cax=cbar_ax2, label='Urban Heat Island [deg C]')
+cb1 = fig.colorbar(pcm1, cax=cbar_ax1)
+cb1.set_label(label='Mean Temperature [deg C]', size=8)
+cb1.ax.tick_params(labelsize=7, width = 0.5) 
+
+cb2 = fig.colorbar(contour1, cax=cbar_ax2)
+cb2.set_label(label='Urban Heat Island [deg C]', size=8)
+cb2.ax.tick_params(labelsize=7, width = 0.5) 
 
 for ax in axs[:, 0]:
     ax.yaxis.set_major_formatter(y_label)
     ax.yaxis.set_major_locator(MaxNLocator(nbins=8))
 
 for ax in axs[1, :]:
+    ax.tick_params(width = 0.5)
     ax.xaxis.set_major_formatter(x_label)
     ax.xaxis.set_major_locator(MaxNLocator(nbins=6))
 
 for ax in axs[0, :]:
+    ax.tick_params(bottom=False, width = 0.5)
     ax.set_xticklabels([])
-    ax.xaxis.set_major_locator(MaxNLocator(nbins=6))
+    ax.xaxis.set_major_locator(MaxNLocator(nbins=6)) 
     
 for ax in axs[:, 1]:
+    ax.tick_params(left=False)
     ax.set_yticklabels([])
 for ax in axs[:, 2]:
+    ax.tick_params(left=False)
     ax.set_yticklabels([])  
     
 # for ax in axs[2]:
@@ -440,3 +446,7 @@ plt.show()
 # count, number of grids with avg UHI > 1, 2, 3, 4
 
 
+#%%
+
+
+# back to geopandas? using moran's I? 

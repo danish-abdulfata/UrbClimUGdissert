@@ -17,7 +17,7 @@ site_midpoint_lat = 3.056577
 site_midpoint_lon = 101.617373
 
 output_file = r'./data/consolidated_outputs/'
-variable_list = ['Kdown', 'Kup', 'Ldown', 'Lup', 'Tsurf', 'QN', 'QF', 'QS', 'QH', 'QE', 'QHlumps', 'QElumps', 'QHresis', 'AlbBulk', 'T2', 'Q2', 'U10', 'RH2']
+variable_list = ['Kdown', 'Kup', 'Ldown', 'Lup', 'Tsurf', 'QN', 'QF', 'QS', 'QH', 'QE', 'QHlumps', 'QElumps', 'AlbBulk', 'T2', 'Q2', 'U10', 'RH2']
 cover_list = ['latitude', 'longitude','LCZ1', 'LCZ2', 'LCZ3', 'LCZ4', 'LCZ5', 'LCZ6', 'LCZ7', 'LCZ8', 'LCZ9', 'LCZ10', 'LCZ11', 'LCZ12', 'LCZ13', 'LCZ14', 'LCZ15', 'LCZ16', 'LCZ17', 'Paved (-)', 'Buildings (-)', 'Grass (-)', 'Deciduous trees (-)', 'Evergreen trees (-)', 'Bare soil (-)', 'Water (-)', 'Mean building height (m)', 'Mean vegetation height (m)', 'Albedo (-)', 'Height-to-width ratio (-)', 'Frontal area index buildings (-)', 'Frontal area index deciduous tree (-)', 'Frontal area index evergeen tree (-)']
 
 grid_metre_length = 1000
@@ -142,27 +142,14 @@ for individual_split_site in split_site_list_df.index:
     
     split_file_count += 1
 
-# Output Files
-
-# final_split_df.to_hdf(Path(output_file, site_prefix + '_consolidated.h5'), key='df', mode = 'w')
-# final_split_surf_frac.to_csv(Path(output_file, site_prefix + '_attributes.csv'), mode = 'w')
+# attribute file
+final_df.to_hdf(Path(output_file, site_prefix + '_test.h5'), key='df', mode = 'w')
 
 # netCDF conversion
+final_ds = xr.Dataset.from_dataframe(final_split_df)
 
-final_split_ds = xr.Dataset.from_dataframe(final_split_df)
-
-final_split_ds = final_split_ds.assign_coords(latitude = ('grid', grid_lat_list))
-final_split_ds = final_split_ds.assign_coords(longitude = ('grid', grid_lon_list))
-
-#print(final_split_ds)
-#final_split_ds.to_netcdf(path = Path(output_file, site_prefix + '_consolidated.nc'), mode ='w')
-
-# alternative data structure with 2D meshgrid instead
-# final_split_ds = xr.open_dataset(Path(output_file, site_prefix + '_consolidated.nc'))
-
-final_ds_sort = final_split_ds.sortby(['longitude'])
-
-nlat, nlon = site_grid_length, site_grid_length
+final_ds = final_ds.assign_coords(latitude = ('grid', grid_lat_list))
+final_ds = final_ds.assign_coords(longitude = ('grid', grid_lon_list))
 
 # convert latlong to UTM for consistency / ease of calculations
 
@@ -191,26 +178,66 @@ split_xx, split_yy = np.meshgrid(split_midpoint_lat, split_midpoint_lon)
 lat_list = list(np.ndarray.flatten(split_xx))
 lon_list = list(np.ndarray.flatten(split_yy))
 
+final_ds_sort = final_ds.sortby(['longitude', 'latitude'])
+final_df_sort = final_df.sort_values(["latitude", "longitude"])
+
+mean_ds = final_ds['T2'].mean(dim = "timestamp", keep_attrs = True)
+mean_ds = mean_ds.sortby(['longitude'])
+
+
+print(final_df_sort.index[0])
+
+print(mean_ds.longitude.values[1])
+print(mean_ds.latitude.values[1])
+
+
+#%%
+nlat, nlon = site_grid_length, site_grid_length
+lat_2d = np.array(grid_lat_list).reshape(nlat, nlon)
+lon_2d = np.array(grid_lon_list).reshape(nlat, nlon)
+
+
 data_vars = {}
 for var_label in variable_list:
-        flat_data = final_ds_sort[var_label].values
+        flat_data = final_df_sort[var_label].values
         data_reshaped = flat_data.reshape(nlat, nlon, -1)
         data_vars[var_label] = (("latitude", "longitude", "timestamp"), data_reshaped)
  
-    
 # unflattened ds with only (timestamp, latitude, longitude) dimensions
-#latitude is correct but longitud isn't because the values are "grouped" 5 by 5 due to model splitting
+#latitude is correct but longitude isn't because the values are "grouped" 5 by 5 due to model splitting
 
-unflattened_final_ds = xr.Dataset(data_vars,
+unf_final_ds = xr.Dataset(data_vars,
                                   coords = {
-        'timestamp': final_ds_sort['timestamp'],
+        'timestamp': final_df_sort['timestamp'],
         'latitude': split_midpoint_lat,
         'longitude': split_midpoint_lon})
 
-unflattened_final_ds.T2.isel(timestamp=0).plot.pcolormesh()
+unf_final_ds.T2.isel(timestamp=0).plot.pcolormesh()
 
-# unflattened_final_ds.to_netcdf(path = Path(output_file, site_prefix + '_unflattened.nc'), mode = 'w')
+print(unf_final_ds.longitude.values[1])
+print(unf_final_ds.latitude.values[1])
 
+
+#%%
+nlat, nlon = site_grid_length, site_grid_length
+lat_2d = np.array(grid_lat_list).reshape(nlat, nlon)
+lon_2d = np.array(grid_lon_list).reshape(nlat, nlon)
+
+data_vars = {}
+flat_data = mean_ds.values
+data_reshaped = flat_data.reshape(nlat, nlon)
+data_vars['T2'] = (("latitude", "longitude"), data_reshaped)
+ 
+
+unf_final_ds = xr.Dataset(data_vars,
+                                  coords = {
+        'latitude': split_midpoint_lat,
+        'longitude': split_midpoint_lon})
+
+unf_final_ds.T2.plot.pcolormesh()
+
+print(unf_final_ds.longitude.values[1])
+print(unf_final_ds.latitude.values[1])
 
 
 
