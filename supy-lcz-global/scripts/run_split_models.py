@@ -268,8 +268,8 @@ for individual_split_site in split_site_list_df.index:
     
     crs_dict = {
                 'proj': 'utm',
-                'zone': int(np.round((183 + split_site_lat) / 6)),
-                'south': split_site_lon < 0,
+                'zone': int(np.round((183 + split_site_lon) / 6)),
+                'south':  split_site_lat < 0,
             }
 
     crs = CRS.from_dict(crs_dict)

@@ -334,6 +334,8 @@ fig.legend(["NE Monsoon", "SW Monsoon", "Temperature Delta"])
 
 #%%
 
+from whittaker_eilers import WhittakerSmoother
+import seaborn as sns
 # line graph showing average UHI per day over the course of the year
 
 temp_uhi_day = uhi.resample(timestamp='D').mean()
@@ -344,7 +346,36 @@ temp_uhi_day = uhi.resample(timestamp='D').mean()
 temp_uhi_day_clean = temp_uhi_day.where(temp_uhi_day >= 0, np.nan)
 
 temp_uhi_day_clean = temp_uhi_day_clean.mean(dim = ["y", "x"]) 
+temp_uhi_day_clean = temp_uhi_day_clean[:-1]
+
+whittaker_smoother = WhittakerSmoother(
+    lmbda=100, order=6, data_length=len(temp_uhi_day_clean)
+)
+
+
+smoothed_temp = whittaker_smoother.smooth(temp_uhi_day_clean)
+
+results = whittaker_smoother.smooth_optimal(temp_uhi_day_clean, break_serial_correlation=True)
+optimally_smoothed_series = results.get_optimal().get_smoothed()
+
+results.get_optimal().get_lambda() #lambda used 
+
 plt.plot(temp_uhi_day_clean)
+plt.plot(smoothed_temp, color='red')
+plt.plot(optimally_smoothed_series, color='green')
+
+plt.show()
+
+uhi_df = temp_uhi_day_clean.to_dataframe()
+uhi_smooth = pd.Series(optimally_smoothed_series, uhi_df.index, name = "smooth")
+
+
+uhi_df = pd.concat([uhi_df, uhi_smooth], axis = 1, join = 'outer')
+
+uhi_dfm = df.melt('tiemstamp', y="vals", hue='cols')
+
+seaborn_grid = sns.relplot(y= x = 'timestamp', data=uhi_df, kind="line")
+seaborn_grid = sns.relplot(data=optimally_smoothed_series, kind="line")
 
 #%% Monsoonal Maps and UHI
 
@@ -445,8 +476,3 @@ plt.show()
 
 # count, number of grids with avg UHI > 1, 2, 3, 4
 
-
-#%%
-
-
-# back to geopandas? using moran's I? 
