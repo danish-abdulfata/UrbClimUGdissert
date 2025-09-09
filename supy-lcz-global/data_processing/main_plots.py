@@ -1,16 +1,13 @@
+# -*- coding: utf-8 -*-
 import pandas as pd
 import os
 import numpy as np
 import xarray as xr
 from pathlib import Path
 
-import geopandas as gpd
 import matplotlib.pyplot as plt
-from matplotlib.ticker import FuncFormatter, ScalarFormatter, PercentFormatter, MultipleLocator
-from matplotlib.ticker import FixedLocator, FixedFormatter
-from matplotlib.ticker import AutoLocator, MaxNLocator
+from matplotlib.ticker import MaxNLocator
 
-import matplotlib.ticker
 os.chdir(r"C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global")
 #os.chdir('/home/zcfaada@ad.ucl.ac.uk/Documents/UrbClimUGdissert/supy-lcz-global')
 # use the same names as set in run_split_models
@@ -35,6 +32,8 @@ ds_uf_ff = xr.open_dataset(ds_uf_ff)
 model_year = slice("2017-01-01T00:00:00", "2018-01-01T00:00:00")
 ds = ds.sel(timestamp=model_year)
 ds_unflattened = ds_unflattened.sel(timestamp=model_year)
+ds_uf = ds_unflattened
+
 ds_uf_ff = ds_uf_ff.sel(timestamp=model_year)
 
 ########## Time Periods concerned
@@ -55,7 +54,7 @@ monsoon_periods = [ne_monsoon1, trans_monsoon1, sw_monsoon, trans_monsoon1, ne_m
 
 # Font sizes and family
 
-SMALL_SIZE = 6
+SMALL_SIZE = 8
 MEDIUM_SIZE = 10
 BIGGER_SIZE = 12
 
@@ -68,6 +67,32 @@ plt.rc('legend', fontsize=SMALL_SIZE)    # legend fontsize
 plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
 
 plt.rcParams["font.family"] = "TeX Gyre Termes"
+
+# monsooonal averages and basic arithmetics
+
+uhi = ds_uf['T2'] - ds_uf_ff['T2']
+uhi_nan = uhi.where(uhi >= 0, np.nan)
+uhi_clean = uhi.where(uhi >= 0, 0)
+
+uhi_mean = uhi_clean.mean(dim = "timestamp", keep_attrs = True)
+
+temp_ne = xr.concat([ds_uf['T2'].sel(timestamp=ne_monsoon1), ds_uf['T2'].sel(timestamp=ne_monsoon2)], dim = 'timestamp')
+temp_ne_mean = temp_ne.mean(dim = "timestamp", keep_attrs = True)
+
+temp_sw = ds_uf['T2'].sel(timestamp=sw_monsoon)
+temp_sw_mean = temp_sw.mean(dim = "timestamp", keep_attrs = True)
+
+temp_trans = xr.concat([ds_uf['T2'].sel(timestamp=trans_monsoon1), ds_uf['T2'].sel(timestamp=trans_monsoon2)], dim = 'timestamp')
+temp_trans_mean = temp_trans.mean(dim = "timestamp", keep_attrs = True)
+
+uhi_ne = xr.concat([uhi.sel(timestamp=ne_monsoon1), uhi.sel(timestamp=ne_monsoon2)], dim = 'timestamp')
+uhi_ne_mean = uhi_ne.mean(dim = "timestamp", keep_attrs = True)
+
+uhi_sw = uhi.sel(timestamp=sw_monsoon)
+uhi_sw_mean = uhi_sw.mean(dim = "timestamp", keep_attrs = True)
+
+uhi_trans = xr.concat([uhi.sel(timestamp=trans_monsoon1), uhi.sel(timestamp=trans_monsoon2)], dim = 'timestamp')
+uhi_trans_mean = uhi_trans.mean(dim = "timestamp", keep_attrs = True)
 
 ###########
 #%%
@@ -163,7 +188,6 @@ plt.colorbar(label='Temperature at 2m [deg C]')
 plt.xlabel('Longitude')
 plt.ylabel('Latitude')
 plt.title('Average Temperature in 2017')
-main.set_yticks(lat_axes)
 plt.show()
 
 ds_day = ds_unflattened.groupby("timestamp.day").max()
@@ -196,7 +220,7 @@ ds.resample(time="1D")
 
 #%% 
 
-# Testing
+# Testing subplots
 fig, axs = plt.subplots(3, 4, figsize=(15,10), dpi = 200, gridspec_kw={'width_ratios': [0.6, 0.6, 0.25, 0.6]})
 fig.subplots_adjust(hspace = 0.05, wspace = 0.03, right = 0.87)
 
@@ -264,39 +288,9 @@ fig.colorbar(pcm1, cax=cbar_ax, label='Temperature at 2m [deg C]')
 
 plt.show()
     
-#%%
-
-# monsooonal averages and basic arithmetics
-
-ds_uf = ds_unflattened
-
-uhi = ds_uf['T2'] - ds_uf_ff['T2']
-uhi_nan = uhi.where(uhi >= 0, np.nan)
-uhi_clean = uhi.where(uhi >= 0, 0)
-
-uhi_mean = uhi_clean.mean(dim = "timestamp", keep_attrs = True)
-
-temp_ne = xr.concat([ds_uf['T2'].sel(timestamp=ne_monsoon1), ds_uf['T2'].sel(timestamp=ne_monsoon2)], dim = 'timestamp')
-temp_ne_mean = temp_ne.mean(dim = "timestamp", keep_attrs = True)
-
-temp_sw = ds_uf['T2'].sel(timestamp=sw_monsoon)
-temp_sw_mean = temp_sw.mean(dim = "timestamp", keep_attrs = True)
-
-temp_trans = xr.concat([ds_uf['T2'].sel(timestamp=trans_monsoon1), ds_uf['T2'].sel(timestamp=trans_monsoon2)], dim = 'timestamp')
-temp_trans_mean = temp_trans.mean(dim = "timestamp", keep_attrs = True)
-
-uhi_ne = xr.concat([uhi.sel(timestamp=ne_monsoon1), uhi.sel(timestamp=ne_monsoon2)], dim = 'timestamp')
-uhi_ne_mean = uhi_ne.mean(dim = "timestamp", keep_attrs = True)
-
-uhi_sw = uhi.sel(timestamp=sw_monsoon)
-uhi_sw_mean = uhi_sw.mean(dim = "timestamp", keep_attrs = True)
-
-uhi_trans = xr.concat([uhi.sel(timestamp=trans_monsoon1), uhi.sel(timestamp=trans_monsoon2)], dim = 'timestamp')
-uhi_trans_mean = uhi_trans.mean(dim = "timestamp", keep_attrs = True)
-
 
 #%%
-
+import scipy.stats as stats
 # Line graphs of average hourly tempearture/UHI
    
 temp_ne_hour = temp_ne.groupby("timestamp.hour").mean()
@@ -312,30 +306,86 @@ temp_uhi_hour_mean = temp_uhi_hour.mean(dim = ["y", "x"])
 # plt.plot(temp_uhi_hour_mean)
 
 uhi_hour_ne = uhi_ne.groupby("timestamp.hour").mean()
-uhi_nan = uhi.where(uhi >= 0, np.nan)
 uhi_hour_ne_mean = uhi_hour_ne.mean(dim = ["y", "x"]) 
 
 uhi_hour_sw = uhi_sw.groupby("timestamp.hour").mean()
 uhi_hour_sw_mean = uhi_hour_sw.mean(dim = ["y", "x"]) 
 
-fig, ax1 = plt.subplots(dpi = 200)
+# Figure
+fig, axs = plt.subplots(1, 2, figsize=(6.27,2), dpi = 1000)
+fig.subplots_adjust(hspace = 0.02, wspace = 0.35)
 
-ax1.plot(uhi_hour_ne_mean, "blue")
-ax1.plot(uhi_hour_sw_mean, "green")
-ax1.set_xlabel("Hour of Day")
-ax1.set_ylabel("Temperature at 2m [deg C]")
+fig1 = axs[0].plot(uhi_hour_ne_mean, "lightseagreen")
+fig1 = axs[0].plot(uhi_hour_sw_mean, "salmon")
+axs[0].set_xlabel("Hour of Day")
+axs[0].set_ylabel("UHI Intensity [°C]")
 
-ax2 = ax1.twinx()
-ax2.set_ylabel("Difference in Temperature")
-ax2.plot(temp_ne_hour_mean - temp_sw_hour_mean, "red")
+uhii_diff = uhi_hour_ne_mean - uhi_hour_sw_mean
+stat, p = stats.wilcoxon(uhii_diff.values.flatten().round(3), nan_policy = 'omit')
 
-fig.legend(["NE Monsoon", "SW Monsoon", "Temperature Delta"])
+fig2 = axs[1].plot(uhii_diff, "lightseagreen")
+axs[1].set_xlabel("Hour of Day")
+axs[1].set_ylabel("Difference in UHI Intensity")
 
+plt.axhline(y=uhii_diff.mean(), color='lightseagreen', alpha = 0.25, ls = '--', label='mean')
+
+fig.legend(["NEM", "SWM"], bbox_to_anchor=(0.459, 0.1), loc='lower right')
+
+#%%
+
+# REWRITE CODE TO GENERATE SERIES OF PLOTS FOR 0%, 50%, 75% AND 90%?
+
+
+
+# Calculate temporal mean for each grid cell
+gridded_mean = ds_uf['T2'].mean(dim='timestamp')
+
+# Calculate the 90th percentile value
+percentile = gridded_mean.quantile(0.75)
+
+# Create boolean mask for top 10% grids
+warmest_mask = gridded_mean >= percentile
+
+# Apply the mask to select only top 10% grids
+warmest_grids = ds_uf['T2'].where(warmest_mask, drop=True)
+warmest_grids_ff = ds_uf_ff['T2'].where(warmest_mask, drop=True)
+
+warmest_grids_uhi = warmest_grids - warmest_grids_ff
+
+warmest_grids_uhi_ne = xr.concat([warmest_grids_uhi.sel(timestamp=ne_monsoon1), warmest_grids_uhi.sel(timestamp=ne_monsoon2)], dim = 'timestamp')
+warmest_grids_uhi_sw = warmest_grids_uhi.sel(timestamp=sw_monsoon)
+
+# Perform calculations on the filtered data
+
+gridded_mean_warmest_ne = warmest_grids_uhi_ne.mean(dim = ["y", "x"])
+gridded_mean_warmest_sw = warmest_grids_uhi_sw.mean(dim = ["y", "x"])
+hourly_mean_warmest_ne = gridded_mean_warmest_ne.groupby("timestamp.hour").mean()
+hourly_mean_warmest_sw = gridded_mean_warmest_sw.groupby("timestamp.hour").mean()
+
+fig, ax1 = plt.subplots(dpi = 1000)
+
+fig, axs = plt.subplots(1, 2, figsize=(6.27,2), dpi = 1000)
+fig.subplots_adjust(hspace = 0.02, wspace = 0.35)
+
+fig1 = axs[0].plot(hourly_mean_warmest_ne, "lightseagreen")
+fig1 = axs[0].plot(hourly_mean_warmest_sw, "salmon")
+axs[0].set_xlabel("Hour of Day")
+axs[0].set_ylabel("UHI Intensity [°C]")
+
+uhii_diff = hourly_mean_warmest_ne - hourly_mean_warmest_sw
+stat, p = stats.wilcoxon(uhii_diff.values.flatten().round(3), nan_policy = 'omit')
+
+fig2 = axs[1].plot(uhii_diff, "lightseagreen")
+axs[1].set_xlabel("Hour of Day")
+axs[1].set_ylabel("Difference in UHI Intensity")
+
+plt.axhline(y=uhii_diff.mean(), color='lightseagreen', alpha = 0.25, ls = '--', label='mean')
+
+fig.legend(["NEM", "SWM"], bbox_to_anchor=(0.459, 0.1), loc='lower right')
 
 #%%
 
 from whittaker_eilers import WhittakerSmoother
-import seaborn as sns
 # line graph showing average UHI per day over the course of the year
 
 temp_uhi_day = uhi.resample(timestamp='D').mean()
@@ -349,7 +399,7 @@ temp_uhi_day_clean = temp_uhi_day_clean.mean(dim = ["y", "x"])
 temp_uhi_day_clean = temp_uhi_day_clean[:-1]
 
 whittaker_smoother = WhittakerSmoother(
-    lmbda=100, order=6, data_length=len(temp_uhi_day_clean)
+    lmbda=100, order=7, data_length=len(temp_uhi_day_clean)
 )
 
 
@@ -360,26 +410,26 @@ optimally_smoothed_series = results.get_optimal().get_smoothed()
 
 results.get_optimal().get_lambda() #lambda used 
 
-plt.plot(temp_uhi_day_clean)
-plt.plot(smoothed_temp, color='red')
-plt.plot(optimally_smoothed_series, color='green')
-
-plt.show()
-
 uhi_df = temp_uhi_day_clean.to_dataframe()
 uhi_smooth = pd.Series(optimally_smoothed_series, uhi_df.index, name = "smooth")
 
-
 uhi_df = pd.concat([uhi_df, uhi_smooth], axis = 1, join = 'outer')
 
-uhi_dfm = df.melt('tiemstamp', y="vals", hue='cols')
+fig, ax1 = plt.subplots(dpi = 1000)
 
-seaborn_grid = sns.relplot(y= x = 'timestamp', data=uhi_df, kind="line")
-seaborn_grid = sns.relplot(data=optimally_smoothed_series, kind="line")
+ax1.plot(uhi_df, color= "lightseagreen", alpha=0.25)
+ax1.plot(uhi_smooth, color= "lightseagreen")
+
+ax1.axvspan('2017-04-01T00:00:00', '2017-05-16T23:00:00', color='lightgrey', alpha=0.5)
+ax1.axvspan('2017-09-06T00:00:00', '2017-11-13T23:00:00', color='lightgrey', alpha=0.5)
+
+ax1.set_xlabel("Date")
+ax1.set_ylabel("Urban Heat Island Intensity [°C]")
+
 
 #%% Monsoonal Maps and UHI
 
-fig, axs = plt.subplots(2, 3, figsize=(6.27,4), dpi = 300)
+fig, axs = plt.subplots(2, 3, figsize=(6.27,4), dpi = 1000)
 fig.subplots_adjust(hspace = 0.02, wspace = 0.02, right = 0.87)
     
 axs[0, 0].set_title("NEM", fontsize=10)
