@@ -5,7 +5,6 @@ import numpy as np
 import xarray as xr
 from pathlib import Path
 import scipy.stats as stats
-import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
 
@@ -57,7 +56,7 @@ monsoon_periods = [ne_monsoon1, trans_monsoon1, sw_monsoon, trans_monsoon1, ne_m
 
 # Font sizes and family
 
-SMALL_SIZE = 8
+SMALL_SIZE = 7
 MEDIUM_SIZE = 10
 BIGGER_SIZE = 12
 
@@ -286,11 +285,7 @@ fig.colorbar(contour1, cax = cbar_tdiff, label='Temperature difference [deg C]')
 
 cbar_ax = fig.add_axes([0.58, 0.15, 0.02, 0.7])
 fig.colorbar(pcm1, cax=cbar_ax, label='Temperature at 2m [deg C]')
-
-
 plt.show()
-    
-
 #%%
 
 # Line graphs of average hourly tempearture/UHI
@@ -335,13 +330,13 @@ fig.legend(["NEM", "SWM"], bbox_to_anchor=(0.459, 0.1), loc='lower right')
 
 #%%
 
-# Hourly means 
-
+# Hourly means linegraphs
 percentiles = [0, 0.5, 0.75, 0.9]
 
 # Calculate temporal mean for each grid cell
 gridded_mean = ds_uf['T2'].mean(dim='timestamp')
 
+# Intialize final dataframes
 hour_index = range(24)
 
 final_ne_hourly = pd.DataFrame(index = hour_index)
@@ -375,35 +370,75 @@ for percentile in percentiles:
     percentile_sw_hourly = percentile_sw.groupby("timestamp.hour").mean()
     percentile_tmp_hourly = percentile_tmp.groupby("timestamp.hour").mean()
     
-    final_ne_hourly = final_ne_hourly.merge(percentile_ne_hourly.to_pandas(), left_index = True, right_index = True, suffixes = (None, "_"+str(percentile)))
+    # merge to final dataframe
+    
+    final_ne_hourly = final_ne_hourly.merge(percentile_ne_hourly.to_pandas(), left_index = True, right_index = True, suffixes = (None, "_" + str(percentile)))
     final_sw_hourly = final_sw_hourly.merge(percentile_sw_hourly.to_pandas(), left_index = True, right_index = True, suffixes = (None, "_" + str(percentile)))
     final_tmp_hourly = final_tmp_hourly.merge(percentile_tmp_hourly.to_pandas(), left_index = True, right_index = True, suffixes = (None, "_" + str(percentile)))
-    
-    
+
+from matplotlib.lines import Line2D
 # plotting
-fig, ax1 = plt.subplots(dpi = 1000)
+fig, axs = plt.subplots(1, 2, figsize=(6.27,3), dpi = 1000)
+fig.subplots_adjust(hspace = 0.02, wspace = 0.30)
 
-fig, axs = plt.subplots(1, 2, figsize=(6.27,2), dpi = 1000)
-fig.subplots_adjust(hspace = 0.02, wspace = 0.35)
+# Add corner labels for caption reference
+axs[0].text(0.89, 0.98, "(a)", transform=axs[0].transAxes, 
+            fontsize=12, fontweight='bold', va='top')
+axs[1].text(0.02, 0.98, "(b)", transform=axs[1].transAxes, 
+            fontsize=12, fontweight='bold', va='top')
 
-fig1 = axs[0].plot(final_ne_hourly['T2'], "lightseagreen")
-fig1 = axs[0].plot(final_sw_hourly['T2'], "salmon")
-axs[0].set_xlabel("Hour of Day")
-axs[0].set_ylabel("UHI Intensity [°C]")
+fig1 = axs[0].plot(final_ne_hourly['T2'], "lightseagreen", linestyle='-', label='NEM (All)')
+fig1 = axs[0].plot(final_sw_hourly['T2'], "salmon", linestyle='-', label='SWM (All)')
+# fig1 = axs[0].plot(final_tmp_hourly['T2'], "orange", linestyle='-', label='TMP (All)')
 
-uhii_diff = final_ne_hourly - final_sw_hourly
-stat, p = stats.wilcoxon(uhii_diff.values.flatten().round(3), nan_policy = 'omit')
+fig1 = axs[0].plot(final_ne_hourly['T2_0.5'], "lightseagreen", linestyle='--', label='NEM (Top 50%)')
+fig1 = axs[0].plot(final_sw_hourly['T2_0.5'], "salmon", linestyle='--', label='SWM (Top 50%)')
+# fig1 = axs[0].plot(final_tmp_hourly['T2_0.5'], "orange", linestyle='--', label='SWM (Top 50%)')
 
-fig2 = axs[1].plot(uhii_diff, "lightseagreen")
-axs[1].set_xlabel("Hour of Day")
-axs[1].set_ylabel("Difference in UHI Intensity")
+fig1 = axs[0].plot(final_ne_hourly['T2_0.75'], "lightseagreen", linestyle=':', label='NEM (Top 25%)')
+fig1 = axs[0].plot(final_sw_hourly['T2_0.75'], "salmon", linestyle=':', label='SWM (Top 25%)')
+# fig1 = axs[0].plot(final_tmp_hourly['T2_0.75'], "orange", linestyle=':', label='SWM (Top 25%)')
 
-plt.axhline(y=uhii_diff.mean(), color='lightseagreen', alpha = 0.25, ls = '--', label='mean')
+fig1 = axs[0].plot(final_ne_hourly['T2_0.9'], "lightseagreen", linestyle='-.', label='NEM (Top 10%)')
+fig1 = axs[0].plot(final_sw_hourly['T2_0.9'], "salmon", linestyle='-.', label='SWM (Top 10%)')
+# fig1 = axs[0].plot(final_tmp_hourly['T2_0.9'], "orange", linestyle='-.', label='SWM (Top 25%)')
 
-fig.legend(["NEM", "SWM"], bbox_to_anchor=(0.459, 0.1), loc='lower right')
+percentile_handles = [
+    Line2D([0], [0], color='black', linestyle='-', lw=1, label='All grids'),
+    Line2D([0], [0], color='black', linestyle='--', lw=1, label='Top 50%'),
+    Line2D([0], [0], color='black', linestyle=':', lw=1, label='Top 25%'),
+    Line2D([0], [0], color='black', linestyle='-.', lw=1, label='Top 10%')
+]
+
+axs[0].legend(handles=percentile_handles, loc='upper left', fontsize=7)
+
+fig.legend(["NEM", "SWM"], bbox_to_anchor=(0.465, 0.11), loc='lower right', ncol=2, fontsize=7)
+
+axs[0].set_xlabel("Hour")
+axs[0].set_ylabel("UHII [°C]")
+
+uhii_diff = final_sw_hourly - final_ne_hourly 
+
+axs[1].set_prop_cycle(color=['aquamarine', 'turquoise', 'mediumturquoise', 'lightseagreen'])
+fig2 = axs[1].plot(uhii_diff)
+axs[1].set_xlabel("Hour")
+axs[1].set_ylabel("Difference in UHII [°C]")
+    
+plt.axhline(y=uhii_diff['T2'].mean(), color='aquamarine', alpha = 0.25, ls = '--', label='mean')
+    
+# stat, p = stats.wilcoxon(uhii_diff.values.flatten().round(3), nan_policy = 'omit')
+
+diff_legend_handles = [
+    Line2D([0], [0], color='aquamarine', lw=1, label='All grids'),
+    Line2D([0], [0], color='turquoise', lw=1, label='Top 50%'),
+    Line2D([0], [0], color='mediumturquoise', lw=1, label='Top 25%'),
+    Line2D([0], [0], color='lightseagreen', lw=1, label='Top 10%'),
+]
+
+axs[1].legend(handles=diff_legend_handles, loc='best', fontsize=7)
+
 
 #%%
-
 from whittaker_eilers import WhittakerSmoother
 # line graph showing average UHI per day over the course of the year
 
@@ -411,16 +446,15 @@ temp_uhi_day = uhi.resample(timestamp='D').mean()
 # temp_uhi_day = temp_uhi_day.mean(dim = ["y", "x"]) 
 # plt.plot(temp_uhi_day)
 
-# ignore grids with daily UHI magnitude less than 0
+#ignore grids with daily UHI magnitude less than 0
 temp_uhi_day_clean = temp_uhi_day.where(temp_uhi_day >= 0, np.nan)
-
+# temp_uhi_day_clean = temp_uhi_day
 temp_uhi_day_clean = temp_uhi_day_clean.mean(dim = ["y", "x"]) 
 temp_uhi_day_clean = temp_uhi_day_clean[:-1]
 
 whittaker_smoother = WhittakerSmoother(
     lmbda=100, order=7, data_length=len(temp_uhi_day_clean)
 )
-
 
 smoothed_temp = whittaker_smoother.smooth(temp_uhi_day_clean)
 
@@ -446,7 +480,7 @@ ax1.set_xlabel("Date")
 ax1.set_ylabel("Urban Heat Island Intensity [°C]")
 
 
-#%% Monsoonal Maps and UHI
+#%% Monsoonal Maps of UHI
 
 fig, axs = plt.subplots(2, 3, figsize=(6.27,4), dpi = 1000)
 fig.subplots_adjust(hspace = 0.02, wspace = 0.02, right = 0.87)
@@ -531,21 +565,26 @@ plt.ylabel('Ordered Values')
 plt.grid(True)
 plt.show()
 
-# histogram
-plt.hist(filtered_uhi_ne.values.flatten(), bins=30, color='skyblue', edgecolor='black')
-plt.xlabel('Values')
-plt.ylabel('Frequency')
-plt.title('Basic Histogram')
-plt.show()
+# boxplots?
+# daily temperature means NEM, SWM, TMP
 
+
+# tables
 
 # annual, 50%, 75%, 90%
 # NEM, SWM, TMP
 
-# .mean() .median()
-# iqr, sd, 
+# 
+# .mean() .median(), ,lower quartile, upper quaritile,iqr, 90 percentile,  min, max, 
 
+
+#%%
 # histograms
 
-# count, number of grids with avg UHI > 1, 2, 3?
+plt.hist(uhi_ne.values.flatten(), bins=100, color='skyblue', edgecolor='black')
+plt.xlabel('Values')
+plt.ylabel('Frequency')
+plt.title('Basic Histogram')
+plt.show()
+# count, number of grids with daily mean UHI > 1, 2, 3?
 # 
