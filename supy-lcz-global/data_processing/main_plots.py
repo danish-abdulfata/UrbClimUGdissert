@@ -4,12 +4,15 @@ import os
 import numpy as np
 import xarray as xr
 from pathlib import Path
-
+import scipy.stats as stats
+import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
 
-os.chdir(r"C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global")
+#os.chdir(r"C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global")
+os.chdir(r"C:\Users\ahmad\Documents\UrbClimUGdissert\supy-lcz-global")
 #os.chdir('/home/zcfaada@ad.ucl.ac.uk/Documents/UrbClimUGdissert/supy-lcz-global')
+
 # use the same names as set in run_split_models
 
 site_prefix = "GreaterKL-2017_Y1_M2sp_3sf_R1"
@@ -95,6 +98,25 @@ uhi_trans = xr.concat([uhi.sel(timestamp=trans_monsoon1), uhi.sel(timestamp=tran
 uhi_trans_mean = uhi_trans.mean(dim = "timestamp", keep_attrs = True)
 
 ###########
+
+# axes ticks and labels preparation
+
+lat_arr = ds.coords["latitude"].values
+lon_arr = ds.coords["longitude"].values
+
+lat_axes = np.linspace(min(lat_arr), max(lat_arr), 40)
+lon_axes = np.linspace(min(lon_arr), max(lon_arr), 40)
+
+
+def x_label(x, pos):
+    if x == 40:
+        return " "
+    return '{:.2f}'.format(round(lon_axes[int(x)], 3))
+
+def y_label(x, pos):
+    if x == 40:
+        return " "
+    return '{:.2f}'.format(round(lat_axes[int(x)], 3))
 #%%
 
 # checking if meshgrid is intact
@@ -130,26 +152,6 @@ plt.xlabel('Longitude')
 plt.ylabel('Latitude')
 plt.title('Temperature at 2017-01-01T14:00:00')
 plt.show()
-
-#%%
-# axes ticks and labels preparation
-
-lat_arr = ds.coords["latitude"].values
-lon_arr = ds.coords["longitude"].values
-
-lat_axes = np.linspace(min(lat_arr), max(lat_arr), 40)
-lon_axes = np.linspace(min(lon_arr), max(lon_arr), 40)
-
-
-def x_label(x, pos):
-    if x == 40:
-        return " "
-    return '{:.2f}'.format(round(lon_axes[int(x)], 3))
-
-def y_label(x, pos):
-    if x == 40:
-        return " "
-    return '{:.2f}'.format(round(lat_axes[int(x)], 3))
     
 #%%
 # axes ticks and labels example
@@ -290,7 +292,7 @@ plt.show()
     
 
 #%%
-import scipy.stats as stats
+
 # Line graphs of average hourly tempearture/UHI
    
 temp_ne_hour = temp_ne.groupby("timestamp.hour").mean()
@@ -333,46 +335,63 @@ fig.legend(["NEM", "SWM"], bbox_to_anchor=(0.459, 0.1), loc='lower right')
 
 #%%
 
-# REWRITE CODE TO GENERATE SERIES OF PLOTS FOR 0%, 50%, 75% AND 90%?
+# Hourly means 
 
-
+percentiles = [0, 0.5, 0.75, 0.9]
 
 # Calculate temporal mean for each grid cell
 gridded_mean = ds_uf['T2'].mean(dim='timestamp')
 
-# Calculate the 90th percentile value
-percentile = gridded_mean.quantile(0.75)
+hour_index = range(24)
 
-# Create boolean mask for top 10% grids
-warmest_mask = gridded_mean >= percentile
+final_ne_hourly = pd.DataFrame(index = hour_index)
+final_sw_hourly = pd.DataFrame(index = hour_index)
+final_tmp_hourly = pd.DataFrame(index = hour_index)
 
-# Apply the mask to select only top 10% grids
-warmest_grids = ds_uf['T2'].where(warmest_mask, drop=True)
-warmest_grids_ff = ds_uf_ff['T2'].where(warmest_mask, drop=True)
+# Calculate the percentile value
+for percentile in percentiles:
+    
+    percentile_grid = gridded_mean.quantile(percentile)
+    # Create boolean mask for top percentile grids
+    warmest_percent = gridded_mean >= percentile_grid
 
-warmest_grids_uhi = warmest_grids - warmest_grids_ff
+    # Apply the mask to select only top percentile grids
+    warmest_grids = ds_uf['T2'].where(warmest_percent, drop=True)
+    warmest_grids_ff = ds_uf_ff['T2'].where(warmest_percent, drop=True)
 
-warmest_grids_uhi_ne = xr.concat([warmest_grids_uhi.sel(timestamp=ne_monsoon1), warmest_grids_uhi.sel(timestamp=ne_monsoon2)], dim = 'timestamp')
-warmest_grids_uhi_sw = warmest_grids_uhi.sel(timestamp=sw_monsoon)
+    # UHI calculations and selection
+    warmest_grids_uhi = warmest_grids - warmest_grids_ff
 
-# Perform calculations on the filtered data
+    warmest_grids_uhi_ne = xr.concat([warmest_grids_uhi.sel(timestamp=ne_monsoon1), warmest_grids_uhi.sel(timestamp=ne_monsoon2)], dim = 'timestamp')
+    warmest_grids_uhi_sw = warmest_grids_uhi.sel(timestamp=sw_monsoon)
+    warmest_grids_uhi_tmp = xr.concat([warmest_grids_uhi.sel(timestamp=trans_monsoon1), warmest_grids_uhi.sel(timestamp=trans_monsoon2)], dim = 'timestamp')
 
-gridded_mean_warmest_ne = warmest_grids_uhi_ne.mean(dim = ["y", "x"])
-gridded_mean_warmest_sw = warmest_grids_uhi_sw.mean(dim = ["y", "x"])
-hourly_mean_warmest_ne = gridded_mean_warmest_ne.groupby("timestamp.hour").mean()
-hourly_mean_warmest_sw = gridded_mean_warmest_sw.groupby("timestamp.hour").mean()
+    # Perform calculations on the filtered data
 
+    percentile_ne = warmest_grids_uhi_ne.mean(dim = ["y", "x"])
+    percentile_sw = warmest_grids_uhi_sw.mean(dim = ["y", "x"])
+    percentile_tmp = warmest_grids_uhi_tmp.mean(dim = ["y", "x"])
+    percentile_ne_hourly = percentile_ne.groupby("timestamp.hour").mean()
+    percentile_sw_hourly = percentile_sw.groupby("timestamp.hour").mean()
+    percentile_tmp_hourly = percentile_tmp.groupby("timestamp.hour").mean()
+    
+    final_ne_hourly = final_ne_hourly.merge(percentile_ne_hourly.to_pandas(), left_index = True, right_index = True, suffixes = (None, "_"+str(percentile)))
+    final_sw_hourly = final_sw_hourly.merge(percentile_sw_hourly.to_pandas(), left_index = True, right_index = True, suffixes = (None, "_" + str(percentile)))
+    final_tmp_hourly = final_tmp_hourly.merge(percentile_tmp_hourly.to_pandas(), left_index = True, right_index = True, suffixes = (None, "_" + str(percentile)))
+    
+    
+# plotting
 fig, ax1 = plt.subplots(dpi = 1000)
 
 fig, axs = plt.subplots(1, 2, figsize=(6.27,2), dpi = 1000)
 fig.subplots_adjust(hspace = 0.02, wspace = 0.35)
 
-fig1 = axs[0].plot(hourly_mean_warmest_ne, "lightseagreen")
-fig1 = axs[0].plot(hourly_mean_warmest_sw, "salmon")
+fig1 = axs[0].plot(final_ne_hourly['T2'], "lightseagreen")
+fig1 = axs[0].plot(final_sw_hourly['T2'], "salmon")
 axs[0].set_xlabel("Hour of Day")
 axs[0].set_ylabel("UHI Intensity [°C]")
 
-uhii_diff = hourly_mean_warmest_ne - hourly_mean_warmest_sw
+uhii_diff = final_ne_hourly - final_sw_hourly
 stat, p = stats.wilcoxon(uhii_diff.values.flatten().round(3), nan_policy = 'omit')
 
 fig2 = axs[1].plot(uhii_diff, "lightseagreen")
@@ -520,9 +539,13 @@ plt.title('Basic Histogram')
 plt.show()
 
 
-# annual means, iqr, mean testing, deciles?
+# annual, 50%, 75%, 90%
+# NEM, SWM, TMP
 
 # .mean() .median()
+# iqr, sd, 
 
-# count, number of grids with avg UHI > 1, 2, 3, 4
+# histograms
 
+# count, number of grids with avg UHI > 1, 2, 3?
+# 
