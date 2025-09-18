@@ -7,6 +7,7 @@ from pathlib import Path
 import scipy.stats as stats
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator, FixedLocator
+from matplotlib.lines import Line2D
 
 os.chdir(r"C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global")
 #os.chdir(r"C:\Users\ahmad\Documents\UrbClimUGdissert\supy-lcz-global")
@@ -116,6 +117,9 @@ def y_label(x, pos):
     if x == 40:
         return " "
     return '{:.2f}'.format(round(lat_axes[int(x)], 3))
+
+x_tick_indices = [4, 14, 24, 34]
+y_tick_indices = [4, 12, 20, 28, 36]
 
 #%%
 
@@ -250,7 +254,6 @@ pcm2 = axs[0, 1].pcolormesh(lat, lon, temp_mean2, shading = 'auto', cmap='coolwa
 
 contour1 = axs[0, 3].contourf(lat, lon, (temp_mean + temp_mean_ne)/2 - temp_mean2, vmin = -1.8, vmax = -0.4)
 
-
 temp_trans1 = ds_unflattened['T2'].sel(timestamp=trans_monsoon1)
 temp_mean3 = temp_trans1.mean(dim = "timestamp", keep_attrs = True)
 pcm4 = axs[1, 0].pcolormesh(lat, lon, temp_mean3, shading = 'auto', cmap='coolwarm', vmin = 24, vmax = 32)
@@ -273,7 +276,6 @@ for ax in axs[:, 1]:
     ax.set_yticklabels([])
 for ax in axs[:, 3]:
     ax.set_yticklabels([])  
-
 
 cbar_tdiff = fig.add_axes([0.88, 0.15, 0.02, 0.7])
 fig.colorbar(contour1, cax = cbar_tdiff, label='Temperature difference [deg C]')
@@ -343,20 +345,34 @@ axs[1].text(0.02, 0.97, "(b)", transform=axs[1].transAxes,
 plt.show()
 
 #%%
+# figure of mean annual temps and humidity
 
 fig, axs = plt.subplots(1, 2, figsize=(6.27,2), dpi = 1000)
+fig.subplots_adjust(wspace = 0.30)
 
-axs[0].pcolormesh(lat, lon, temp_mean, shading='auto', cmap='coolwarm')
+ds_t2 = ds_uf["T2"].mean(dim = "timestamp")
+ds_rh2 = ds_uf["RH2"].mean(dim = "timestamp")
+lat = ds_uf['x']
+lon = ds_uf['y']
 
-T2 = axs[0, 0].pcolormesh(lat, lon, temp_ne_mean, shading = 'auto', cmap='coolwarm', vmin = 24, vmax = 32)
-RH2 = axs[0, 1].pcolormesh(lat, lon, temp_sw_mean, shading = 'auto', cmap='coolwarm', vmin = 50, vmax = 100)
+t2 = axs[0].pcolormesh(lat, lon, ds_t2, shading = 'auto', cmap='Oranges', vmin = 24, vmax = 32)
+rh2 = axs[1].pcolormesh(lat, lon, ds_rh2, shading = 'auto', cmap='Blues', vmin = 70, vmax = 90)
 
-hour_mean = ds_unflattened.isel(timestamp=(ds.timestamp.dt.hour == 14))
-hour_mean = hour_mean["RH2"].mean(dim = "timestamp")
-lat = hour_mean['x']
-lon = hour_mean['y']
+cb_t2 = plt.colorbar(t2)
+ch_rh2 = plt.colorbar(rh2)
 
+cb_t2.set_label(label='Mean Temperature [°C]', size=10, rotation=270, labelpad=15)
+ch_rh2.set_label(label='Relative Humidity [%]', size=10, rotation=270, labelpad=15)
 
+for ax in axs:
+    ax.yaxis.set_major_formatter(y_label)
+    ax.yaxis.set_major_locator(FixedLocator(y_tick_indices))
+
+    ax.tick_params(width = 0.5)
+    ax.xaxis.set_major_formatter(x_label)
+    # Get current ticks and start from 5th position
+    current_ticks = ax.get_xticks()
+    ax.xaxis.set_major_locator(FixedLocator(x_tick_indices))
 
 #%%
 #################################### UHI calculations and figures ####################################
@@ -454,7 +470,6 @@ for percentile in percentiles:
     final_sw_hourly = final_sw_hourly.merge(percentile_sw_hourly.to_pandas(), left_index = True, right_index = True, suffixes = (None, "_" + str(percentile)))
     final_tmp_hourly = final_tmp_hourly.merge(percentile_tmp_hourly.to_pandas(), left_index = True, right_index = True, suffixes = (None, "_" + str(percentile)))
 
-from matplotlib.lines import Line2D
 # plotting
 fig, axs = plt.subplots(1, 2, figsize=(6.27,3), dpi = 1000)
 fig.subplots_adjust(hspace = 0.02, wspace = 0.30)
@@ -529,14 +544,11 @@ axs[1].legend(handles=diff_legend_handles, loc='best', fontsize=7)
 # line graph showing average UHI per day over the course of the year
 from whittaker_eilers import WhittakerSmoother
 
-
 temp_uhi_day = uhi.resample(timestamp='D').mean()
-# temp_uhi_day = temp_uhi_day.mean(dim = ["y", "x"]) 
-# plt.plot(temp_uhi_day)
 
 #ignore grids with daily UHI magnitude less than 0
 temp_uhi_day_clean = temp_uhi_day.where(temp_uhi_day >= 0, np.nan)
-# temp_uhi_day_clean = temp_uhi_day
+
 temp_uhi_day_clean = temp_uhi_day_clean.mean(dim = ["y", "x"]) 
 temp_uhi_day_clean = temp_uhi_day_clean[:-1]
 
@@ -598,12 +610,12 @@ cbar_ax2 = fig.add_axes([0.88, 0.12, 0.02, 0.35])
 
 # Add colorbars
 cb1 = fig.colorbar(pcm1, cax=cbar_ax1)
-cb1.set_label(label='Mean Temperature [deg C]', size=8)
+cb1.set_label(label='Mean Temperature [°C]', size=10, rotation=270, labelpad=15)
 cb1.ax.tick_params(labelsize=8, width = 0.5) 
 
 # colorbar2 to match the custom boundaries
 cb2 = fig.colorbar(contour1, cax=cbar_ax2, boundaries=bounds, ticks=bounds)
-cb2.set_label(label='Urban Heat Island [deg C]', size=8)
+cb2.set_label(label='Urban Heat Island [°C]', size=10, rotation=270, labelpad=9)
 cb2.ax.tick_params(labelsize=8, width=0.5)
 
 x_tick_indices = [4, 14, 24, 34]
