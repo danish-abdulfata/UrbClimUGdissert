@@ -6,10 +6,10 @@ import xarray as xr
 from pathlib import Path
 import scipy.stats as stats
 import matplotlib.pyplot as plt
-from matplotlib.ticker import MaxNLocator
+from matplotlib.ticker import MaxNLocator, FixedLocator
 
-#os.chdir(r"C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global")
-os.chdir(r"C:\Users\ahmad\Documents\UrbClimUGdissert\supy-lcz-global")
+os.chdir(r"C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global")
+#os.chdir(r"C:\Users\ahmad\Documents\UrbClimUGdissert\supy-lcz-global")
 #os.chdir('/home/zcfaada@ad.ucl.ac.uk/Documents/UrbClimUGdissert/supy-lcz-global')
 
 # use the same names as set in run_split_models
@@ -56,7 +56,7 @@ monsoon_periods = [ne_monsoon1, trans_monsoon1, sw_monsoon, trans_monsoon1, ne_m
 
 # Font sizes and family
 
-SMALL_SIZE = 7
+SMALL_SIZE = 8
 MEDIUM_SIZE = 10
 BIGGER_SIZE = 12
 
@@ -78,14 +78,14 @@ uhi_clean = uhi.where(uhi >= 0, 0)
 
 uhi_mean = uhi_clean.mean(dim = "timestamp", keep_attrs = True)
 
-temp_ne = xr.concat([ds_uf['T2'].sel(timestamp=ne_monsoon1), ds_uf['T2'].sel(timestamp=ne_monsoon2)], dim = 'timestamp')
-temp_ne_mean = temp_ne.mean(dim = "timestamp", keep_attrs = True)
+nem = xr.concat([ds_uf.sel(timestamp=ne_monsoon1), ds_uf.sel(timestamp=ne_monsoon2)], dim = 'timestamp')
+temp_ne_mean = nem['T2'].mean(dim = "timestamp", keep_attrs = True)
 
-temp_sw = ds_uf['T2'].sel(timestamp=sw_monsoon)
-temp_sw_mean = temp_sw.mean(dim = "timestamp", keep_attrs = True)
+swm = ds_uf.sel(timestamp=sw_monsoon)
+temp_sw_mean = swm['T2'].mean(dim = "timestamp", keep_attrs = True)
 
-temp_trans = xr.concat([ds_uf['T2'].sel(timestamp=trans_monsoon1), ds_uf['T2'].sel(timestamp=trans_monsoon2)], dim = 'timestamp')
-temp_trans_mean = temp_trans.mean(dim = "timestamp", keep_attrs = True)
+tmp = xr.concat([ds_uf.sel(timestamp=trans_monsoon1), ds_uf.sel(timestamp=trans_monsoon2)], dim = 'timestamp')
+temp_trans_mean = tmp['T2'].mean(dim = "timestamp", keep_attrs = True)
 
 uhi_ne = xr.concat([uhi.sel(timestamp=ne_monsoon1), uhi.sel(timestamp=ne_monsoon2)], dim = 'timestamp')
 uhi_ne_mean = uhi_ne.mean(dim = "timestamp", keep_attrs = True)
@@ -116,6 +116,7 @@ def y_label(x, pos):
     if x == 40:
         return " "
     return '{:.2f}'.format(round(lat_axes[int(x)], 3))
+
 #%%
 
 # checking if meshgrid is intact
@@ -272,12 +273,6 @@ for ax in axs[:, 1]:
     ax.set_yticklabels([])
 for ax in axs[:, 3]:
     ax.set_yticklabels([])  
-    
-# for ax in axs[2]:
-#     ax.set_yticklabels([])
-#     ax.set_xticklabels([])
-        # ax.yaxis.set_visible(False)
-        # ax.xaxis.set_visible(False)
 
 
 cbar_tdiff = fig.add_axes([0.88, 0.15, 0.02, 0.7])
@@ -286,50 +281,88 @@ fig.colorbar(contour1, cax = cbar_tdiff, label='Temperature difference [deg C]')
 cbar_ax = fig.add_axes([0.58, 0.15, 0.02, 0.7])
 fig.colorbar(pcm1, cax=cbar_ax, label='Temperature at 2m [deg C]')
 plt.show()
+
 #%%
 
-# Line graphs of average hourly tempearture/UHI
-   
-temp_ne_hour = temp_ne.groupby("timestamp.hour").mean()
-temp_ne_hour_mean = temp_ne_hour.mean(dim = ["y","x"], keep_attrs = True)
-# plt.plot(temp_ne_hour_mean)
+#################################### DEFAULT local climate calculations ####################################
+# first half of the data figures
 
-temp_sw_hour = temp_sw.groupby("timestamp.hour").mean()
-temp_sw_hour_mean = temp_sw_hour.mean(dim = ["y","x"], keep_attrs = True)
-# plt.plot(temp_hour_mean_sw)
+# Summary and descriptive statistics
 
-temp_uhi_hour = uhi.groupby("timestamp.hour").mean()
-temp_uhi_hour_mean = temp_uhi_hour.mean(dim = ["y", "x"]) 
-# plt.plot(temp_uhi_hour_mean)
+annual = ds_uf['T2'].mean(dim = ["y", "x"])
+annual = annual.groupby("timestamp.day").mean()
 
-uhi_hour_ne = uhi_ne.groupby("timestamp.hour").mean()
-uhi_hour_ne_mean = uhi_hour_ne.mean(dim = ["y", "x"]) 
+nem_temp = nem['T2'].mean(dim = ["y", "x"])
+nem_temp = nem_temp.groupby("timestamp.day").mean()
 
-uhi_hour_sw = uhi_sw.groupby("timestamp.hour").mean()
-uhi_hour_sw_mean = uhi_hour_sw.mean(dim = ["y", "x"]) 
+swm_temp = swm['T2'].mean(dim = ["y", "x"])
+swm_temp = swm_temp.groupby("timestamp.day").mean()
 
-# Figure
+tmp_temp = tmp['T2'].mean(dim = ["y", "x"])
+tmp_temp = tmp_temp.groupby("timestamp.day").mean()
+
+data = [annual, nem_temp, swm_temp, tmp_temp]
+
+annual_rh2 = ds_uf['RH2'].mean(dim = ["y", "x"])
+annual_rh2 = annual_rh2.groupby("timestamp.day").mean()
+
+nem_rh2 = nem['RH2'].mean(dim = ["y", "x"])
+nem_rh2 = nem_rh2.groupby("timestamp.day").mean()
+
+swm_rh2 = swm['RH2'].mean(dim = ["y", "x"])
+swm_rh2 = swm_rh2.groupby("timestamp.day").mean()
+
+tmp_rh2 = tmp['RH2'].mean(dim = ["y", "x"])
+tmp_rh2 = tmp_rh2.groupby("timestamp.day").mean()
+
+data_humidity = [annual_rh2, nem_rh2, swm_rh2, tmp_rh2]
+
+# boxplots
+
 fig, axs = plt.subplots(1, 2, figsize=(6.27,2), dpi = 1000)
-fig.subplots_adjust(hspace = 0.02, wspace = 0.35)
+bp = axs[0].boxplot(data, showfliers=False)
+fig.subplots_adjust(wspace = 0.3)
 
-fig1 = axs[0].plot(uhi_hour_ne_mean, "lightseagreen")
-fig1 = axs[0].plot(uhi_hour_sw_mean, "salmon")
-axs[0].set_xlabel("Hour of Day")
-axs[0].set_ylabel("UHI Intensity [°C]")
+axs[0].set_ylabel('Temperature [°C]')
 
-uhii_diff = uhi_hour_ne_mean - uhi_hour_sw_mean
-stat, p = stats.wilcoxon(uhii_diff.values.flatten().round(3), nan_policy = 'omit')
+axs[0].set_xticklabels(['Year', 'NEM', 'SWM', 'TMP'], fontsize = 10)
 
-fig2 = axs[1].plot(uhii_diff, "lightseagreen")
-axs[1].set_xlabel("Hour of Day")
-axs[1].set_ylabel("Difference in UHI Intensity")
+bp2 = axs[1].boxplot(data_humidity, showfliers=False)
 
-plt.axhline(y=uhii_diff.mean(), color='lightseagreen', alpha = 0.25, ls = '--', label='mean')
+axs[1].set_ylabel('Relative humidity [%]') 
+axs[1].set_xticklabels(['Year', 'NEM', 'SWM', 'TMP'], fontsize = 10)
 
-fig.legend(["NEM", "SWM"], bbox_to_anchor=(0.459, 0.1), loc='lower right')
+# axs[0].tick_params(axis='y', labelsize=8)
+# axs[1].tick_params(axis='y', labelsize=8)
+
+axs[0].text(0.02, 0.97, "(a)", transform=axs[0].transAxes, 
+            fontsize=12, fontweight='bold', va='top')
+axs[1].text(0.02, 0.97, "(b)", transform=axs[1].transAxes, 
+            fontsize=12, fontweight='bold', va='top')
+
+plt.show()
 
 #%%
 
+fig, axs = plt.subplots(1, 2, figsize=(6.27,2), dpi = 1000)
+
+axs[0].pcolormesh(lat, lon, temp_mean, shading='auto', cmap='coolwarm')
+
+T2 = axs[0, 0].pcolormesh(lat, lon, temp_ne_mean, shading = 'auto', cmap='coolwarm', vmin = 24, vmax = 32)
+RH2 = axs[0, 1].pcolormesh(lat, lon, temp_sw_mean, shading = 'auto', cmap='coolwarm', vmin = 50, vmax = 100)
+
+hour_mean = ds_unflattened.isel(timestamp=(ds.timestamp.dt.hour == 14))
+hour_mean = hour_mean["RH2"].mean(dim = "timestamp")
+lat = hour_mean['x']
+lon = hour_mean['y']
+
+
+
+#%%
+#################################### UHI calculations and figures ####################################
+# second half of the data figures
+
+# percentile based on highest annual mean temperatures in 'default'
 # Hourly means linegraphs
 percentiles = [0, 0.5, 0.75, 0.9]
 
@@ -356,6 +389,7 @@ for percentile in percentiles:
 
     # UHI calculations and selection
     warmest_grids_uhi = warmest_grids - warmest_grids_ff
+    warmest_grids_uhi = warmest_grids_uhi.where(warmest_grids_uhi >= 0, np.nan)
 
     warmest_grids_uhi_ne = xr.concat([warmest_grids_uhi.sel(timestamp=ne_monsoon1), warmest_grids_uhi.sel(timestamp=ne_monsoon2)], dim = 'timestamp')
     warmest_grids_uhi_sw = warmest_grids_uhi.sel(timestamp=sw_monsoon)
@@ -366,6 +400,50 @@ for percentile in percentiles:
     percentile_ne = warmest_grids_uhi_ne.mean(dim = ["y", "x"])
     percentile_sw = warmest_grids_uhi_sw.mean(dim = ["y", "x"])
     percentile_tmp = warmest_grids_uhi_tmp.mean(dim = ["y", "x"])
+    percentile_ne_hourly = percentile_ne.groupby("timestamp.hour").mean()
+    percentile_sw_hourly = percentile_sw.groupby("timestamp.hour").mean()
+    percentile_tmp_hourly = percentile_tmp.groupby("timestamp.hour").mean()
+    
+    # merge to final dataframe
+    
+    final_ne_hourly = final_ne_hourly.merge(percentile_ne_hourly.to_pandas(), left_index = True, right_index = True, suffixes = (None, "_" + str(percentile)))
+    final_sw_hourly = final_sw_hourly.merge(percentile_sw_hourly.to_pandas(), left_index = True, right_index = True, suffixes = (None, "_" + str(percentile)))
+    final_tmp_hourly = final_tmp_hourly.merge(percentile_tmp_hourly.to_pandas(), left_index = True, right_index = True, suffixes = (None, "_" + str(percentile)))
+
+#%%
+
+# percentile based on  annual mean UHII
+# Hourly means linegraphs
+percentiles = [0, 0.5, 0.75, 0.9]
+
+# Intialize final dataframes
+hour_index = range(24)
+
+final_ne_hourly = pd.DataFrame(index = hour_index)
+final_sw_hourly = pd.DataFrame(index = hour_index)
+final_tmp_hourly = pd.DataFrame(index = hour_index)
+
+# Calculate the percentile value
+for percentile in percentiles:
+    
+    # only taking into account percentile grids for highest ANNUAL UHII
+    gridded_mean = uhi.mean(dim='timestamp')
+    gridded_mean = gridded_mean.where(gridded_mean >= 0, np.nan)
+    percentile_grid = gridded_mean.quantile(percentile)
+    warmest_percent = uhi >= percentile_grid
+    
+    warmest_uhi = uhi.where(warmest_percent, drop=True)
+    
+    # filter data based on season
+    warmest_uhi_ne = xr.concat([warmest_uhi.sel(timestamp=ne_monsoon1), warmest_uhi.sel(timestamp=ne_monsoon2)], dim = 'timestamp')
+    warmest_uhi_sw = warmest_uhi.sel(timestamp=sw_monsoon)
+    warmest_uhi_tmp = xr.concat([warmest_uhi.sel(timestamp=trans_monsoon1), warmest_uhi.sel(timestamp=trans_monsoon2)], dim = 'timestamp')
+
+    # Perform calculations on the filtered data
+
+    percentile_ne = warmest_uhi_ne.mean(dim = ["y", "x"])
+    percentile_sw = warmest_uhi_sw.mean(dim = ["y", "x"])
+    percentile_tmp = warmest_uhi_tmp.mean(dim = ["y", "x"])
     percentile_ne_hourly = percentile_ne.groupby("timestamp.hour").mean()
     percentile_sw_hourly = percentile_sw.groupby("timestamp.hour").mean()
     percentile_tmp_hourly = percentile_tmp.groupby("timestamp.hour").mean()
@@ -403,16 +481,23 @@ fig1 = axs[0].plot(final_ne_hourly['T2_0.9'], "lightseagreen", linestyle='-.', l
 fig1 = axs[0].plot(final_sw_hourly['T2_0.9'], "salmon", linestyle='-.', label='SWM (Top 10%)')
 # fig1 = axs[0].plot(final_tmp_hourly['T2_0.9'], "orange", linestyle='-.', label='SWM (Top 25%)')
 
-percentile_handles = [
-    Line2D([0], [0], color='black', linestyle='-', lw=1, label='All grids'),
-    Line2D([0], [0], color='black', linestyle='--', lw=1, label='Top 50%'),
-    Line2D([0], [0], color='black', linestyle=':', lw=1, label='Top 25%'),
-    Line2D([0], [0], color='black', linestyle='-.', lw=1, label='Top 10%')
+label_hour = 0
+
+# Add labels for each percentile pair
+percentiles = ['T2', 'T2_0.5', 'T2_0.75', 'T2_0.9']
+labels = ['All', 'Top 50%', 'Top 25%', 'Top 10%']
+
+for i, (percentile, label) in enumerate(zip(percentiles, labels)):
+    axs[0].text(label_hour, final_sw_hourly[percentile].loc[label_hour]+0.05, 
+                f'{label}', va='bottom', ha='left', fontsize=7, color='black')
+
+# (a) legend
+legend_handles_a = [
+    Line2D([0], [0], color='lightseagreen', lw=1, label='NEM'),
+    Line2D([0], [0], color='salmon', lw=1, label='SWM'),
 ]
 
-axs[0].legend(handles=percentile_handles, loc='upper left', fontsize=7)
-
-fig.legend(["NEM", "SWM"], bbox_to_anchor=(0.465, 0.11), loc='lower right', ncol=2, fontsize=7)
+axs[0].legend(handles=legend_handles_a, loc='best', fontsize=7)
 
 axs[0].set_xlabel("Hour")
 axs[0].set_ylabel("UHII [°C]")
@@ -422,12 +507,14 @@ uhii_diff = final_sw_hourly - final_ne_hourly
 axs[1].set_prop_cycle(color=['aquamarine', 'turquoise', 'mediumturquoise', 'lightseagreen'])
 fig2 = axs[1].plot(uhii_diff)
 axs[1].set_xlabel("Hour")
-axs[1].set_ylabel("Difference in UHII [°C]")
+axs[1].set_ylabel("Seasonal difference in UHII [°C]")
     
+# daily mean for all
 plt.axhline(y=uhii_diff['T2'].mean(), color='aquamarine', alpha = 0.25, ls = '--', label='mean')
     
-# stat, p = stats.wilcoxon(uhii_diff.values.flatten().round(3), nan_policy = 'omit')
+stat, p = stats.wilcoxon(uhii_diff['T2'].values.flatten(), nan_policy = 'omit')
 
+# (b) legend
 diff_legend_handles = [
     Line2D([0], [0], color='aquamarine', lw=1, label='All grids'),
     Line2D([0], [0], color='turquoise', lw=1, label='Top 50%'),
@@ -437,10 +524,11 @@ diff_legend_handles = [
 
 axs[1].legend(handles=diff_legend_handles, loc='best', fontsize=7)
 
-
 #%%
-from whittaker_eilers import WhittakerSmoother
+
 # line graph showing average UHI per day over the course of the year
+from whittaker_eilers import WhittakerSmoother
+
 
 temp_uhi_day = uhi.resample(timestamp='D').mean()
 # temp_uhi_day = temp_uhi_day.mean(dim = ["y", "x"]) 
@@ -481,7 +569,6 @@ ax1.set_ylabel("Urban Heat Island Intensity [°C]")
 
 
 #%% Monsoonal Maps of UHI
-
 fig, axs = plt.subplots(2, 3, figsize=(6.27,4), dpi = 1000)
 fig.subplots_adjust(hspace = 0.02, wspace = 0.02, right = 0.87)
     
@@ -497,10 +584,13 @@ pcm1 = axs[0, 0].pcolormesh(lat, lon, temp_ne_mean, shading = 'auto', cmap='cool
 pcm2 = axs[0, 1].pcolormesh(lat, lon, temp_sw_mean, shading = 'auto', cmap='coolwarm', vmin = 23, vmax = 31)
 pcm3 = axs[0, 2].pcolormesh(lat, lon, temp_trans_mean, shading = 'auto', cmap='coolwarm', vmin = 23, vmax = 31)
 
-# 2nd row
-contour1 = axs[1, 0].contourf(lat, lon, uhi_ne_mean, cmap = 'YlOrRd', vmin = 0, vmax = 5)
-contour2 = axs[1, 1].contourf(lat, lon, uhi_sw_mean, cmap = 'YlOrRd', vmin = 0, vmax = 5)
-contour3 = axs[1, 2].contourf(lat, lon, uhi_trans_mean, cmap = 'YlOrRd', vmin = 0, vmax = 5)
+# Define custom boundaries for the colorbar
+bounds = [-1.6, 0, 0.8, 1.6, 2.4, 3.2, 4.0, 4.8]  # Custom intervals
+
+# For UHI plots (2nd row)
+contour1 = axs[1, 0].contourf(lat, lon, uhi_ne_mean, levels=bounds, cmap='YlOrRd')
+contour2 = axs[1, 1].contourf(lat, lon, uhi_sw_mean, levels=bounds, cmap='YlOrRd')
+contour3 = axs[1, 2].contourf(lat, lon, uhi_trans_mean, levels=bounds, cmap='YlOrRd')
 
 # Create separate colorbar axes for each row
 cbar_ax1 = fig.add_axes([0.88, 0.52, 0.02, 0.35])
@@ -509,25 +599,31 @@ cbar_ax2 = fig.add_axes([0.88, 0.12, 0.02, 0.35])
 # Add colorbars
 cb1 = fig.colorbar(pcm1, cax=cbar_ax1)
 cb1.set_label(label='Mean Temperature [deg C]', size=8)
-cb1.ax.tick_params(labelsize=7, width = 0.5) 
+cb1.ax.tick_params(labelsize=8, width = 0.5) 
 
-cb2 = fig.colorbar(contour1, cax=cbar_ax2)
+# colorbar2 to match the custom boundaries
+cb2 = fig.colorbar(contour1, cax=cbar_ax2, boundaries=bounds, ticks=bounds)
 cb2.set_label(label='Urban Heat Island [deg C]', size=8)
-cb2.ax.tick_params(labelsize=7, width = 0.5) 
+cb2.ax.tick_params(labelsize=8, width=0.5)
+
+x_tick_indices = [4, 14, 24, 34]
+y_tick_indices = [4, 12, 20, 28, 36]
 
 for ax in axs[:, 0]:
     ax.yaxis.set_major_formatter(y_label)
-    ax.yaxis.set_major_locator(MaxNLocator(nbins=8))
+    ax.yaxis.set_major_locator(FixedLocator(y_tick_indices))
 
 for ax in axs[1, :]:
     ax.tick_params(width = 0.5)
     ax.xaxis.set_major_formatter(x_label)
-    ax.xaxis.set_major_locator(MaxNLocator(nbins=6))
+    # Get current ticks and start from 5th position
+    current_ticks = ax.get_xticks()
+    ax.xaxis.set_major_locator(FixedLocator(x_tick_indices))
 
 for ax in axs[0, :]:
     ax.tick_params(bottom=False, width = 0.5)
     ax.set_xticklabels([])
-    ax.xaxis.set_major_locator(MaxNLocator(nbins=6)) 
+    ax.xaxis.set_major_locator(FixedLocator(x_tick_indices)) 
     
 for ax in axs[:, 1]:
     ax.tick_params(left=False)
@@ -544,7 +640,7 @@ for ax in axs[:, 2]:
 
 plt.show()
 
-#%% summary stratistics
+#%% UHI summary stratistics
 
 from scipy.stats import wilcoxon
 import scipy.stats as stats
@@ -565,8 +661,7 @@ plt.ylabel('Ordered Values')
 plt.grid(True)
 plt.show()
 
-# boxplots?
-# daily temperature means NEM, SWM, TMP
+
 
 
 # tables
