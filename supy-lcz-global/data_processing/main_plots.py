@@ -9,8 +9,8 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator, FixedLocator
 from matplotlib.lines import Line2D
 
-os.chdir(r"C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global")
-#os.chdir(r"C:\Users\ahmad\Documents\UrbClimUGdissert\supy-lcz-global")
+#os.chdir(r"C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global")
+os.chdir(r"C:\Users\ahmad\Documents\UrbClimUGdissert\supy-lcz-global")
 #os.chdir('/home/zcfaada@ad.ucl.ac.uk/Documents/UrbClimUGdissert/supy-lcz-global')
 
 # use the same names as set in run_split_models
@@ -77,7 +77,7 @@ uhi = ds_uf['T2'] - ds_uf_ff['T2']
 uhi_nan = uhi.where(uhi >= 0, np.nan)
 uhi_clean = uhi.where(uhi >= 0, 0)
 
-uhi_mean = uhi_clean.mean(dim = "timestamp", keep_attrs = True)
+uhi_mean = uhi.mean(dim = "timestamp", keep_attrs = True)
 
 nem = xr.concat([ds_uf.sel(timestamp=ne_monsoon1), ds_uf.sel(timestamp=ne_monsoon2)], dim = 'timestamp')
 temp_ne_mean = nem['T2'].mean(dim = "timestamp", keep_attrs = True)
@@ -428,7 +428,7 @@ for percentile in percentiles:
 
 #%%
 
-# percentile based on  annual mean UHII
+# percentile based on annual mean UHII
 # Hourly means linegraphs
 percentiles = [0, 0.5, 0.75, 0.9]
 
@@ -663,7 +663,10 @@ filtered_uhi_sw = uhi_sw_mean.where(uhi_sw_mean > 1)
 w_test = filtered_uhi_ne - filtered_uhi_sw
 stat, p = wilcoxon(w_test.values.flatten().round(3), nan_policy = 'omit')
 
+# statistically significant difference between the UHI in NEM and SWM.
 print(stat, p)
+
+# --> to test. calculate difference with finding annual uhi mean?
 
 # Q-Q plot
 stats.probplot(filtered_uhi_ne.values.flatten(), dist="norm", plot=plt)
@@ -673,16 +676,45 @@ plt.ylabel('Ordered Values')
 plt.grid(True)
 plt.show()
 
-
-
-
-# tables
-
-# annual, 50%, 75%, 90%
+# summary statistics
 # NEM, SWM, TMP
-
-# 
 # .mean() .median(), ,lower quartile, upper quaritile,iqr, 90 percentile,  min, max, 
+
+annual = ds_uf['T2'].mean(dim = "timestamp")
+
+season_list = [annual, temp_ne_mean, temp_sw_mean, temp_trans_mean, uhi_mean, uhi_ne_mean, uhi_sw_mean, uhi_trans_mean]
+stat_list = []
+
+for time_period in season_list:
+    
+    mean = time_period.mean(dim = ["x", "y"]).values
+
+    median = time_period.median(dim = ["x", "y"]).values
+   
+    sd = np.std(time_period).values
+    
+    quartile1 = time_period.quantile(0.25).values
+    
+    quartile3 = time_period.quantile(0.75).values
+    
+    iqr = quartile3 - quartile1
+    
+    percentile = time_period.quantile(0.9).values
+    
+    summary_stat = [mean, median, sd, quartile1, quartile3, iqr, percentile]
+    
+    stat_list.append("----------------")
+    
+    for stat in summary_stat:  
+        stat_list.append(stat)
+    print(stat_list) 
+    
+from scipy.stats import f_oneway
+f_statistic, p_value = f_oneway(temp_ne_mean.values.flatten(), temp_sw_mean.values.flatten(), temp_trans_mean.values.flatten())
+
+print(f"F-statistic: {f_statistic}")
+print(f"P-value: {p_value}")
+
 
 
 #%%
