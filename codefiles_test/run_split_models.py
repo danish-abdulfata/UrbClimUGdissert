@@ -113,16 +113,15 @@ site_midpoint_x, site_midpoint_y = to_utm.transform(xx=site_midpoint_lat, yy=sit
 
 # identify site boundaries
 site_metre_length = grid_metre_length  * site_grid_length
-dist_boundary = (split_grid_length * grid_metre_length) / 2
 
-site_y_max = site_midpoint_y + (site_metre_length / 2) - dist_boundary
-site_y_min = site_midpoint_y - (site_metre_length /2) + dist_boundary
-site_x_max = site_midpoint_x + (site_metre_length / 2) - dist_boundary
-site_x_min = site_midpoint_x - (site_metre_length /2) + dist_boundary
+site_y_max = site_midpoint_y + (site_metre_length / 2)
+site_y_min = site_y_max - (site_metre_length)
+site_x_max = site_midpoint_x + (site_metre_length / 2)
+site_x_min = site_x_max - (site_metre_length)
 
-# +1 to account for the additional sample at the start
-split_midpoint_x = np.linspace(site_x_min, site_x_max, site_split_length, endpoint = True)
-split_midpoint_y = np.linspace(site_y_min, site_y_max, site_split_length, endpoint = True)
+# +1 to account for the additional sample at the start, [1:] to remove before meshing.
+split_midpoint_x = np.linspace(site_x_min, site_x_max, site_split_length + 1, endpoint = False)[1:]
+split_midpoint_y = np.linspace(site_y_min, site_y_max, site_split_length + 1, endpoint = False)[1:]
 
 # converting back to latlong
 from_utm = Transformer.from_crs(crs_from=crs, crs_to='EPSG:4326')
@@ -251,8 +250,6 @@ grid_lat_list = []
 grid_lon_list = []
 
 split_metre_length = 1000  * split_grid_length
-split_dist_boundary = grid_metre_length / 2
-
 split_file_count = 0
 
 for individual_split_site in split_site_list_df.index:
@@ -281,14 +278,14 @@ for individual_split_site in split_site_list_df.index:
     split_midpoint_x, split_midpoint_y = to_utm.transform(xx=split_site_lat, yy=split_site_lon)
     
     # identify site boundaries
+    grid_y_max = split_midpoint_y + (split_metre_length / 2)
+    grid_y_min = grid_y_max - (split_metre_length)
+    grid_x_max = split_midpoint_x + (split_metre_length / 2)
+    grid_x_min = grid_x_max - (split_metre_length)
 
-    site_y_max = split_midpoint_y + (split_metre_length / 2) - split_dist_boundary
-    site_y_min = split_midpoint_y - (split_metre_length /2) + split_dist_boundary
-    site_x_max = split_midpoint_x + (split_metre_length / 2) - split_dist_boundary
-    site_x_min = split_midpoint_x - (split_metre_length /2) + split_dist_boundary
-
-    grid_midpoint_x = np.linspace(site_x_min, site_x_max, site_split_length, endpoint = True)
-    grid_midpoint_y = np.linspace(site_y_min, site_y_max, site_split_length, endpoint = True)
+    # +1 to account for the additional sample at the start, [1:] to remove before meshing.
+    grid_midpoint_x = np.linspace(grid_x_min, grid_x_max, split_grid_length + 1, endpoint = False)[1:]
+    grid_midpoint_y = np.linspace(grid_y_min, grid_y_max, split_grid_length + 1, endpoint = False)[1:]
 
     # converting back to latlong
     from_utm = Transformer.from_crs(crs_from=crs, crs_to='EPSG:4326')

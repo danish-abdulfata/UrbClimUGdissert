@@ -70,12 +70,14 @@ plt.rc('legend', fontsize=SMALL_SIZE)    # legend fontsize
 plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
 
 plt.rcParams["font.family"] = "TeX Gyre Termes"
+plt.rcParams['mathtext.fontset'] = 'cm'  # Computer Modern
+
 
 # monsooonal averages and basic arithmetics
 
 uhi = ds_uf['T2'] - ds_uf_ff['T2']
-uhi_nan = uhi.where(uhi >= 0, np.nan)
-uhi_clean = uhi.where(uhi >= 0, 0)
+# uhi_nan = uhi.where(uhi >= 0, np.nan)
+# uhi_clean = uhi.where(uhi >= 0, 0)
 
 uhi_mean = uhi.mean(dim = "timestamp", keep_attrs = True)
 
@@ -132,7 +134,6 @@ print(lat_val, lon_val)
 fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(14, 4))
 ds_unflattened.longitude.plot(ax=ax1)
 ds_unflattened.latitude.plot(ax=ax2)
-
 
 # basic header display
 
@@ -284,6 +285,15 @@ cbar_ax = fig.add_axes([0.58, 0.15, 0.02, 0.7])
 fig.colorbar(pcm1, cax=cbar_ax, label='Temperature at 2m [deg C]')
 plt.show()
 
+
+#%%
+
+lat = ds_unflattened['latitude'].to_pandas()
+lon = ds_unflattened['longitude'].to_pandas()
+
+
+
+
 #%%
 
 #################################### DEFAULT local climate calculations ####################################
@@ -291,31 +301,38 @@ plt.show()
 
 # Summary and descriptive statistics
 
+# MEAN DAILY TEMPERATURE AND HUMIDITY
+
+# check groupby function, will need one that just averages every 24hrs instead of averaging every 1-31st of a month's
 annual = ds_uf['T2'].mean(dim = ["y", "x"])
-annual = annual.groupby("timestamp.day").mean()
+annual = annual.resample(timestamp='1D').mean()
 
 nem_temp = nem['T2'].mean(dim = ["y", "x"])
-nem_temp = nem_temp.groupby("timestamp.day").mean()
+nem_temp = nem_temp.resample(timestamp='1D').mean()
+nem_temp = nem_temp.dropna(dim='timestamp')
 
 swm_temp = swm['T2'].mean(dim = ["y", "x"])
-swm_temp = swm_temp.groupby("timestamp.day").mean()
+swm_temp = swm_temp.resample(timestamp='1D').mean()
 
 tmp_temp = tmp['T2'].mean(dim = ["y", "x"])
-tmp_temp = tmp_temp.groupby("timestamp.day").mean()
+tmp_temp = tmp_temp.resample(timestamp='1D').mean()
+tmp_temp = tmp_temp.dropna(dim='timestamp')
 
 data = [annual, nem_temp, swm_temp, tmp_temp]
 
 annual_rh2 = ds_uf['RH2'].mean(dim = ["y", "x"])
-annual_rh2 = annual_rh2.groupby("timestamp.day").mean()
+annual_rh2 = annual_rh2.resample(timestamp='1D').mean()
 
 nem_rh2 = nem['RH2'].mean(dim = ["y", "x"])
-nem_rh2 = nem_rh2.groupby("timestamp.day").mean()
+nem_rh2 = nem_rh2.resample(timestamp='1D').mean()
+nem_rh2 = nem_rh2.dropna(dim='timestamp')
 
 swm_rh2 = swm['RH2'].mean(dim = ["y", "x"])
-swm_rh2 = swm_rh2.groupby("timestamp.day").mean()
+swm_rh2 = swm_rh2.resample(timestamp='1D').mean()
 
 tmp_rh2 = tmp['RH2'].mean(dim = ["y", "x"])
-tmp_rh2 = tmp_rh2.groupby("timestamp.day").mean()
+tmp_rh2 = tmp_rh2.resample(timestamp='1D').mean()
+tmp_rh2 = tmp_rh2.dropna(dim='timestamp')
 
 data_humidity = [annual_rh2, nem_rh2, swm_rh2, tmp_rh2]
 
@@ -337,9 +354,9 @@ axs[1].set_xticklabels(['Year', 'NEM', 'SWM', 'TMP'], fontsize = 10)
 # axs[0].tick_params(axis='y', labelsize=8)
 # axs[1].tick_params(axis='y', labelsize=8)
 
-axs[0].text(0.02, 0.97, "(a)", transform=axs[0].transAxes, 
+axs[0].text(0.89, 0.11, "(a)", transform=axs[0].transAxes, 
             fontsize=12, fontweight='bold', va='top')
-axs[1].text(0.02, 0.97, "(b)", transform=axs[1].transAxes, 
+axs[1].text(0.89, 0.11, "(b)", transform=axs[1].transAxes, 
             fontsize=12, fontweight='bold', va='top')
 
 plt.show()
@@ -373,6 +390,59 @@ for ax in axs:
     # Get current ticks and start from 5th position
     current_ticks = ax.get_xticks()
     ax.xaxis.set_major_locator(FixedLocator(x_tick_indices))
+    
+
+
+#%%
+
+# wet bulb temperature and heat wave (>35C)
+
+# Tw = −4.391976 + 0.0198197RH + 0.526359Td + 0.00730271RH·Td + 2.4315 × 10−4RH2 − 2.58101 × 10−5Td·RH2.
+# from Chen, H.-Y., Chen, C.-C. Atmosphere 2022, 13, 1765
+
+tw = -4.391976 + 0.0198197*ds_uf["RH2"] + 0.526359*ds_uf["T2"] + 0.00730271*ds_uf["RH2"]*ds_uf["T2"] + 2.4315 * 10**(-4)*ds_uf["RH2"]**2 - 2.58101 * 10**(-5)*ds_uf["T2"]*ds_uf["RH2"]**2
+tw = tw.mean(dim = "timestamp")
+
+ds_day = ds_unflattened['T2'].resample(timestamp='1D').max()
+ds_day_sum = (ds_day >= 35).sum(dim="timestamp")
+lat = ds_day_sum['x']
+lon = ds_day_sum['y']
+
+fig, axs = plt.subplots(1, 2, figsize=(6.27,2), dpi = 1000)
+fig.subplots_adjust(wspace = 0.30)
+
+wet_bulb_temp = axs[0].pcolormesh(lat, lon, tw, shading='auto', cmap='Reds')
+
+import matplotlib.colors as mcolors
+
+bounds = [0, 1, 5, 10, 25, 50, 100, 265]
+
+# Create colors that span the full viridis range for the specified bounds
+viridis = plt.cm.viridis
+colors = viridis(np.linspace(0, 1, len(bounds)-1))  # ← FIX: len(bounds)-1
+cmap = mcolors.ListedColormap(colors)
+norm = mcolors.BoundaryNorm(bounds, len(bounds)-1)
+
+#heatwave = axs[1].contourf(lat, lon, ds_day_sum, norm=colors.SymLogNorm(linthresh=0.1, linscale=0.5, base=10))
+heatwave = axs[1].contourf(lat, lon, ds_day_sum, levels=bounds, norm = norm, corner_mask = False, nchunk=0, cmap=cmap)
+
+cb = plt.colorbar(wet_bulb_temp)
+cb_2 = plt.colorbar(heatwave)
+
+cb.set_label(label=r'$T_{\mathrm{w}}$ [°C]', size=10, rotation=270, labelpad=15)
+cb_2.set_label(label='Days above 35°C', size=10, rotation=270, labelpad=15)
+
+
+for ax in axs:
+    ax.yaxis.set_major_formatter(y_label)
+    ax.yaxis.set_major_locator(FixedLocator(y_tick_indices))
+
+    ax.tick_params(width = 0.5)
+    ax.xaxis.set_major_formatter(x_label)
+    # Get current ticks and start from 5th position
+    current_ticks = ax.get_xticks()
+    ax.xaxis.set_major_locator(FixedLocator(x_tick_indices))
+
 
 #%%
 #################################### UHI calculations and figures ####################################
@@ -518,6 +588,7 @@ axs[0].set_xlabel("Hour")
 axs[0].set_ylabel("UHII [°C]")
 
 uhii_diff = final_sw_hourly - final_ne_hourly 
+# 
 
 axs[1].set_prop_cycle(color=['aquamarine', 'turquoise', 'mediumturquoise', 'lightseagreen'])
 fig2 = axs[1].plot(uhii_diff)
@@ -568,7 +639,7 @@ uhi_smooth = pd.Series(optimally_smoothed_series, uhi_df.index, name = "smooth")
 
 uhi_df = pd.concat([uhi_df, uhi_smooth], axis = 1, join = 'outer')
 
-fig, ax1 = plt.subplots(dpi = 1000)
+fig, ax1 = plt.subplots(figsize=(6.27,4), dpi = 1000)
 
 ax1.plot(uhi_df, color= "lightseagreen", alpha=0.25)
 ax1.plot(uhi_smooth, color= "lightseagreen")
@@ -615,7 +686,7 @@ cb1.ax.tick_params(labelsize=8, width = 0.5)
 
 # colorbar2 to match the custom boundaries
 cb2 = fig.colorbar(contour1, cax=cbar_ax2, boundaries=bounds, ticks=bounds)
-cb2.set_label(label='Urban Heat Island [°C]', size=10, rotation=270, labelpad=9)
+cb2.set_label(label='UHI Intensity [°C]', size=10, rotation=270, labelpad=9)
 cb2.ax.tick_params(labelsize=8, width=0.5)
 
 x_tick_indices = [4, 14, 24, 34]
@@ -676,7 +747,7 @@ plt.ylabel('Ordered Values')
 plt.grid(True)
 plt.show()
 
-# summary statistics
+# summary climate statistics by GRID
 # NEM, SWM, TMP
 # .mean() .median(), ,lower quartile, upper quaritile,iqr, 90 percentile,  min, max, 
 
