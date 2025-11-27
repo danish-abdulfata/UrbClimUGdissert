@@ -9,13 +9,13 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator, FixedLocator
 from matplotlib.lines import Line2D
 
-#os.chdir(r"C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global")
-os.chdir(r"C:\Users\ahmad\Documents\UrbClimUGdissert\supy-lcz-global")
+os.chdir(r"C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global")
+#os.chdir(r"C:\Users\ahmad\Documents\UrbClimUGdissert\supy-lcz-global")
 #os.chdir('/home/zcfaada@ad.ucl.ac.uk/Documents/UrbClimUGdissert/supy-lcz-global')
 
 # use the same names as set in run_split_models
 
-site_prefix = "GreaterKL-2017_Y1_M2sp_3sf_R1"
+site_prefix = "GreaterKL-2017_Y1_M2sp_3sf_R4"
 
 
 output_file = './data/consolidated_outputs/'

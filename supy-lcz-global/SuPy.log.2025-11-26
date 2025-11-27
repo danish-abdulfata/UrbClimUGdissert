@@ -1,0 +1,3003 @@
+2025-07-10 00:10:09,700 - SuPy - INFO - Execution time: 683.1 s
+2025-07-10 00:10:09,768 - SuPy - INFO - ====================
+
+2025-07-10 00:11:01,563 - SuPy - INFO - All cache cleared.
+2025-07-10 00:11:05,582 - SuPy - INFO - SuPy is validating `df_state`...
+2025-07-10 00:11:07,168 - SuPy - INFO - All checks for `df_state` passed!
+2025-07-10 00:12:51,476 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-07-10 00:12:51,500 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-07-10 00:12:52,067 - SuPy - INFO - ====================
+2025-07-10 00:12:52,069 - SuPy - INFO - Simulation period:
+2025-07-10 00:12:52,071 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-07-10 00:12:52,072 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-07-10 00:12:52,073 - SuPy - INFO - 
+2025-07-10 00:12:52,074 - SuPy - INFO - No. of grids: 25
+2025-07-10 00:12:52,074 - SuPy - INFO - SuPy is running in parallel mode
+2025-07-10 00:22:25,156 - SuPy - INFO - Execution time: 573.1 s
+2025-07-10 00:22:25,187 - SuPy - INFO - ====================
+
+2025-07-10 00:23:21,253 - SuPy - INFO - All cache cleared.
+2025-07-10 00:23:25,730 - SuPy - INFO - SuPy is validating `df_state`...
+2025-07-10 00:23:27,658 - SuPy - INFO - All checks for `df_state` passed!
+2025-07-10 00:25:54,034 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-07-10 00:25:54,069 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-07-10 00:25:54,645 - SuPy - INFO - ====================
+2025-07-10 00:25:54,648 - SuPy - INFO - Simulation period:
+2025-07-10 00:25:54,650 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-07-10 00:25:54,652 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-07-10 00:25:54,653 - SuPy - INFO - 
+2025-07-10 00:25:54,654 - SuPy - INFO - No. of grids: 25
+2025-07-10 00:25:54,654 - SuPy - INFO - SuPy is running in parallel mode
+2025-07-10 00:34:57,002 - SuPy - INFO - Execution time: 542.4 s
+2025-07-10 00:34:57,030 - SuPy - INFO - ====================
+
+2025-07-10 00:35:51,411 - SuPy - INFO - All cache cleared.
+2025-07-10 00:35:56,380 - SuPy - INFO - SuPy is validating `df_state`...
+2025-07-10 00:35:57,947 - SuPy - INFO - All checks for `df_state` passed!
+2025-07-10 00:37:40,533 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-07-10 00:37:40,557 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-07-10 00:37:41,079 - SuPy - INFO - ====================
+2025-07-10 00:37:41,079 - SuPy - INFO - Simulation period:
+2025-07-10 00:37:41,080 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-07-10 00:37:41,081 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-07-10 00:37:41,081 - SuPy - INFO - 
+2025-07-10 00:37:41,084 - SuPy - INFO - No. of grids: 25
+2025-07-10 00:37:41,084 - SuPy - INFO - SuPy is running in parallel mode
+2025-07-10 00:48:44,037 - SuPy - INFO - Execution time: 662.9 s
+2025-07-10 00:48:44,074 - SuPy - INFO - ====================
+
+2025-07-10 00:49:40,665 - SuPy - INFO - All cache cleared.
+2025-07-10 00:49:44,708 - SuPy - INFO - SuPy is validating `df_state`...
+2025-07-10 00:49:46,176 - SuPy - INFO - All checks for `df_state` passed!
+2025-07-10 00:51:32,128 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-07-10 00:51:32,159 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-07-10 00:51:33,215 - SuPy - INFO - ====================
+2025-07-10 00:51:33,217 - SuPy - INFO - Simulation period:
+2025-07-10 00:51:33,218 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-07-10 00:51:33,219 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-07-10 00:51:33,220 - SuPy - INFO - 
+2025-07-10 00:51:33,220 - SuPy - INFO - No. of grids: 25
+2025-07-10 00:51:33,221 - SuPy - INFO - SuPy is running in parallel mode
+2025-07-10 01:01:13,595 - SuPy - INFO - Execution time: 580.4 s
+2025-07-10 01:01:13,622 - SuPy - INFO - ====================
+
+2025-07-10 01:02:01,041 - SuPy - INFO - All cache cleared.
+2025-07-10 01:02:05,691 - SuPy - INFO - SuPy is validating `df_state`...
+2025-07-10 01:02:07,005 - SuPy - INFO - All checks for `df_state` passed!
+2025-07-10 01:03:57,393 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-07-10 01:03:57,418 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-07-10 01:03:57,905 - SuPy - INFO - ====================
+2025-07-10 01:03:57,906 - SuPy - INFO - Simulation period:
+2025-07-10 01:03:57,907 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-07-10 01:03:57,907 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-07-10 01:03:57,907 - SuPy - INFO - 
+2025-07-10 01:03:57,907 - SuPy - INFO - No. of grids: 25
+2025-07-10 01:03:57,908 - SuPy - INFO - SuPy is running in parallel mode
+2025-07-10 01:13:35,935 - SuPy - INFO - Execution time: 578.0 s
+2025-07-10 01:13:35,959 - SuPy - INFO - ====================
+
+2025-07-10 01:14:21,010 - SuPy - INFO - All cache cleared.
+2025-07-10 01:14:25,744 - SuPy - INFO - SuPy is validating `df_state`...
+2025-07-10 01:14:27,077 - SuPy - INFO - All checks for `df_state` passed!
+2025-07-10 01:16:15,637 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-07-10 01:16:15,652 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-07-10 01:16:16,080 - SuPy - INFO - ====================
+2025-07-10 01:16:16,081 - SuPy - INFO - Simulation period:
+2025-07-10 01:16:16,082 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-07-10 01:16:16,083 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-07-10 01:16:16,086 - SuPy - INFO - 
+2025-07-10 01:16:16,088 - SuPy - INFO - No. of grids: 25
+2025-07-10 01:16:16,090 - SuPy - INFO - SuPy is running in parallel mode
+2025-07-10 01:25:44,340 - SuPy - INFO - Execution time: 568.3 s
+2025-07-10 01:25:44,364 - SuPy - INFO - ====================
+
+2025-07-10 01:26:29,010 - SuPy - INFO - All cache cleared.
+2025-07-10 01:26:32,056 - SuPy - INFO - SuPy is validating `df_state`...
+2025-07-10 01:26:33,271 - SuPy - INFO - All checks for `df_state` passed!
+2025-07-10 01:28:20,027 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-07-10 01:28:20,045 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-07-10 01:28:20,727 - SuPy - INFO - ====================
+2025-07-10 01:28:20,729 - SuPy - INFO - Simulation period:
+2025-07-10 01:28:20,730 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-07-10 01:28:20,732 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-07-10 01:28:20,736 - SuPy - INFO - 
+2025-07-10 01:28:20,737 - SuPy - INFO - No. of grids: 25
+2025-07-10 01:28:20,738 - SuPy - INFO - SuPy is running in parallel mode
+2025-07-10 01:36:03,296 - SuPy - INFO - Execution time: 462.6 s
+2025-07-10 01:36:03,320 - SuPy - INFO - ====================
+
+2025-07-10 01:36:45,633 - SuPy - INFO - All cache cleared.
+2025-07-10 01:36:48,272 - SuPy - INFO - SuPy is validating `df_state`...
+2025-07-10 01:36:49,468 - SuPy - INFO - All checks for `df_state` passed!
+2025-07-10 01:38:37,132 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-07-10 01:38:37,148 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-07-10 01:38:37,757 - SuPy - INFO - ====================
+2025-07-10 01:38:37,757 - SuPy - INFO - Simulation period:
+2025-07-10 01:38:37,758 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-07-10 01:38:37,758 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-07-10 01:38:37,758 - SuPy - INFO - 
+2025-07-10 01:38:37,758 - SuPy - INFO - No. of grids: 25
+2025-07-10 01:38:37,759 - SuPy - INFO - SuPy is running in parallel mode
+2025-07-10 01:46:29,371 - SuPy - INFO - Execution time: 471.6 s
+2025-07-10 01:46:29,392 - SuPy - INFO - ====================
+
+2025-07-10 01:47:09,578 - SuPy - INFO - All cache cleared.
+2025-07-10 01:47:12,720 - SuPy - INFO - SuPy is validating `df_state`...
+2025-07-10 01:47:14,063 - SuPy - INFO - All checks for `df_state` passed!
+2025-07-10 01:49:12,052 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-07-10 01:49:12,075 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-07-10 01:49:12,736 - SuPy - INFO - ====================
+2025-07-10 01:49:12,736 - SuPy - INFO - Simulation period:
+2025-07-10 01:49:12,737 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-07-10 01:49:12,738 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-07-10 01:49:12,740 - SuPy - INFO - 
+2025-07-10 01:49:12,741 - SuPy - INFO - No. of grids: 25
+2025-07-10 01:49:12,741 - SuPy - INFO - SuPy is running in parallel mode
+2025-07-10 01:58:09,507 - SuPy - INFO - Execution time: 536.8 s
+2025-07-10 01:58:09,531 - SuPy - INFO - ====================
+
+2025-08-11 01:54:52,964 - SuPy - INFO - All cache cleared.
+2025-08-11 01:54:56,311 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 01:54:57,180 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 01:57:21,969 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 01:57:21,982 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 01:57:22,353 - SuPy - INFO - ====================
+2025-08-11 01:57:22,353 - SuPy - INFO - Simulation period:
+2025-08-11 01:57:22,358 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 01:57:22,359 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 01:57:22,359 - SuPy - INFO - 
+2025-08-11 01:57:22,359 - SuPy - INFO - No. of grids: 25
+2025-08-11 01:57:22,359 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 02:03:54,856 - SuPy - INFO - Execution time: 392.5 s
+2025-08-11 02:03:54,860 - SuPy - INFO - ====================
+
+2025-08-11 02:04:24,475 - SuPy - INFO - All cache cleared.
+2025-08-11 02:04:26,430 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 02:04:27,354 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 02:05:59,058 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 02:05:59,072 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 02:05:59,412 - SuPy - INFO - ====================
+2025-08-11 02:05:59,413 - SuPy - INFO - Simulation period:
+2025-08-11 02:05:59,413 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 02:05:59,413 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 02:05:59,413 - SuPy - INFO - 
+2025-08-11 02:05:59,414 - SuPy - INFO - No. of grids: 25
+2025-08-11 02:05:59,414 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 02:12:41,012 - SuPy - INFO - Execution time: 401.6 s
+2025-08-11 02:12:41,031 - SuPy - INFO - ====================
+
+2025-08-11 02:13:17,640 - SuPy - INFO - All cache cleared.
+2025-08-11 02:13:19,892 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 02:13:20,894 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 02:15:28,878 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 02:15:28,895 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 02:15:29,347 - SuPy - INFO - ====================
+2025-08-11 02:15:29,347 - SuPy - INFO - Simulation period:
+2025-08-11 02:15:29,347 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 02:15:29,349 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 02:15:29,349 - SuPy - INFO - 
+2025-08-11 02:15:29,350 - SuPy - INFO - No. of grids: 25
+2025-08-11 02:15:29,350 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 02:22:33,718 - SuPy - INFO - Execution time: 424.4 s
+2025-08-11 02:22:33,761 - SuPy - INFO - ====================
+
+2025-08-11 02:23:08,000 - SuPy - INFO - All cache cleared.
+2025-08-11 02:23:11,831 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 02:23:12,866 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 02:25:15,119 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 02:25:15,134 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 02:25:15,421 - SuPy - INFO - ====================
+2025-08-11 02:25:15,423 - SuPy - INFO - Simulation period:
+2025-08-11 02:25:15,424 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 02:25:15,424 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 02:25:15,425 - SuPy - INFO - 
+2025-08-11 02:25:15,427 - SuPy - INFO - No. of grids: 25
+2025-08-11 02:25:15,428 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 02:31:48,842 - SuPy - INFO - Execution time: 393.4 s
+2025-08-11 02:31:48,860 - SuPy - INFO - ====================
+
+2025-08-11 02:32:23,217 - SuPy - INFO - All cache cleared.
+2025-08-11 02:32:25,615 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 02:32:26,617 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 02:34:16,523 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 02:34:16,537 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 02:34:16,877 - SuPy - INFO - ====================
+2025-08-11 02:34:16,878 - SuPy - INFO - Simulation period:
+2025-08-11 02:34:16,879 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 02:34:16,879 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 02:34:16,880 - SuPy - INFO - 
+2025-08-11 02:34:16,881 - SuPy - INFO - No. of grids: 25
+2025-08-11 02:34:16,882 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 02:41:09,510 - SuPy - INFO - Execution time: 412.6 s
+2025-08-11 02:41:09,529 - SuPy - INFO - ====================
+
+2025-08-11 02:41:45,246 - SuPy - INFO - All cache cleared.
+2025-08-11 02:41:47,393 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 02:41:48,435 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 02:43:15,983 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 02:43:15,995 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 02:43:16,265 - SuPy - INFO - ====================
+2025-08-11 02:43:16,265 - SuPy - INFO - Simulation period:
+2025-08-11 02:43:16,266 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 02:43:16,266 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 02:43:16,266 - SuPy - INFO - 
+2025-08-11 02:43:16,266 - SuPy - INFO - No. of grids: 25
+2025-08-11 02:43:16,266 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 02:49:58,447 - SuPy - INFO - Execution time: 402.2 s
+2025-08-11 02:49:58,465 - SuPy - INFO - ====================
+
+2025-08-11 02:50:33,329 - SuPy - INFO - All cache cleared.
+2025-08-11 02:50:35,511 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 02:50:36,503 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 02:52:28,455 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 02:52:28,469 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 02:52:28,905 - SuPy - INFO - ====================
+2025-08-11 02:52:28,905 - SuPy - INFO - Simulation period:
+2025-08-11 02:52:28,906 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 02:52:28,906 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 02:52:28,906 - SuPy - INFO - 
+2025-08-11 02:52:28,906 - SuPy - INFO - No. of grids: 25
+2025-08-11 02:52:28,907 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 02:59:03,958 - SuPy - INFO - Execution time: 395.0 s
+2025-08-11 02:59:03,976 - SuPy - INFO - ====================
+
+2025-08-11 02:59:41,096 - SuPy - INFO - All cache cleared.
+2025-08-11 02:59:43,288 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 02:59:44,237 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 03:01:26,908 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 03:01:26,923 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 03:01:27,364 - SuPy - INFO - ====================
+2025-08-11 03:01:27,364 - SuPy - INFO - Simulation period:
+2025-08-11 03:01:27,365 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 03:01:27,365 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 03:01:27,365 - SuPy - INFO - 
+2025-08-11 03:01:27,365 - SuPy - INFO - No. of grids: 25
+2025-08-11 03:01:27,365 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 03:08:14,386 - SuPy - INFO - Execution time: 407.0 s
+2025-08-11 03:08:14,409 - SuPy - INFO - ====================
+
+2025-08-11 03:08:48,661 - SuPy - INFO - All cache cleared.
+2025-08-11 03:08:50,927 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 03:08:51,947 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 03:10:17,391 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 03:10:17,403 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 03:10:17,680 - SuPy - INFO - ====================
+2025-08-11 03:10:17,682 - SuPy - INFO - Simulation period:
+2025-08-11 03:10:17,683 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 03:10:17,683 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 03:10:17,683 - SuPy - INFO - 
+2025-08-11 03:10:17,683 - SuPy - INFO - No. of grids: 25
+2025-08-11 03:10:17,684 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 03:16:25,872 - SuPy - INFO - Execution time: 368.2 s
+2025-08-11 03:16:25,889 - SuPy - INFO - ====================
+
+2025-08-11 03:16:57,910 - SuPy - INFO - All cache cleared.
+2025-08-11 03:16:59,980 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 03:17:00,880 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 03:18:21,271 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 03:18:21,283 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 03:18:23,679 - SuPy - INFO - ====================
+2025-08-11 03:18:23,679 - SuPy - INFO - Simulation period:
+2025-08-11 03:18:23,680 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 03:18:23,680 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 03:18:23,680 - SuPy - INFO - 
+2025-08-11 03:18:23,680 - SuPy - INFO - No. of grids: 25
+2025-08-11 03:18:23,680 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 03:24:32,008 - SuPy - INFO - Execution time: 368.3 s
+2025-08-11 03:24:32,025 - SuPy - INFO - ====================
+
+2025-08-11 03:25:04,317 - SuPy - INFO - All cache cleared.
+2025-08-11 03:25:06,239 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 03:25:07,108 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 03:26:36,548 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 03:26:36,561 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 03:26:36,905 - SuPy - INFO - ====================
+2025-08-11 03:26:36,905 - SuPy - INFO - Simulation period:
+2025-08-11 03:26:36,905 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 03:26:36,905 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 03:26:36,905 - SuPy - INFO - 
+2025-08-11 03:26:36,906 - SuPy - INFO - No. of grids: 25
+2025-08-11 03:26:36,906 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 03:32:33,898 - SuPy - INFO - Execution time: 357.0 s
+2025-08-11 03:32:33,913 - SuPy - INFO - ====================
+
+2025-08-11 03:33:04,909 - SuPy - INFO - All cache cleared.
+2025-08-11 03:33:06,946 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 03:33:07,863 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 03:34:14,311 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 03:34:14,322 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 03:34:14,636 - SuPy - INFO - ====================
+2025-08-11 03:34:14,637 - SuPy - INFO - Simulation period:
+2025-08-11 03:34:14,637 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 03:34:14,639 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 03:34:14,639 - SuPy - INFO - 
+2025-08-11 03:34:14,640 - SuPy - INFO - No. of grids: 25
+2025-08-11 03:34:14,655 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 03:40:07,904 - SuPy - INFO - Execution time: 353.3 s
+2025-08-11 03:40:07,919 - SuPy - INFO - ====================
+
+2025-08-11 03:40:39,945 - SuPy - INFO - All cache cleared.
+2025-08-11 03:40:41,906 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 03:40:42,800 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 03:42:12,730 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 03:42:12,741 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 03:42:12,997 - SuPy - INFO - ====================
+2025-08-11 03:42:12,998 - SuPy - INFO - Simulation period:
+2025-08-11 03:42:12,998 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 03:42:12,999 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 03:42:12,999 - SuPy - INFO - 
+2025-08-11 03:42:12,999 - SuPy - INFO - No. of grids: 25
+2025-08-11 03:42:12,999 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 03:48:08,789 - SuPy - INFO - Execution time: 355.8 s
+2025-08-11 03:48:08,810 - SuPy - INFO - ====================
+
+2025-08-11 03:48:42,686 - SuPy - INFO - All cache cleared.
+2025-08-11 03:48:44,778 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 03:48:45,636 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 03:50:08,101 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 03:50:08,116 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 03:50:08,492 - SuPy - INFO - ====================
+2025-08-11 03:50:08,493 - SuPy - INFO - Simulation period:
+2025-08-11 03:50:08,493 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 03:50:08,493 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 03:50:08,496 - SuPy - INFO - 
+2025-08-11 03:50:08,497 - SuPy - INFO - No. of grids: 25
+2025-08-11 03:50:08,497 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 03:55:44,372 - SuPy - INFO - Execution time: 335.9 s
+2025-08-11 03:55:44,391 - SuPy - INFO - ====================
+
+2025-08-11 03:56:17,155 - SuPy - INFO - All cache cleared.
+2025-08-11 03:56:21,512 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 03:56:22,435 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 03:57:42,741 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 03:57:42,754 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 03:57:43,077 - SuPy - INFO - ====================
+2025-08-11 03:57:43,077 - SuPy - INFO - Simulation period:
+2025-08-11 03:57:43,077 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 03:57:43,078 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 03:57:43,078 - SuPy - INFO - 
+2025-08-11 03:57:43,078 - SuPy - INFO - No. of grids: 25
+2025-08-11 03:57:43,078 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 04:03:50,521 - SuPy - INFO - Execution time: 367.4 s
+2025-08-11 04:03:50,540 - SuPy - INFO - ====================
+
+2025-08-11 04:04:19,402 - SuPy - INFO - All cache cleared.
+2025-08-11 04:04:21,532 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 04:04:24,710 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 04:08:55,732 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 04:08:55,745 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 04:08:56,002 - SuPy - INFO - ====================
+2025-08-11 04:08:56,003 - SuPy - INFO - Simulation period:
+2025-08-11 04:08:56,003 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 04:08:56,003 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 04:08:56,003 - SuPy - INFO - 
+2025-08-11 04:08:56,003 - SuPy - INFO - No. of grids: 25
+2025-08-11 04:08:56,004 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 04:14:59,955 - SuPy - INFO - Execution time: 363.9 s
+2025-08-11 04:14:59,970 - SuPy - INFO - ====================
+
+2025-08-11 04:15:34,338 - SuPy - INFO - All cache cleared.
+2025-08-11 04:15:36,509 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 04:15:37,384 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 04:17:16,100 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 04:17:16,112 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 04:17:16,483 - SuPy - INFO - ====================
+2025-08-11 04:17:16,484 - SuPy - INFO - Simulation period:
+2025-08-11 04:17:16,484 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 04:17:16,484 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 04:17:16,484 - SuPy - INFO - 
+2025-08-11 04:17:16,484 - SuPy - INFO - No. of grids: 25
+2025-08-11 04:17:16,484 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 04:23:21,841 - SuPy - INFO - Execution time: 365.4 s
+2025-08-11 04:23:21,855 - SuPy - INFO - ====================
+
+2025-08-11 04:23:53,451 - SuPy - INFO - All cache cleared.
+2025-08-11 04:23:55,580 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 04:23:56,447 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 04:25:21,923 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 04:25:21,934 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 04:25:22,219 - SuPy - INFO - ====================
+2025-08-11 04:25:22,220 - SuPy - INFO - Simulation period:
+2025-08-11 04:25:22,220 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 04:25:22,220 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 04:25:22,220 - SuPy - INFO - 
+2025-08-11 04:25:22,220 - SuPy - INFO - No. of grids: 25
+2025-08-11 04:25:22,220 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 04:31:23,433 - SuPy - INFO - Execution time: 361.2 s
+2025-08-11 04:31:23,449 - SuPy - INFO - ====================
+
+2025-08-11 04:31:56,076 - SuPy - INFO - All cache cleared.
+2025-08-11 04:31:58,190 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 04:32:01,637 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 04:33:19,533 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 04:33:19,546 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 04:33:19,819 - SuPy - INFO - ====================
+2025-08-11 04:33:19,820 - SuPy - INFO - Simulation period:
+2025-08-11 04:33:19,821 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 04:33:19,821 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 04:33:19,821 - SuPy - INFO - 
+2025-08-11 04:33:19,822 - SuPy - INFO - No. of grids: 25
+2025-08-11 04:33:19,822 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 04:39:37,440 - SuPy - INFO - Execution time: 377.6 s
+2025-08-11 04:39:37,458 - SuPy - INFO - ====================
+
+2025-08-11 04:40:02,885 - SuPy - INFO - All cache cleared.
+2025-08-11 04:40:04,630 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 04:40:05,496 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 04:41:29,081 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 04:41:29,094 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 04:41:29,414 - SuPy - INFO - ====================
+2025-08-11 04:41:29,414 - SuPy - INFO - Simulation period:
+2025-08-11 04:41:29,414 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 04:41:29,415 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 04:41:29,415 - SuPy - INFO - 
+2025-08-11 04:41:29,415 - SuPy - INFO - No. of grids: 25
+2025-08-11 04:41:29,415 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 04:47:06,765 - SuPy - INFO - Execution time: 337.3 s
+2025-08-11 04:47:06,781 - SuPy - INFO - ====================
+
+2025-08-11 04:47:33,967 - SuPy - INFO - All cache cleared.
+2025-08-11 04:47:38,280 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 04:47:39,124 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 04:48:52,456 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 04:48:52,468 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 04:48:53,182 - SuPy - INFO - ====================
+2025-08-11 04:48:53,184 - SuPy - INFO - Simulation period:
+2025-08-11 04:48:53,186 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 04:48:53,188 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 04:48:53,189 - SuPy - INFO - 
+2025-08-11 04:48:53,190 - SuPy - INFO - No. of grids: 25
+2025-08-11 04:48:53,190 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 04:54:52,549 - SuPy - INFO - Execution time: 359.4 s
+2025-08-11 04:54:52,565 - SuPy - INFO - ====================
+
+2025-08-11 04:55:24,941 - SuPy - INFO - All cache cleared.
+2025-08-11 04:55:26,735 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 04:55:27,612 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 04:57:06,497 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 04:57:06,508 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 04:57:06,905 - SuPy - INFO - ====================
+2025-08-11 04:57:06,905 - SuPy - INFO - Simulation period:
+2025-08-11 04:57:06,905 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 04:57:06,905 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 04:57:06,905 - SuPy - INFO - 
+2025-08-11 04:57:06,906 - SuPy - INFO - No. of grids: 25
+2025-08-11 04:57:06,906 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 05:02:52,790 - SuPy - INFO - Execution time: 345.9 s
+2025-08-11 05:02:52,809 - SuPy - INFO - ====================
+
+2025-08-11 05:03:25,758 - SuPy - INFO - All cache cleared.
+2025-08-11 05:03:27,708 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 05:03:28,518 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 05:04:55,274 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 05:04:55,288 - SuPy - INFO - detected issues have been fixed by clipping off outliers
+2025-08-11 05:04:55,560 - SuPy - INFO - ====================
+2025-08-11 05:04:55,560 - SuPy - INFO - Simulation period:
+2025-08-11 05:04:55,561 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 05:04:55,561 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 05:04:55,562 - SuPy - INFO - 
+2025-08-11 05:04:55,562 - SuPy - INFO - No. of grids: 25
+2025-08-11 05:04:55,562 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 05:10:53,797 - SuPy - INFO - Execution time: 358.2 s
+2025-08-11 05:10:53,813 - SuPy - INFO - ====================
+
+2025-08-11 05:11:26,669 - SuPy - INFO - All cache cleared.
+2025-08-11 05:11:28,561 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 05:11:29,452 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 05:12:50,883 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 05:12:50,897 - SuPy - INFO - detected issues have been fixed by clipping off outliers
+2025-08-11 05:12:51,161 - SuPy - INFO - ====================
+2025-08-11 05:12:51,162 - SuPy - INFO - Simulation period:
+2025-08-11 05:12:51,162 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 05:12:51,162 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 05:12:51,162 - SuPy - INFO - 
+2025-08-11 05:12:51,163 - SuPy - INFO - No. of grids: 25
+2025-08-11 05:12:51,163 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 05:18:49,489 - SuPy - INFO - Execution time: 358.3 s
+2025-08-11 05:18:49,513 - SuPy - INFO - ====================
+
+2025-08-11 05:19:24,420 - SuPy - INFO - All cache cleared.
+2025-08-11 05:19:26,359 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 05:19:27,247 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 05:20:35,989 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 05:20:36,001 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 05:20:36,252 - SuPy - INFO - ====================
+2025-08-11 05:20:36,252 - SuPy - INFO - Simulation period:
+2025-08-11 05:20:36,252 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 05:20:36,253 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 05:20:36,253 - SuPy - INFO - 
+2025-08-11 05:20:36,253 - SuPy - INFO - No. of grids: 25
+2025-08-11 05:20:36,253 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 05:26:46,546 - SuPy - INFO - Execution time: 370.3 s
+2025-08-11 05:26:46,564 - SuPy - INFO - ====================
+
+2025-08-11 05:27:20,605 - SuPy - INFO - All cache cleared.
+2025-08-11 05:27:22,397 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 05:27:23,260 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 05:28:14,288 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 05:28:14,301 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 05:28:14,559 - SuPy - INFO - ====================
+2025-08-11 05:28:14,567 - SuPy - INFO - Simulation period:
+2025-08-11 05:28:14,567 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 05:28:14,567 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 05:28:14,568 - SuPy - INFO - 
+2025-08-11 05:28:14,568 - SuPy - INFO - No. of grids: 25
+2025-08-11 05:28:14,568 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 05:34:09,878 - SuPy - INFO - Execution time: 355.3 s
+2025-08-11 05:34:09,892 - SuPy - INFO - ====================
+
+2025-08-11 05:34:42,488 - SuPy - INFO - All cache cleared.
+2025-08-11 05:34:44,330 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 05:34:45,185 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 05:35:47,899 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 05:35:47,912 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 05:35:48,234 - SuPy - INFO - ====================
+2025-08-11 05:35:48,235 - SuPy - INFO - Simulation period:
+2025-08-11 05:35:48,235 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 05:35:48,235 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 05:35:48,235 - SuPy - INFO - 
+2025-08-11 05:35:48,235 - SuPy - INFO - No. of grids: 25
+2025-08-11 05:35:48,235 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 05:41:24,658 - SuPy - INFO - Execution time: 336.4 s
+2025-08-11 05:41:24,673 - SuPy - INFO - ====================
+
+2025-08-11 05:41:56,785 - SuPy - INFO - All cache cleared.
+2025-08-11 05:41:58,703 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 05:41:59,584 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 05:43:03,464 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 05:43:03,476 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 05:43:03,784 - SuPy - INFO - ====================
+2025-08-11 05:43:03,785 - SuPy - INFO - Simulation period:
+2025-08-11 05:43:03,785 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 05:43:03,785 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 05:43:03,786 - SuPy - INFO - 
+2025-08-11 05:43:03,786 - SuPy - INFO - No. of grids: 25
+2025-08-11 05:43:03,786 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 05:48:57,647 - SuPy - INFO - Execution time: 353.9 s
+2025-08-11 05:48:57,664 - SuPy - INFO - ====================
+
+2025-08-11 05:49:28,006 - SuPy - INFO - All cache cleared.
+2025-08-11 05:49:30,015 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 05:49:31,041 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 05:50:29,003 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 05:50:29,019 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 05:50:29,310 - SuPy - INFO - ====================
+2025-08-11 05:50:29,311 - SuPy - INFO - Simulation period:
+2025-08-11 05:50:29,311 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 05:50:29,312 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 05:50:29,312 - SuPy - INFO - 
+2025-08-11 05:50:29,312 - SuPy - INFO - No. of grids: 25
+2025-08-11 05:50:29,312 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 05:56:28,922 - SuPy - INFO - Execution time: 359.6 s
+2025-08-11 05:56:28,943 - SuPy - INFO - ====================
+
+2025-08-11 05:57:02,228 - SuPy - INFO - All cache cleared.
+2025-08-11 05:57:04,108 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 05:57:05,005 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 05:58:38,330 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 05:58:38,345 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 05:58:38,618 - SuPy - INFO - ====================
+2025-08-11 05:58:38,618 - SuPy - INFO - Simulation period:
+2025-08-11 05:58:38,618 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 05:58:38,618 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 05:58:38,618 - SuPy - INFO - 
+2025-08-11 05:58:38,619 - SuPy - INFO - No. of grids: 25
+2025-08-11 05:58:38,619 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 06:05:00,164 - SuPy - INFO - Execution time: 381.5 s
+2025-08-11 06:05:00,185 - SuPy - INFO - ====================
+
+2025-08-11 06:05:33,232 - SuPy - INFO - All cache cleared.
+2025-08-11 06:05:35,112 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 06:05:36,123 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 06:06:48,439 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 06:06:48,457 - SuPy - INFO - detected issues have been fixed by clipping off outliers
+2025-08-11 06:06:48,740 - SuPy - INFO - ====================
+2025-08-11 06:06:48,740 - SuPy - INFO - Simulation period:
+2025-08-11 06:06:48,740 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 06:06:48,740 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 06:06:48,740 - SuPy - INFO - 
+2025-08-11 06:06:48,741 - SuPy - INFO - No. of grids: 25
+2025-08-11 06:06:48,741 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 06:12:27,902 - SuPy - INFO - Execution time: 339.2 s
+2025-08-11 06:12:27,924 - SuPy - INFO - ====================
+
+2025-08-11 06:12:57,325 - SuPy - INFO - All cache cleared.
+2025-08-11 06:12:59,400 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 06:13:00,308 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 06:13:46,880 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 06:13:46,896 - SuPy - INFO - detected issues have been fixed by clipping off outliers
+2025-08-11 06:13:47,198 - SuPy - INFO - ====================
+2025-08-11 06:13:47,198 - SuPy - INFO - Simulation period:
+2025-08-11 06:13:47,199 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 06:13:47,199 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 06:13:47,199 - SuPy - INFO - 
+2025-08-11 06:13:47,199 - SuPy - INFO - No. of grids: 25
+2025-08-11 06:13:47,200 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 06:19:46,977 - SuPy - INFO - Execution time: 359.8 s
+2025-08-11 06:19:46,992 - SuPy - INFO - ====================
+
+2025-08-11 06:20:19,242 - SuPy - INFO - All cache cleared.
+2025-08-11 06:20:21,157 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 06:20:22,081 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 06:21:08,787 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 06:21:08,802 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 06:21:09,169 - SuPy - INFO - ====================
+2025-08-11 06:21:09,169 - SuPy - INFO - Simulation period:
+2025-08-11 06:21:09,169 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 06:21:09,169 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 06:21:09,169 - SuPy - INFO - 
+2025-08-11 06:21:09,170 - SuPy - INFO - No. of grids: 25
+2025-08-11 06:21:09,170 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 06:27:05,280 - SuPy - INFO - Execution time: 356.1 s
+2025-08-11 06:27:05,300 - SuPy - INFO - ====================
+
+2025-08-11 06:27:36,337 - SuPy - INFO - All cache cleared.
+2025-08-11 06:27:38,328 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 06:27:39,279 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 06:28:58,068 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 06:28:58,082 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 06:28:58,385 - SuPy - INFO - ====================
+2025-08-11 06:28:58,385 - SuPy - INFO - Simulation period:
+2025-08-11 06:28:58,386 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 06:28:58,387 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 06:28:58,387 - SuPy - INFO - 
+2025-08-11 06:28:58,387 - SuPy - INFO - No. of grids: 25
+2025-08-11 06:28:58,387 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 06:34:45,970 - SuPy - INFO - Execution time: 347.6 s
+2025-08-11 06:34:45,987 - SuPy - INFO - ====================
+
+2025-08-11 06:35:18,157 - SuPy - INFO - All cache cleared.
+2025-08-11 06:35:20,184 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 06:35:21,107 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 06:37:03,404 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 06:37:03,417 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 06:37:03,699 - SuPy - INFO - ====================
+2025-08-11 06:37:03,699 - SuPy - INFO - Simulation period:
+2025-08-11 06:37:03,699 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 06:37:03,700 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 06:37:03,700 - SuPy - INFO - 
+2025-08-11 06:37:03,700 - SuPy - INFO - No. of grids: 25
+2025-08-11 06:37:03,700 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 06:42:27,154 - SuPy - INFO - Execution time: 323.5 s
+2025-08-11 06:42:27,170 - SuPy - INFO - ====================
+
+2025-08-11 06:42:58,225 - SuPy - INFO - All cache cleared.
+2025-08-11 06:43:00,349 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 06:43:01,260 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 06:44:06,996 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 06:44:07,009 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 06:44:07,306 - SuPy - INFO - ====================
+2025-08-11 06:44:07,307 - SuPy - INFO - Simulation period:
+2025-08-11 06:44:07,307 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 06:44:07,307 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 06:44:07,307 - SuPy - INFO - 
+2025-08-11 06:44:07,307 - SuPy - INFO - No. of grids: 25
+2025-08-11 06:44:07,308 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 06:50:15,182 - SuPy - INFO - Execution time: 367.9 s
+2025-08-11 06:50:15,201 - SuPy - INFO - ====================
+
+2025-08-11 06:50:48,954 - SuPy - INFO - All cache cleared.
+2025-08-11 06:50:51,159 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 06:50:52,188 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 06:51:57,460 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 06:51:57,486 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 06:51:57,862 - SuPy - INFO - ====================
+2025-08-11 06:51:57,866 - SuPy - INFO - Simulation period:
+2025-08-11 06:51:57,867 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 06:51:57,867 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 06:51:57,867 - SuPy - INFO - 
+2025-08-11 06:51:57,867 - SuPy - INFO - No. of grids: 25
+2025-08-11 06:51:57,868 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 06:57:54,384 - SuPy - INFO - Execution time: 356.5 s
+2025-08-11 06:57:54,402 - SuPy - INFO - ====================
+
+2025-08-11 06:58:25,969 - SuPy - INFO - All cache cleared.
+2025-08-11 06:58:28,075 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 06:58:28,993 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 07:00:01,101 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 07:00:01,114 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 07:00:01,389 - SuPy - INFO - ====================
+2025-08-11 07:00:01,389 - SuPy - INFO - Simulation period:
+2025-08-11 07:00:01,390 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 07:00:01,390 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 07:00:01,390 - SuPy - INFO - 
+2025-08-11 07:00:01,390 - SuPy - INFO - No. of grids: 25
+2025-08-11 07:00:01,390 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 07:06:10,866 - SuPy - INFO - Execution time: 369.5 s
+2025-08-11 07:06:10,887 - SuPy - INFO - ====================
+
+2025-08-11 07:06:40,787 - SuPy - INFO - All cache cleared.
+2025-08-11 07:06:42,738 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 07:06:43,608 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 07:07:53,086 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 07:07:53,103 - SuPy - INFO - detected issues have been fixed by clipping off outliers
+2025-08-11 07:07:53,370 - SuPy - INFO - ====================
+2025-08-11 07:07:53,370 - SuPy - INFO - Simulation period:
+2025-08-11 07:07:53,370 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 07:07:53,370 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 07:07:53,371 - SuPy - INFO - 
+2025-08-11 07:07:53,371 - SuPy - INFO - No. of grids: 25
+2025-08-11 07:07:53,371 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 07:13:56,678 - SuPy - INFO - Execution time: 363.3 s
+2025-08-11 07:13:56,697 - SuPy - INFO - ====================
+
+2025-08-11 07:14:26,665 - SuPy - INFO - All cache cleared.
+2025-08-11 07:14:28,671 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 07:14:29,600 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 07:15:28,824 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 07:15:28,839 - SuPy - INFO - detected issues have been fixed by clipping off outliers
+2025-08-11 07:15:29,400 - SuPy - INFO - ====================
+2025-08-11 07:15:29,401 - SuPy - INFO - Simulation period:
+2025-08-11 07:15:29,401 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 07:15:29,401 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 07:15:29,402 - SuPy - INFO - 
+2025-08-11 07:15:29,402 - SuPy - INFO - No. of grids: 25
+2025-08-11 07:15:29,402 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 07:21:29,490 - SuPy - INFO - Execution time: 360.1 s
+2025-08-11 07:21:29,508 - SuPy - INFO - ====================
+
+2025-08-11 07:22:00,215 - SuPy - INFO - All cache cleared.
+2025-08-11 07:22:02,160 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 07:22:03,138 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 07:23:25,950 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 07:23:25,964 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 07:23:26,299 - SuPy - INFO - ====================
+2025-08-11 07:23:26,300 - SuPy - INFO - Simulation period:
+2025-08-11 07:23:26,300 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 07:23:26,300 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 07:23:26,301 - SuPy - INFO - 
+2025-08-11 07:23:26,301 - SuPy - INFO - No. of grids: 25
+2025-08-11 07:23:26,301 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 07:29:29,930 - SuPy - INFO - Execution time: 363.6 s
+2025-08-11 07:29:29,946 - SuPy - INFO - ====================
+
+2025-08-11 07:30:00,356 - SuPy - INFO - All cache cleared.
+2025-08-11 07:30:02,575 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 07:30:03,502 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 07:31:51,592 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 07:31:51,605 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 07:31:51,877 - SuPy - INFO - ====================
+2025-08-11 07:31:51,877 - SuPy - INFO - Simulation period:
+2025-08-11 07:31:51,877 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 07:31:51,878 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 07:31:51,878 - SuPy - INFO - 
+2025-08-11 07:31:51,878 - SuPy - INFO - No. of grids: 25
+2025-08-11 07:31:51,878 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 07:37:43,465 - SuPy - INFO - Execution time: 351.6 s
+2025-08-11 07:37:43,482 - SuPy - INFO - ====================
+
+2025-08-11 07:38:15,186 - SuPy - INFO - All cache cleared.
+2025-08-11 07:38:17,251 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 07:38:18,214 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 07:40:13,366 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 07:40:13,379 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 07:40:13,654 - SuPy - INFO - ====================
+2025-08-11 07:40:13,654 - SuPy - INFO - Simulation period:
+2025-08-11 07:40:13,655 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 07:40:13,656 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 07:40:13,656 - SuPy - INFO - 
+2025-08-11 07:40:13,656 - SuPy - INFO - No. of grids: 25
+2025-08-11 07:40:13,657 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 07:46:12,918 - SuPy - INFO - Execution time: 359.3 s
+2025-08-11 07:46:12,935 - SuPy - INFO - ====================
+
+2025-08-11 07:46:44,277 - SuPy - INFO - All cache cleared.
+2025-08-11 07:46:46,593 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 07:46:47,532 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 07:47:47,978 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 07:47:47,992 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 07:47:48,379 - SuPy - INFO - ====================
+2025-08-11 07:47:48,380 - SuPy - INFO - Simulation period:
+2025-08-11 07:47:48,380 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 07:47:48,380 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 07:47:48,381 - SuPy - INFO - 
+2025-08-11 07:47:48,381 - SuPy - INFO - No. of grids: 25
+2025-08-11 07:47:48,381 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 07:53:28,474 - SuPy - INFO - Execution time: 340.1 s
+2025-08-11 07:53:28,491 - SuPy - INFO - ====================
+
+2025-08-11 07:53:58,236 - SuPy - INFO - All cache cleared.
+2025-08-11 07:54:00,466 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 07:54:01,415 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 07:55:27,229 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 07:55:27,242 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 07:55:27,509 - SuPy - INFO - ====================
+2025-08-11 07:55:27,509 - SuPy - INFO - Simulation period:
+2025-08-11 07:55:27,509 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 07:55:27,510 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 07:55:27,510 - SuPy - INFO - 
+2025-08-11 07:55:27,510 - SuPy - INFO - No. of grids: 25
+2025-08-11 07:55:27,510 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 08:01:41,447 - SuPy - INFO - Execution time: 373.9 s
+2025-08-11 08:01:41,464 - SuPy - INFO - ====================
+
+2025-08-11 08:02:12,875 - SuPy - INFO - All cache cleared.
+2025-08-11 08:02:15,114 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 08:02:16,011 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 08:03:27,291 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 08:03:27,304 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 08:03:27,606 - SuPy - INFO - ====================
+2025-08-11 08:03:27,609 - SuPy - INFO - Simulation period:
+2025-08-11 08:03:27,610 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 08:03:27,611 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 08:03:27,612 - SuPy - INFO - 
+2025-08-11 08:03:27,616 - SuPy - INFO - No. of grids: 25
+2025-08-11 08:03:27,617 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 08:09:16,724 - SuPy - INFO - Execution time: 349.1 s
+2025-08-11 08:09:16,741 - SuPy - INFO - ====================
+
+2025-08-11 08:09:47,150 - SuPy - INFO - All cache cleared.
+2025-08-11 08:09:49,309 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 08:09:50,252 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 08:11:01,887 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 08:11:01,899 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 08:11:02,179 - SuPy - INFO - ====================
+2025-08-11 08:11:02,179 - SuPy - INFO - Simulation period:
+2025-08-11 08:11:02,180 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 08:11:02,180 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 08:11:02,180 - SuPy - INFO - 
+2025-08-11 08:11:02,180 - SuPy - INFO - No. of grids: 25
+2025-08-11 08:11:02,180 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 08:16:57,656 - SuPy - INFO - Execution time: 355.5 s
+2025-08-11 08:16:57,671 - SuPy - INFO - ====================
+
+2025-08-11 08:17:29,614 - SuPy - INFO - All cache cleared.
+2025-08-11 08:17:31,951 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 08:17:32,858 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 08:18:54,291 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 08:18:54,305 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 08:18:54,593 - SuPy - INFO - ====================
+2025-08-11 08:18:54,593 - SuPy - INFO - Simulation period:
+2025-08-11 08:18:54,594 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 08:18:54,594 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 08:18:54,594 - SuPy - INFO - 
+2025-08-11 08:18:54,594 - SuPy - INFO - No. of grids: 25
+2025-08-11 08:18:54,594 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 08:24:42,935 - SuPy - INFO - Execution time: 348.3 s
+2025-08-11 08:24:42,951 - SuPy - INFO - ====================
+
+2025-08-11 08:25:16,601 - SuPy - INFO - All cache cleared.
+2025-08-11 08:25:18,545 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 08:25:19,447 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 08:27:53,085 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 08:27:53,128 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 08:27:53,501 - SuPy - INFO - ====================
+2025-08-11 08:27:53,501 - SuPy - INFO - Simulation period:
+2025-08-11 08:27:53,502 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 08:27:53,502 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 08:27:53,502 - SuPy - INFO - 
+2025-08-11 08:27:53,502 - SuPy - INFO - No. of grids: 25
+2025-08-11 08:27:53,502 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 08:33:39,545 - SuPy - INFO - Execution time: 346.0 s
+2025-08-11 08:33:39,578 - SuPy - INFO - ====================
+
+2025-08-11 08:34:09,533 - SuPy - INFO - All cache cleared.
+2025-08-11 08:34:12,491 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 08:34:13,392 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 08:36:17,717 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 08:36:17,730 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 08:36:18,039 - SuPy - INFO - ====================
+2025-08-11 08:36:18,039 - SuPy - INFO - Simulation period:
+2025-08-11 08:36:18,039 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 08:36:18,040 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 08:36:18,040 - SuPy - INFO - 
+2025-08-11 08:36:18,040 - SuPy - INFO - No. of grids: 25
+2025-08-11 08:36:18,040 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 08:42:09,241 - SuPy - INFO - Execution time: 351.2 s
+2025-08-11 08:42:09,261 - SuPy - INFO - ====================
+
+2025-08-11 08:42:40,437 - SuPy - INFO - All cache cleared.
+2025-08-11 08:42:42,670 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 08:42:43,631 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 08:44:16,362 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 08:44:16,376 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 08:44:16,677 - SuPy - INFO - ====================
+2025-08-11 08:44:16,678 - SuPy - INFO - Simulation period:
+2025-08-11 08:44:16,679 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 08:44:16,680 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 08:44:16,680 - SuPy - INFO - 
+2025-08-11 08:44:16,680 - SuPy - INFO - No. of grids: 25
+2025-08-11 08:44:16,680 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 08:50:35,469 - SuPy - INFO - Execution time: 378.8 s
+2025-08-11 08:50:35,488 - SuPy - INFO - ====================
+
+2025-08-11 08:51:06,828 - SuPy - INFO - All cache cleared.
+2025-08-11 08:51:08,793 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 08:51:09,710 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 08:52:24,420 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 08:52:24,432 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 08:52:24,730 - SuPy - INFO - ====================
+2025-08-11 08:52:24,730 - SuPy - INFO - Simulation period:
+2025-08-11 08:52:24,730 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 08:52:24,730 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 08:52:24,731 - SuPy - INFO - 
+2025-08-11 08:52:24,731 - SuPy - INFO - No. of grids: 25
+2025-08-11 08:52:24,731 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 08:58:31,047 - SuPy - INFO - Execution time: 366.3 s
+2025-08-11 08:58:31,067 - SuPy - INFO - ====================
+
+2025-08-11 08:59:01,156 - SuPy - INFO - All cache cleared.
+2025-08-11 08:59:03,293 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 08:59:04,244 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 09:00:33,352 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 09:00:33,364 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 09:00:33,636 - SuPy - INFO - ====================
+2025-08-11 09:00:33,644 - SuPy - INFO - Simulation period:
+2025-08-11 09:00:33,644 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 09:00:33,645 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 09:00:33,645 - SuPy - INFO - 
+2025-08-11 09:00:33,645 - SuPy - INFO - No. of grids: 25
+2025-08-11 09:00:33,645 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 09:06:50,393 - SuPy - INFO - Execution time: 376.8 s
+2025-08-11 09:06:50,412 - SuPy - INFO - ====================
+
+2025-08-11 09:07:22,229 - SuPy - INFO - All cache cleared.
+2025-08-11 09:07:24,256 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 09:07:25,252 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 09:10:38,317 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 09:10:38,330 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 09:10:38,626 - SuPy - INFO - ====================
+2025-08-11 09:10:38,630 - SuPy - INFO - Simulation period:
+2025-08-11 09:10:38,630 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 09:10:38,630 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 09:10:38,630 - SuPy - INFO - 
+2025-08-11 09:10:38,631 - SuPy - INFO - No. of grids: 25
+2025-08-11 09:10:38,631 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 09:16:43,949 - SuPy - INFO - Execution time: 365.3 s
+2025-08-11 09:16:43,968 - SuPy - INFO - ====================
+
+2025-08-11 09:17:16,703 - SuPy - INFO - All cache cleared.
+2025-08-11 09:17:19,008 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 09:17:19,971 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 09:18:51,056 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 09:18:51,069 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 09:18:51,432 - SuPy - INFO - ====================
+2025-08-11 09:18:51,432 - SuPy - INFO - Simulation period:
+2025-08-11 09:18:51,432 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 09:18:51,432 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 09:18:51,433 - SuPy - INFO - 
+2025-08-11 09:18:51,433 - SuPy - INFO - No. of grids: 25
+2025-08-11 09:18:51,433 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 09:24:53,499 - SuPy - INFO - Execution time: 362.1 s
+2025-08-11 09:24:53,517 - SuPy - INFO - ====================
+
+2025-08-11 09:25:26,093 - SuPy - INFO - All cache cleared.
+2025-08-11 09:25:28,178 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 09:25:29,080 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 09:27:19,031 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 09:27:19,045 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 09:27:19,322 - SuPy - INFO - ====================
+2025-08-11 09:27:19,323 - SuPy - INFO - Simulation period:
+2025-08-11 09:27:19,323 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 09:27:19,323 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 09:27:19,323 - SuPy - INFO - 
+2025-08-11 09:27:19,323 - SuPy - INFO - No. of grids: 25
+2025-08-11 09:27:19,324 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 09:33:20,048 - SuPy - INFO - Execution time: 360.7 s
+2025-08-11 09:33:20,066 - SuPy - INFO - ====================
+
+2025-08-11 09:33:51,802 - SuPy - INFO - All cache cleared.
+2025-08-11 09:33:53,893 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 09:33:54,836 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 09:35:02,200 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 09:35:02,214 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 09:35:02,487 - SuPy - INFO - ====================
+2025-08-11 09:35:02,487 - SuPy - INFO - Simulation period:
+2025-08-11 09:35:02,487 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 09:35:02,487 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 09:35:02,488 - SuPy - INFO - 
+2025-08-11 09:35:02,488 - SuPy - INFO - No. of grids: 25
+2025-08-11 09:35:02,488 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 09:41:06,490 - SuPy - INFO - Execution time: 364.0 s
+2025-08-11 09:41:06,508 - SuPy - INFO - ====================
+
+2025-08-11 09:41:36,416 - SuPy - INFO - All cache cleared.
+2025-08-11 09:41:38,588 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 09:41:39,469 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 09:42:42,334 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 09:42:42,347 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 09:42:42,635 - SuPy - INFO - ====================
+2025-08-11 09:42:42,636 - SuPy - INFO - Simulation period:
+2025-08-11 09:42:42,636 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 09:42:42,636 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 09:42:42,636 - SuPy - INFO - 
+2025-08-11 09:42:42,637 - SuPy - INFO - No. of grids: 25
+2025-08-11 09:42:42,637 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 09:48:46,244 - SuPy - INFO - Execution time: 363.6 s
+2025-08-11 09:48:46,263 - SuPy - INFO - ====================
+
+2025-08-11 09:49:15,573 - SuPy - INFO - All cache cleared.
+2025-08-11 09:49:18,847 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 09:49:19,785 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 09:50:18,215 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 09:50:18,232 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 09:50:18,506 - SuPy - INFO - ====================
+2025-08-11 09:50:18,506 - SuPy - INFO - Simulation period:
+2025-08-11 09:50:18,506 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 09:50:18,506 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 09:50:18,506 - SuPy - INFO - 
+2025-08-11 09:50:18,507 - SuPy - INFO - No. of grids: 25
+2025-08-11 09:50:18,507 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 09:56:12,852 - SuPy - INFO - Execution time: 354.3 s
+2025-08-11 09:56:12,869 - SuPy - INFO - ====================
+
+2025-08-11 09:56:42,637 - SuPy - INFO - All cache cleared.
+2025-08-11 09:56:44,500 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 09:56:45,381 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 09:57:54,933 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 09:57:54,946 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 09:57:55,328 - SuPy - INFO - ====================
+2025-08-11 09:57:55,329 - SuPy - INFO - Simulation period:
+2025-08-11 09:57:55,330 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 09:57:55,331 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 09:57:55,331 - SuPy - INFO - 
+2025-08-11 09:57:55,331 - SuPy - INFO - No. of grids: 25
+2025-08-11 09:57:55,331 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 10:04:08,544 - SuPy - INFO - Execution time: 373.2 s
+2025-08-11 10:04:08,562 - SuPy - INFO - ====================
+
+2025-08-11 10:04:41,889 - SuPy - INFO - All cache cleared.
+2025-08-11 10:04:43,878 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 10:04:44,805 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 10:06:15,277 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 10:06:15,290 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 10:06:15,564 - SuPy - INFO - ====================
+2025-08-11 10:06:15,565 - SuPy - INFO - Simulation period:
+2025-08-11 10:06:15,565 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 10:06:15,565 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 10:06:15,565 - SuPy - INFO - 
+2025-08-11 10:06:15,565 - SuPy - INFO - No. of grids: 25
+2025-08-11 10:06:15,566 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 10:12:21,264 - SuPy - INFO - Execution time: 365.7 s
+2025-08-11 10:12:21,286 - SuPy - INFO - ====================
+
+2025-08-11 10:12:52,604 - SuPy - INFO - All cache cleared.
+2025-08-11 10:12:54,554 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 10:12:55,478 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 10:14:09,836 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 10:14:09,850 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 10:14:10,148 - SuPy - INFO - ====================
+2025-08-11 10:14:10,149 - SuPy - INFO - Simulation period:
+2025-08-11 10:14:10,149 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 10:14:10,149 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 10:14:10,149 - SuPy - INFO - 
+2025-08-11 10:14:10,149 - SuPy - INFO - No. of grids: 25
+2025-08-11 10:14:10,150 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 10:20:10,988 - SuPy - INFO - Execution time: 360.8 s
+2025-08-11 10:20:11,004 - SuPy - INFO - ====================
+
+2025-08-11 10:20:39,520 - SuPy - INFO - All cache cleared.
+2025-08-11 10:20:41,739 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 10:20:42,688 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 10:21:54,163 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 10:21:54,176 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 10:21:54,456 - SuPy - INFO - ====================
+2025-08-11 10:21:54,456 - SuPy - INFO - Simulation period:
+2025-08-11 10:21:54,457 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 10:21:54,457 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 10:21:54,457 - SuPy - INFO - 
+2025-08-11 10:21:54,457 - SuPy - INFO - No. of grids: 25
+2025-08-11 10:21:54,457 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 10:27:47,330 - SuPy - INFO - Execution time: 352.9 s
+2025-08-11 10:27:47,347 - SuPy - INFO - ====================
+
+2025-08-11 10:28:17,531 - SuPy - INFO - All cache cleared.
+2025-08-11 10:28:19,822 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 10:28:20,742 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 10:29:52,155 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 10:29:52,168 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 10:29:52,474 - SuPy - INFO - ====================
+2025-08-11 10:29:52,474 - SuPy - INFO - Simulation period:
+2025-08-11 10:29:52,475 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 10:29:52,475 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 10:29:52,478 - SuPy - INFO - 
+2025-08-11 10:29:52,478 - SuPy - INFO - No. of grids: 25
+2025-08-11 10:29:52,479 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 10:35:54,129 - SuPy - INFO - Execution time: 361.7 s
+2025-08-11 10:35:54,146 - SuPy - INFO - ====================
+
+2025-08-11 18:50:30,774 - SuPy - INFO - All cache cleared.
+2025-08-11 18:50:32,477 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 18:50:33,312 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 18:51:12,477 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 18:51:12,490 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 18:51:12,834 - SuPy - INFO - ====================
+2025-08-11 18:51:12,834 - SuPy - INFO - Simulation period:
+2025-08-11 18:51:12,835 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 18:51:12,835 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 18:51:12,835 - SuPy - INFO - 
+2025-08-11 18:51:12,835 - SuPy - INFO - No. of grids: 25
+2025-08-11 18:51:12,835 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 18:57:49,387 - SuPy - INFO - Execution time: 396.6 s
+2025-08-11 18:57:49,392 - SuPy - INFO - ====================
+
+2025-08-11 18:58:18,275 - SuPy - INFO - All cache cleared.
+2025-08-11 18:58:20,422 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 18:58:21,427 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 18:58:50,693 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 18:58:50,712 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 18:58:51,075 - SuPy - INFO - ====================
+2025-08-11 18:58:51,075 - SuPy - INFO - Simulation period:
+2025-08-11 18:58:51,076 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 18:58:51,076 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 18:58:51,076 - SuPy - INFO - 
+2025-08-11 18:58:51,076 - SuPy - INFO - No. of grids: 25
+2025-08-11 18:58:51,076 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 19:05:46,509 - SuPy - INFO - Execution time: 415.4 s
+2025-08-11 19:05:46,529 - SuPy - INFO - ====================
+
+2025-08-11 19:06:22,821 - SuPy - INFO - All cache cleared.
+2025-08-11 19:06:24,983 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 19:06:25,987 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 19:07:17,379 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 19:07:17,393 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 19:07:17,655 - SuPy - INFO - ====================
+2025-08-11 19:07:17,656 - SuPy - INFO - Simulation period:
+2025-08-11 19:07:17,656 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 19:07:17,656 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 19:07:17,656 - SuPy - INFO - 
+2025-08-11 19:07:17,657 - SuPy - INFO - No. of grids: 25
+2025-08-11 19:07:17,657 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 19:14:07,840 - SuPy - INFO - Execution time: 410.2 s
+2025-08-11 19:14:07,859 - SuPy - INFO - ====================
+
+2025-08-11 19:14:49,990 - SuPy - INFO - All cache cleared.
+2025-08-11 19:14:51,881 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 19:14:52,852 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 19:15:51,010 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 19:15:51,023 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 19:15:51,324 - SuPy - INFO - ====================
+2025-08-11 19:15:51,325 - SuPy - INFO - Simulation period:
+2025-08-11 19:15:51,325 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 19:15:51,325 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 19:15:51,325 - SuPy - INFO - 
+2025-08-11 19:15:51,325 - SuPy - INFO - No. of grids: 25
+2025-08-11 19:15:51,325 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 19:22:28,154 - SuPy - INFO - Execution time: 396.8 s
+2025-08-11 19:22:28,178 - SuPy - INFO - ====================
+
+2025-08-11 19:23:00,832 - SuPy - INFO - All cache cleared.
+2025-08-11 19:23:02,765 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 19:23:03,707 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 19:24:30,547 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 19:24:30,562 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 19:24:30,936 - SuPy - INFO - ====================
+2025-08-11 19:24:30,937 - SuPy - INFO - Simulation period:
+2025-08-11 19:24:30,938 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 19:24:30,941 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 19:24:30,941 - SuPy - INFO - 
+2025-08-11 19:24:30,942 - SuPy - INFO - No. of grids: 25
+2025-08-11 19:24:30,942 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 19:31:06,926 - SuPy - INFO - Execution time: 396.0 s
+2025-08-11 19:31:06,951 - SuPy - INFO - ====================
+
+2025-08-11 19:31:40,957 - SuPy - INFO - All cache cleared.
+2025-08-11 19:31:42,944 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 19:31:43,889 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 19:32:06,848 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 19:32:06,861 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 19:32:07,418 - SuPy - INFO - ====================
+2025-08-11 19:32:07,419 - SuPy - INFO - Simulation period:
+2025-08-11 19:32:07,419 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 19:32:07,419 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 19:32:07,419 - SuPy - INFO - 
+2025-08-11 19:32:07,420 - SuPy - INFO - No. of grids: 25
+2025-08-11 19:32:07,420 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 19:38:34,532 - SuPy - INFO - Execution time: 387.1 s
+2025-08-11 19:38:34,559 - SuPy - INFO - ====================
+
+2025-08-11 19:39:08,299 - SuPy - INFO - All cache cleared.
+2025-08-11 19:39:10,278 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 19:39:12,783 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 19:40:32,188 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 19:40:32,201 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 19:40:32,547 - SuPy - INFO - ====================
+2025-08-11 19:40:32,547 - SuPy - INFO - Simulation period:
+2025-08-11 19:40:32,547 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 19:40:32,548 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 19:40:32,548 - SuPy - INFO - 
+2025-08-11 19:40:32,548 - SuPy - INFO - No. of grids: 25
+2025-08-11 19:40:32,548 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 19:47:09,236 - SuPy - INFO - Execution time: 396.7 s
+2025-08-11 19:47:09,257 - SuPy - INFO - ====================
+
+2025-08-11 19:47:45,338 - SuPy - INFO - All cache cleared.
+2025-08-11 19:47:47,592 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 19:47:48,547 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 19:48:44,679 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 19:48:44,692 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 19:48:45,006 - SuPy - INFO - ====================
+2025-08-11 19:48:45,006 - SuPy - INFO - Simulation period:
+2025-08-11 19:48:45,007 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 19:48:45,009 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 19:48:45,009 - SuPy - INFO - 
+2025-08-11 19:48:45,009 - SuPy - INFO - No. of grids: 25
+2025-08-11 19:48:45,010 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 19:56:09,409 - SuPy - INFO - Execution time: 444.4 s
+2025-08-11 19:56:09,429 - SuPy - INFO - ====================
+
+2025-08-11 19:56:42,164 - SuPy - INFO - All cache cleared.
+2025-08-11 19:56:44,245 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 19:56:45,163 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 19:57:12,280 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 19:57:12,296 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 19:57:12,698 - SuPy - INFO - ====================
+2025-08-11 19:57:12,698 - SuPy - INFO - Simulation period:
+2025-08-11 19:57:12,699 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 19:57:12,699 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 19:57:12,699 - SuPy - INFO - 
+2025-08-11 19:57:12,699 - SuPy - INFO - No. of grids: 25
+2025-08-11 19:57:12,699 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 20:04:03,731 - SuPy - INFO - Execution time: 411.0 s
+2025-08-11 20:04:03,748 - SuPy - INFO - ====================
+
+2025-08-11 20:06:37,251 - SuPy - INFO - All cache cleared.
+2025-08-11 20:06:39,035 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 20:06:39,893 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 20:07:21,475 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 20:07:21,492 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 20:07:21,780 - SuPy - INFO - ====================
+2025-08-11 20:07:21,781 - SuPy - INFO - Simulation period:
+2025-08-11 20:07:21,781 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 20:07:21,781 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 20:07:21,781 - SuPy - INFO - 
+2025-08-11 20:07:21,782 - SuPy - INFO - No. of grids: 25
+2025-08-11 20:07:21,782 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 20:13:42,942 - SuPy - INFO - Execution time: 381.2 s
+2025-08-11 20:13:42,963 - SuPy - INFO - ====================
+
+2025-08-11 20:14:18,139 - SuPy - INFO - All cache cleared.
+2025-08-11 20:14:20,056 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 20:14:21,027 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 20:15:24,960 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 20:15:24,972 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 20:15:25,304 - SuPy - INFO - ====================
+2025-08-11 20:15:25,305 - SuPy - INFO - Simulation period:
+2025-08-11 20:15:25,305 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 20:15:25,305 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 20:15:25,306 - SuPy - INFO - 
+2025-08-11 20:15:25,306 - SuPy - INFO - No. of grids: 25
+2025-08-11 20:15:25,306 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 20:21:42,604 - SuPy - INFO - Execution time: 377.3 s
+2025-08-11 20:21:42,627 - SuPy - INFO - ====================
+
+2025-08-11 20:22:17,332 - SuPy - INFO - All cache cleared.
+2025-08-11 20:22:19,236 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 20:22:20,189 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 20:22:58,518 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 20:22:58,532 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 20:22:58,861 - SuPy - INFO - ====================
+2025-08-11 20:22:58,862 - SuPy - INFO - Simulation period:
+2025-08-11 20:22:58,862 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 20:22:58,863 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 20:22:58,863 - SuPy - INFO - 
+2025-08-11 20:22:58,863 - SuPy - INFO - No. of grids: 25
+2025-08-11 20:22:58,863 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 20:28:56,233 - SuPy - INFO - Execution time: 357.4 s
+2025-08-11 20:28:56,256 - SuPy - INFO - ====================
+
+2025-08-11 20:29:29,212 - SuPy - INFO - All cache cleared.
+2025-08-11 20:29:31,284 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 20:29:32,285 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 20:31:57,520 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 20:31:57,533 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 20:31:57,876 - SuPy - INFO - ====================
+2025-08-11 20:31:57,887 - SuPy - INFO - Simulation period:
+2025-08-11 20:31:57,888 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 20:31:57,888 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 20:31:57,888 - SuPy - INFO - 
+2025-08-11 20:31:57,888 - SuPy - INFO - No. of grids: 25
+2025-08-11 20:31:57,889 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 20:38:22,202 - SuPy - INFO - Execution time: 384.3 s
+2025-08-11 20:38:22,224 - SuPy - INFO - ====================
+
+2025-08-11 20:38:57,297 - SuPy - INFO - All cache cleared.
+2025-08-11 20:38:59,523 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 20:39:00,564 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 20:40:39,185 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 20:40:39,198 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 20:40:39,479 - SuPy - INFO - ====================
+2025-08-11 20:40:39,480 - SuPy - INFO - Simulation period:
+2025-08-11 20:40:39,480 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 20:40:39,480 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 20:40:39,480 - SuPy - INFO - 
+2025-08-11 20:40:39,481 - SuPy - INFO - No. of grids: 25
+2025-08-11 20:40:39,481 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 20:46:56,875 - SuPy - INFO - Execution time: 377.4 s
+2025-08-11 20:46:56,895 - SuPy - INFO - ====================
+
+2025-08-11 20:47:32,788 - SuPy - INFO - All cache cleared.
+2025-08-11 20:47:34,878 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 20:47:35,816 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 20:48:00,715 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 20:48:00,728 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 20:48:00,993 - SuPy - INFO - ====================
+2025-08-11 20:48:00,993 - SuPy - INFO - Simulation period:
+2025-08-11 20:48:00,994 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 20:48:00,994 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 20:48:00,994 - SuPy - INFO - 
+2025-08-11 20:48:00,994 - SuPy - INFO - No. of grids: 25
+2025-08-11 20:48:00,994 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 20:54:48,356 - SuPy - INFO - Execution time: 407.4 s
+2025-08-11 20:54:48,375 - SuPy - INFO - ====================
+
+2025-08-11 20:55:20,101 - SuPy - INFO - All cache cleared.
+2025-08-11 20:55:22,008 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 20:55:22,924 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 20:55:48,280 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 20:55:48,295 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 20:55:48,641 - SuPy - INFO - ====================
+2025-08-11 20:55:48,642 - SuPy - INFO - Simulation period:
+2025-08-11 20:55:48,643 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 20:55:48,644 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 20:55:48,644 - SuPy - INFO - 
+2025-08-11 20:55:48,646 - SuPy - INFO - No. of grids: 25
+2025-08-11 20:55:48,649 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 21:02:04,791 - SuPy - INFO - Execution time: 376.1 s
+2025-08-11 21:02:04,811 - SuPy - INFO - ====================
+
+2025-08-11 21:02:38,174 - SuPy - INFO - All cache cleared.
+2025-08-11 21:02:40,280 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 21:02:41,267 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 21:03:19,743 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 21:03:19,757 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 21:03:20,038 - SuPy - INFO - ====================
+2025-08-11 21:03:20,038 - SuPy - INFO - Simulation period:
+2025-08-11 21:03:20,039 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 21:03:20,039 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 21:03:20,040 - SuPy - INFO - 
+2025-08-11 21:03:20,040 - SuPy - INFO - No. of grids: 25
+2025-08-11 21:03:20,040 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 21:09:49,779 - SuPy - INFO - Execution time: 389.7 s
+2025-08-11 21:09:49,799 - SuPy - INFO - ====================
+
+2025-08-11 21:10:23,035 - SuPy - INFO - All cache cleared.
+2025-08-11 21:10:25,145 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 21:10:26,114 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 21:10:52,907 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 21:10:52,923 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 21:10:53,256 - SuPy - INFO - ====================
+2025-08-11 21:10:53,256 - SuPy - INFO - Simulation period:
+2025-08-11 21:10:53,256 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 21:10:53,257 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 21:10:53,257 - SuPy - INFO - 
+2025-08-11 21:10:53,258 - SuPy - INFO - No. of grids: 25
+2025-08-11 21:10:53,258 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 21:17:24,864 - SuPy - INFO - Execution time: 391.6 s
+2025-08-11 21:17:24,885 - SuPy - INFO - ====================
+
+2025-08-11 21:18:05,761 - SuPy - INFO - All cache cleared.
+2025-08-11 21:18:07,896 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 21:18:08,903 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 21:18:41,254 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 21:18:41,272 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 21:18:41,783 - SuPy - INFO - ====================
+2025-08-11 21:18:41,784 - SuPy - INFO - Simulation period:
+2025-08-11 21:18:41,785 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 21:18:41,785 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 21:18:41,785 - SuPy - INFO - 
+2025-08-11 21:18:41,786 - SuPy - INFO - No. of grids: 25
+2025-08-11 21:18:41,787 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 21:25:40,645 - SuPy - INFO - Execution time: 418.9 s
+2025-08-11 21:25:40,663 - SuPy - INFO - ====================
+
+2025-08-11 21:26:11,013 - SuPy - INFO - All cache cleared.
+2025-08-11 21:26:13,638 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 21:26:14,642 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-11 21:26:51,337 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-11 21:26:51,350 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-11 21:26:51,677 - SuPy - INFO - ====================
+2025-08-11 21:26:51,678 - SuPy - INFO - Simulation period:
+2025-08-11 21:26:51,678 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-11 21:26:51,679 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-11 21:26:51,679 - SuPy - INFO - 
+2025-08-11 21:26:51,680 - SuPy - INFO - No. of grids: 25
+2025-08-11 21:26:51,680 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-11 21:33:06,475 - SuPy - INFO - Execution time: 374.8 s
+2025-08-11 21:33:06,496 - SuPy - INFO - ====================
+
+2025-08-11 21:33:40,781 - SuPy - INFO - All cache cleared.
+2025-08-11 21:33:42,864 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-11 21:33:43,881 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 11:21:18,378 - SuPy - INFO - All cache cleared.
+2025-08-12 11:21:20,137 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 11:21:21,038 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 11:21:47,952 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 11:21:47,965 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 11:21:48,454 - SuPy - INFO - ====================
+2025-08-12 11:21:48,464 - SuPy - INFO - Simulation period:
+2025-08-12 11:21:48,464 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 11:21:48,465 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 11:21:48,465 - SuPy - INFO - 
+2025-08-12 11:21:48,465 - SuPy - INFO - No. of grids: 25
+2025-08-12 11:21:48,466 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 11:29:51,976 - SuPy - INFO - Execution time: 483.5 s
+2025-08-12 11:29:51,980 - SuPy - INFO - ====================
+
+2025-08-12 11:30:21,757 - SuPy - INFO - All cache cleared.
+2025-08-12 11:30:23,809 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 11:30:24,888 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 11:31:01,538 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 11:31:01,557 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 11:31:02,092 - SuPy - INFO - ====================
+2025-08-12 11:31:02,098 - SuPy - INFO - Simulation period:
+2025-08-12 11:31:02,099 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 11:31:02,099 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 11:31:02,099 - SuPy - INFO - 
+2025-08-12 11:31:02,099 - SuPy - INFO - No. of grids: 25
+2025-08-12 11:31:02,100 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 11:37:03,236 - SuPy - INFO - Execution time: 361.1 s
+2025-08-12 11:37:03,266 - SuPy - INFO - ====================
+
+2025-08-12 11:37:34,187 - SuPy - INFO - All cache cleared.
+2025-08-12 11:37:36,382 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 11:37:37,398 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 11:38:23,064 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 11:38:23,078 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 11:38:23,362 - SuPy - INFO - ====================
+2025-08-12 11:38:23,363 - SuPy - INFO - Simulation period:
+2025-08-12 11:38:23,364 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 11:38:23,364 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 11:38:23,365 - SuPy - INFO - 
+2025-08-12 11:38:23,365 - SuPy - INFO - No. of grids: 25
+2025-08-12 11:38:23,365 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 11:44:53,866 - SuPy - INFO - Execution time: 390.5 s
+2025-08-12 11:44:53,885 - SuPy - INFO - ====================
+
+2025-08-12 11:45:24,188 - SuPy - INFO - All cache cleared.
+2025-08-12 11:45:26,422 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 11:45:27,430 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 11:45:55,175 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 11:45:55,196 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 11:45:55,805 - SuPy - INFO - ====================
+2025-08-12 11:45:55,806 - SuPy - INFO - Simulation period:
+2025-08-12 11:45:55,806 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 11:45:55,807 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 11:45:55,807 - SuPy - INFO - 
+2025-08-12 11:45:55,807 - SuPy - INFO - No. of grids: 25
+2025-08-12 11:45:55,807 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 11:52:28,361 - SuPy - INFO - Execution time: 392.6 s
+2025-08-12 11:52:28,380 - SuPy - INFO - ====================
+
+2025-08-12 11:53:00,304 - SuPy - INFO - All cache cleared.
+2025-08-12 11:53:02,458 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 11:53:03,477 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 11:53:53,899 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 11:53:53,913 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 11:53:54,307 - SuPy - INFO - ====================
+2025-08-12 11:53:54,307 - SuPy - INFO - Simulation period:
+2025-08-12 11:53:54,307 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 11:53:54,307 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 11:53:54,308 - SuPy - INFO - 
+2025-08-12 11:53:54,308 - SuPy - INFO - No. of grids: 25
+2025-08-12 11:53:54,308 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 12:00:04,289 - SuPy - INFO - Execution time: 370.0 s
+2025-08-12 12:00:04,310 - SuPy - INFO - ====================
+
+2025-08-12 12:00:35,114 - SuPy - INFO - All cache cleared.
+2025-08-12 12:00:37,534 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 12:00:38,547 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 12:08:11,367 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 12:08:11,381 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 12:08:11,729 - SuPy - INFO - ====================
+2025-08-12 12:08:11,729 - SuPy - INFO - Simulation period:
+2025-08-12 12:08:11,730 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 12:08:11,731 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 12:08:11,731 - SuPy - INFO - 
+2025-08-12 12:08:11,731 - SuPy - INFO - No. of grids: 25
+2025-08-12 12:08:11,731 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 12:14:20,391 - SuPy - INFO - Execution time: 368.7 s
+2025-08-12 12:14:20,408 - SuPy - INFO - ====================
+
+2025-08-12 12:14:49,179 - SuPy - INFO - All cache cleared.
+2025-08-12 12:14:51,416 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 12:14:53,211 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 12:16:02,328 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 12:16:02,341 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 12:16:02,644 - SuPy - INFO - ====================
+2025-08-12 12:16:02,645 - SuPy - INFO - Simulation period:
+2025-08-12 12:16:02,645 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 12:16:02,646 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 12:16:02,646 - SuPy - INFO - 
+2025-08-12 12:16:02,646 - SuPy - INFO - No. of grids: 25
+2025-08-12 12:16:02,646 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 12:22:31,129 - SuPy - INFO - Execution time: 388.5 s
+2025-08-12 12:22:31,152 - SuPy - INFO - ====================
+
+2025-08-12 12:23:04,669 - SuPy - INFO - All cache cleared.
+2025-08-12 12:23:06,489 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 12:23:07,407 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 12:23:39,418 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 12:23:39,435 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 12:23:39,909 - SuPy - INFO - ====================
+2025-08-12 12:23:39,909 - SuPy - INFO - Simulation period:
+2025-08-12 12:23:39,910 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 12:23:39,912 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 12:23:39,913 - SuPy - INFO - 
+2025-08-12 12:23:39,914 - SuPy - INFO - No. of grids: 25
+2025-08-12 12:23:39,914 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 12:29:35,684 - SuPy - INFO - Execution time: 355.8 s
+2025-08-12 12:29:35,704 - SuPy - INFO - ====================
+
+2025-08-12 12:30:07,238 - SuPy - INFO - All cache cleared.
+2025-08-12 12:30:09,319 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 12:30:10,212 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 12:30:41,240 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 12:30:41,253 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 12:30:41,549 - SuPy - INFO - ====================
+2025-08-12 12:30:41,550 - SuPy - INFO - Simulation period:
+2025-08-12 12:30:41,550 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 12:30:41,550 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 12:30:41,550 - SuPy - INFO - 
+2025-08-12 12:30:41,550 - SuPy - INFO - No. of grids: 25
+2025-08-12 12:30:41,551 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 12:36:40,180 - SuPy - INFO - Execution time: 358.6 s
+2025-08-12 12:36:40,197 - SuPy - INFO - ====================
+
+2025-08-12 12:37:11,404 - SuPy - INFO - All cache cleared.
+2025-08-12 12:37:13,522 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 12:37:14,443 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 12:37:36,596 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 12:37:36,610 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 12:37:36,891 - SuPy - INFO - ====================
+2025-08-12 12:37:36,892 - SuPy - INFO - Simulation period:
+2025-08-12 12:37:36,892 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 12:37:36,892 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 12:37:36,892 - SuPy - INFO - 
+2025-08-12 12:37:36,893 - SuPy - INFO - No. of grids: 25
+2025-08-12 12:37:36,893 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 12:43:22,010 - SuPy - INFO - Execution time: 345.1 s
+2025-08-12 12:43:22,021 - SuPy - INFO - ====================
+
+2025-08-12 12:43:49,336 - SuPy - INFO - All cache cleared.
+2025-08-12 12:43:51,453 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 12:43:52,447 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 12:44:33,727 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 12:44:33,741 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 12:44:34,019 - SuPy - INFO - ====================
+2025-08-12 12:44:34,020 - SuPy - INFO - Simulation period:
+2025-08-12 12:44:34,020 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 12:44:34,020 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 12:44:34,020 - SuPy - INFO - 
+2025-08-12 12:44:34,021 - SuPy - INFO - No. of grids: 25
+2025-08-12 12:44:34,021 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 12:50:37,839 - SuPy - INFO - Execution time: 363.8 s
+2025-08-12 12:50:37,865 - SuPy - INFO - ====================
+
+2025-08-12 12:51:09,386 - SuPy - INFO - All cache cleared.
+2025-08-12 12:51:12,172 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 12:51:13,210 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 12:51:56,355 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 12:51:56,369 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 12:51:56,719 - SuPy - INFO - ====================
+2025-08-12 12:51:56,719 - SuPy - INFO - Simulation period:
+2025-08-12 12:51:56,719 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 12:51:56,719 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 12:51:56,720 - SuPy - INFO - 
+2025-08-12 12:51:56,720 - SuPy - INFO - No. of grids: 25
+2025-08-12 12:51:56,720 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 12:57:55,390 - SuPy - INFO - Execution time: 358.7 s
+2025-08-12 12:57:55,407 - SuPy - INFO - ====================
+
+2025-08-12 12:58:29,015 - SuPy - INFO - All cache cleared.
+2025-08-12 12:58:32,139 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 12:58:33,105 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 12:59:08,183 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 12:59:08,196 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 12:59:08,526 - SuPy - INFO - ====================
+2025-08-12 12:59:08,526 - SuPy - INFO - Simulation period:
+2025-08-12 12:59:08,526 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 12:59:08,526 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 12:59:08,527 - SuPy - INFO - 
+2025-08-12 12:59:08,528 - SuPy - INFO - No. of grids: 25
+2025-08-12 12:59:08,528 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 13:05:19,112 - SuPy - INFO - Execution time: 370.6 s
+2025-08-12 13:05:19,131 - SuPy - INFO - ====================
+
+2025-08-12 13:05:50,518 - SuPy - INFO - All cache cleared.
+2025-08-12 13:05:52,715 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 13:05:53,613 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 13:06:36,460 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 13:06:36,472 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 13:06:36,737 - SuPy - INFO - ====================
+2025-08-12 13:06:36,738 - SuPy - INFO - Simulation period:
+2025-08-12 13:06:36,738 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 13:06:36,738 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 13:06:36,738 - SuPy - INFO - 
+2025-08-12 13:06:36,738 - SuPy - INFO - No. of grids: 25
+2025-08-12 13:06:36,739 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 13:12:34,341 - SuPy - INFO - Execution time: 357.6 s
+2025-08-12 13:12:34,357 - SuPy - INFO - ====================
+
+2025-08-12 13:13:06,127 - SuPy - INFO - All cache cleared.
+2025-08-12 13:13:08,101 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 13:13:09,061 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 13:13:43,437 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 13:13:43,450 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 13:13:43,748 - SuPy - INFO - ====================
+2025-08-12 13:13:43,748 - SuPy - INFO - Simulation period:
+2025-08-12 13:13:43,748 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 13:13:43,749 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 13:13:43,749 - SuPy - INFO - 
+2025-08-12 13:13:43,749 - SuPy - INFO - No. of grids: 25
+2025-08-12 13:13:43,749 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 13:19:47,890 - SuPy - INFO - Execution time: 364.1 s
+2025-08-12 13:19:47,909 - SuPy - INFO - ====================
+
+2025-08-12 13:20:18,646 - SuPy - INFO - All cache cleared.
+2025-08-12 13:20:20,976 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 13:20:21,901 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 13:21:09,128 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 13:21:09,141 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 13:21:09,436 - SuPy - INFO - ====================
+2025-08-12 13:21:09,436 - SuPy - INFO - Simulation period:
+2025-08-12 13:21:09,442 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 13:21:09,442 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 13:21:09,443 - SuPy - INFO - 
+2025-08-12 13:21:09,444 - SuPy - INFO - No. of grids: 25
+2025-08-12 13:21:09,444 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 13:27:18,305 - SuPy - INFO - Execution time: 368.9 s
+2025-08-12 13:27:18,324 - SuPy - INFO - ====================
+
+2025-08-12 13:27:48,444 - SuPy - INFO - All cache cleared.
+2025-08-12 13:27:50,871 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 13:27:51,794 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 13:28:35,269 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 13:28:35,284 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 13:28:35,548 - SuPy - INFO - ====================
+2025-08-12 13:28:35,549 - SuPy - INFO - Simulation period:
+2025-08-12 13:28:35,549 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 13:28:35,549 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 13:28:35,549 - SuPy - INFO - 
+2025-08-12 13:28:35,550 - SuPy - INFO - No. of grids: 25
+2025-08-12 13:28:35,550 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 13:34:30,938 - SuPy - INFO - Execution time: 355.4 s
+2025-08-12 13:34:30,955 - SuPy - INFO - ====================
+
+2025-08-12 13:35:01,563 - SuPy - INFO - All cache cleared.
+2025-08-12 13:35:03,767 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 13:35:04,748 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 13:35:41,457 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 13:35:41,469 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 13:35:41,768 - SuPy - INFO - ====================
+2025-08-12 13:35:41,769 - SuPy - INFO - Simulation period:
+2025-08-12 13:35:41,769 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 13:35:41,769 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 13:35:41,783 - SuPy - INFO - 
+2025-08-12 13:35:41,784 - SuPy - INFO - No. of grids: 25
+2025-08-12 13:35:41,785 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 13:41:53,263 - SuPy - INFO - Execution time: 371.5 s
+2025-08-12 13:41:53,281 - SuPy - INFO - ====================
+
+2025-08-12 13:42:23,483 - SuPy - INFO - All cache cleared.
+2025-08-12 13:42:25,734 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 13:42:26,679 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 13:42:53,683 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 13:42:53,696 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 13:42:53,977 - SuPy - INFO - ====================
+2025-08-12 13:42:53,978 - SuPy - INFO - Simulation period:
+2025-08-12 13:42:53,978 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 13:42:53,978 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 13:42:53,979 - SuPy - INFO - 
+2025-08-12 13:42:53,979 - SuPy - INFO - No. of grids: 25
+2025-08-12 13:42:53,979 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 13:48:37,503 - SuPy - INFO - Execution time: 343.5 s
+2025-08-12 13:48:37,519 - SuPy - INFO - ====================
+
+2025-08-12 13:49:06,997 - SuPy - INFO - All cache cleared.
+2025-08-12 13:49:09,161 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 13:49:10,079 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 13:49:46,696 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 13:49:46,712 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 13:49:47,087 - SuPy - INFO - ====================
+2025-08-12 13:49:47,088 - SuPy - INFO - Simulation period:
+2025-08-12 13:49:47,088 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 13:49:47,088 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 13:49:47,088 - SuPy - INFO - 
+2025-08-12 13:49:47,089 - SuPy - INFO - No. of grids: 25
+2025-08-12 13:49:47,089 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 13:55:43,826 - SuPy - INFO - Execution time: 356.7 s
+2025-08-12 13:55:43,846 - SuPy - INFO - ====================
+
+2025-08-12 13:56:13,473 - SuPy - INFO - All cache cleared.
+2025-08-12 13:56:15,843 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 13:56:16,789 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 13:56:43,460 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 13:56:43,473 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 13:56:43,892 - SuPy - INFO - ====================
+2025-08-12 13:56:43,893 - SuPy - INFO - Simulation period:
+2025-08-12 13:56:43,893 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 13:56:43,893 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 13:56:43,893 - SuPy - INFO - 
+2025-08-12 13:56:43,894 - SuPy - INFO - No. of grids: 25
+2025-08-12 13:56:43,894 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 14:02:45,569 - SuPy - INFO - Execution time: 361.7 s
+2025-08-12 14:02:45,588 - SuPy - INFO - ====================
+
+2025-08-12 14:03:14,876 - SuPy - INFO - All cache cleared.
+2025-08-12 14:03:17,066 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 14:03:18,038 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 14:03:53,188 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 14:03:53,201 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 14:03:53,508 - SuPy - INFO - ====================
+2025-08-12 14:03:53,508 - SuPy - INFO - Simulation period:
+2025-08-12 14:03:53,509 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 14:03:53,509 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 14:03:53,509 - SuPy - INFO - 
+2025-08-12 14:03:53,509 - SuPy - INFO - No. of grids: 25
+2025-08-12 14:03:53,509 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 14:09:42,683 - SuPy - INFO - Execution time: 349.2 s
+2025-08-12 14:09:42,699 - SuPy - INFO - ====================
+
+2025-08-12 14:10:13,289 - SuPy - INFO - All cache cleared.
+2025-08-12 14:10:15,422 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 14:10:16,379 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 14:10:53,470 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 14:10:53,489 - SuPy - INFO - detected issues have been fixed by clipping off outliers
+2025-08-12 14:10:53,830 - SuPy - INFO - ====================
+2025-08-12 14:10:53,830 - SuPy - INFO - Simulation period:
+2025-08-12 14:10:53,831 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 14:10:53,831 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 14:10:53,831 - SuPy - INFO - 
+2025-08-12 14:10:53,831 - SuPy - INFO - No. of grids: 25
+2025-08-12 14:10:53,832 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 14:17:10,035 - SuPy - INFO - Execution time: 376.2 s
+2025-08-12 14:17:10,074 - SuPy - INFO - ====================
+
+2025-08-12 14:17:43,875 - SuPy - INFO - All cache cleared.
+2025-08-12 14:17:46,017 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 14:17:46,970 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 14:18:14,470 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 14:18:14,487 - SuPy - INFO - detected issues have been fixed by clipping off outliers
+2025-08-12 14:18:14,755 - SuPy - INFO - ====================
+2025-08-12 14:18:14,755 - SuPy - INFO - Simulation period:
+2025-08-12 14:18:14,756 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 14:18:14,756 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 14:18:14,756 - SuPy - INFO - 
+2025-08-12 14:18:14,756 - SuPy - INFO - No. of grids: 25
+2025-08-12 14:18:14,756 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 14:24:14,130 - SuPy - INFO - Execution time: 359.4 s
+2025-08-12 14:24:14,145 - SuPy - INFO - ====================
+
+2025-08-12 14:24:43,115 - SuPy - INFO - All cache cleared.
+2025-08-12 14:24:45,227 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 14:24:46,127 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 14:25:32,201 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 14:25:32,214 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 14:25:32,471 - SuPy - INFO - ====================
+2025-08-12 14:25:32,471 - SuPy - INFO - Simulation period:
+2025-08-12 14:25:32,471 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 14:25:32,472 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 14:25:32,472 - SuPy - INFO - 
+2025-08-12 14:25:32,472 - SuPy - INFO - No. of grids: 25
+2025-08-12 14:25:32,472 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 14:31:36,705 - SuPy - INFO - Execution time: 364.2 s
+2025-08-12 14:31:36,720 - SuPy - INFO - ====================
+
+2025-08-12 14:32:07,477 - SuPy - INFO - All cache cleared.
+2025-08-12 14:32:09,711 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 14:32:10,646 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 14:32:40,414 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 14:32:40,427 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 14:32:40,807 - SuPy - INFO - ====================
+2025-08-12 14:32:40,809 - SuPy - INFO - Simulation period:
+2025-08-12 14:32:40,810 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 14:32:40,812 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 14:32:40,814 - SuPy - INFO - 
+2025-08-12 14:32:40,815 - SuPy - INFO - No. of grids: 25
+2025-08-12 14:32:40,816 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 14:39:02,484 - SuPy - INFO - Execution time: 381.7 s
+2025-08-12 14:39:02,501 - SuPy - INFO - ====================
+
+2025-08-12 14:39:34,725 - SuPy - INFO - All cache cleared.
+2025-08-12 14:39:37,042 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 14:39:37,984 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 14:40:09,957 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 14:40:09,969 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 14:40:10,233 - SuPy - INFO - ====================
+2025-08-12 14:40:10,233 - SuPy - INFO - Simulation period:
+2025-08-12 14:40:10,233 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 14:40:10,234 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 14:40:10,234 - SuPy - INFO - 
+2025-08-12 14:40:10,235 - SuPy - INFO - No. of grids: 25
+2025-08-12 14:40:10,235 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 14:46:11,626 - SuPy - INFO - Execution time: 361.4 s
+2025-08-12 14:46:11,644 - SuPy - INFO - ====================
+
+2025-08-12 14:46:42,063 - SuPy - INFO - All cache cleared.
+2025-08-12 14:46:44,073 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 14:46:44,935 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 14:47:14,991 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 14:47:15,004 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 14:47:15,318 - SuPy - INFO - ====================
+2025-08-12 14:47:15,318 - SuPy - INFO - Simulation period:
+2025-08-12 14:47:15,318 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 14:47:15,319 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 14:47:15,319 - SuPy - INFO - 
+2025-08-12 14:47:15,319 - SuPy - INFO - No. of grids: 25
+2025-08-12 14:47:15,319 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 14:53:04,679 - SuPy - INFO - Execution time: 349.4 s
+2025-08-12 14:53:04,699 - SuPy - INFO - ====================
+
+2025-08-12 14:53:36,727 - SuPy - INFO - All cache cleared.
+2025-08-12 14:53:39,100 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 14:53:39,983 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 14:54:20,290 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 14:54:20,303 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 14:54:20,578 - SuPy - INFO - ====================
+2025-08-12 14:54:20,579 - SuPy - INFO - Simulation period:
+2025-08-12 14:54:20,579 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 14:54:20,579 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 14:54:20,580 - SuPy - INFO - 
+2025-08-12 14:54:20,580 - SuPy - INFO - No. of grids: 25
+2025-08-12 14:54:20,580 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 15:00:17,937 - SuPy - INFO - Execution time: 357.4 s
+2025-08-12 15:00:17,954 - SuPy - INFO - ====================
+
+2025-08-12 15:00:48,530 - SuPy - INFO - All cache cleared.
+2025-08-12 15:00:50,845 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 15:00:51,759 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 15:01:34,251 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 15:01:34,264 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 15:01:34,568 - SuPy - INFO - ====================
+2025-08-12 15:01:34,568 - SuPy - INFO - Simulation period:
+2025-08-12 15:01:34,569 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 15:01:34,569 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 15:01:34,569 - SuPy - INFO - 
+2025-08-12 15:01:34,569 - SuPy - INFO - No. of grids: 25
+2025-08-12 15:01:34,569 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 15:07:23,585 - SuPy - INFO - Execution time: 349.0 s
+2025-08-12 15:07:23,601 - SuPy - INFO - ====================
+
+2025-08-12 15:07:54,470 - SuPy - INFO - All cache cleared.
+2025-08-12 15:07:56,597 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 15:07:57,521 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 15:08:25,972 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 15:08:25,988 - SuPy - INFO - detected issues have been fixed by clipping off outliers
+2025-08-12 15:08:26,268 - SuPy - INFO - ====================
+2025-08-12 15:08:26,268 - SuPy - INFO - Simulation period:
+2025-08-12 15:08:26,268 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 15:08:26,268 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 15:08:26,269 - SuPy - INFO - 
+2025-08-12 15:08:26,269 - SuPy - INFO - No. of grids: 25
+2025-08-12 15:08:26,269 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 15:14:20,643 - SuPy - INFO - Execution time: 354.4 s
+2025-08-12 15:14:20,657 - SuPy - INFO - ====================
+
+2025-08-12 15:14:50,085 - SuPy - INFO - All cache cleared.
+2025-08-12 15:14:52,088 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 15:14:52,978 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 15:15:22,449 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 15:15:22,464 - SuPy - INFO - detected issues have been fixed by clipping off outliers
+2025-08-12 15:15:22,807 - SuPy - INFO - ====================
+2025-08-12 15:15:22,808 - SuPy - INFO - Simulation period:
+2025-08-12 15:15:22,808 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 15:15:22,808 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 15:15:22,810 - SuPy - INFO - 
+2025-08-12 15:15:22,810 - SuPy - INFO - No. of grids: 25
+2025-08-12 15:15:22,810 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 15:21:36,499 - SuPy - INFO - Execution time: 373.7 s
+2025-08-12 15:21:36,517 - SuPy - INFO - ====================
+
+2025-08-12 15:22:13,823 - SuPy - INFO - All cache cleared.
+2025-08-12 15:22:15,949 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 15:22:16,860 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 15:22:47,432 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 15:22:47,445 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 15:22:47,710 - SuPy - INFO - ====================
+2025-08-12 15:22:47,710 - SuPy - INFO - Simulation period:
+2025-08-12 15:22:47,711 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 15:22:47,711 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 15:22:47,712 - SuPy - INFO - 
+2025-08-12 15:22:47,712 - SuPy - INFO - No. of grids: 25
+2025-08-12 15:22:47,712 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 15:28:59,017 - SuPy - INFO - Execution time: 371.3 s
+2025-08-12 15:28:59,038 - SuPy - INFO - ====================
+
+2025-08-12 15:29:30,992 - SuPy - INFO - All cache cleared.
+2025-08-12 15:29:33,339 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 15:29:34,318 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 15:30:07,953 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 15:30:07,965 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 15:30:08,233 - SuPy - INFO - ====================
+2025-08-12 15:30:08,233 - SuPy - INFO - Simulation period:
+2025-08-12 15:30:08,233 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 15:30:08,234 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 15:30:08,234 - SuPy - INFO - 
+2025-08-12 15:30:08,234 - SuPy - INFO - No. of grids: 25
+2025-08-12 15:30:08,234 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 15:36:20,343 - SuPy - INFO - Execution time: 372.1 s
+2025-08-12 15:36:20,363 - SuPy - INFO - ====================
+
+2025-08-12 15:36:54,900 - SuPy - INFO - All cache cleared.
+2025-08-12 15:36:57,103 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 15:36:58,073 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 15:37:37,935 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 15:37:37,947 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 15:37:38,349 - SuPy - INFO - ====================
+2025-08-12 15:37:38,349 - SuPy - INFO - Simulation period:
+2025-08-12 15:37:38,349 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 15:37:38,349 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 15:37:38,349 - SuPy - INFO - 
+2025-08-12 15:37:38,350 - SuPy - INFO - No. of grids: 25
+2025-08-12 15:37:38,350 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 15:43:27,938 - SuPy - INFO - Execution time: 349.6 s
+2025-08-12 15:43:27,955 - SuPy - INFO - ====================
+
+2025-08-12 15:43:57,893 - SuPy - INFO - All cache cleared.
+2025-08-12 15:44:00,185 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 15:44:01,115 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 15:44:57,307 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 15:44:57,319 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 15:44:57,596 - SuPy - INFO - ====================
+2025-08-12 15:44:57,597 - SuPy - INFO - Simulation period:
+2025-08-12 15:44:57,598 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 15:44:57,598 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 15:44:57,598 - SuPy - INFO - 
+2025-08-12 15:44:57,598 - SuPy - INFO - No. of grids: 25
+2025-08-12 15:44:57,599 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 15:50:57,326 - SuPy - INFO - Execution time: 359.7 s
+2025-08-12 15:50:57,344 - SuPy - INFO - ====================
+
+2025-08-12 15:51:30,344 - SuPy - INFO - All cache cleared.
+2025-08-12 15:51:32,722 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 15:51:33,639 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 15:52:11,559 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 15:52:11,572 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 15:52:11,848 - SuPy - INFO - ====================
+2025-08-12 15:52:11,848 - SuPy - INFO - Simulation period:
+2025-08-12 15:52:11,848 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 15:52:11,849 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 15:52:11,849 - SuPy - INFO - 
+2025-08-12 15:52:11,849 - SuPy - INFO - No. of grids: 25
+2025-08-12 15:52:11,849 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 15:58:35,798 - SuPy - INFO - Execution time: 383.9 s
+2025-08-12 15:58:35,817 - SuPy - INFO - ====================
+
+2025-08-12 15:59:06,317 - SuPy - INFO - All cache cleared.
+2025-08-12 15:59:08,665 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 15:59:09,562 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 15:59:43,015 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 15:59:43,026 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 15:59:43,278 - SuPy - INFO - ====================
+2025-08-12 15:59:43,279 - SuPy - INFO - Simulation period:
+2025-08-12 15:59:43,279 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 15:59:43,279 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 15:59:43,280 - SuPy - INFO - 
+2025-08-12 15:59:43,280 - SuPy - INFO - No. of grids: 25
+2025-08-12 15:59:43,280 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 16:05:41,863 - SuPy - INFO - Execution time: 358.6 s
+2025-08-12 16:05:41,881 - SuPy - INFO - ====================
+
+2025-08-12 16:06:13,263 - SuPy - INFO - All cache cleared.
+2025-08-12 16:06:15,718 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 16:06:16,614 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 16:06:51,646 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 16:06:51,661 - SuPy - INFO - detected issues have been fixed by clipping off outliers
+2025-08-12 16:06:51,926 - SuPy - INFO - ====================
+2025-08-12 16:06:51,926 - SuPy - INFO - Simulation period:
+2025-08-12 16:06:51,927 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 16:06:51,927 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 16:06:51,927 - SuPy - INFO - 
+2025-08-12 16:06:51,927 - SuPy - INFO - No. of grids: 25
+2025-08-12 16:06:51,927 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 16:12:53,612 - SuPy - INFO - Execution time: 361.7 s
+2025-08-12 16:12:53,635 - SuPy - INFO - ====================
+
+2025-08-12 16:13:25,023 - SuPy - INFO - All cache cleared.
+2025-08-12 16:13:27,190 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 16:13:28,053 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 16:14:06,904 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 16:14:06,921 - SuPy - INFO - detected issues have been fixed by clipping off outliers
+2025-08-12 16:14:07,195 - SuPy - INFO - ====================
+2025-08-12 16:14:07,195 - SuPy - INFO - Simulation period:
+2025-08-12 16:14:07,195 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 16:14:07,195 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 16:14:07,196 - SuPy - INFO - 
+2025-08-12 16:14:07,196 - SuPy - INFO - No. of grids: 25
+2025-08-12 16:14:07,196 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 16:20:09,926 - SuPy - INFO - Execution time: 362.7 s
+2025-08-12 16:20:09,942 - SuPy - INFO - ====================
+
+2025-08-12 16:20:40,287 - SuPy - INFO - All cache cleared.
+2025-08-12 16:20:42,375 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 16:20:43,245 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 16:21:17,720 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 16:21:17,733 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 16:21:18,167 - SuPy - INFO - ====================
+2025-08-12 16:21:18,168 - SuPy - INFO - Simulation period:
+2025-08-12 16:21:18,168 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 16:21:18,168 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 16:21:18,168 - SuPy - INFO - 
+2025-08-12 16:21:18,168 - SuPy - INFO - No. of grids: 25
+2025-08-12 16:21:18,169 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 16:27:19,974 - SuPy - INFO - Execution time: 361.8 s
+2025-08-12 16:27:19,991 - SuPy - INFO - ====================
+
+2025-08-12 16:27:57,494 - SuPy - INFO - All cache cleared.
+2025-08-12 16:27:59,427 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 16:28:00,288 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 16:28:42,470 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 16:28:42,483 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 16:28:42,758 - SuPy - INFO - ====================
+2025-08-12 16:28:42,758 - SuPy - INFO - Simulation period:
+2025-08-12 16:28:42,758 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 16:28:42,759 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 16:28:42,759 - SuPy - INFO - 
+2025-08-12 16:28:42,759 - SuPy - INFO - No. of grids: 25
+2025-08-12 16:28:42,760 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 16:33:50,119 - SuPy - INFO - Execution time: 307.4 s
+2025-08-12 16:33:50,135 - SuPy - INFO - ====================
+
+2025-08-12 16:34:22,089 - SuPy - INFO - All cache cleared.
+2025-08-12 16:34:24,118 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 16:34:25,027 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 16:36:02,087 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 16:36:02,100 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 16:36:02,389 - SuPy - INFO - ====================
+2025-08-12 16:36:02,390 - SuPy - INFO - Simulation period:
+2025-08-12 16:36:02,393 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 16:36:02,394 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 16:36:02,394 - SuPy - INFO - 
+2025-08-12 16:36:02,395 - SuPy - INFO - No. of grids: 25
+2025-08-12 16:36:02,395 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 16:41:59,115 - SuPy - INFO - Execution time: 356.7 s
+2025-08-12 16:41:59,132 - SuPy - INFO - ====================
+
+2025-08-12 16:42:32,039 - SuPy - INFO - All cache cleared.
+2025-08-12 16:42:34,131 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 16:42:35,053 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 16:44:09,353 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 16:44:09,365 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 16:44:09,621 - SuPy - INFO - ====================
+2025-08-12 16:44:09,622 - SuPy - INFO - Simulation period:
+2025-08-12 16:44:09,622 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 16:44:09,622 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 16:44:09,622 - SuPy - INFO - 
+2025-08-12 16:44:09,622 - SuPy - INFO - No. of grids: 25
+2025-08-12 16:44:09,622 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 16:50:17,497 - SuPy - INFO - Execution time: 367.9 s
+2025-08-12 16:50:17,516 - SuPy - INFO - ====================
+
+2025-08-12 16:50:51,970 - SuPy - INFO - All cache cleared.
+2025-08-12 16:50:54,075 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 16:50:54,910 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 16:51:35,973 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 16:51:35,987 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 16:51:36,253 - SuPy - INFO - ====================
+2025-08-12 16:51:36,253 - SuPy - INFO - Simulation period:
+2025-08-12 16:51:36,254 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 16:51:36,255 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 16:51:36,255 - SuPy - INFO - 
+2025-08-12 16:51:36,255 - SuPy - INFO - No. of grids: 25
+2025-08-12 16:51:36,256 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 16:57:39,475 - SuPy - INFO - Execution time: 363.2 s
+2025-08-12 16:57:39,492 - SuPy - INFO - ====================
+
+2025-08-12 16:58:09,767 - SuPy - INFO - All cache cleared.
+2025-08-12 16:58:11,945 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 16:58:12,896 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 16:59:18,969 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 16:59:18,982 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 16:59:19,245 - SuPy - INFO - ====================
+2025-08-12 16:59:19,246 - SuPy - INFO - Simulation period:
+2025-08-12 16:59:19,246 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 16:59:19,246 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 16:59:19,246 - SuPy - INFO - 
+2025-08-12 16:59:19,246 - SuPy - INFO - No. of grids: 25
+2025-08-12 16:59:19,247 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 17:05:32,960 - SuPy - INFO - Execution time: 373.7 s
+2025-08-12 17:05:32,980 - SuPy - INFO - ====================
+
+2025-08-12 17:06:06,953 - SuPy - INFO - All cache cleared.
+2025-08-12 17:06:08,852 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 17:06:09,772 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 17:06:43,722 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 17:06:43,736 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 17:06:43,997 - SuPy - INFO - ====================
+2025-08-12 17:06:43,997 - SuPy - INFO - Simulation period:
+2025-08-12 17:06:43,998 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 17:06:43,998 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 17:06:43,998 - SuPy - INFO - 
+2025-08-12 17:06:43,998 - SuPy - INFO - No. of grids: 25
+2025-08-12 17:06:43,998 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 17:12:41,754 - SuPy - INFO - Execution time: 357.8 s
+2025-08-12 17:12:41,770 - SuPy - INFO - ====================
+
+2025-08-12 17:13:14,916 - SuPy - INFO - All cache cleared.
+2025-08-12 17:13:17,004 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 17:13:17,913 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 17:13:53,129 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 17:13:53,141 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 17:13:53,403 - SuPy - INFO - ====================
+2025-08-12 17:13:53,403 - SuPy - INFO - Simulation period:
+2025-08-12 17:13:53,404 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 17:13:53,404 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 17:13:53,404 - SuPy - INFO - 
+2025-08-12 17:13:53,404 - SuPy - INFO - No. of grids: 25
+2025-08-12 17:13:53,404 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 17:19:48,393 - SuPy - INFO - Execution time: 355.0 s
+2025-08-12 17:19:48,411 - SuPy - INFO - ====================
+
+2025-08-12 17:20:21,250 - SuPy - INFO - All cache cleared.
+2025-08-12 17:20:23,402 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 17:20:24,299 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 17:21:07,406 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 17:21:07,418 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 17:21:07,689 - SuPy - INFO - ====================
+2025-08-12 17:21:07,689 - SuPy - INFO - Simulation period:
+2025-08-12 17:21:07,690 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 17:21:07,690 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 17:21:07,690 - SuPy - INFO - 
+2025-08-12 17:21:07,690 - SuPy - INFO - No. of grids: 25
+2025-08-12 17:21:07,690 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 17:27:31,361 - SuPy - INFO - Execution time: 383.7 s
+2025-08-12 17:27:31,379 - SuPy - INFO - ====================
+
+2025-08-12 17:28:03,962 - SuPy - INFO - All cache cleared.
+2025-08-12 17:28:05,964 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 17:28:06,897 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 17:28:53,807 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 17:28:53,820 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 17:28:54,133 - SuPy - INFO - ====================
+2025-08-12 17:28:54,134 - SuPy - INFO - Simulation period:
+2025-08-12 17:28:54,134 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 17:28:54,134 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 17:28:54,134 - SuPy - INFO - 
+2025-08-12 17:28:54,135 - SuPy - INFO - No. of grids: 25
+2025-08-12 17:28:54,135 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 17:35:26,648 - SuPy - INFO - Execution time: 392.5 s
+2025-08-12 17:35:26,664 - SuPy - INFO - ====================
+
+2025-08-12 17:35:58,340 - SuPy - INFO - All cache cleared.
+2025-08-12 17:36:00,429 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 17:36:01,298 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 17:37:15,831 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 17:37:15,843 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 17:37:16,131 - SuPy - INFO - ====================
+2025-08-12 17:37:16,132 - SuPy - INFO - Simulation period:
+2025-08-12 17:37:16,132 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 17:37:16,133 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 17:37:16,133 - SuPy - INFO - 
+2025-08-12 17:37:16,134 - SuPy - INFO - No. of grids: 25
+2025-08-12 17:37:16,134 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 17:43:42,901 - SuPy - INFO - Execution time: 386.8 s
+2025-08-12 17:43:42,919 - SuPy - INFO - ====================
+
+2025-08-12 17:44:17,430 - SuPy - INFO - All cache cleared.
+2025-08-12 17:44:19,423 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 17:44:22,417 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 17:45:16,912 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 17:45:16,924 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 17:45:17,193 - SuPy - INFO - ====================
+2025-08-12 17:45:17,193 - SuPy - INFO - Simulation period:
+2025-08-12 17:45:17,193 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 17:45:17,193 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 17:45:17,193 - SuPy - INFO - 
+2025-08-12 17:45:17,194 - SuPy - INFO - No. of grids: 25
+2025-08-12 17:45:17,194 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 17:51:10,665 - SuPy - INFO - Execution time: 353.5 s
+2025-08-12 17:51:10,684 - SuPy - INFO - ====================
+
+2025-08-12 17:51:42,030 - SuPy - INFO - All cache cleared.
+2025-08-12 17:51:44,140 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 17:51:45,078 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 17:52:18,715 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 17:52:18,727 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 17:52:19,031 - SuPy - INFO - ====================
+2025-08-12 17:52:19,031 - SuPy - INFO - Simulation period:
+2025-08-12 17:52:19,031 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 17:52:19,031 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 17:52:19,032 - SuPy - INFO - 
+2025-08-12 17:52:19,032 - SuPy - INFO - No. of grids: 25
+2025-08-12 17:52:19,032 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 17:59:27,633 - SuPy - INFO - Execution time: 428.6 s
+2025-08-12 17:59:27,648 - SuPy - INFO - ====================
+
+2025-08-12 18:00:01,788 - SuPy - INFO - All cache cleared.
+2025-08-12 18:00:03,575 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 18:00:04,494 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 18:00:36,303 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 18:00:36,314 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 18:00:36,618 - SuPy - INFO - ====================
+2025-08-12 18:00:36,618 - SuPy - INFO - Simulation period:
+2025-08-12 18:00:36,618 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 18:00:36,619 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 18:00:36,619 - SuPy - INFO - 
+2025-08-12 18:00:36,619 - SuPy - INFO - No. of grids: 25
+2025-08-12 18:00:36,619 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 18:06:37,182 - SuPy - INFO - Execution time: 360.6 s
+2025-08-12 18:06:37,199 - SuPy - INFO - ====================
+
+2025-08-12 18:07:09,767 - SuPy - INFO - All cache cleared.
+2025-08-12 18:07:12,060 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 18:07:13,013 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 18:07:43,667 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 18:07:43,681 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 18:07:44,024 - SuPy - INFO - ====================
+2025-08-12 18:07:44,024 - SuPy - INFO - Simulation period:
+2025-08-12 18:07:44,024 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 18:07:44,024 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 18:07:44,024 - SuPy - INFO - 
+2025-08-12 18:07:44,025 - SuPy - INFO - No. of grids: 25
+2025-08-12 18:07:44,025 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 18:14:02,697 - SuPy - INFO - Execution time: 378.7 s
+2025-08-12 18:14:02,717 - SuPy - INFO - ====================
+
+2025-08-12 18:14:37,511 - SuPy - INFO - All cache cleared.
+2025-08-12 18:14:39,697 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 18:14:40,730 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 18:15:21,065 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 18:15:21,078 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 18:15:21,401 - SuPy - INFO - ====================
+2025-08-12 18:15:21,403 - SuPy - INFO - Simulation period:
+2025-08-12 18:15:21,403 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 18:15:21,406 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 18:15:21,407 - SuPy - INFO - 
+2025-08-12 18:15:21,408 - SuPy - INFO - No. of grids: 25
+2025-08-12 18:15:21,408 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 18:21:57,609 - SuPy - INFO - Execution time: 396.2 s
+2025-08-12 18:21:57,631 - SuPy - INFO - ====================
+
+2025-08-12 18:22:30,133 - SuPy - INFO - All cache cleared.
+2025-08-12 18:22:32,164 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 18:22:33,109 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 18:23:07,127 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 18:23:07,139 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 18:23:07,409 - SuPy - INFO - ====================
+2025-08-12 18:23:07,410 - SuPy - INFO - Simulation period:
+2025-08-12 18:23:07,410 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 18:23:07,410 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 18:23:07,410 - SuPy - INFO - 
+2025-08-12 18:23:07,410 - SuPy - INFO - No. of grids: 25
+2025-08-12 18:23:07,410 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 18:30:00,299 - SuPy - INFO - Execution time: 412.9 s
+2025-08-12 18:30:00,314 - SuPy - INFO - ====================
+
+2025-08-12 18:30:32,769 - SuPy - INFO - All cache cleared.
+2025-08-12 18:30:34,783 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 18:30:35,736 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 18:31:27,322 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 18:31:27,337 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 18:31:27,642 - SuPy - INFO - ====================
+2025-08-12 18:31:27,643 - SuPy - INFO - Simulation period:
+2025-08-12 18:31:27,644 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 18:31:27,645 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 18:31:27,648 - SuPy - INFO - 
+2025-08-12 18:31:27,649 - SuPy - INFO - No. of grids: 25
+2025-08-12 18:31:27,651 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 18:37:36,024 - SuPy - INFO - Execution time: 368.4 s
+2025-08-12 18:37:36,042 - SuPy - INFO - ====================
+
+2025-08-12 18:38:10,674 - SuPy - INFO - All cache cleared.
+2025-08-12 18:38:13,422 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 18:38:14,498 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 18:39:01,758 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 18:39:01,772 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 18:39:02,109 - SuPy - INFO - ====================
+2025-08-12 18:39:02,109 - SuPy - INFO - Simulation period:
+2025-08-12 18:39:02,109 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 18:39:02,109 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 18:39:02,110 - SuPy - INFO - 
+2025-08-12 18:39:02,111 - SuPy - INFO - No. of grids: 25
+2025-08-12 18:39:02,112 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 18:45:58,858 - SuPy - INFO - Execution time: 416.7 s
+2025-08-12 18:45:58,878 - SuPy - INFO - ====================
+
+2025-08-12 18:46:33,792 - SuPy - INFO - All cache cleared.
+2025-08-12 18:46:36,010 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 18:46:37,012 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 18:46:58,963 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 18:46:58,976 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 18:46:59,351 - SuPy - INFO - ====================
+2025-08-12 18:46:59,352 - SuPy - INFO - Simulation period:
+2025-08-12 18:46:59,352 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 18:46:59,352 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 18:46:59,353 - SuPy - INFO - 
+2025-08-12 18:46:59,353 - SuPy - INFO - No. of grids: 25
+2025-08-12 18:46:59,353 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 18:54:16,204 - SuPy - INFO - Execution time: 436.8 s
+2025-08-12 18:54:16,222 - SuPy - INFO - ====================
+
+2025-08-12 18:54:49,519 - SuPy - INFO - All cache cleared.
+2025-08-12 18:54:51,779 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 18:54:52,846 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 18:55:32,780 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 18:55:32,794 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 18:55:33,083 - SuPy - INFO - ====================
+2025-08-12 18:55:33,083 - SuPy - INFO - Simulation period:
+2025-08-12 18:55:33,083 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 18:55:33,084 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 18:55:33,084 - SuPy - INFO - 
+2025-08-12 18:55:33,084 - SuPy - INFO - No. of grids: 25
+2025-08-12 18:55:33,084 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 19:02:30,562 - SuPy - INFO - Execution time: 417.5 s
+2025-08-12 19:02:30,580 - SuPy - INFO - ====================
+
+2025-08-12 19:03:07,579 - SuPy - INFO - All cache cleared.
+2025-08-12 19:03:12,540 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 19:03:13,552 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 19:03:37,403 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 19:03:37,419 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 19:03:37,805 - SuPy - INFO - ====================
+2025-08-12 19:03:37,805 - SuPy - INFO - Simulation period:
+2025-08-12 19:03:37,805 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 19:03:37,807 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 19:03:37,807 - SuPy - INFO - 
+2025-08-12 19:03:37,807 - SuPy - INFO - No. of grids: 25
+2025-08-12 19:03:37,807 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 19:10:35,452 - SuPy - INFO - Execution time: 417.6 s
+2025-08-12 19:10:35,471 - SuPy - INFO - ====================
+
+2025-08-12 19:11:09,899 - SuPy - INFO - All cache cleared.
+2025-08-12 19:11:12,466 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 19:11:13,501 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 19:11:49,724 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 19:11:49,737 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 19:11:50,098 - SuPy - INFO - ====================
+2025-08-12 19:11:50,099 - SuPy - INFO - Simulation period:
+2025-08-12 19:11:50,099 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 19:11:50,102 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 19:11:50,102 - SuPy - INFO - 
+2025-08-12 19:11:50,105 - SuPy - INFO - No. of grids: 25
+2025-08-12 19:11:50,107 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 19:18:29,598 - SuPy - INFO - Execution time: 399.5 s
+2025-08-12 19:18:29,616 - SuPy - INFO - ====================
+
+2025-08-12 19:19:03,439 - SuPy - INFO - All cache cleared.
+2025-08-12 19:19:05,835 - SuPy - INFO - SuPy is validating `df_state`...
+2025-08-12 19:19:06,890 - SuPy - INFO - All checks for `df_state` passed!
+2025-08-12 19:19:27,944 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-08-12 19:19:27,962 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-08-12 19:19:28,310 - SuPy - INFO - ====================
+2025-08-12 19:19:28,311 - SuPy - INFO - Simulation period:
+2025-08-12 19:19:28,311 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-08-12 19:19:28,311 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-08-12 19:19:28,312 - SuPy - INFO - 
+2025-08-12 19:19:28,312 - SuPy - INFO - No. of grids: 25
+2025-08-12 19:19:28,312 - SuPy - INFO - SuPy is running in parallel mode
+2025-08-12 19:27:05,024 - SuPy - INFO - Execution time: 456.7 s
+2025-08-12 19:27:05,050 - SuPy - INFO - ====================
+
+2025-11-26 16:35:49,469 - SuPy - INFO - All cache cleared.
+2025-11-26 16:35:51,612 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 16:35:52,576 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 16:37:18,808 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 16:37:18,824 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 16:37:19,185 - SuPy - INFO - ====================
+2025-11-26 16:37:19,186 - SuPy - INFO - Simulation period:
+2025-11-26 16:37:19,186 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 16:37:19,187 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 16:37:19,187 - SuPy - INFO - 
+2025-11-26 16:37:19,187 - SuPy - INFO - No. of grids: 25
+2025-11-26 16:37:19,187 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 16:44:35,756 - SuPy - INFO - Execution time: 436.6 s
+2025-11-26 16:44:35,760 - SuPy - INFO - ====================
+
+2025-11-26 16:45:01,501 - SuPy - INFO - All cache cleared.
+2025-11-26 16:45:03,771 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 16:45:04,774 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 16:45:53,788 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 16:45:53,803 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 16:45:54,402 - SuPy - INFO - ====================
+2025-11-26 16:45:54,403 - SuPy - INFO - Simulation period:
+2025-11-26 16:45:54,405 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 16:45:54,408 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 16:45:54,408 - SuPy - INFO - 
+2025-11-26 16:45:54,409 - SuPy - INFO - No. of grids: 25
+2025-11-26 16:45:54,409 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 16:52:51,089 - SuPy - INFO - Execution time: 416.7 s
+2025-11-26 16:52:51,109 - SuPy - INFO - ====================
+
+2025-11-26 16:53:21,028 - SuPy - INFO - All cache cleared.
+2025-11-26 16:53:23,128 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 16:53:24,058 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 16:54:50,225 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 16:54:50,245 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 16:54:52,187 - SuPy - INFO - ====================
+2025-11-26 16:54:52,192 - SuPy - INFO - Simulation period:
+2025-11-26 16:54:52,196 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 16:54:52,201 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 16:54:52,206 - SuPy - INFO - 
+2025-11-26 16:54:52,211 - SuPy - INFO - No. of grids: 25
+2025-11-26 16:54:52,216 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 17:01:04,658 - SuPy - INFO - Execution time: 372.5 s
+2025-11-26 17:01:04,676 - SuPy - INFO - ====================
+
+2025-11-26 17:01:39,380 - SuPy - INFO - All cache cleared.
+2025-11-26 17:01:41,899 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 17:01:42,993 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 17:02:42,262 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 17:02:42,276 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 17:02:42,702 - SuPy - INFO - ====================
+2025-11-26 17:02:42,702 - SuPy - INFO - Simulation period:
+2025-11-26 17:02:42,702 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 17:02:42,702 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 17:02:42,703 - SuPy - INFO - 
+2025-11-26 17:02:42,703 - SuPy - INFO - No. of grids: 25
+2025-11-26 17:02:42,703 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 17:08:57,905 - SuPy - INFO - Execution time: 375.2 s
+2025-11-26 17:08:57,927 - SuPy - INFO - ====================
+
+2025-11-26 17:09:31,437 - SuPy - INFO - All cache cleared.
+2025-11-26 17:09:33,600 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 17:09:34,513 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 17:10:41,577 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 17:10:41,592 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 17:10:42,240 - SuPy - INFO - ====================
+2025-11-26 17:10:42,248 - SuPy - INFO - Simulation period:
+2025-11-26 17:10:42,249 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 17:10:42,251 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 17:10:42,252 - SuPy - INFO - 
+2025-11-26 17:10:42,258 - SuPy - INFO - No. of grids: 25
+2025-11-26 17:10:42,262 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 17:16:23,734 - SuPy - INFO - Execution time: 341.5 s
+2025-11-26 17:16:23,753 - SuPy - INFO - ====================
+
+2025-11-26 17:16:53,385 - SuPy - INFO - All cache cleared.
+2025-11-26 17:16:55,662 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 17:16:56,665 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 17:18:08,067 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 17:18:08,081 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 17:18:08,675 - SuPy - INFO - ====================
+2025-11-26 17:18:08,677 - SuPy - INFO - Simulation period:
+2025-11-26 17:18:08,678 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 17:18:08,680 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 17:18:08,680 - SuPy - INFO - 
+2025-11-26 17:18:08,682 - SuPy - INFO - No. of grids: 25
+2025-11-26 17:18:08,683 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 17:24:32,509 - SuPy - INFO - Execution time: 383.8 s
+2025-11-26 17:24:32,527 - SuPy - INFO - ====================
+
+2025-11-26 17:25:05,478 - SuPy - INFO - All cache cleared.
+2025-11-26 17:25:07,830 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 17:25:08,840 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 17:26:03,953 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 17:26:03,966 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 17:26:04,254 - SuPy - INFO - ====================
+2025-11-26 17:26:04,254 - SuPy - INFO - Simulation period:
+2025-11-26 17:26:04,255 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 17:26:04,255 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 17:26:04,255 - SuPy - INFO - 
+2025-11-26 17:26:04,255 - SuPy - INFO - No. of grids: 25
+2025-11-26 17:26:04,255 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 17:32:45,358 - SuPy - INFO - Execution time: 401.1 s
+2025-11-26 17:32:45,379 - SuPy - INFO - ====================
+
+2025-11-26 17:33:18,813 - SuPy - INFO - All cache cleared.
+2025-11-26 17:33:21,152 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 17:33:22,170 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 17:34:05,931 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 17:34:05,946 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 17:34:06,273 - SuPy - INFO - ====================
+2025-11-26 17:34:06,273 - SuPy - INFO - Simulation period:
+2025-11-26 17:34:06,274 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 17:34:06,274 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 17:34:06,274 - SuPy - INFO - 
+2025-11-26 17:34:06,274 - SuPy - INFO - No. of grids: 25
+2025-11-26 17:34:06,275 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 17:39:56,183 - SuPy - INFO - Execution time: 349.9 s
+2025-11-26 17:39:56,204 - SuPy - INFO - ====================
+
+2025-11-26 17:40:32,001 - SuPy - INFO - All cache cleared.
+2025-11-26 17:40:34,634 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 17:40:35,550 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 17:42:03,615 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 17:42:03,634 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 17:42:03,947 - SuPy - INFO - ====================
+2025-11-26 17:42:03,950 - SuPy - INFO - Simulation period:
+2025-11-26 17:42:03,968 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 17:42:03,970 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 17:42:03,973 - SuPy - INFO - 
+2025-11-26 17:42:03,974 - SuPy - INFO - No. of grids: 25
+2025-11-26 17:42:03,976 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 17:48:15,299 - SuPy - INFO - Execution time: 371.3 s
+2025-11-26 17:48:15,321 - SuPy - INFO - ====================
+
+2025-11-26 17:48:50,355 - SuPy - INFO - All cache cleared.
+2025-11-26 17:48:52,850 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 17:48:53,792 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 17:50:01,599 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 17:50:01,616 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 17:50:02,086 - SuPy - INFO - ====================
+2025-11-26 17:50:02,086 - SuPy - INFO - Simulation period:
+2025-11-26 17:50:02,087 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 17:50:02,087 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 17:50:02,087 - SuPy - INFO - 
+2025-11-26 17:50:02,088 - SuPy - INFO - No. of grids: 25
+2025-11-26 17:50:02,088 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 17:56:49,550 - SuPy - INFO - Execution time: 407.5 s
+2025-11-26 17:56:49,572 - SuPy - INFO - ====================
+
+2025-11-26 17:57:24,983 - SuPy - INFO - All cache cleared.
+2025-11-26 17:57:27,282 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 17:57:28,235 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 17:58:28,361 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 17:58:28,374 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 17:58:28,682 - SuPy - INFO - ====================
+2025-11-26 17:58:28,683 - SuPy - INFO - Simulation period:
+2025-11-26 17:58:28,683 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 17:58:28,683 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 17:58:28,684 - SuPy - INFO - 
+2025-11-26 17:58:28,684 - SuPy - INFO - No. of grids: 25
+2025-11-26 17:58:28,685 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 18:04:15,212 - SuPy - INFO - Execution time: 346.5 s
+2025-11-26 18:04:15,232 - SuPy - INFO - ====================
+
+2025-11-26 18:04:48,419 - SuPy - INFO - All cache cleared.
+2025-11-26 18:04:50,655 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 18:04:51,695 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 18:05:56,773 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 18:05:56,790 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 18:05:57,286 - SuPy - INFO - ====================
+2025-11-26 18:05:57,286 - SuPy - INFO - Simulation period:
+2025-11-26 18:05:57,287 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 18:05:57,287 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 18:05:57,287 - SuPy - INFO - 
+2025-11-26 18:05:57,287 - SuPy - INFO - No. of grids: 25
+2025-11-26 18:05:57,287 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 18:12:13,381 - SuPy - INFO - Execution time: 376.1 s
+2025-11-26 18:12:13,405 - SuPy - INFO - ====================
+
+2025-11-26 18:12:45,637 - SuPy - INFO - All cache cleared.
+2025-11-26 18:12:48,115 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 18:12:49,173 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 18:13:53,560 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 18:13:53,576 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 18:13:53,907 - SuPy - INFO - ====================
+2025-11-26 18:13:53,908 - SuPy - INFO - Simulation period:
+2025-11-26 18:13:53,908 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 18:13:53,909 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 18:13:53,909 - SuPy - INFO - 
+2025-11-26 18:13:53,909 - SuPy - INFO - No. of grids: 25
+2025-11-26 18:13:53,910 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 18:20:52,902 - SuPy - INFO - Execution time: 419.0 s
+2025-11-26 18:20:52,926 - SuPy - INFO - ====================
+
+2025-11-26 18:21:24,138 - SuPy - INFO - All cache cleared.
+2025-11-26 18:21:26,551 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 18:21:27,574 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 18:22:19,248 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 18:22:19,265 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 18:22:19,566 - SuPy - INFO - ====================
+2025-11-26 18:22:19,567 - SuPy - INFO - Simulation period:
+2025-11-26 18:22:19,567 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 18:22:19,568 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 18:22:19,568 - SuPy - INFO - 
+2025-11-26 18:22:19,568 - SuPy - INFO - No. of grids: 25
+2025-11-26 18:22:19,568 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 18:28:25,621 - SuPy - INFO - Execution time: 366.0 s
+2025-11-26 18:28:25,647 - SuPy - INFO - ====================
+
+2025-11-26 18:28:59,387 - SuPy - INFO - All cache cleared.
+2025-11-26 18:29:01,764 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 18:29:02,800 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 18:29:58,305 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 18:29:58,319 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 18:29:58,671 - SuPy - INFO - ====================
+2025-11-26 18:29:58,671 - SuPy - INFO - Simulation period:
+2025-11-26 18:29:58,671 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 18:29:58,672 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 18:29:58,672 - SuPy - INFO - 
+2025-11-26 18:29:58,672 - SuPy - INFO - No. of grids: 25
+2025-11-26 18:29:58,672 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 18:36:07,931 - SuPy - INFO - Execution time: 369.3 s
+2025-11-26 18:36:07,948 - SuPy - INFO - ====================
+
+2025-11-26 18:36:39,335 - SuPy - INFO - All cache cleared.
+2025-11-26 18:36:41,785 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 18:36:42,976 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 18:37:27,264 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 18:37:27,280 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 18:37:27,590 - SuPy - INFO - ====================
+2025-11-26 18:37:27,597 - SuPy - INFO - Simulation period:
+2025-11-26 18:37:27,601 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 18:37:27,601 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 18:37:27,602 - SuPy - INFO - 
+2025-11-26 18:37:27,602 - SuPy - INFO - No. of grids: 25
+2025-11-26 18:37:27,602 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 18:44:37,300 - SuPy - INFO - Execution time: 429.7 s
+2025-11-26 18:44:37,321 - SuPy - INFO - ====================
+
+2025-11-26 18:45:08,851 - SuPy - INFO - All cache cleared.
+2025-11-26 18:45:11,131 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 18:45:12,100 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 18:46:10,885 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 18:46:10,899 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 18:46:11,212 - SuPy - INFO - ====================
+2025-11-26 18:46:11,213 - SuPy - INFO - Simulation period:
+2025-11-26 18:46:11,213 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 18:46:11,213 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 18:46:11,213 - SuPy - INFO - 
+2025-11-26 18:46:11,214 - SuPy - INFO - No. of grids: 25
+2025-11-26 18:46:11,214 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 18:52:54,086 - SuPy - INFO - Execution time: 402.9 s
+2025-11-26 18:52:54,111 - SuPy - INFO - ====================
+
+2025-11-26 18:53:29,712 - SuPy - INFO - All cache cleared.
+2025-11-26 18:53:32,192 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 18:53:33,128 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 18:54:22,397 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 18:54:22,413 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 18:54:22,802 - SuPy - INFO - ====================
+2025-11-26 18:54:22,806 - SuPy - INFO - Simulation period:
+2025-11-26 18:54:22,815 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 18:54:22,816 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 18:54:22,819 - SuPy - INFO - 
+2025-11-26 18:54:22,819 - SuPy - INFO - No. of grids: 25
+2025-11-26 18:54:22,820 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 19:00:51,239 - SuPy - INFO - Execution time: 388.4 s
+2025-11-26 19:00:51,256 - SuPy - INFO - ====================
+
+2025-11-26 19:01:24,968 - SuPy - INFO - All cache cleared.
+2025-11-26 19:01:27,397 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 19:01:28,485 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 19:02:15,608 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 19:02:15,661 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 19:02:16,054 - SuPy - INFO - ====================
+2025-11-26 19:02:16,059 - SuPy - INFO - Simulation period:
+2025-11-26 19:02:16,063 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 19:02:16,064 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 19:02:16,065 - SuPy - INFO - 
+2025-11-26 19:02:16,066 - SuPy - INFO - No. of grids: 25
+2025-11-26 19:02:16,066 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 19:08:37,824 - SuPy - INFO - Execution time: 381.8 s
+2025-11-26 19:08:37,846 - SuPy - INFO - ====================
+
+2025-11-26 19:09:09,281 - SuPy - INFO - All cache cleared.
+2025-11-26 19:09:11,874 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 19:09:12,948 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 19:10:08,572 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 19:10:08,586 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 19:10:08,873 - SuPy - INFO - ====================
+2025-11-26 19:10:08,873 - SuPy - INFO - Simulation period:
+2025-11-26 19:10:08,874 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 19:10:08,874 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 19:10:08,875 - SuPy - INFO - 
+2025-11-26 19:10:08,875 - SuPy - INFO - No. of grids: 25
+2025-11-26 19:10:08,875 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 19:16:17,644 - SuPy - INFO - Execution time: 368.8 s
+2025-11-26 19:16:17,664 - SuPy - INFO - ====================
+
+2025-11-26 19:16:52,828 - SuPy - INFO - All cache cleared.
+2025-11-26 19:16:55,404 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 19:16:56,384 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 19:18:11,251 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 19:18:11,265 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 19:18:11,660 - SuPy - INFO - ====================
+2025-11-26 19:18:11,663 - SuPy - INFO - Simulation period:
+2025-11-26 19:18:11,665 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 19:18:11,665 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 19:18:11,666 - SuPy - INFO - 
+2025-11-26 19:18:11,666 - SuPy - INFO - No. of grids: 25
+2025-11-26 19:18:11,666 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 19:24:21,301 - SuPy - INFO - Execution time: 369.6 s
+2025-11-26 19:24:21,325 - SuPy - INFO - ====================
+
+2025-11-26 19:24:50,548 - SuPy - INFO - All cache cleared.
+2025-11-26 19:24:53,002 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 19:24:54,014 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 19:25:54,016 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 19:25:54,040 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 19:25:54,470 - SuPy - INFO - ====================
+2025-11-26 19:25:54,472 - SuPy - INFO - Simulation period:
+2025-11-26 19:25:54,480 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 19:25:54,486 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 19:25:54,486 - SuPy - INFO - 
+2025-11-26 19:25:54,486 - SuPy - INFO - No. of grids: 25
+2025-11-26 19:25:54,486 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 19:32:31,552 - SuPy - INFO - Execution time: 397.1 s
+2025-11-26 19:32:31,575 - SuPy - INFO - ====================
+
+2025-11-26 19:33:07,069 - SuPy - INFO - All cache cleared.
+2025-11-26 19:33:09,578 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 19:33:10,654 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 19:33:59,502 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 19:33:59,519 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 19:34:00,161 - SuPy - INFO - ====================
+2025-11-26 19:34:00,163 - SuPy - INFO - Simulation period:
+2025-11-26 19:34:00,164 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 19:34:00,166 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 19:34:00,167 - SuPy - INFO - 
+2025-11-26 19:34:00,167 - SuPy - INFO - No. of grids: 25
+2025-11-26 19:34:00,168 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 19:40:53,791 - SuPy - INFO - Execution time: 413.6 s
+2025-11-26 19:40:53,811 - SuPy - INFO - ====================
+
+2025-11-26 19:41:30,396 - SuPy - INFO - All cache cleared.
+2025-11-26 19:41:32,884 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 19:41:33,853 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 19:42:19,708 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 19:42:19,721 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 19:42:20,036 - SuPy - INFO - ====================
+2025-11-26 19:42:20,037 - SuPy - INFO - Simulation period:
+2025-11-26 19:42:20,037 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 19:42:20,038 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 19:42:20,038 - SuPy - INFO - 
+2025-11-26 19:42:20,039 - SuPy - INFO - No. of grids: 25
+2025-11-26 19:42:20,039 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 19:48:48,034 - SuPy - INFO - Execution time: 388.0 s
+2025-11-26 19:48:48,059 - SuPy - INFO - ====================
+
+2025-11-26 19:49:19,553 - SuPy - INFO - All cache cleared.
+2025-11-26 19:49:22,072 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 19:49:23,071 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 19:50:56,592 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 19:50:56,606 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 19:50:56,911 - SuPy - INFO - ====================
+2025-11-26 19:50:56,912 - SuPy - INFO - Simulation period:
+2025-11-26 19:50:56,913 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 19:50:56,913 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 19:50:56,913 - SuPy - INFO - 
+2025-11-26 19:50:56,913 - SuPy - INFO - No. of grids: 25
+2025-11-26 19:50:56,914 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 19:56:38,787 - SuPy - INFO - Execution time: 341.9 s
+2025-11-26 19:56:38,807 - SuPy - INFO - ====================
+
+2025-11-26 19:57:10,831 - SuPy - INFO - All cache cleared.
+2025-11-26 19:57:13,207 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 19:57:14,244 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 19:58:15,384 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 19:58:15,399 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 19:58:15,858 - SuPy - INFO - ====================
+2025-11-26 19:58:15,859 - SuPy - INFO - Simulation period:
+2025-11-26 19:58:15,859 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 19:58:15,860 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 19:58:15,861 - SuPy - INFO - 
+2025-11-26 19:58:15,861 - SuPy - INFO - No. of grids: 25
+2025-11-26 19:58:15,862 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 20:04:19,831 - SuPy - INFO - Execution time: 364.0 s
+2025-11-26 20:04:19,851 - SuPy - INFO - ====================
+
+2025-11-26 20:04:49,683 - SuPy - INFO - All cache cleared.
+2025-11-26 20:04:51,958 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 20:04:52,951 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 20:05:43,536 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 20:05:43,551 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 20:05:43,977 - SuPy - INFO - ====================
+2025-11-26 20:05:43,982 - SuPy - INFO - Simulation period:
+2025-11-26 20:05:43,984 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 20:05:43,984 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 20:05:43,985 - SuPy - INFO - 
+2025-11-26 20:05:43,985 - SuPy - INFO - No. of grids: 25
+2025-11-26 20:05:43,985 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 20:12:22,023 - SuPy - INFO - Execution time: 398.0 s
+2025-11-26 20:12:22,044 - SuPy - INFO - ====================
+
+2025-11-26 20:12:56,886 - SuPy - INFO - All cache cleared.
+2025-11-26 20:12:59,478 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 20:13:00,587 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 20:13:55,411 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 20:13:55,427 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 20:13:55,743 - SuPy - INFO - ====================
+2025-11-26 20:13:55,743 - SuPy - INFO - Simulation period:
+2025-11-26 20:13:55,743 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 20:13:55,743 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 20:13:55,744 - SuPy - INFO - 
+2025-11-26 20:13:55,744 - SuPy - INFO - No. of grids: 25
+2025-11-26 20:13:55,744 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 20:20:13,826 - SuPy - INFO - Execution time: 378.1 s
+2025-11-26 20:20:13,845 - SuPy - INFO - ====================
+
+2025-11-26 20:20:46,747 - SuPy - INFO - All cache cleared.
+2025-11-26 20:20:49,515 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 20:20:50,407 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 20:21:43,783 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 20:21:43,797 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 20:21:44,327 - SuPy - INFO - ====================
+2025-11-26 20:21:44,330 - SuPy - INFO - Simulation period:
+2025-11-26 20:21:44,333 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 20:21:44,338 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 20:21:44,342 - SuPy - INFO - 
+2025-11-26 20:21:44,346 - SuPy - INFO - No. of grids: 25
+2025-11-26 20:21:44,350 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 20:27:49,500 - SuPy - INFO - Execution time: 365.2 s
+2025-11-26 20:27:49,518 - SuPy - INFO - ====================
+
+2025-11-26 20:28:22,089 - SuPy - INFO - All cache cleared.
+2025-11-26 20:28:24,599 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 20:28:25,530 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 20:29:16,153 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 20:29:16,169 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 20:29:16,873 - SuPy - INFO - ====================
+2025-11-26 20:29:16,874 - SuPy - INFO - Simulation period:
+2025-11-26 20:29:16,876 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 20:29:16,876 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 20:29:16,876 - SuPy - INFO - 
+2025-11-26 20:29:16,877 - SuPy - INFO - No. of grids: 25
+2025-11-26 20:29:16,877 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 20:35:54,228 - SuPy - INFO - Execution time: 397.3 s
+2025-11-26 20:35:54,251 - SuPy - INFO - ====================
+
+2025-11-26 20:36:25,559 - SuPy - INFO - All cache cleared.
+2025-11-26 20:36:28,148 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 20:36:29,110 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 20:37:06,888 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 20:37:06,906 - SuPy - INFO - detected issues have been fixed by clipping off outliers
+2025-11-26 20:37:07,417 - SuPy - INFO - ====================
+2025-11-26 20:37:07,417 - SuPy - INFO - Simulation period:
+2025-11-26 20:37:07,418 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 20:37:07,418 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 20:37:07,419 - SuPy - INFO - 
+2025-11-26 20:37:07,419 - SuPy - INFO - No. of grids: 25
+2025-11-26 20:37:07,420 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 20:43:10,813 - SuPy - INFO - Execution time: 363.4 s
+2025-11-26 20:43:10,833 - SuPy - INFO - ====================
+
+2025-11-26 20:43:43,914 - SuPy - INFO - All cache cleared.
+2025-11-26 20:43:46,015 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 20:43:46,969 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 20:44:41,883 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 20:44:41,901 - SuPy - INFO - detected issues have been fixed by clipping off outliers
+2025-11-26 20:44:42,754 - SuPy - INFO - ====================
+2025-11-26 20:44:42,754 - SuPy - INFO - Simulation period:
+2025-11-26 20:44:42,759 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 20:44:42,759 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 20:44:42,760 - SuPy - INFO - 
+2025-11-26 20:44:42,760 - SuPy - INFO - No. of grids: 25
+2025-11-26 20:44:42,762 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 20:50:47,387 - SuPy - INFO - Execution time: 364.6 s
+2025-11-26 20:50:47,407 - SuPy - INFO - ====================
+
+2025-11-26 20:51:27,713 - SuPy - INFO - All cache cleared.
+2025-11-26 20:51:29,935 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 20:51:30,837 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 20:52:14,588 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 20:52:14,602 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 20:52:14,950 - SuPy - INFO - ====================
+2025-11-26 20:52:14,964 - SuPy - INFO - Simulation period:
+2025-11-26 20:52:14,967 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 20:52:14,969 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 20:52:14,972 - SuPy - INFO - 
+2025-11-26 20:52:14,972 - SuPy - INFO - No. of grids: 25
+2025-11-26 20:52:14,973 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 20:58:19,758 - SuPy - INFO - Execution time: 364.8 s
+2025-11-26 20:58:19,776 - SuPy - INFO - ====================
+
+2025-11-26 20:58:55,992 - SuPy - INFO - All cache cleared.
+2025-11-26 20:58:58,486 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 20:58:59,430 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 20:59:57,283 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 20:59:57,297 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 20:59:57,599 - SuPy - INFO - ====================
+2025-11-26 20:59:57,599 - SuPy - INFO - Simulation period:
+2025-11-26 20:59:57,600 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 20:59:57,600 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 20:59:57,600 - SuPy - INFO - 
+2025-11-26 20:59:57,600 - SuPy - INFO - No. of grids: 25
+2025-11-26 20:59:57,600 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 21:05:46,090 - SuPy - INFO - Execution time: 348.5 s
+2025-11-26 21:05:46,112 - SuPy - INFO - ====================
+
+2025-11-26 21:06:23,764 - SuPy - INFO - All cache cleared.
+2025-11-26 21:06:23,751 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 21:06:24,674 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 21:07:15,645 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 21:07:15,661 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 21:07:16,427 - SuPy - INFO - ====================
+2025-11-26 21:07:16,430 - SuPy - INFO - Simulation period:
+2025-11-26 21:07:16,436 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 21:07:16,436 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 21:07:16,436 - SuPy - INFO - 
+2025-11-26 21:07:16,437 - SuPy - INFO - No. of grids: 25
+2025-11-26 21:07:16,437 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 21:13:57,047 - SuPy - INFO - Execution time: 400.6 s
+2025-11-26 21:13:57,097 - SuPy - INFO - ====================
+
+2025-11-26 21:14:36,430 - SuPy - INFO - All cache cleared.
+2025-11-26 21:14:38,973 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 21:14:39,895 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 21:15:23,196 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 21:15:23,212 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 21:15:23,796 - SuPy - INFO - ====================
+2025-11-26 21:15:23,797 - SuPy - INFO - Simulation period:
+2025-11-26 21:15:23,798 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 21:15:23,799 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 21:15:23,801 - SuPy - INFO - 
+2025-11-26 21:15:23,801 - SuPy - INFO - No. of grids: 25
+2025-11-26 21:15:23,802 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 21:21:57,523 - SuPy - INFO - Execution time: 393.7 s
+2025-11-26 21:21:57,545 - SuPy - INFO - ====================
+
+2025-11-26 21:22:29,476 - SuPy - INFO - All cache cleared.
+2025-11-26 21:22:31,847 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 21:22:32,798 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 21:23:39,779 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 21:23:39,793 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 21:23:40,243 - SuPy - INFO - ====================
+2025-11-26 21:23:40,243 - SuPy - INFO - Simulation period:
+2025-11-26 21:23:40,244 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 21:23:40,244 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 21:23:40,244 - SuPy - INFO - 
+2025-11-26 21:23:40,244 - SuPy - INFO - No. of grids: 25
+2025-11-26 21:23:40,244 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 21:29:30,315 - SuPy - INFO - Execution time: 350.1 s
+2025-11-26 21:29:30,336 - SuPy - INFO - ====================
+
+2025-11-26 21:30:02,825 - SuPy - INFO - All cache cleared.
+2025-11-26 21:30:05,387 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 21:30:06,374 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 21:30:58,720 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 21:30:58,739 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 21:30:57,351 - SuPy - INFO - ====================
+2025-11-26 21:30:57,355 - SuPy - INFO - Simulation period:
+2025-11-26 21:30:57,357 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 21:30:57,358 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 21:30:57,359 - SuPy - INFO - 
+2025-11-26 21:30:57,359 - SuPy - INFO - No. of grids: 25
+2025-11-26 21:30:57,360 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 21:36:54,264 - SuPy - INFO - Execution time: 356.9 s
+2025-11-26 21:36:54,288 - SuPy - INFO - ====================
+
+2025-11-26 21:37:24,868 - SuPy - INFO - All cache cleared.
+2025-11-26 21:37:27,568 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 21:37:28,469 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 21:38:42,327 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 21:38:42,346 - SuPy - INFO - detected issues have been fixed by clipping off outliers
+2025-11-26 21:38:43,416 - SuPy - INFO - ====================
+2025-11-26 21:38:43,418 - SuPy - INFO - Simulation period:
+2025-11-26 21:38:43,419 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 21:38:43,420 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 21:38:43,422 - SuPy - INFO - 
+2025-11-26 21:38:43,423 - SuPy - INFO - No. of grids: 25
+2025-11-26 21:38:43,426 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 21:44:48,056 - SuPy - INFO - Execution time: 364.6 s
+2025-11-26 21:44:48,079 - SuPy - INFO - ====================
+
+2025-11-26 21:45:22,326 - SuPy - INFO - All cache cleared.
+2025-11-26 21:45:24,574 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 21:45:25,459 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 21:46:22,759 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 21:46:22,802 - SuPy - INFO - detected issues have been fixed by clipping off outliers
+2025-11-26 21:46:23,563 - SuPy - INFO - ====================
+2025-11-26 21:46:23,564 - SuPy - INFO - Simulation period:
+2025-11-26 21:46:23,567 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 21:46:23,569 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 21:46:23,570 - SuPy - INFO - 
+2025-11-26 21:46:23,570 - SuPy - INFO - No. of grids: 25
+2025-11-26 21:46:23,571 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 21:53:11,857 - SuPy - INFO - Execution time: 408.3 s
+2025-11-26 21:53:11,878 - SuPy - INFO - ====================
+
+2025-11-26 21:53:44,691 - SuPy - INFO - All cache cleared.
+2025-11-26 21:53:46,996 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 21:53:47,922 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 21:54:35,503 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 21:54:35,517 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 21:54:35,917 - SuPy - INFO - ====================
+2025-11-26 21:54:35,918 - SuPy - INFO - Simulation period:
+2025-11-26 21:54:35,919 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 21:54:35,920 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 21:54:35,921 - SuPy - INFO - 
+2025-11-26 21:54:35,921 - SuPy - INFO - No. of grids: 25
+2025-11-26 21:54:35,922 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 22:00:24,169 - SuPy - INFO - Execution time: 348.2 s
+2025-11-26 22:00:24,190 - SuPy - INFO - ====================
+
+2025-11-26 22:01:00,512 - SuPy - INFO - All cache cleared.
+2025-11-26 22:01:02,941 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 22:01:03,861 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 22:01:57,810 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 22:01:57,826 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 22:01:58,441 - SuPy - INFO - ====================
+2025-11-26 22:01:58,443 - SuPy - INFO - Simulation period:
+2025-11-26 22:01:58,445 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 22:01:58,447 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 22:01:58,448 - SuPy - INFO - 
+2025-11-26 22:01:58,450 - SuPy - INFO - No. of grids: 25
+2025-11-26 22:01:58,450 - SuPy - INFO - SuPy is running in parallel mode
+2025-11-26 22:07:52,663 - SuPy - INFO - Execution time: 354.2 s
+2025-11-26 22:07:52,683 - SuPy - INFO - ====================
+
+2025-11-26 22:08:28,704 - SuPy - INFO - All cache cleared.
+2025-11-26 22:08:30,871 - SuPy - INFO - SuPy is validating `df_state`...
+2025-11-26 22:08:31,725 - SuPy - INFO - All checks for `df_state` passed!
+2025-11-26 22:09:41,013 - SuPy - INFO - SuPy is validating `df_forcing`...
+2025-11-26 22:09:41,027 - SuPy - INFO - All checks for `df_forcing` passed!
+2025-11-26 22:09:41,518 - SuPy - INFO - ====================
+2025-11-26 22:09:41,521 - SuPy - INFO - Simulation period:
+2025-11-26 22:09:41,524 - SuPy - INFO -   Start: 2016-10-03 08:00:00
+2025-11-26 22:09:41,525 - SuPy - INFO -   End: 2018-01-12 08:00:00
+2025-11-26 22:09:41,528 - SuPy - INFO - 
+2025-11-26 22:09:41,529 - SuPy - INFO - No. of grids: 25
+2025-11-26 22:09:41,529 - SuPy - INFO - SuPy is running in parallel mode

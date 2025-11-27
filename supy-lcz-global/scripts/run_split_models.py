@@ -14,7 +14,7 @@ from runner.runner import main as run_runner
 # REMEMBER TO CHANGE site_prefix AND/OR DELETE ./data and ./resources FILES BEFORE STARTING!
 
 # Site Information
-site_prefix = "GreaterKL-2017_Y1_M2sp_3sf_R3" # CHANGE NAME BEFORE RUN
+site_prefix = "GreaterKL-2017_Y1_M2sp_3sf_R4" # CHANGE NAME BEFORE RUN
 site_midpoint_lat = 3.056577
 site_midpoint_lon = 101.617373
 
@@ -196,13 +196,13 @@ for individual_split_site in split_site_list_df.index:
             '--sitelist', f'{site_prefix}_splitlist',
             '--download-era5']) # removed --do-spinup to disable spinup
     split_run_count += 1
-    print(f"=======> {individual_split_site} completed, #{split_run_count} out of #{number_of_runs} for {site_prefix} <========")
+    print(f"==> {individual_split_site} completed, #{split_run_count} out of #{number_of_runs} for {site_prefix} <==")
 
 run_split_models_end = time.time()
 runtime_models = (run_split_models_end - run_split_models_start)
 runtime_models_in_min = divmod(runtime_models, 60)
 
-print(f"========================> Total model runtime: {int(runtime_models_in_min[0])} min(s) and {runtime_models_in_min[1]:.2f} sec <========================")
+print(f"======================> Total model runtime: {int(runtime_models_in_min[0])} min(s) and {runtime_models_in_min[1]:.2f} sec <======================")
 # raise SystemExit()
 
 for individual_split_site in split_site_list_df.index:
@@ -211,7 +211,7 @@ for individual_split_site in split_site_list_df.index:
     if not split_output_file.exists():
         raise OSError(errno.ENOENT, os.strerror(errno.ENOENT), str(split_output_file))
 
-print(f"Output .h5 files for all {number_of_runs} runs successfully generated.")
+print(f"========>Output .h5 files for all {number_of_runs} runs successfully generated.")
 
 #%%
 ##################################################### 3rd part of script #####################################################
@@ -282,13 +282,13 @@ for individual_split_site in split_site_list_df.index:
     
     # identify site boundaries
 
-    site_y_max = split_midpoint_y + (split_metre_length / 2) - split_dist_boundary
-    site_y_min = split_midpoint_y - (split_metre_length /2) + split_dist_boundary
-    site_x_max = split_midpoint_x + (split_metre_length / 2) - split_dist_boundary
-    site_x_min = split_midpoint_x - (split_metre_length /2) + split_dist_boundary
+    split_y_max = split_midpoint_y + (split_metre_length / 2) - split_dist_boundary
+    split_y_min = split_midpoint_y - (split_metre_length /2) + split_dist_boundary
+    split_x_max = split_midpoint_x + (split_metre_length / 2) - split_dist_boundary
+    split_x_min = split_midpoint_x - (split_metre_length /2) + split_dist_boundary
 
-    grid_midpoint_x = np.linspace(site_x_min, site_x_max, site_split_length, endpoint = True)
-    grid_midpoint_y = np.linspace(site_y_min, site_y_max, site_split_length, endpoint = True)
+    grid_midpoint_x = np.linspace(split_x_min, split_x_max, split_grid_length, endpoint = True)
+    grid_midpoint_y = np.linspace(split_y_min, split_y_max, split_grid_length, endpoint = True)
 
     # converting back to latlong
     from_utm = Transformer.from_crs(crs_from=crs, crs_to='EPSG:4326')
