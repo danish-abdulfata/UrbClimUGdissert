@@ -15,7 +15,7 @@ os.chdir(r"C:\Users\Danish\Documents\GitHub\UrbClimUGdissert\supy-lcz-global")
 
 # use the same names as set in run_split_models
 
-site_prefix = "GreaterKL-2017_Y1_M2sp_3sf_R4"
+site_prefix = "GreaterKL-2017_Y1_M2sp_3sf_R1"
 
 
 output_file = './data/consolidated_outputs/'
@@ -76,8 +76,8 @@ plt.rcParams['mathtext.fontset'] = 'cm'  # Computer Modern
 # monsooonal averages and basic arithmetics
 
 uhi = ds_uf['T2'] - ds_uf_ff['T2']
-# uhi_nan = uhi.where(uhi >= 0, np.nan)
-# uhi_clean = uhi.where(uhi >= 0, 0)
+uhi_nan = uhi.where(uhi >= 0, np.nan)
+uhi_clean = uhi.where(uhi >= 0, 0)
 
 uhi_mean = uhi.mean(dim = "timestamp", keep_attrs = True)
 
@@ -671,9 +671,9 @@ pcm3 = axs[0, 2].pcolormesh(lat, lon, temp_trans_mean, shading = 'auto', cmap='c
 bounds = [-1.6, 0, 0.8, 1.6, 2.4, 3.2, 4.0, 4.8]  # Custom intervals
 
 # For UHI plots (2nd row)
-contour1 = axs[1, 0].contourf(lat, lon, uhi_ne_mean, levels=bounds, cmap='YlOrRd')
-contour2 = axs[1, 1].contourf(lat, lon, uhi_sw_mean, levels=bounds, cmap='YlOrRd')
-contour3 = axs[1, 2].contourf(lat, lon, uhi_trans_mean, levels=bounds, cmap='YlOrRd')
+contour1 = axs[1, 0].contourf(lat, lon, uhi_ne_mean, levels=bounds, cmap='YlOrRd') #extend='max'
+contour2 = axs[1, 1].contourf(lat, lon, uhi_sw_mean, levels=bounds, cmap='YlOrRd')  #extend='max'
+contour3 = axs[1, 2].contourf(lat, lon, uhi_trans_mean, levels=bounds, cmap='YlOrRd')  #  extend='max'
 
 # Create separate colorbar axes for each row
 cbar_ax1 = fig.add_axes([0.88, 0.52, 0.02, 0.35])
@@ -685,7 +685,7 @@ cb1.set_label(label='Mean Temperature [°C]', size=10, rotation=270, labelpad=15
 cb1.ax.tick_params(labelsize=8, width = 0.5) 
 
 # colorbar2 to match the custom boundaries
-cb2 = fig.colorbar(contour1, cax=cbar_ax2, boundaries=bounds, ticks=bounds)
+cb2 = fig.colorbar(contour1, cax=cbar_ax2, boundaries=bounds, ticks=bounds) #extend='max'
 cb2.set_label(label='UHI Intensity [°C]', size=10, rotation=270, labelpad=9)
 cb2.ax.tick_params(labelsize=8, width=0.5)
 
